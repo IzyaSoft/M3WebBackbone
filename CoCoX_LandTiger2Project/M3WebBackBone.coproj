@@ -96,6 +96,7 @@
     <File name="kit1768/kit1768.h" path="kit1768/kit1768.h" type="1"/>
     <File name="lpc17xx_lib" path="" type="2"/>
     <File name="main.h" path="main.h" type="1"/>
+    <File name="data/config.h" path="data/config.h" type="1"/>
     <File name="lwip" path="" type="2"/>
     <File name="FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM3" path="" type="2"/>
     <File name="lwip/api/netbuf.c" path="lwip/api/netbuf.c" type="1"/>
@@ -141,6 +142,7 @@
     <File name="cmsis_boot/LPC17xx.h" path="cmsis_boot/LPC17xx.h" type="1"/>
     <File name="lwip/core" path="" type="2"/>
     <File name="lwip/netif/etharp.c" path="lwip/netif/etharp.c" type="1"/>
+    <File name="data" path="" type="2"/>
     <File name="cmsis" path="" type="2"/>
     <File name="lwip/core/ipv4/inet.c" path="lwip/core/ipv4/inet.c" type="1"/>
     <File name="FRT_Library/FreeRTOS/Source/portable/MemMang" path="" type="2"/>
