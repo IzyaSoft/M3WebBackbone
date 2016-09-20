@@ -1,0 +1,651 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dependencies>
+   <includePath signature="/IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project\FRT_Library\FreeRTOS\Source\portable\GCC /IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project\FRT_Library\FreeRTOS\Source /IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project\FRT_Library\FreeRTOS\Source\include /IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project\lwip\include /IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project\lpc17xx_lib\include /IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project\cmsis_boot /IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project\FRT_Library\FreeRTOS\Source\portable /IE:\uetm\commutator\m3webbackbone /IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project\FRT_Library\FreeRTOS /IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project\lwip\include\ipv4 /IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project\kit1768 /IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project\FRT_Library\FreeRTOS\Source\portable\GCC\ARM_CM3 /IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project\cmsis /IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project /IE:\uetm\commutator /IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project\lpc17xx_lib /IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project\arch">
+      <source file="..\..\..\lwip\include\ipv4\lwip\autoip.h" lastModified="13ba94cfff0">
+         <include file="..\..\..\lwip\include\lwip\opt.h"/>
+         <include file="..\..\..\lwip\include\lwip\netif.h"/>
+         <include file="..\..\..\lwip\include\lwip\udp.h"/>
+         <include file="..\..\..\lwip\include\netif\etharp.h"/>
+      </source>
+      <source file="..\..\..\lpc17xx_lib\include\lpc17xx_gpio.h" lastModified="157463e6a75">
+         <include file="..\..\..\cmsis_boot\LPC17xx.h"/>
+         <include file="..\..\..\lpc17xx_lib\include\lpc_types.h"/>
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\include\list.h" lastModified="157463cccf3">
+      </source>
+      <source file="..\..\..\lpc17xx_lib\include\lpc17xx_pinsel.h" lastModified="157463ef219">
+         <include file="..\..\..\cmsis_boot\LPC17xx.h"/>
+         <include file="..\..\..\lpc17xx_lib\include\lpc_types.h"/>
+      </source>
+      <source file="..\..\..\lwip\include\lwip\raw.h" lastModified="13ba961a130">
+         <include file="..\..\..\lwip\include\lwip\opt.h"/>
+         <include file="..\..\..\lwip\include\lwip\pbuf.h"/>
+         <include file="..\..\..\lwip\include\lwip\def.h"/>
+         <include file="..\..\..\lwip\include\ipv4\lwip\ip.h"/>
+         <include file="..\..\..\lwip\include\ipv4\lwip\ip_addr.h"/>
+      </source>
+      <source file="..\..\..\lwip\api\netdb.c" lastModified="13ba94d07c0">
+         <include file="..\..\..\lwip\include\lwip\netdb.h"/>
+         <include file="..\..\..\lwip\include\lwip\err.h"/>
+         <include file="..\..\..\lwip\include\lwip\mem.h"/>
+         <include file="..\..\..\lwip\include\lwip\memp.h"/>
+         <include file="..\..\..\lwip\include\ipv4\lwip\ip_addr.h"/>
+         <include file="..\..\..\lwip\include\lwip\api.h"/>
+         <include file="..\..\..\lwip\include\lwip\dns.h"/>
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\include\task.h" lastModified="157463cccfa">
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\portable.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\list.h"/>
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\include\croutine.h" lastModified="157463ccce4">
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\list.h"/>
+      </source>
+      <source file="..\..\..\lwip\include\lwip\api.h" lastModified="13ba961a518">
+         <include file="..\..\..\lwip\include\lwip\opt.h"/>
+         <include file="..\..\..\lwip\include\lwip\netbuf.h"/>
+         <include file="..\..\..\lwip\include\lwip\sys.h"/>
+         <include file="..\..\..\lwip\include\ipv4\lwip\ip_addr.h"/>
+         <include file="..\..\..\lwip\include\lwip\err.h"/>
+      </source>
+      <source file="..\..\..\lwip\include\lwip\snmp.h" lastModified="13ba94cfff0">
+         <include file="..\..\..\lwip\include\lwip\opt.h"/>
+         <include file="..\..\..\lwip\include\ipv4\lwip\ip_addr.h"/>
+      </source>
+      <source file="..\..\..\lwip\include\netif\ppp_oe.h" lastModified="13ba94d0f90">
+         <include file="..\..\..\lwip\include\lwip\opt.h"/>
+         <include file="..\..\..\lwip\include\netif\etharp.h"/>
+      </source>
+      <source file="..\..\..\lwip\include\lwip\err.h" lastModified="13ba94cfff0">
+         <include file="..\..\..\lwip\include\lwip\opt.h"/>
+         <include file="..\..\..\lwip\include\lwip\arch.h"/>
+      </source>
+      <source file="..\..\..\lwip\include\lwip\opt.h" lastModified="13ba961a130">
+         <include file="..\..\..\lwipopts.h"/>
+         <include file="..\..\..\lwip\include\lwip\debug.h"/>
+      </source>
+      <source file="..\..\..\lwip\include\lwip\api_msg.h" lastModified="13ba961a518">
+         <include file="..\..\..\lwip\include\lwip\opt.h"/>
+         <include file="..\..\..\lwip\include\ipv4\lwip\ip_addr.h"/>
+         <include file="..\..\..\lwip\include\lwip\err.h"/>
+         <include file="..\..\..\lwip\include\lwip\sys.h"/>
+         <include file="..\..\..\lwip\include\ipv4\lwip\igmp.h"/>
+         <include file="..\..\..\lwip\include\lwip\api.h"/>
+      </source>
+      <source file="..\..\..\lwip\core\ipv4\autoip.c" lastModified="13ba94d07c0">
+         <include file="..\..\..\lwip\include\lwip\opt.h"/>
+         <include file="..\..\..\lwip\include\lwip\mem.h"/>
+         <include file="..\..\..\lwip\include\lwip\udp.h"/>
+         <include file="..\..\..\lwip\include\ipv4\lwip\ip_addr.h"/>
+         <include file="..\..\..\lwip\include\lwip\netif.h"/>
+         <include file="..\..\..\lwip\include\ipv4\lwip\autoip.h"/>
+         <include file="..\..\..\lwip\include\netif\etharp.h"/>
+      </source>
+      <source file="..\..\..\cmsis\core_cm3.h" lastModified="157463e6e71">
+         <include file="..\..\..\cmsis\core_cmInstr.h"/>
+         <include file="..\..\..\cmsis\core_cmFunc.h"/>
+      </source>
+      <source file="..\..\..\lwip\include\lwip\sockets.h" lastModified="13ba961a518">
+         <include file="..\..\..\lwip\include\lwip\opt.h"/>
+         <include file="..\..\..\lwip\include\ipv4\lwip\ip_addr.h"/>
+         <include file="..\..\..\lwip\include\ipv4\lwip\inet.h"/>
+      </source>
+      <source file="..\..\..\arch\cc.h" lastModified="15748456d22">
+         <include file="..\..\..\arch\cpu.h"/>
+      </source>
+      <source file="..\..\..\lwip\include\lwip\dns.h" lastModified="13ba94cfff0">
+         <include file="..\..\..\lwip\include\lwip\opt.h"/>
+      </source>
+      <source file="..\..\..\lwip\core\ipv4\inet_chksum.c" lastModified="13ba961a900">
+         <include file="..\..\..\lwip\include\lwip\opt.h"/>
+         <include file="..\..\..\lwip\include\ipv4\lwip\inet_chksum.h"/>
+         <include file="..\..\..\lwip\include\lwip\def.h"/>
+      </source>
+      <source file="..\..\..\lwip\api\tcpip.c" lastModified="13ba961a130">
+         <include file="..\..\..\lwip\include\lwip\opt.h"/>
+         <include file="..\..\..\lwip\include\lwip\sys.h"/>
+         <include file="..\..\..\lwip\include\lwip\memp.h"/>
+         <include file="..\..\..\lwip\include\lwip\mem.h"/>
+         <include file="..\..\..\lwip\include\lwip\pbuf.h"/>
+         <include file="..\..\..\lwip\include\lwip\tcpip.h"/>
+         <include file="..\..\..\lwip\include\lwip\init.h"/>
+         <include file="..\..\..\lwip\include\netif\etharp.h"/>
+         <include file="..\..\..\lwip\include\netif\ppp_oe.h"/>
+      </source>
+      <source file="..\..\..\lwip\api\err.c" lastModified="13ba94cfff0">
+         <include file="..\..\..\lwip\include\lwip\err.h"/>
+      </source>
+      <source file="..\..\..\lwipopts.h" lastModified="13ba961a130">
+      </source>
+      <source file="..\..\..\lwip\core\ipv4\igmp.c" lastModified="13ba961ace8">
+         <include file="..\..\..\lwip\include\lwip\opt.h"/>
+         <include file="..\..\..\lwip\include\ipv4\lwip\igmp.h"/>
+         <include file="..\..\..\lwip\include\lwip\debug.h"/>
+         <include file="..\..\..\lwip\include\lwip\def.h"/>
+         <include file="..\..\..\lwip\include\lwip\mem.h"/>
+         <include file="..\..\..\lwip\include\ipv4\lwip\ip.h"/>
+         <include file="..\..\..\lwip\include\ipv4\lwip\inet_chksum.h"/>
+         <include file="..\..\..\lwip\include\lwip\netif.h"/>
+         <include file="..\..\..\lwip\include\ipv4\lwip\icmp.h"/>
+         <include file="..\..\..\lwip\include\lwip\udp.h"/>
+         <include file="..\..\..\lwip\include\lwip\tcp.h"/>
+         <include file="..\..\..\lwip\include\lwip\stats.h"/>
+      </source>
+      <source file="..\..\..\lwip\include\ipv4\lwip\inet.h" lastModified="13ba94cfff0">
+         <include file="..\..\..\lwip\include\lwip\opt.h"/>
+         <include file="..\..\..\lwip\include\lwip\def.h"/>
+         <include file="..\..\..\lwip\include\ipv4\lwip\ip_addr.h"/>
+      </source>
+      <source file="..\..\..\lwip\include\lwip\init.h" lastModified="13ba9aba280">
+         <include file="..\..\..\lwip\include\lwip\opt.h"/>
+      </source>
+      <source file="..\..\..\cmsis_boot\LPC17xx.h" lastModified="157463e6a7f">
+         <include file="..\..\..\cmsis\core_cm3.h"/>
+         <include file="..\..\..\cmsis_boot\system_LPC17xx.h"/>
+      </source>
+      <source file="..\..\..\lpc17xx_lib\source\lpc17xx_emac.c" lastModified="157463ef5e0">
+         <include file="..\..\..\lpc17xx_lib\include\lpc17xx_emac.h"/>
+         <include file="..\..\..\lpc17xx_lib\include\lpc17xx_clkpwr.h"/>
+         <include file="..\..\..\lpc17xx_lib\include\lpc17xx_libcfg_default.h"/>
+      </source>
+      <source file="..\..\..\lwip\include\lwip\sio.h" lastModified="13ba94cfff0">
+         <include file="..\..\..\lwip\include\lwip\arch.h"/>
+      </source>
+      <source file="..\..\..\lwip\include\netif\etharp.h" lastModified="13ba961c070">
+         <include file="..\..\..\lwip\include\lwip\opt.h"/>
+         <include file="..\..\..\lwip\include\lwip\pbuf.h"/>
+         <include file="..\..\..\lwip\include\ipv4\lwip\ip_addr.h"/>
+         <include file="..\..\..\lwip\include\lwip\netif.h"/>
+         <include file="..\..\..\lwip\include\ipv4\lwip\ip.h"/>
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\portable\GCC\ARM_CM3\portmacro.h" lastModified="157463ccd01">
+      </source>
+      <source file="..\..\..\lwip\include\lwip\def.h" lastModified="13ba94cfff0">
+         <include file="..\..\..\lwip\include\lwip\arch.h"/>
+         <include file="..\..\..\lwip\include\lwip\opt.h"/>
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\queue.c" lastModified="157463cd4d2">
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\task.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\croutine.h"/>
+      </source>
+      <source file="..\..\..\lwip\include\lwip\memp_std.h" lastModified="13ba961a518">
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\tasks.c" lastModified="157463cd8bb">
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\task.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\StackMacros.h"/>
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\include\StackMacros.h" lastModified="157463cccf9">
+      </source>
+      <source file="..\..\..\lwip\netif\etharp.c" lastModified="13ba961a518">
+         <include file="..\..\..\lwip\include\lwip\opt.h"/>
+         <include file="..\..\..\lwip\include\ipv4\lwip\ip_addr.h"/>
+         <include file="..\..\..\lwip\include\lwip\def.h"/>
+         <include file="..\..\..\lwip\include\ipv4\lwip\ip.h"/>
+         <include file="..\..\..\lwip\include\lwip\stats.h"/>
+         <include file="..\..\..\lwip\include\lwip\snmp.h"/>
+         <include file="..\..\..\lwip\include\lwip\dhcp.h"/>
+         <include file="..\..\..\lwip\include\ipv4\lwip\autoip.h"/>
+         <include file="..\..\..\lwip\include\netif\etharp.h"/>
+         <include file="..\..\..\lwip\include\netif\ppp_oe.h"/>
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\portable\GCC\ARM_CM3\common.c" lastModified="157463ccd00">
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\task.h"/>
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\include\FreeRTOS.h" lastModified="157463cd0cd">
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\projdefs.h"/>
+         <include file="..\..\..\FreeRTOSConfig.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\portable.h"/>
+      </source>
+      <source file="..\..\..\lpc17xx_lib\source\lpc17xx_clkpwr.c" lastModified="157463e6a7a">
+         <include file="..\..\..\lpc17xx_lib\include\lpc17xx_clkpwr.h"/>
+      </source>
+      <source file="..\..\..\lwip\api\api_msg.c" lastModified="13ba961a518">
+         <include file="..\..\..\lwip\include\lwip\opt.h"/>
+         <include file="..\..\..\lwip\include\lwip\api_msg.h"/>
+         <include file="..\..\..\lwip\include\ipv4\lwip\ip.h"/>
+         <include file="..\..\..\lwip\include\lwip\udp.h"/>
+         <include file="..\..\..\lwip\include\lwip\tcp.h"/>
+         <include file="..\..\..\lwip\include\lwip\raw.h"/>
+         <include file="..\..\..\lwip\include\lwip\memp.h"/>
+         <include file="..\..\..\lwip\include\lwip\tcpip.h"/>
+         <include file="..\..\..\lwip\include\ipv4\lwip\igmp.h"/>
+         <include file="..\..\..\lwip\include\lwip\dns.h"/>
+      </source>
+      <source file="..\..\..\lwip\include\lwip\mem.h" lastModified="13ba94d03d8">
+         <include file="..\..\..\lwip\include\lwip\opt.h"/>
+      </source>
+      <source file="..\..\..\lwip\include\lwip\pbuf.h" lastModified="13ba961a130">
+         <include file="..\..\..\lwip\include\lwip\opt.h"/>
+         <include file="..\..\..\lwip\include\lwip\err.h"/>
+      </source>
+      <source file="..\..\..\lwip\include\lwip\debug.h" lastModified="13ba94cfff0">
+         <include file="..\..\..\lwip\include\lwip\arch.h"/>
+         <include file="..\..\..\lwip\include\lwip\opt.h"/>
+      </source>
+      <source file="..\..\..\lwip\netif\ethernetif.c" lastModified="13ba961a130">
+         <include file="..\..\..\lwip\include\lwip\opt.h"/>
+         <include file="..\..\..\lwip\include\lwip\def.h"/>
+         <include file="..\..\..\lwip\include\lwip\mem.h"/>
+         <include file="..\..\..\lwip\include\lwip\pbuf.h"/>
+         <include file="..\..\..\lwip\include\lwip\stats.h"/>
+         <include file="..\..\..\lwip\include\lwip\snmp.h"/>
+         <include file="..\..\..\lwip\include\netif\etharp.h"/>
+         <include file="..\..\..\lwip\include\netif\ppp_oe.h"/>
+      </source>
+      <source file="..\..\..\lwip\api\sockets.c" lastModified="13ba961a518">
+         <include file="..\..\..\lwip\include\lwip\opt.h"/>
+         <include file="..\..\..\lwip\include\lwip\sockets.h"/>
+         <include file="..\..\..\lwip\include\lwip\api.h"/>
+         <include file="..\..\..\lwip\include\lwip\sys.h"/>
+         <include file="..\..\..\lwip\include\ipv4\lwip\igmp.h"/>
+         <include file="..\..\..\lwip\include\ipv4\lwip\inet.h"/>
+         <include file="..\..\..\lwip\include\lwip\tcp.h"/>
+         <include file="..\..\..\lwip\include\lwip\raw.h"/>
+         <include file="..\..\..\lwip\include\lwip\udp.h"/>
+         <include file="..\..\..\lwip\include\lwip\tcpip.h"/>
+         <include file="..\..\..\lwip\include\lwip\pbuf.h"/>
+         <include file="..\..\..\lwip\include\ipv4\lwip\inet_chksum.h"/>
+      </source>
+      <source file="..\..\..\cmsis\core_cmInstr.h" lastModified="157463e7259">
+      </source>
+      <source file="..\..\..\lpc17xx_lib\include\lpc17xx_emac.h" lastModified="157463ef1f7">
+         <include file="..\..\..\cmsis_boot\LPC17xx.h"/>
+         <include file="..\..\..\lpc17xx_lib\include\lpc_types.h"/>
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\include\portable.h" lastModified="157463d9046">
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\portable\GCC\ARM_CM3\portmacro.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\portable\GCC\ARM_CM3\portmacro.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\portable\GCC\ARM_CM3\portmacro.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\portable\GCC\ARM_CM3\portmacro.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\portable\GCC\ARM_CM3\portmacro.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\portable\GCC\ARM_CM3\portmacro.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\portable\GCC\ARM_CM3\portmacro.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\portable\GCC\ARM_CM3\portmacro.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\mpu_wrappers.h"/>
+      </source>
+      <source file="..\..\..\lpc17xx_lib\include\lpc_types.h" lastModified="157463e6e77">
+      </source>
+      <source file="..\..\..\lwip\include\ipv4\lwip\ip_addr.h" lastModified="13ba961b0d0">
+         <include file="..\..\..\lwip\include\lwip\opt.h"/>
+         <include file="..\..\..\lwip\include\lwip\def.h"/>
+      </source>
+      <source file="..\..\..\lwip\api\api_lib.c" lastModified="13ba961a518">
+         <include file="..\..\..\lwip\include\lwip\opt.h"/>
+         <include file="..\..\..\lwip\include\lwip\api.h"/>
+         <include file="..\..\..\lwip\include\lwip\tcpip.h"/>
+         <include file="..\..\..\lwip\include\lwip\memp.h"/>
+         <include file="..\..\..\lwip\include\ipv4\lwip\ip.h"/>
+         <include file="..\..\..\lwip\include\lwip\raw.h"/>
+         <include file="..\..\..\lwip\include\lwip\udp.h"/>
+         <include file="..\..\..\lwip\include\lwip\tcp.h"/>
+      </source>
+      <source file="..\..\..\lwip\include\lwip\arch.h" lastModified="13ba94cfff0">
+         <include file="..\..\..\arch\cc.h"/>
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\include\projdefs.h" lastModified="157463cccf7">
+      </source>
+      <source file="..\..\..\lwip\include\lwip\netifapi.h" lastModified="13ba94cfff0">
+         <include file="..\..\..\lwip\include\lwip\opt.h"/>
+         <include file="..\..\..\lwip\include\lwip\sys.h"/>
+         <include file="..\..\..\lwip\include\lwip\netif.h"/>
+         <include file="..\..\..\lwip\include\lwip\dhcp.h"/>
+         <include file="..\..\..\lwip\include\ipv4\lwip\autoip.h"/>
+      </source>
+      <source file="..\..\..\lwip\core\ipv4\ip_addr.c" lastModified="13ba961a130">
+         <include file="..\..\..\lwip\include\lwip\opt.h"/>
+         <include file="..\..\..\lwip\include\ipv4\lwip\ip_addr.h"/>
+         <include file="..\..\..\lwip\include\lwip\netif.h"/>
+      </source>
+      <source file="..\..\..\lwip\core\ipv4\inet.c" lastModified="13ba961a130">
+         <include file="..\..\..\lwip\include\lwip\opt.h"/>
+         <include file="..\..\..\lwip\include\ipv4\lwip\inet.h"/>
+      </source>
+      <source file="..\..\..\cmsis\core_cmFunc.h" lastModified="157463e7259">
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\croutine.c" lastModified="157463ccce1">
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\task.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\croutine.h"/>
+      </source>
+      <source file="..\..\..\lwip\include\lwip\dhcp.h" lastModified="13ba94d07c0">
+         <include file="..\..\..\lwip\include\lwip\opt.h"/>
+         <include file="..\..\..\lwip\include\lwip\netif.h"/>
+         <include file="..\..\..\lwip\include\lwip\udp.h"/>
+      </source>
+      <source file="..\..\..\lwip\include\lwip\sys.h" lastModified="13ba94d03d8">
+         <include file="..\..\..\lwip\include\lwip\opt.h"/>
+         <include file="..\..\..\lwip\include\lwip\err.h"/>
+      </source>
+      <source file="..\..\..\lpc17xx_lib\source\lpc17xx_pinsel.c" lastModified="157463ef21a">
+         <include file="..\..\..\lpc17xx_lib\include\lpc17xx_pinsel.h"/>
+      </source>
+      <source file="..\..\..\lwip\include\ipv4\lwip\icmp.h" lastModified="13ba961a900">
+         <include file="..\..\..\lwip\include\lwip\opt.h"/>
+         <include file="..\..\..\lwip\include\lwip\pbuf.h"/>
+         <include file="..\..\..\lwip\include\ipv4\lwip\ip_addr.h"/>
+         <include file="..\..\..\lwip\include\lwip\netif.h"/>
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\portable\GCC\ARM_CM3\port.c" lastModified="157463ccd01">
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\task.h"/>
+      </source>
+      <source file="..\..\..\lwip\include\netif\slipif.h" lastModified="13ba94cfff0">
+         <include file="..\..\..\lwip\include\lwip\opt.h"/>
+         <include file="..\..\..\lwip\include\lwip\netif.h"/>
+      </source>
+      <source file="..\..\..\lwip\api\netifapi.c" lastModified="13ba961a130">
+         <include file="..\..\..\lwip\include\lwip\opt.h"/>
+         <include file="..\..\..\lwip\include\lwip\netifapi.h"/>
+         <include file="..\..\..\lwip\include\lwip\tcpip.h"/>
+      </source>
+      <source file="..\..\..\lwip\netif\slipif.c" lastModified="13ba961a130">
+         <include file="..\..\..\lwip\include\netif\slipif.h"/>
+         <include file="..\..\..\lwip\include\lwip\opt.h"/>
+         <include file="..\..\..\lwip\include\lwip\def.h"/>
+         <include file="..\..\..\lwip\include\lwip\pbuf.h"/>
+         <include file="..\..\..\lwip\include\lwip\stats.h"/>
+         <include file="..\..\..\lwip\include\lwip\snmp.h"/>
+         <include file="..\..\..\lwip\include\lwip\sio.h"/>
+         <include file="..\..\..\lwip\include\lwip\sys.h"/>
+      </source>
+      <source file="..\..\..\lwip\api\netbuf.c" lastModified="13ba961a518">
+         <include file="..\..\..\lwip\include\lwip\opt.h"/>
+         <include file="..\..\..\lwip\include\lwip\netbuf.h"/>
+         <include file="..\..\..\lwip\include\lwip\memp.h"/>
+      </source>
+      <source file="..\..\..\lpc17xx_lib\include\lpc17xx_clkpwr.h" lastModified="157463e6a7a">
+         <include file="..\..\..\cmsis_boot\LPC17xx.h"/>
+         <include file="..\..\..\lpc17xx_lib\include\lpc_types.h"/>
+      </source>
+      <source file="..\..\..\lwip\include\lwip\timers.h" lastModified="13ba94cfff0">
+         <include file="..\..\..\lwip\include\lwip\opt.h"/>
+         <include file="..\..\..\lwip\include\lwip\err.h"/>
+         <include file="..\..\..\lwip\include\lwip\sys.h"/>
+      </source>
+      <source file="..\..\..\lwip\include\lwip\udp.h" lastModified="13ba961a900">
+         <include file="..\..\..\lwip\include\lwip\opt.h"/>
+         <include file="..\..\..\lwip\include\lwip\pbuf.h"/>
+         <include file="..\..\..\lwip\include\lwip\netif.h"/>
+         <include file="..\..\..\lwip\include\ipv4\lwip\ip_addr.h"/>
+         <include file="..\..\..\lwip\include\ipv4\lwip\ip.h"/>
+      </source>
+      <source file="..\..\..\lpc17xx_lib\source\lpc17xx_libcfg_default.c" lastModified="157463e6a91">
+         <include file="..\..\..\lpc17xx_lib\include\lpc17xx_libcfg_default.h"/>
+      </source>
+      <source file="..\..\..\lwip\include\lwip\stats.h" lastModified="13ba961a130">
+         <include file="..\..\..\lwip\include\lwip\opt.h"/>
+         <include file="..\..\..\lwip\include\lwip\mem.h"/>
+         <include file="..\..\..\lwip\include\lwip\memp.h"/>
+      </source>
+      <source file="..\..\..\lwip\include\ipv4\lwip\ip.h" lastModified="13ba961a900">
+         <include file="..\..\..\lwip\include\lwip\opt.h"/>
+         <include file="..\..\..\lwip\include\lwip\def.h"/>
+         <include file="..\..\..\lwip\include\lwip\pbuf.h"/>
+         <include file="..\..\..\lwip\include\ipv4\lwip\ip_addr.h"/>
+         <include file="..\..\..\lwip\include\lwip\err.h"/>
+         <include file="..\..\..\lwip\include\lwip\netif.h"/>
+      </source>
+      <source file="..\..\..\lpc17xx_lib\include\lpc17xx_libcfg_default.h" lastModified="157463e6a8e">
+         <include file="..\..\..\lpc17xx_lib\include\lpc_types.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOSConfig.h" lastModified="157463cccde">
+      </source>
+      <source file="..\..\..\lwip\include\ipv4\lwip\inet_chksum.h" lastModified="13ba961a130">
+         <include file="..\..\..\lwip\include\lwip\opt.h"/>
+         <include file="..\..\..\lwip\include\lwip\pbuf.h"/>
+         <include file="..\..\..\lwip\include\ipv4\lwip\ip_addr.h"/>
+      </source>
+      <source file="..\..\..\lwip\include\lwip\memp.h" lastModified="13ba94cfff0">
+         <include file="..\..\..\lwip\include\lwip\opt.h"/>
+         <include file="..\..\..\lwip\include\lwip\memp_std.h"/>
+         <include file="..\..\..\lwip\include\lwip\memp_std.h"/>
+         <include file="..\..\..\lwip\include\lwip\memp_std.h"/>
+         <include file="..\..\..\lwip\include\lwip\mem.h"/>
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\include\mpu_wrappers.h" lastModified="157463cccf4">
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\portable\MemMang\heap_2.c" lastModified="157463cd0ea">
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\task.h"/>
+      </source>
+      <source file="..\..\..\cmsis_boot\system_LPC17xx.h" lastModified="157463e6e6b">
+      </source>
+      <source file="..\..\..\lpc17xx_lib\source\lpc17xx_gpio.c" lastModified="157463e6e5e">
+         <include file="..\..\..\lpc17xx_lib\include\lpc17xx_gpio.h"/>
+         <include file="..\..\..\lpc17xx_lib\include\lpc17xx_libcfg_default.h"/>
+      </source>
+      <source file="..\..\..\lwip\include\ipv4\lwip\ip_frag.h" lastModified="13ba961a130">
+         <include file="..\..\..\lwip\include\lwip\opt.h"/>
+         <include file="..\..\..\lwip\include\lwip\err.h"/>
+         <include file="..\..\..\lwip\include\lwip\pbuf.h"/>
+         <include file="..\..\..\lwip\include\lwip\netif.h"/>
+         <include file="..\..\..\lwip\include\ipv4\lwip\ip_addr.h"/>
+         <include file="..\..\..\lwip\include\ipv4\lwip\ip.h"/>
+      </source>
+      <source file="..\..\..\lwip\include\lwip\netbuf.h" lastModified="13ba961a130">
+         <include file="..\..\..\lwip\include\lwip\opt.h"/>
+         <include file="..\..\..\lwip\include\lwip\pbuf.h"/>
+         <include file="..\..\..\lwip\include\ipv4\lwip\ip_addr.h"/>
+      </source>
+      <source file="..\..\..\cmsis_boot\system_LPC17xx.c" lastModified="157463e6e6a">
+         <include file="..\..\..\cmsis_boot\LPC17xx.h"/>
+      </source>
+      <source file="..\..\..\main.c" lastModified="157461e5cb6">
+      </source>
+      <source file="..\..\..\lwip\include\ipv4\lwip\igmp.h" lastModified="13ba94cfff0">
+         <include file="..\..\..\lwip\include\lwip\opt.h"/>
+         <include file="..\..\..\lwip\include\ipv4\lwip\ip_addr.h"/>
+         <include file="..\..\..\lwip\include\lwip\netif.h"/>
+         <include file="..\..\..\lwip\include\lwip\pbuf.h"/>
+      </source>
+      <source file="..\..\..\lwip\include\lwip\tcp.h" lastModified="13ba961a130">
+         <include file="..\..\..\lwip\include\lwip\opt.h"/>
+         <include file="..\..\..\lwip\include\lwip\mem.h"/>
+         <include file="..\..\..\lwip\include\lwip\pbuf.h"/>
+         <include file="..\..\..\lwip\include\ipv4\lwip\ip.h"/>
+         <include file="..\..\..\lwip\include\ipv4\lwip\icmp.h"/>
+         <include file="..\..\..\lwip\include\lwip\err.h"/>
+      </source>
+      <source file="..\..\..\cmsis_boot\startup\startup_LPC17xx.c" lastModified="157463e6a81">
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\list.c" lastModified="157463cd0e4">
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\list.h"/>
+      </source>
+      <source file="..\..\..\lwip\include\lwip\netdb.h" lastModified="13ba94d03d8">
+         <include file="..\..\..\lwip\include\lwip\opt.h"/>
+         <include file="..\..\..\lwip\include\ipv4\lwip\inet.h"/>
+         <include file="..\..\..\lwip\include\lwip\sockets.h"/>
+      </source>
+      <source file="..\..\..\lwip\include\lwip\tcpip.h" lastModified="13ba961a130">
+         <include file="..\..\..\lwip\include\lwip\opt.h"/>
+         <include file="..\..\..\lwip\include\lwip\api_msg.h"/>
+         <include file="..\..\..\lwip\include\lwip\netifapi.h"/>
+         <include file="..\..\..\lwip\include\lwip\pbuf.h"/>
+         <include file="..\..\..\lwip\include\lwip\api.h"/>
+         <include file="..\..\..\lwip\include\lwip\sys.h"/>
+         <include file="..\..\..\lwip\include\lwip\timers.h"/>
+         <include file="..\..\..\lwip\include\lwip\netif.h"/>
+      </source>
+      <source file="..\..\..\kit1768\kit1768.h" lastModified="157463e8519">
+         <include file="..\..\..\lpc17xx_lib\include\lpc17xx_clkpwr.h"/>
+         <include file="..\..\..\lpc17xx_lib\include\lpc17xx_gpio.h"/>
+      </source>
+      <source file="..\..\..\lwip\include\lwip\netif.h" lastModified="13ba961a130">
+         <include file="..\..\..\lwip\include\lwip\opt.h"/>
+         <include file="..\..\..\lwip\include\lwip\err.h"/>
+         <include file="..\..\..\lwip\include\ipv4\lwip\ip_addr.h"/>
+         <include file="..\..\..\lwip\include\lwip\def.h"/>
+         <include file="..\..\..\lwip\include\lwip\pbuf.h"/>
+      </source>
+      <source file="..\..\..\arch\cpu.h" lastModified="15748463232">
+      </source>
+      <source file="..\..\..\kit1768\kit1768.c" lastModified="157463e8519">
+         <include file="..\..\..\kit1768\kit1768.h"/>
+         <include file="..\..\..\lpc17xx_lib\include\lpc_types.h"/>
+         <include file="..\..\..\lpc17xx_lib\include\lpc17xx_clkpwr.h"/>
+         <include file="..\..\..\lpc17xx_lib\include\lpc17xx_gpio.h"/>
+      </source>
+      <source file="..\..\..\lwip\core\ipv4\icmp.c" lastModified="13ba961a518">
+         <include file="..\..\..\lwip\include\lwip\opt.h"/>
+         <include file="..\..\..\lwip\include\ipv4\lwip\icmp.h"/>
+         <include file="..\..\..\lwip\include\ipv4\lwip\inet_chksum.h"/>
+         <include file="..\..\..\lwip\include\ipv4\lwip\ip.h"/>
+         <include file="..\..\..\lwip\include\lwip\def.h"/>
+         <include file="..\..\..\lwip\include\lwip\stats.h"/>
+         <include file="..\..\..\lwip\include\lwip\snmp.h"/>
+      </source>
+      <source file="..\..\..\lwip\core\ipv4\ip_frag.c" lastModified="13ba94d0ba8">
+         <include file="..\..\..\lwip\include\lwip\opt.h"/>
+         <include file="..\..\..\lwip\include\ipv4\lwip\ip_frag.h"/>
+         <include file="..\..\..\lwip\include\lwip\def.h"/>
+         <include file="..\..\..\lwip\include\ipv4\lwip\inet_chksum.h"/>
+         <include file="..\..\..\lwip\include\lwip\netif.h"/>
+         <include file="..\..\..\lwip\include\lwip\snmp.h"/>
+         <include file="..\..\..\lwip\include\lwip\stats.h"/>
+         <include file="..\..\..\lwip\include\ipv4\lwip\icmp.h"/>
+      </source>
+   </includePath>
+   <includePath signature="/IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project\FRT_Library\FreeRTOS\Source\portable\GCC /IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project\FRT_Library\FreeRTOS\Source /IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project\FRT_Library\FreeRTOS\Source\include /IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project\lpc17xx_lib\include /IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project\cmsis_boot /IE:\uetm\commutator\m3webbackbone /IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project\FRT_Library\FreeRTOS\Source\portable /IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project\FRT_Library\FreeRTOS /IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project\kit1768 /IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project\FRT_Library\FreeRTOS\Source\portable\GCC\ARM_CM3 /IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project\cmsis /IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project /IE:\uetm\commutator /IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project\lpc17xx_lib">
+      <source file="..\..\..\lpc17xx_lib\include\lpc17xx_gpio.h" lastModified="157463e6a75">
+         <include file="..\..\..\cmsis_boot\LPC17xx.h"/>
+         <include file="..\..\..\lpc17xx_lib\include\lpc_types.h"/>
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\include\list.h" lastModified="157463cccf3">
+      </source>
+      <source file="..\..\..\lpc17xx_lib\include\lpc17xx_pinsel.h" lastModified="157463ef219">
+         <include file="..\..\..\cmsis_boot\LPC17xx.h"/>
+         <include file="..\..\..\lpc17xx_lib\include\lpc_types.h"/>
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\include\task.h" lastModified="157463cccfa">
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\portable.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\list.h"/>
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\include\croutine.h" lastModified="157463ccce4">
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\list.h"/>
+      </source>
+      <source file="..\..\..\cmsis_boot\LPC17xx.h" lastModified="157463e6a7f">
+         <include file="..\..\..\cmsis\core_cm3.h"/>
+         <include file="..\..\..\cmsis_boot\system_LPC17xx.h"/>
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\portable\GCC\ARM_CM3\portmacro.h" lastModified="157463ccd01">
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\include\StackMacros.h" lastModified="157463cccf9">
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\portable\GCC\ARM_CM3\common.c" lastModified="157463ccd00">
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\task.h"/>
+      </source>
+      <source file="..\..\..\lpc17xx_lib\source\lpc17xx_clkpwr.c" lastModified="157463e6a7a">
+         <include file="..\..\..\lpc17xx_lib\include\lpc17xx_clkpwr.h"/>
+      </source>
+      <source file="..\..\..\lpc17xx_lib\include\lpc17xx_emac.h" lastModified="157463ef1f7">
+         <include file="..\..\..\cmsis_boot\LPC17xx.h"/>
+         <include file="..\..\..\lpc17xx_lib\include\lpc_types.h"/>
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\include\projdefs.h" lastModified="157463cccf7">
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\croutine.c" lastModified="157463ccce1">
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\task.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\croutine.h"/>
+      </source>
+      <source file="..\..\..\lpc17xx_lib\source\lpc17xx_pinsel.c" lastModified="157463ef21a">
+         <include file="..\..\..\lpc17xx_lib\include\lpc17xx_pinsel.h"/>
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\portable\GCC\ARM_CM3\port.c" lastModified="157463ccd01">
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\task.h"/>
+      </source>
+      <source file="..\..\..\lpc17xx_lib\include\lpc17xx_clkpwr.h" lastModified="157463e6a7a">
+         <include file="..\..\..\cmsis_boot\LPC17xx.h"/>
+         <include file="..\..\..\lpc17xx_lib\include\lpc_types.h"/>
+      </source>
+      <source file="..\..\..\lpc17xx_lib\source\lpc17xx_libcfg_default.c" lastModified="157463e6a91">
+         <include file="..\..\..\lpc17xx_lib\include\lpc17xx_libcfg_default.h"/>
+      </source>
+      <source file="..\..\..\lpc17xx_lib\include\lpc17xx_libcfg_default.h" lastModified="157463e6a8e">
+         <include file="..\..\..\lpc17xx_lib\include\lpc_types.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOSConfig.h" lastModified="157463cccde">
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\include\mpu_wrappers.h" lastModified="157463cccf4">
+      </source>
+      <source file="..\..\..\main.c" lastModified="157461e5cb6">
+      </source>
+      <source file="..\..\..\cmsis_boot\startup\startup_LPC17xx.c" lastModified="157463e6a81">
+      </source>
+   </includePath>
+   <includePath signature="/IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project\FRT_Library\FreeRTOS\Source\portable\GCC /IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project\FRT_Library\FreeRTOS\Source /IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project\FRT_Library\FreeRTOS\Source\include /IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project\lwip\include /IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project\lpc17xx_lib\include /IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project\cmsis_boot /IE:\uetm\commutator\m3webbackbone /IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project\FRT_Library\FreeRTOS\Source\portable /IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project\FRT_Library\FreeRTOS /IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project\kit1768 /IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project\FRT_Library\FreeRTOS\Source\portable\GCC\ARM_CM3 /IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project\cmsis /IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project /IE:\uetm\commutator /IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project\lpc17xx_lib">
+      <source file="..\..\..\lpc17xx_lib\include\lpc17xx_gpio.h" lastModified="157463e6a75">
+         <include file="..\..\..\cmsis_boot\LPC17xx.h"/>
+         <include file="..\..\..\lpc17xx_lib\include\lpc_types.h"/>
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\include\list.h" lastModified="157463cccf3">
+      </source>
+      <source file="..\..\..\lpc17xx_lib\include\lpc17xx_pinsel.h" lastModified="157463ef219">
+         <include file="..\..\..\cmsis_boot\LPC17xx.h"/>
+         <include file="..\..\..\lpc17xx_lib\include\lpc_types.h"/>
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\include\task.h" lastModified="157463cccfa">
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\portable.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\list.h"/>
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\include\croutine.h" lastModified="157463ccce4">
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\list.h"/>
+      </source>
+      <source file="..\..\..\cmsis_boot\LPC17xx.h" lastModified="157463e6a7f">
+         <include file="..\..\..\cmsis\core_cm3.h"/>
+         <include file="..\..\..\cmsis_boot\system_LPC17xx.h"/>
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\portable\GCC\ARM_CM3\portmacro.h" lastModified="157463ccd01">
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\include\StackMacros.h" lastModified="157463cccf9">
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\portable\GCC\ARM_CM3\common.c" lastModified="157463ccd00">
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\task.h"/>
+      </source>
+      <source file="..\..\..\lpc17xx_lib\source\lpc17xx_clkpwr.c" lastModified="157463e6a7a">
+         <include file="..\..\..\lpc17xx_lib\include\lpc17xx_clkpwr.h"/>
+      </source>
+      <source file="..\..\..\lpc17xx_lib\include\lpc17xx_emac.h" lastModified="157463ef1f7">
+         <include file="..\..\..\cmsis_boot\LPC17xx.h"/>
+         <include file="..\..\..\lpc17xx_lib\include\lpc_types.h"/>
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\include\projdefs.h" lastModified="157463cccf7">
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\croutine.c" lastModified="157463ccce1">
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\task.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\croutine.h"/>
+      </source>
+      <source file="..\..\..\lpc17xx_lib\source\lpc17xx_pinsel.c" lastModified="157463ef21a">
+         <include file="..\..\..\lpc17xx_lib\include\lpc17xx_pinsel.h"/>
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\portable\GCC\ARM_CM3\port.c" lastModified="157463ccd01">
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FRT_Library\FreeRTOS\Source\include\task.h"/>
+      </source>
+      <source file="..\..\..\lpc17xx_lib\include\lpc17xx_clkpwr.h" lastModified="157463e6a7a">
+         <include file="..\..\..\cmsis_boot\LPC17xx.h"/>
+         <include file="..\..\..\lpc17xx_lib\include\lpc_types.h"/>
+      </source>
+      <source file="..\..\..\lpc17xx_lib\source\lpc17xx_libcfg_default.c" lastModified="157463e6a91">
+         <include file="..\..\..\lpc17xx_lib\include\lpc17xx_libcfg_default.h"/>
+      </source>
+      <source file="..\..\..\lpc17xx_lib\include\lpc17xx_libcfg_default.h" lastModified="157463e6a8e">
+         <include file="..\..\..\lpc17xx_lib\include\lpc_types.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOSConfig.h" lastModified="157463cccde">
+      </source>
+      <source file="..\..\..\FRT_Library\FreeRTOS\Source\include\mpu_wrappers.h" lastModified="157463cccf4">
+      </source>
+      <source file="..\..\..\main.c" lastModified="157461e5cb6">
+      </source>
+      <source file="..\..\..\cmsis_boot\startup\startup_LPC17xx.c" lastModified="157463e6a81">
+      </source>
+   </includePath>
+</dependencies>

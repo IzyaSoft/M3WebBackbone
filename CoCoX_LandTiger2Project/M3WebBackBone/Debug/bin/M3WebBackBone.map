@@ -1,16 +1,22 @@
 Archive member included to satisfy reference by file (symbol)
 
+c:/program files (x86)/gnu tools arm embedded/5.4 2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-memcmp.o)
+                              ..\obj\etharp.o (memcmp)
 c:/program files (x86)/gnu tools arm embedded/5.4 2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-memcpy.o)
-                              ..\obj\queue.o (memcpy)
+                              ..\obj\ip_frag.o (memcpy)
 c:/program files (x86)/gnu tools arm embedded/5.4 2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-memset.o)
-                              ..\obj\tasks.o (memset)
+                              ..\obj\ip_frag.o (memset)
 c:/program files (x86)/gnu tools arm embedded/5.4 2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-strncpy.o)
                               ..\obj\tasks.o (strncpy)
 
 Allocating common symbols
 Common symbol       size              file
 
+current_iphdr_src   0x4               ..\obj\ip.o
 SysTickCounter      0x4               ..\obj\kit1768.o
+current_netif       0x4               ..\obj\ip.o
+current_iphdr_dest  0x4               ..\obj\ip.o
+current_header      0x4               ..\obj\ip.o
 
 Discarded input sections
 
@@ -42,6 +48,18 @@ Discarded input sections
                 0x00000000      0x104 ..\obj\kit1768.o
  .text.KIT1768_Lese_Alle_Schalter
                 0x00000000       0x48 ..\obj\kit1768.o
+ .text          0x00000000        0x0 ..\obj\err.o
+ .data          0x00000000        0x0 ..\obj\err.o
+ .bss           0x00000000        0x0 ..\obj\err.o
+ .debug_info    0x00000000       0x4b ..\obj\err.o
+ .debug_abbrev  0x00000000       0x24 ..\obj\err.o
+ .debug_aranges
+                0x00000000       0x18 ..\obj\err.o
+ .debug_line    0x00000000       0x1d ..\obj\err.o
+ .debug_str     0x00000000      0x116 ..\obj\err.o
+ .comment       0x00000000       0x6f ..\obj\err.o
+ .ARM.attributes
+                0x00000000       0x33 ..\obj\err.o
  .text          0x00000000        0x0 ..\obj\lpc17xx_clkpwr.o
  .data          0x00000000        0x0 ..\obj\lpc17xx_clkpwr.o
  .bss           0x00000000        0x0 ..\obj\lpc17xx_clkpwr.o
@@ -77,6 +95,18 @@ Discarded input sections
  .bss           0x00000000        0x0 ..\obj\system_LPC17xx.o
  .text.SystemCoreClockUpdate
                 0x00000000      0x164 ..\obj\system_LPC17xx.o
+ .text          0x00000000        0x0 ..\obj\slipif.o
+ .data          0x00000000        0x0 ..\obj\slipif.o
+ .bss           0x00000000        0x0 ..\obj\slipif.o
+ .debug_info    0x00000000       0x59 ..\obj\slipif.o
+ .debug_abbrev  0x00000000       0x24 ..\obj\slipif.o
+ .debug_aranges
+                0x00000000       0x18 ..\obj\slipif.o
+ .debug_line    0x00000000       0x1d ..\obj\slipif.o
+ .debug_str     0x00000000      0x129 ..\obj\slipif.o
+ .comment       0x00000000       0x6f ..\obj\slipif.o
+ .ARM.attributes
+                0x00000000       0x33 ..\obj\slipif.o
  .text          0x00000000        0x0 ..\obj\lpc17xx_emac.o
  .data          0x00000000        0x0 ..\obj\lpc17xx_emac.o
  .bss           0x00000000     0x2a64 ..\obj\lpc17xx_emac.o
@@ -140,6 +170,77 @@ Discarded input sections
  .debug_frame   0x00000000      0x3a8 ..\obj\lpc17xx_emac.o
  .ARM.attributes
                 0x00000000       0x33 ..\obj\lpc17xx_emac.o
+ .text          0x00000000        0x0 ..\obj\autoip.o
+ .data          0x00000000        0x0 ..\obj\autoip.o
+ .bss           0x00000000        0x0 ..\obj\autoip.o
+ .debug_info    0x00000000       0x4b ..\obj\autoip.o
+ .debug_abbrev  0x00000000       0x24 ..\obj\autoip.o
+ .debug_aranges
+                0x00000000       0x18 ..\obj\autoip.o
+ .debug_line    0x00000000       0x1d ..\obj\autoip.o
+ .debug_str     0x00000000      0x11f ..\obj\autoip.o
+ .comment       0x00000000       0x6f ..\obj\autoip.o
+ .ARM.attributes
+                0x00000000       0x33 ..\obj\autoip.o
+ .text          0x00000000        0x0 ..\obj\ip_frag.o
+ .data          0x00000000        0x0 ..\obj\ip_frag.o
+ .bss           0x00000000        0x6 ..\obj\ip_frag.o
+ .text.ip_reass_tmr
+                0x00000000       0x58 ..\obj\ip_frag.o
+ .text.ip_reass_free_complete_datagram
+                0x00000000       0xc0 ..\obj\ip_frag.o
+ .text.ip_reass_remove_oldest_datagram
+                0x00000000       0xb8 ..\obj\ip_frag.o
+ .text.ip_reass_enqueue_new_datagram
+                0x00000000       0x84 ..\obj\ip_frag.o
+ .text.ip_reass_dequeue_datagram
+                0x00000000       0x3c ..\obj\ip_frag.o
+ .text.ip_reass_chain_frag_into_datagram_and_validate
+                0x00000000      0x200 ..\obj\ip_frag.o
+ .text.ip_reass
+                0x00000000      0x284 ..\obj\ip_frag.o
+ .text.ip_frag_alloc_pbuf_custom_ref
+                0x00000000       0x10 ..\obj\ip_frag.o
+ .text.ip_frag_free_pbuf_custom_ref
+                0x00000000       0x18 ..\obj\ip_frag.o
+ .text.ipfrag_free_pbuf_custom
+                0x00000000       0x2c ..\obj\ip_frag.o
+ .text.ip_frag  0x00000000      0x20c ..\obj\ip_frag.o
+ .debug_info    0x00000000      0xb7f ..\obj\ip_frag.o
+ .debug_abbrev  0x00000000      0x210 ..\obj\ip_frag.o
+ .debug_aranges
+                0x00000000       0x70 ..\obj\ip_frag.o
+ .debug_ranges  0x00000000       0x60 ..\obj\ip_frag.o
+ .debug_line    0x00000000      0x409 ..\obj\ip_frag.o
+ .debug_str     0x00000000      0x6ef ..\obj\ip_frag.o
+ .comment       0x00000000       0x6f ..\obj\ip_frag.o
+ .debug_frame   0x00000000      0x19c ..\obj\ip_frag.o
+ .ARM.attributes
+                0x00000000       0x33 ..\obj\ip_frag.o
+ .text          0x00000000        0x0 ..\obj\netbuf.o
+ .data          0x00000000        0x0 ..\obj\netbuf.o
+ .bss           0x00000000        0x0 ..\obj\netbuf.o
+ .debug_info    0x00000000       0x4b ..\obj\netbuf.o
+ .debug_abbrev  0x00000000       0x24 ..\obj\netbuf.o
+ .debug_aranges
+                0x00000000       0x18 ..\obj\netbuf.o
+ .debug_line    0x00000000       0x1d ..\obj\netbuf.o
+ .debug_str     0x00000000      0x119 ..\obj\netbuf.o
+ .comment       0x00000000       0x6f ..\obj\netbuf.o
+ .ARM.attributes
+                0x00000000       0x33 ..\obj\netbuf.o
+ .text          0x00000000        0x0 ..\obj\tcpip.o
+ .data          0x00000000        0x0 ..\obj\tcpip.o
+ .bss           0x00000000        0x0 ..\obj\tcpip.o
+ .debug_info    0x00000000       0x4b ..\obj\tcpip.o
+ .debug_abbrev  0x00000000       0x24 ..\obj\tcpip.o
+ .debug_aranges
+                0x00000000       0x18 ..\obj\tcpip.o
+ .debug_line    0x00000000       0x1d ..\obj\tcpip.o
+ .debug_str     0x00000000      0x118 ..\obj\tcpip.o
+ .comment       0x00000000       0x6f ..\obj\tcpip.o
+ .ARM.attributes
+                0x00000000       0x33 ..\obj\tcpip.o
  .text          0x00000000        0x0 ..\obj\common.o
  .data          0x00000000        0x0 ..\obj\common.o
  .bss           0x00000000        0x0 ..\obj\common.o
@@ -156,9 +257,84 @@ Discarded input sections
  .debug_frame   0x00000000       0x30 ..\obj\common.o
  .ARM.attributes
                 0x00000000       0x33 ..\obj\common.o
+ .text          0x00000000        0x0 ..\obj\ip_addr.o
+ .data          0x00000000        0x0 ..\obj\ip_addr.o
+ .bss           0x00000000       0x10 ..\obj\ip_addr.o
+ .rodata        0x00000000        0x8 ..\obj\ip_addr.o
+ .text.ip4_addr_isbroadcast
+                0x00000000       0x78 ..\obj\ip_addr.o
+ .text.ip4_addr_netmask_valid
+                0x00000000       0x58 ..\obj\ip_addr.o
+ .text.ipaddr_addr
+                0x00000000       0x2c ..\obj\ip_addr.o
+ .text.ipaddr_aton
+                0x00000000      0x234 ..\obj\ip_addr.o
+ .text.ipaddr_ntoa
+                0x00000000       0x20 ..\obj\ip_addr.o
+ .text.ipaddr_ntoa_r
+                0x00000000      0x100 ..\obj\ip_addr.o
+ .debug_info    0x00000000      0x529 ..\obj\ip_addr.o
+ .debug_abbrev  0x00000000      0x196 ..\obj\ip_addr.o
+ .debug_aranges
+                0x00000000       0x48 ..\obj\ip_addr.o
+ .debug_ranges  0x00000000       0x38 ..\obj\ip_addr.o
+ .debug_line    0x00000000      0x302 ..\obj\ip_addr.o
+ .debug_str     0x00000000      0x2aa ..\obj\ip_addr.o
+ .comment       0x00000000       0x6f ..\obj\ip_addr.o
+ .debug_frame   0x00000000       0xf4 ..\obj\ip_addr.o
+ .ARM.attributes
+                0x00000000       0x33 ..\obj\ip_addr.o
+ .text          0x00000000        0x0 ..\obj\inet_chksum.o
+ .data          0x00000000        0x0 ..\obj\inet_chksum.o
+ .bss           0x00000000        0x0 ..\obj\inet_chksum.o
+ .text.lwip_standard_chksum
+                0x00000000       0xb8 ..\obj\inet_chksum.o
+ .text.inet_chksum_pseudo
+                0x00000000      0x10c ..\obj\inet_chksum.o
+ .text.inet_chksum_pseudo_partial
+                0x00000000      0x12c ..\obj\inet_chksum.o
+ .text.inet_chksum
+                0x00000000       0x24 ..\obj\inet_chksum.o
+ .text.inet_chksum_pbuf
+                0x00000000       0x94 ..\obj\inet_chksum.o
+ .debug_info    0x00000000      0x3a2 ..\obj\inet_chksum.o
+ .debug_abbrev  0x00000000      0x12b ..\obj\inet_chksum.o
+ .debug_aranges
+                0x00000000       0x40 ..\obj\inet_chksum.o
+ .debug_ranges  0x00000000       0x30 ..\obj\inet_chksum.o
+ .debug_line    0x00000000      0x24b ..\obj\inet_chksum.o
+ .debug_str     0x00000000      0x25e ..\obj\inet_chksum.o
+ .comment       0x00000000       0x6f ..\obj\inet_chksum.o
+ .debug_frame   0x00000000       0xc8 ..\obj\inet_chksum.o
+ .ARM.attributes
+                0x00000000       0x33 ..\obj\inet_chksum.o
  .text          0x00000000        0x0 ..\obj\main.o
  .data          0x00000000        0x0 ..\obj\main.o
  .bss           0x00000000        0x0 ..\obj\main.o
+ .text          0x00000000        0x0 ..\obj\netdb.o
+ .data          0x00000000        0x0 ..\obj\netdb.o
+ .bss           0x00000000        0x0 ..\obj\netdb.o
+ .debug_info    0x00000000       0x4b ..\obj\netdb.o
+ .debug_abbrev  0x00000000       0x24 ..\obj\netdb.o
+ .debug_aranges
+                0x00000000       0x18 ..\obj\netdb.o
+ .debug_line    0x00000000       0x1d ..\obj\netdb.o
+ .debug_str     0x00000000      0x118 ..\obj\netdb.o
+ .comment       0x00000000       0x6f ..\obj\netdb.o
+ .ARM.attributes
+                0x00000000       0x33 ..\obj\netdb.o
+ .text          0x00000000        0x0 ..\obj\ethernetif.o
+ .data          0x00000000        0x0 ..\obj\ethernetif.o
+ .bss           0x00000000        0x0 ..\obj\ethernetif.o
+ .debug_info    0x00000000       0x4b ..\obj\ethernetif.o
+ .debug_abbrev  0x00000000       0x24 ..\obj\ethernetif.o
+ .debug_aranges
+                0x00000000       0x18 ..\obj\ethernetif.o
+ .debug_line    0x00000000       0x1d ..\obj\ethernetif.o
+ .debug_str     0x00000000      0x11f ..\obj\ethernetif.o
+ .comment       0x00000000       0x6f ..\obj\ethernetif.o
+ .ARM.attributes
+                0x00000000       0x33 ..\obj\ethernetif.o
  .text          0x00000000        0x0 ..\obj\lpc17xx_gpio.o
  .data          0x00000000        0x0 ..\obj\lpc17xx_gpio.o
  .bss           0x00000000        0x0 ..\obj\lpc17xx_gpio.o
@@ -229,6 +405,53 @@ Discarded input sections
  .debug_frame   0x00000000      0x428 ..\obj\lpc17xx_gpio.o
  .ARM.attributes
                 0x00000000       0x33 ..\obj\lpc17xx_gpio.o
+ .text          0x00000000        0x0 ..\obj\etharp.o
+ .data          0x00000000        0x0 ..\obj\etharp.o
+ .bss           0x00000000       0xc9 ..\obj\etharp.o
+ .rodata        0x00000000        0xe ..\obj\etharp.o
+ .text.etharp_free_entry
+                0x00000000       0x64 ..\obj\etharp.o
+ .text.etharp_tmr
+                0x00000000       0xe4 ..\obj\etharp.o
+ .text.etharp_find_entry
+                0x00000000      0x20c ..\obj\etharp.o
+ .text.etharp_send_ip
+                0x00000000       0x50 ..\obj\etharp.o
+ .text.etharp_update_arp_entry
+                0x00000000      0x140 ..\obj\etharp.o
+ .text.etharp_add_static_entry
+                0x00000000       0x34 ..\obj\etharp.o
+ .text.etharp_remove_static_entry
+                0x00000000       0x58 ..\obj\etharp.o
+ .text.etharp_cleanup_netif
+                0x00000000       0x60 ..\obj\etharp.o
+ .text.etharp_find_addr
+                0x00000000       0x80 ..\obj\etharp.o
+ .text.etharp_arp_input
+                0x00000000      0x1cc ..\obj\etharp.o
+ .text.etharp_output_to_arp_index
+                0x00000000       0xa8 ..\obj\etharp.o
+ .text.etharp_output
+                0x00000000      0x1b4 ..\obj\etharp.o
+ .text.etharp_query
+                0x00000000      0x244 ..\obj\etharp.o
+ .text.etharp_raw
+                0x00000000      0x114 ..\obj\etharp.o
+ .text.etharp_request
+                0x00000000       0x44 ..\obj\etharp.o
+ .text.ethernet_input
+                0x00000000      0x130 ..\obj\etharp.o
+ .debug_info    0x00000000      0xd54 ..\obj\etharp.o
+ .debug_abbrev  0x00000000      0x210 ..\obj\etharp.o
+ .debug_aranges
+                0x00000000       0x98 ..\obj\etharp.o
+ .debug_ranges  0x00000000       0x88 ..\obj\etharp.o
+ .debug_line    0x00000000      0x54d ..\obj\etharp.o
+ .debug_str     0x00000000      0x72b ..\obj\etharp.o
+ .comment       0x00000000       0x6f ..\obj\etharp.o
+ .debug_frame   0x00000000      0x254 ..\obj\etharp.o
+ .ARM.attributes
+                0x00000000       0x33 ..\obj\etharp.o
  .text          0x00000000        0x0 ..\obj\tasks.o
  .data          0x00000000        0x0 ..\obj\tasks.o
  .bss           0x00000000      0x164 ..\obj\tasks.o
@@ -311,6 +534,18 @@ Discarded input sections
  .text          0x00000000        0x0 ..\obj\startup_LPC17xx.o
  .data          0x00000000        0x0 ..\obj\startup_LPC17xx.o
  .bss           0x00000000        0x0 ..\obj\startup_LPC17xx.o
+ .text          0x00000000        0x0 ..\obj\inet.o
+ .data          0x00000000        0x0 ..\obj\inet.o
+ .bss           0x00000000        0x0 ..\obj\inet.o
+ .debug_info    0x00000000       0x52 ..\obj\inet.o
+ .debug_abbrev  0x00000000       0x24 ..\obj\inet.o
+ .debug_aranges
+                0x00000000       0x18 ..\obj\inet.o
+ .debug_line    0x00000000       0x1d ..\obj\inet.o
+ .debug_str     0x00000000      0x126 ..\obj\inet.o
+ .comment       0x00000000       0x6f ..\obj\inet.o
+ .ARM.attributes
+                0x00000000       0x33 ..\obj\inet.o
  .text          0x00000000        0x0 ..\obj\lpc17xx_libcfg_default.o
  .data          0x00000000        0x0 ..\obj\lpc17xx_libcfg_default.o
  .bss           0x00000000        0x0 ..\obj\lpc17xx_libcfg_default.o
@@ -327,6 +562,18 @@ Discarded input sections
  .debug_frame   0x00000000       0x2c ..\obj\lpc17xx_libcfg_default.o
  .ARM.attributes
                 0x00000000       0x33 ..\obj\lpc17xx_libcfg_default.o
+ .text          0x00000000        0x0 ..\obj\api_msg.o
+ .data          0x00000000        0x0 ..\obj\api_msg.o
+ .bss           0x00000000        0x0 ..\obj\api_msg.o
+ .debug_info    0x00000000       0x4b ..\obj\api_msg.o
+ .debug_abbrev  0x00000000       0x24 ..\obj\api_msg.o
+ .debug_aranges
+                0x00000000       0x18 ..\obj\api_msg.o
+ .debug_line    0x00000000       0x1d ..\obj\api_msg.o
+ .debug_str     0x00000000      0x11a ..\obj\api_msg.o
+ .comment       0x00000000       0x6f ..\obj\api_msg.o
+ .ARM.attributes
+                0x00000000       0x33 ..\obj\api_msg.o
  .text          0x00000000        0x0 ..\obj\lpc17xx_pinsel.o
  .data          0x00000000        0x0 ..\obj\lpc17xx_pinsel.o
  .bss           0x00000000        0x0 ..\obj\lpc17xx_pinsel.o
@@ -464,6 +711,30 @@ Discarded input sections
  .debug_frame   0x00000000      0x148 ..\obj\port.o
  .ARM.attributes
                 0x00000000       0x33 ..\obj\port.o
+ .text          0x00000000        0x0 ..\obj\sockets.o
+ .data          0x00000000        0x0 ..\obj\sockets.o
+ .bss           0x00000000        0x0 ..\obj\sockets.o
+ .debug_info    0x00000000       0x4b ..\obj\sockets.o
+ .debug_abbrev  0x00000000       0x24 ..\obj\sockets.o
+ .debug_aranges
+                0x00000000       0x18 ..\obj\sockets.o
+ .debug_line    0x00000000       0x1d ..\obj\sockets.o
+ .debug_str     0x00000000      0x11a ..\obj\sockets.o
+ .comment       0x00000000       0x6f ..\obj\sockets.o
+ .ARM.attributes
+                0x00000000       0x33 ..\obj\sockets.o
+ .text          0x00000000        0x0 ..\obj\igmp.o
+ .data          0x00000000        0x0 ..\obj\igmp.o
+ .bss           0x00000000        0x0 ..\obj\igmp.o
+ .debug_info    0x00000000       0x4b ..\obj\igmp.o
+ .debug_abbrev  0x00000000       0x24 ..\obj\igmp.o
+ .debug_aranges
+                0x00000000       0x18 ..\obj\igmp.o
+ .debug_line    0x00000000       0x1d ..\obj\igmp.o
+ .debug_str     0x00000000      0x11d ..\obj\igmp.o
+ .comment       0x00000000       0x6f ..\obj\igmp.o
+ .ARM.attributes
+                0x00000000       0x33 ..\obj\igmp.o
  .text          0x00000000        0x0 ..\obj\croutine.o
  .data          0x00000000        0x0 ..\obj\croutine.o
  .bss           0x00000000       0x80 ..\obj\croutine.o
@@ -492,6 +763,75 @@ Discarded input sections
  .debug_frame   0x00000000      0x10c ..\obj\croutine.o
  .ARM.attributes
                 0x00000000       0x33 ..\obj\croutine.o
+ .text          0x00000000        0x0 ..\obj\ip.o
+ .data          0x00000000        0x0 ..\obj\ip.o
+ .bss           0x00000000        0x2 ..\obj\ip.o
+ .text.ip_route
+                0x00000000       0x88 ..\obj\ip.o
+ .text.ip_input
+                0x00000000      0x2d8 ..\obj\ip.o
+ .text.ip_output_if
+                0x00000000      0x1cc ..\obj\ip.o
+ .text.ip_output
+                0x00000000       0x60 ..\obj\ip.o
+ .debug_info    0x00000000      0x7ce ..\obj\ip.o
+ .debug_abbrev  0x00000000      0x183 ..\obj\ip.o
+ .debug_aranges
+                0x00000000       0x38 ..\obj\ip.o
+ .debug_ranges  0x00000000       0x28 ..\obj\ip.o
+ .debug_line    0x00000000      0x2da ..\obj\ip.o
+ .debug_str     0x00000000      0x4f2 ..\obj\ip.o
+ .comment       0x00000000       0x6f ..\obj\ip.o
+ .debug_frame   0x00000000       0xa8 ..\obj\ip.o
+ .ARM.attributes
+                0x00000000       0x33 ..\obj\ip.o
+ COMMON         0x00000000       0x10 ..\obj\ip.o
+ .text          0x00000000        0x0 ..\obj\icmp.o
+ .data          0x00000000        0x0 ..\obj\icmp.o
+ .bss           0x00000000        0x0 ..\obj\icmp.o
+ .text.icmp_input
+                0x00000000      0x294 ..\obj\icmp.o
+ .text.icmp_dest_unreach
+                0x00000000       0x20 ..\obj\icmp.o
+ .text.icmp_time_exceeded
+                0x00000000       0x20 ..\obj\icmp.o
+ .text.icmp_send_response
+                0x00000000       0xc0 ..\obj\icmp.o
+ .debug_info    0x00000000      0x779 ..\obj\icmp.o
+ .debug_abbrev  0x00000000      0x1be ..\obj\icmp.o
+ .debug_aranges
+                0x00000000       0x38 ..\obj\icmp.o
+ .debug_ranges  0x00000000       0x40 ..\obj\icmp.o
+ .debug_line    0x00000000      0x257 ..\obj\icmp.o
+ .debug_str     0x00000000      0x4bf ..\obj\icmp.o
+ .comment       0x00000000       0x6f ..\obj\icmp.o
+ .debug_frame   0x00000000       0xa8 ..\obj\icmp.o
+ .ARM.attributes
+                0x00000000       0x33 ..\obj\icmp.o
+ .text          0x00000000        0x0 ..\obj\netifapi.o
+ .data          0x00000000        0x0 ..\obj\netifapi.o
+ .bss           0x00000000        0x0 ..\obj\netifapi.o
+ .debug_info    0x00000000       0x4b ..\obj\netifapi.o
+ .debug_abbrev  0x00000000       0x24 ..\obj\netifapi.o
+ .debug_aranges
+                0x00000000       0x18 ..\obj\netifapi.o
+ .debug_line    0x00000000       0x1d ..\obj\netifapi.o
+ .debug_str     0x00000000      0x11b ..\obj\netifapi.o
+ .comment       0x00000000       0x6f ..\obj\netifapi.o
+ .ARM.attributes
+                0x00000000       0x33 ..\obj\netifapi.o
+ .text          0x00000000        0x0 ..\obj\api_lib.o
+ .data          0x00000000        0x0 ..\obj\api_lib.o
+ .bss           0x00000000        0x0 ..\obj\api_lib.o
+ .debug_info    0x00000000       0x4b ..\obj\api_lib.o
+ .debug_abbrev  0x00000000       0x24 ..\obj\api_lib.o
+ .debug_aranges
+                0x00000000       0x18 ..\obj\api_lib.o
+ .debug_line    0x00000000       0x1d ..\obj\api_lib.o
+ .debug_str     0x00000000      0x11a ..\obj\api_lib.o
+ .comment       0x00000000       0x6f ..\obj\api_lib.o
+ .ARM.attributes
+                0x00000000       0x33 ..\obj\api_lib.o
  .text          0x00000000        0x0 ..\obj\heap_2.o
  .data          0x00000000        0x0 ..\obj\heap_2.o
  .bss           0x00000000     0xc818 ..\obj\heap_2.o
@@ -515,6 +855,13 @@ Discarded input sections
  .debug_frame   0x00000000       0x98 ..\obj\heap_2.o
  .ARM.attributes
                 0x00000000       0x33 ..\obj\heap_2.o
+ .text          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/5.4 2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-memcmp.o)
+ .data          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/5.4 2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-memcmp.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/5.4 2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-memcmp.o)
+ .text.memcmp   0x00000000       0x64 c:/program files (x86)/gnu tools arm embedded/5.4 2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-memcmp.o)
+ .debug_frame   0x00000000       0x38 c:/program files (x86)/gnu tools arm embedded/5.4 2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-memcmp.o)
+ .ARM.attributes
+                0x00000000       0x2d c:/program files (x86)/gnu tools arm embedded/5.4 2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-memcmp.o)
  .text          0x00000000       0xec c:/program files (x86)/gnu tools arm embedded/5.4 2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-memcpy.o)
  .data          0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/5.4 2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-memcpy.o)
  .bss           0x00000000        0x0 c:/program files (x86)/gnu tools arm embedded/5.4 2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg.a(lib_a-memcpy.o)
@@ -709,20 +1056,39 @@ Linker script and memory map
                 [!provide]                PROVIDE (__stack, __StackTop)
                 0x00000001                ASSERT ((__StackLimit >= __HeapLimit), region ram  overflowed with stack)
 LOAD ..\obj\kit1768.o
+LOAD ..\obj\err.o
 LOAD ..\obj\lpc17xx_clkpwr.o
 LOAD ..\obj\system_LPC17xx.o
+LOAD ..\obj\slipif.o
 LOAD ..\obj\lpc17xx_emac.o
+LOAD ..\obj\autoip.o
+LOAD ..\obj\ip_frag.o
+LOAD ..\obj\netbuf.o
+LOAD ..\obj\tcpip.o
 LOAD ..\obj\common.o
+LOAD ..\obj\ip_addr.o
+LOAD ..\obj\inet_chksum.o
 LOAD ..\obj\main.o
+LOAD ..\obj\netdb.o
+LOAD ..\obj\ethernetif.o
 LOAD ..\obj\lpc17xx_gpio.o
+LOAD ..\obj\etharp.o
 LOAD ..\obj\tasks.o
 LOAD ..\obj\startup_LPC17xx.o
+LOAD ..\obj\inet.o
 LOAD ..\obj\lpc17xx_libcfg_default.o
+LOAD ..\obj\api_msg.o
 LOAD ..\obj\lpc17xx_pinsel.o
 LOAD ..\obj\list.o
 LOAD ..\obj\queue.o
 LOAD ..\obj\port.o
+LOAD ..\obj\sockets.o
+LOAD ..\obj\igmp.o
 LOAD ..\obj\croutine.o
+LOAD ..\obj\ip.o
+LOAD ..\obj\icmp.o
+LOAD ..\obj\netifapi.o
+LOAD ..\obj\api_lib.o
 LOAD ..\obj\heap_2.o
 START GROUP
 LOAD c:/program files (x86)/gnu tools arm embedded/5.4 2016q2/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a
