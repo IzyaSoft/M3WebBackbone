@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m3 -mthumb -Wall -ffunction-sections -g -O0 -c -DLPC1768 -IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project\FRT_Library\FreeRTOS\Source\portable\GCC -IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project\FRT_Library\FreeRTOS\Source -IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project\FRT_Library\FreeRTOS\Source\include -IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project\lpc17xx_lib\include -IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project\cmsis_boot -IE:\uetm\commutator\m3webbackbone -IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project\FRT_Library\FreeRTOS\Source\portable -IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project\FRT_Library\FreeRTOS -IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project\kit1768 -IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project\FRT_Library\FreeRTOS\Source\portable\GCC\ARM_CM3 -IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project\cmsis -IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project -IE:\uetm\commutator -IE:\uetm\commutator\m3webbackbone\CoCoX_LandTiger2Project\lpc17xx_lib">
+      <target file="queue.o" lastModified="15746ebcf5a">
+         <source file="..\..\..\FRT_Library\FreeRTOS\Source\queue.c" lastModified="157463ccd02"/>
+      </target>
+      <target file="port.o" lastModified="15746ebcf79">
+         <source file="..\..\..\FRT_Library\FreeRTOS\Source\portable\GCC\ARM_CM3\port.c" lastModified="157463ccd01"/>
+      </target>
+      <target file="system_LPC17xx.o" lastModified="15746ebcd37">
+         <source file="..\..\..\cmsis_boot\system_LPC17xx.c" lastModified="157463e6a82"/>
+      </target>
+      <target file="heap_2.o" lastModified="15746ebcfe7">
+         <source file="..\..\..\FRT_Library\FreeRTOS\Source\portable\MemMang\heap_2.c" lastModified="157463ccd02"/>
+      </target>
+      <target file="list.o" lastModified="15746ebcf0c">
+         <source file="..\..\..\FRT_Library\FreeRTOS\Source\list.c" lastModified="157463cccfc"/>
+      </target>
+      <target file="startup_LPC17xx.o" lastModified="15746ebce8f">
+         <source file="..\..\..\cmsis_boot\startup\startup_LPC17xx.c" lastModified="157463e6a81"/>
+      </target>
+      <target file="common.o" lastModified="15746ebcda4">
+         <source file="..\..\..\FRT_Library\FreeRTOS\Source\portable\GCC\ARM_CM3\common.c" lastModified="157463ccd00"/>
+      </target>
+      <target file="croutine.o" lastModified="15746ebcfb8">
+         <source file="..\..\..\FRT_Library\FreeRTOS\Source\croutine.c" lastModified="157463ccce1"/>
+      </target>
+      <target file="lpc17xx_gpio.o" lastModified="15746ebce12">
+         <source file="..\..\..\lpc17xx_lib\source\lpc17xx_gpio.c" lastModified="157463e6a76"/>
+      </target>
+      <target file="lpc17xx_libcfg_default.o" lastModified="15746ebceae">
+         <source file="..\..\..\lpc17xx_lib\source\lpc17xx_libcfg_default.c" lastModified="157463e6a91"/>
+      </target>
+      <target file="main.o" lastModified="15746ebcdc4">
+         <source file="..\..\..\main.c" lastModified="157461e5cb6"/>
+      </target>
+      <target file="lpc17xx_emac.o" lastModified="15746ebcd85">
+         <source file="..\..\..\lpc17xx_lib\source\lpc17xx_emac.c" lastModified="157463ef1f8"/>
+      </target>
+      <target file="kit1768.o" lastModified="15746ebccd9">
+         <source file="..\..\..\kit1768\kit1768.c" lastModified="157463e8131"/>
+      </target>
+      <target file="lpc17xx_pinsel.o" lastModified="15746ebcedd">
+         <source file="..\..\..\lpc17xx_lib\source\lpc17xx_pinsel.c" lastModified="157463ef21a"/>
+      </target>
+      <target file="lpc17xx_clkpwr.o" lastModified="15746ebcd08">
+         <source file="..\..\..\lpc17xx_lib\source\lpc17xx_clkpwr.c" lastModified="157463e6a7a"/>
+      </target>
+      <target file="tasks.o" lastModified="15746ebce70">
+         <source file="..\..\..\FRT_Library\FreeRTOS\Source\tasks.c" lastModified="157463ccd03"/>
+      </target>
+   </processor>
+</history>

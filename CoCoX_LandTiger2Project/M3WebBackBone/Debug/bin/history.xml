@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="5.4.1 -mcpu=cortex-m3 -mthumb -g -nostartfiles -Map=M3WebBackBone.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\M3WebBackBone -TC:\CooCox\CoIDE\configuration\ProgramData\M3WebBackBone/arm-gcc-link.ld -g">
+      <target file="M3WebBackBone.elf" lastModified="15746ebd19c">
+         <source file="..\obj\kit1768.o" lastModified="15746ebccd9"/>
+         <source file="..\obj\lpc17xx_clkpwr.o" lastModified="15746ebcd08"/>
+         <source file="..\obj\system_LPC17xx.o" lastModified="15746ebcd37"/>
+         <source file="..\obj\lpc17xx_emac.o" lastModified="15746ebcd85"/>
+         <source file="..\obj\common.o" lastModified="15746ebcda4"/>
+         <source file="..\obj\main.o" lastModified="15746ebcdc4"/>
+         <source file="..\obj\lpc17xx_gpio.o" lastModified="15746ebce12"/>
+         <source file="..\obj\tasks.o" lastModified="15746ebce70"/>
+         <source file="..\obj\startup_LPC17xx.o" lastModified="15746ebce8f"/>
+         <source file="..\obj\lpc17xx_libcfg_default.o" lastModified="15746ebceae"/>
+         <source file="..\obj\lpc17xx_pinsel.o" lastModified="15746ebcedd"/>
+         <source file="..\obj\list.o" lastModified="15746ebcf0c"/>
+         <source file="..\obj\queue.o" lastModified="15746ebcf5a"/>
+         <source file="..\obj\port.o" lastModified="15746ebcf79"/>
+         <source file="..\obj\croutine.o" lastModified="15746ebcfb8"/>
+         <source file="..\obj\heap_2.o" lastModified="15746ebcfe7"/>
+      </target>
+   </processor>
+</history>
