@@ -25,7 +25,7 @@
 	</natures>
 	<filteredResources>
 		<filter>
-			<id>1475236439413</id>
+			<id>1475245396128</id>
 			<name></name>
 			<type>26</type>
 			<matcher>
@@ -34,25 +34,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1475236439413</id>
-			<name></name>
-			<type>26</type>
-			<matcher>
-				<id>org.eclipse.ui.ide.multiFilter</id>
-				<arguments>1.0-name-matches-false-false-FreeRTOS-Plus-FAT</arguments>
-			</matcher>
-		</filter>
-		<filter>
-			<id>1475236439413</id>
-			<name></name>
-			<type>26</type>
-			<matcher>
-				<id>org.eclipse.ui.ide.multiFilter</id>
-				<arguments>1.0-name-matches-false-false-FreeRTOS-Plus-TCP</arguments>
-			</matcher>
-		</filter>
-		<filter>
-			<id>1475236439413</id>
+			<id>1475245396130</id>
 			<name></name>
 			<type>26</type>
 			<matcher>
@@ -61,7 +43,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1475236439413</id>
+			<id>1475245396142</id>
 			<name></name>
 			<type>26</type>
 			<matcher>
@@ -70,7 +52,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1475236439413</id>
+			<id>1475245396145</id>
 			<name></name>
 			<type>26</type>
 			<matcher>
@@ -79,7 +61,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1475236439428</id>
+			<id>1475245396147</id>
 			<name></name>
 			<type>26</type>
 			<matcher>
@@ -88,7 +70,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1475236439428</id>
+			<id>1475245396149</id>
 			<name></name>
 			<type>22</type>
 			<matcher>
@@ -97,7 +79,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1475236439428</id>
+			<id>1475245396153</id>
 			<name></name>
 			<type>22</type>
 			<matcher>
@@ -106,7 +88,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1475236439428</id>
+			<id>1475245396159</id>
 			<name></name>
 			<type>22</type>
 			<matcher>
@@ -115,12 +97,111 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1475236439428</id>
+			<id>1475245396162</id>
 			<name></name>
 			<type>22</type>
 			<matcher>
 				<id>org.eclipse.ui.ide.multiFilter</id>
 				<arguments>1.0-name-matches-false-false-heap_5.c</arguments>
+			</matcher>
+		</filter>
+		<filter>
+			<id>1475245396164</id>
+			<name></name>
+			<type>26</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-name-matches-false-false-MSVC</arguments>
+			</matcher>
+		</filter>
+		<filter>
+			<id>1475245396165</id>
+			<name></name>
+			<type>26</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-name-matches-false-false-Renesas</arguments>
+			</matcher>
+		</filter>
+		<filter>
+			<id>1475245396166</id>
+			<name></name>
+			<type>26</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-name-matches-false-false-ATSAM4E</arguments>
+			</matcher>
+		</filter>
+		<filter>
+			<id>1475245396167</id>
+			<name></name>
+			<type>26</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-name-matches-false-false-ksz8851snl</arguments>
+			</matcher>
+		</filter>
+		<filter>
+			<id>1475245396169</id>
+			<name></name>
+			<type>26</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-name-matches-false-false-WinPCap</arguments>
+			</matcher>
+		</filter>
+		<filter>
+			<id>1475245396170</id>
+			<name></name>
+			<type>26</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-name-matches-false-false-Zynq</arguments>
+			</matcher>
+		</filter>
+		<filter>
+			<id>1475245396172</id>
+			<name></name>
+			<type>26</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-name-matches-false-false-avr32_uc3</arguments>
+			</matcher>
+		</filter>
+		<filter>
+			<id>1475245396173</id>
+			<name></name>
+			<type>26</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-name-matches-false-false-lpc18xx</arguments>
+			</matcher>
+		</filter>
+		<filter>
+			<id>1475245396174</id>
+			<name></name>
+			<type>26</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-name-matches-false-false-STM32F4xx</arguments>
+			</matcher>
+		</filter>
+		<filter>
+			<id>1475245396175</id>
+			<name></name>
+			<type>26</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-name-matches-false-false-STM32Fxx</arguments>
+			</matcher>
+		</filter>
+		<filter>
+			<id>1475245396177</id>
+			<name></name>
+			<type>26</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-name-matches-false-false-NTP</arguments>
 			</matcher>
 		</filter>
 	</filteredResources>

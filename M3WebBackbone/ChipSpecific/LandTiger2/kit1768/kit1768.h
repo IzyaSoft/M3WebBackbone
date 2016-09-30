@@ -37,8 +37,8 @@
 
 #include <stdlib.h>
 
-#include "../../LandTiger2/lpc17xx_lib/include/lpc17xx_clkpwr.h"
-#include "../../LandTiger2/lpc17xx_lib/include/lpc17xx_gpio.h"
+#include "../lpc17xx_lib/include/lpc17xx_clkpwr.h"
+#include "../lpc17xx_lib/include/lpc17xx_gpio.h"
 
 /*
  * ------------------------------------------------------------------------------------------------

@@ -10,7 +10,7 @@
 
 #define ffconfigBYTE_ORDER pdFREERTOS_LITTLE_ENDIAN
 #define ffconfigHAS_CWD 1 // relatives path support
-#define ffconfigCWD_THREAD_LOCAL_INDEX 5
+#define ffconfigCWD_THREAD_LOCAL_INDEX 2
 #define ffconfigLFN_SUPPORT 0 // long file names disabled
 #define ffconfigINCLUDE_SHORT_NAME 0 // DOS names ? disabled
 #define ffconfigSHORTNAME_CASE 0 // short names switched off
@@ -42,5 +42,9 @@
 #define ffconfigINLINE_MEMORY_ACCESS 1 // don't know
 #define ffconfigFAT_CHECK 0 // fat check disabled
 #define ffconfigMAX_FILENAME 128 // probably 255 is better
+
+
+#define ffconfigDEV_SUPPORT 1
+#define  ffconfigDEV_PATH "/dev"
 
 #endif /* BUSINESSLOGIC_FREERTOSFATCONFIG_H_ */

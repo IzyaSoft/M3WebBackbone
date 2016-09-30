@@ -28,8 +28,8 @@
 #define LPC17XX_CLKPWR_H_
 
 /* Includes ------------------------------------------------------------------- */
-#include "../../../LandTiger2/cmsis_boot/LPC17xx.h"
-#include "../../../LandTiger2/lpc17xx_lib/include/lpc_types.h"
+#include "../../cmsis_boot/LPC17xx.h"
+#include "lpc_types.h"
 
 #ifdef __cplusplus
 extern "C"

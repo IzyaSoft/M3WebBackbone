@@ -24,7 +24,7 @@
  */
 
 /* Includes ------------------------------------------------------------------- */
-#include "../../../LandTiger2/lpc17xx_lib/include/lpc17xx_clkpwr.h"
+#include "../include/lpc17xx_clkpwr.h"
 
 
 /* Public Functions ----------------------------------------------------------- */

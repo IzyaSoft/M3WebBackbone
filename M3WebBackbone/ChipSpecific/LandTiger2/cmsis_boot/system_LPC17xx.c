@@ -25,7 +25,7 @@
 
 #include <stdint.h>
 
-#include "../../LandTiger2/cmsis_boot/LPC17xx.h"
+#include "LPC17xx.h"
 
 
 /** @addtogroup LPC17xx_System

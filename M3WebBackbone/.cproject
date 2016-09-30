@@ -35,10 +35,12 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/M3WebBackbone/ChipSpecific/LandTiger2}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/M3WebBackbone/FreeRTOS/Source/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/M3WebBackbone/FreeRTOS/Source/portable/GCC/ARM_CM3}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/M3WebBackbone/FreeRTOS-Plus-FAT/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/FreeRTOS-Plus-TCP/portable/Compiler/GCC}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/M3WebBackbone/FreeRTOS-Plus-TCP/portable/Compiler/GCC}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/M3WebBackbone/FreeRTOS-Plus-TCP/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/M3WebBackbone/FreeRTOS-Plus-TCP/protocols/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/FreeRTOS-Plus-FAT/portable/common}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/M3WebBackbone/FreeRTOS-Plus-FAT/include}&quot;"/>
 								</option>
 								<option id="com.atollic.truestudio.common_options.target.interwork.2009998418" name="Mix ARM/Thumb" superClass="com.atollic.truestudio.common_options.target.interwork"/>
 								<inputType id="com.atollic.truestudio.as.input.1172284511" name="Input" superClass="com.atollic.truestudio.as.input"/>
@@ -52,10 +54,12 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/ChipSpecific/LandTiger2}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/FreeRTOS/Source/portable/GCC/ARM_CM3}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/FreeRTOS/Source/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/FreeRTOS-Plus-FAT/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/FreeRTOS-Plus-TCP/portable/Compiler/GCC}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/FreeRTOS-Plus-TCP/portable/Compiler/GCC}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/FreeRTOS-Plus-TCP/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/FreeRTOS-Plus-TCP/protocols/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/FreeRTOS-Plus-FAT/portable/common}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/FreeRTOS-Plus-FAT/include}&quot;"/>
 								</option>
 								<option id="com.atollic.truestudio.common_options.target.endianess.1522737266" name="Endianess" superClass="com.atollic.truestudio.common_options.target.endianess"/>
 								<option id="com.atollic.truestudio.common_options.target.mcpu.1896835263" name="Microcontroller" superClass="com.atollic.truestudio.common_options.target.mcpu" value="LPC1768" valueType="enumerated"/>
