@@ -28,7 +28,7 @@
 #define LPC17XX_EMAC_H_
 
 /* Includes ------------------------------------------------------------------- */
-#include "../../cmsis_boot/LPC17xx.h"
+#include "LPC17xx.h"
 #include "lpc_types.h"
 
 

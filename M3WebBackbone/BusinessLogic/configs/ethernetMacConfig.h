@@ -1,0 +1,3 @@
+#ifndef ETHERNET_MAC_CONFIG_H
+#define ETHERNET_MAC_CONFIG_H
+#endif

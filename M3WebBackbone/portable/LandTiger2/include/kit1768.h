@@ -16,7 +16,7 @@
  *
  * ------------------------------------------------------------------------------------------------
  *
- * Modulbeschreibung : Header Datei für das BFH LPC1768 Ausbildungskit.
+ * Modulbeschreibung : Header Datei fï¿½r das BFH LPC1768 Ausbildungskit.
  *
  * ------------------------------------------------------------------------------------------------
  * Aenderungen und Korrekturen:
@@ -37,8 +37,8 @@
 
 #include <stdlib.h>
 
-#include "../lpc17xx_lib/include/lpc17xx_clkpwr.h"
-#include "../lpc17xx_lib/include/lpc17xx_gpio.h"
+#include "lpc17xx_clkpwr.h"
+#include "lpc17xx_gpio.h"
 
 /*
  * ------------------------------------------------------------------------------------------------

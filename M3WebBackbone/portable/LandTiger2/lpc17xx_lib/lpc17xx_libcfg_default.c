@@ -24,7 +24,7 @@
  */
 
 /* Includes ------------------------------------------------------------------- */
-#include "../../../LandTiger2/lpc17xx_lib/include/lpc17xx_libcfg_default.h"
+#include "lpc17xx_libcfg_default.h"
 
 /* Public Functions ----------------------------------------------------------- */
 /** @addtogroup LIBCFG_DEFAULT_Public_Functions

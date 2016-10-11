@@ -23,9 +23,9 @@
  */
 
 /* Includes ------------------------------------------------------------------- */
-#include "../include/lpc17xx_emac.h"
+#include "lpc17xx_emac.h"
 
-#include "../include/lpc17xx_clkpwr.h"
+#include "lpc17xx_clkpwr.h"
 
 /* If this source file built with example, the LPC17xx FW library configuration
  * file in each example directory ("lpc17xx_libcfg.h") must be included,
@@ -34,7 +34,7 @@
 #ifdef __BUILD_WITH_EXAMPLE__
 #include "lpc17xx_libcfg.h"
 #else
-#include "../include/lpc17xx_libcfg_default.h"
+#include "lpc17xx_libcfg_default.h"
 #endif /* __BUILD_WITH_EXAMPLE__ */
 
 

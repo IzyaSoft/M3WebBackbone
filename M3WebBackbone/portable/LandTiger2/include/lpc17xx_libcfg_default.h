@@ -27,7 +27,7 @@
 #define LPC17XX_LIBCFG_DEFAULT_H_
 
 /* Includes ------------------------------------------------------------------- */
-#include "../../../LandTiger2/lpc17xx_lib/include/lpc_types.h"
+#include "lpc_types.h"
 
 
 /* Public Macros -------------------------------------------------------------- */

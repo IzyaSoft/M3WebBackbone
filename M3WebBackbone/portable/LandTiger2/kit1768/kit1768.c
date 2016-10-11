@@ -32,13 +32,13 @@
  *-------------------------------------------------------------------------------------------------
  */
 
-#include "../../LandTiger2/kit1768/kit1768.h"
+#include "kit1768.h"
 
 #include <stdlib.h>
 
-#include "../../LandTiger2/lpc17xx_lib/include/lpc_types.h"
-#include "../../LandTiger2/lpc17xx_lib/include/lpc17xx_clkpwr.h"
-#include "../../LandTiger2/lpc17xx_lib/include/lpc17xx_gpio.h"
+#include "lpc_types.h"
+#include "lpc17xx_clkpwr.h"
+#include "lpc17xx_gpio.h"
 
 /*
  * ------------------------------------------------------------------------------------------------
@@ -327,7 +327,7 @@ void KIT1768_Alle_Led_Aus(UINT8 ledValue)
  *
  * Description: Einschalten einer Ziffer der 7-Segment Anzeige auf dem IO-Board.
  *
- * Parameters: Ziffer für 7-Segment 0..9
+ * Parameters: Ziffer fï¿½r 7-Segment 0..9
  *             7-Segment Nummer 0..3
  *
  * Returned Value: Kein
