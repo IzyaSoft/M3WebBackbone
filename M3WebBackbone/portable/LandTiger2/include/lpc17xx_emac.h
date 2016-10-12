@@ -639,7 +639,7 @@ typedef struct {
 	uint8_t 	*pbEMAC_Addr;				/**< Pointer to EMAC Station address that contains 6-bytes
 											of MAC address, it must be sorted in order (bEMAC_Addr[0]..[5])
 											*/
-} EMAC_CFG_Type;
+}EMAC_CFG_Type;
 
 
 /**

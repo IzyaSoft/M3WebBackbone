@@ -1,6 +1,8 @@
 #ifndef FREERTOS_IP_CONFIG_H
 #define FREERTOS_IP_CONFIG_H
 
+#include "ethernetMacConfig.h"
+
 #define ipconfigBYTE_ORDER pdFREERTOS_LITTLE_ENDIAN
 
 /* If the network card/driver includes checksum offloading (IP/TCP/UDP checksums)

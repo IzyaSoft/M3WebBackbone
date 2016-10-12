@@ -131,7 +131,7 @@ static TypeCouple_t pxTypeCouples[ ] =
 
 void vHTTPClientDelete( TCPClient_t *pxTCPClient )
 {
-HTTPClient_t *pxClient = ( HTTPClient_t * ) pxTCPClient;
+    HTTPClient_t *pxClient = ( HTTPClient_t * ) pxTCPClient;
 
 	/* This HTTP client stops, close / release all resources. */
 	if( pxClient->xSocket != FREERTOS_NO_SOCKET )
@@ -157,8 +157,8 @@ static void prvFileClose( HTTPClient_t *pxClient )
 
 static BaseType_t prvSendReply( HTTPClient_t *pxClient, BaseType_t xCode )
 {
-struct xTCP_SERVER *pxParent = pxClient->pxParent;
-BaseType_t xRc;
+    struct xTCP_SERVER *pxParent = pxClient->pxParent;
+    BaseType_t xRc;
 
 	/* A normal command reply on the main socket (port 21). */
 	char *pcBuffer = pxParent->pcFileBuffer;
@@ -188,9 +188,9 @@ BaseType_t xRc;
 
 static BaseType_t prvSendFile( HTTPClient_t *pxClient )
 {
-size_t uxSpace;
-size_t uxCount;
-BaseType_t xRc = 0;
+    size_t uxSpace;
+    size_t uxCount;
+    BaseType_t xRc = 0;
 
 	if( pxClient->bits.bReplySent == pdFALSE_UNSIGNED )
 	{
@@ -252,8 +252,8 @@ BaseType_t xRc = 0;
 
 static BaseType_t prvOpenURL( HTTPClient_t *pxClient )
 {
-BaseType_t xRc;
-char pcSlash[ 2 ];
+    BaseType_t xRc;
+    char pcSlash[ 2 ];
 
 	pxClient->bits.ulFlags = 0;
 
@@ -320,7 +320,7 @@ char pcSlash[ 2 ];
 
 static BaseType_t prvProcessCmd( HTTPClient_t *pxClient, BaseType_t xIndex )
 {
-BaseType_t xResult = 0;
+    BaseType_t xResult = 0;
 
 	/* A new command has been received. Process it. */
 	switch( xIndex )
@@ -351,8 +351,8 @@ BaseType_t xResult = 0;
 
 BaseType_t xHTTPClientWork( TCPClient_t *pxTCPClient )
 {
-BaseType_t xRc;
-HTTPClient_t *pxClient = ( HTTPClient_t * ) pxTCPClient;
+    BaseType_t xRc;
+    HTTPClient_t *pxClient = ( HTTPClient_t * ) pxTCPClient;
 
 	if( pxClient->pxFileHandle != NULL )
 	{

@@ -22,13 +22,13 @@
 BaseType_t xNetworkInterfaceInitialise( void )
 {
 	EMAC_CFG_Type emacConfig;
-	emacConfig.Mode = EMAC_MODE_AUTO;
-	uint8_t macAddr[6] = {0xAA, 0x33, 0x00, 0x66, 0x22, 0xEE};
-	emacConfig.pbEMAC_Addr = & macAddr[0];
+	emacConfig.Mode = ETHERNET_MODE;
+	uint8_t macAddr[6] =  {0xAA, 0x33, 0x00, 0x66, 0x22, 0xEE}; //ETHERNET_MAC_ADDRESS;
+	emacConfig.pbEMAC_Addr = macAddr;
 	Status result = EMAC_Init(&emacConfig);
 	if(result == SUCCESS)
-		return 1;  // pdTrue
-	return 0;  // pdFalse
+		return pdTRUE;
+	return  pdFALSE;
 }
 
 BaseType_t xNetworkInterfaceOutput( NetworkBufferDescriptor_t * const pxNetworkBuffer, BaseType_t xReleaseAfterSend )
@@ -37,7 +37,7 @@ BaseType_t xNetworkInterfaceOutput( NetworkBufferDescriptor_t * const pxNetworkB
 	//txBufffer.pbDataBuf = pxNetworkBuffer->pucEthernetBuffer;
 	//txBufffer.ulDataLen = pxNetworkBuffer->xDataLength; // Maybe should add +1 for CRC
 	//EMAC_WritePacketBuffer(&txBuffer);
-	return 1;  // should think about return value
+	return pdTRUE;  // should think about return value
 }
 
 void vNetworkInterfaceAllocateRAMToBuffers( NetworkBufferDescriptor_t pxNetworkBuffers[ ipconfigNUM_NETWORK_BUFFER_DESCRIPTORS ] )
@@ -47,6 +47,6 @@ void vNetworkInterfaceAllocateRAMToBuffers( NetworkBufferDescriptor_t pxNetworkB
 
 BaseType_t xGetPhyLinkStatus( void )
 {
-
+    return pdTRUE;
 }
 

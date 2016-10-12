@@ -1,12 +1,5 @@
-/*
- * FreeRTOSFATConfig.h
- *
- *  Created on: 30 сент. 2016 г.
- *      Author: michael
- */
-
-#ifndef BUSINESSLOGIC_FREERTOSFATCONFIG_H_
-#define BUSINESSLOGIC_FREERTOSFATCONFIG_H_
+#ifndef FREERTOS_FAT_CONFIG_H
+#define FREERTOS_FAT_CONFIG_H
 
 #define ffconfigBYTE_ORDER pdFREERTOS_LITTLE_ENDIAN
 #define ffconfigHAS_CWD 1 // relatives path support
@@ -47,4 +40,4 @@
 #define ffconfigDEV_SUPPORT 1
 #define  ffconfigDEV_PATH "/dev"
 
-#endif /* BUSINESSLOGIC_FREERTOSFATCONFIG_H_ */
+#endif
