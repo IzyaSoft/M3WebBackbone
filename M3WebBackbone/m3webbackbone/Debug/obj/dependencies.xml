@@ -1,0 +1,581 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dependencies>
+   <includePath signature="/IE:\uetm\commutator\m3webbackbone\M3WebBackbone\businesslogic\configs /IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS-Plus-TCP\protocols /IE:\uetm\commutator\m3webbackbone\M3WebBackbone\portable\LandTiger2 /IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS-Plus-TCP\portable\Compiler /IE:\uetm\commutator\m3webbackbone\M3WebBackbone\portable /IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS-Plus-TCP\portable\Compiler\GCC /IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS-Plus-FAT\include /IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS\include /IE:\uetm\commutator\m3webbackbone\M3WebBackbone\portable\LandTiger2\include /IE:\uetm\commutator\m3webbackbone\M3WebBackbone\businesslogic\managers /IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS-Plus-FAT\portable /IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS\Source\portable\GCC /IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS-Plus-TCP\portable /IE:\uetm\commutator\m3webbackbone\M3WebBackbone /IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS-Plus-FAT\portable\common /IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS\Source\portable\GCC\ARM_CM3 /IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS\portable\gcc\arm_cm3 /IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS-Plus-TCP\include /IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS-Plus-TCP\protocols\include /IE:\uetm\commutator\m3webbackbone\M3WebBackbone\businesslogic /IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS\Source /IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS-Plus-FAT /IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS /IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS\Source\include /IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS-Plus-TCP /IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS\Source\portable /IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS\Source\portable\MemMang">
+      <source file="..\..\..\FreeRTOS-Plus-TCP\protocols\HTTP\FreeRTOS_HTTP_commands.c" lastModified="157420eee3f">
+         <include file="..\..\..\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\protocols\include\FreeRTOS_HTTP_commands.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-TCP\FreeRTOS_UDP_IP.c" lastModified="157420eee8f">
+         <include file="..\..\..\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\task.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\queue.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\semphr.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_IP.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_Sockets.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_IP_Private.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_UDP_IP.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_ARP.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_DHCP.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\NetworkInterface.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\NetworkBufferManagement.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_DNS.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS\Source\list.c" lastModified="154cefaea42">
+         <include file="..\..\..\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\list.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-FAT\ff_crc.c" lastModified="157420ee5b1">
+         <include file="..\..\..\FreeRTOS-Plus-FAT\include\ff_headers.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-TCP\include\IPTraceMacroDefaults.h" lastModified="157420ee6bf">
+      </source>
+      <source file="..\..\..\FreeRTOS\Source\queue.c" lastModified="156937ef8aa">
+         <include file="..\..\..\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\task.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\queue.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\croutine.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS\Source\tasks.c" lastModified="156938b55c2">
+         <include file="..\..\..\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\task.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\timers.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\StackMacros.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-FAT\include\ff_headers.h" lastModified="157420ee9d5">
+         <include file="..\..\..\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\task.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\semphr.h"/>
+         <include file="..\..\..\businesslogic\configs\FreeRTOSFATConfig.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-FAT\include\FreeRTOSFATConfigDefaults.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-FAT\include\ff_error.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-FAT\include\ff_ioman.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-FAT\include\ff_fat.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-FAT\include\ff_fatdef.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-FAT\include\ff_memory.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-FAT\include\ff_time.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-FAT\include\ff_crc.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-FAT\include\ff_file.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-FAT\include\ff_dir.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-FAT\include\ff_string.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-FAT\include\ff_format.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-FAT\include\ff_locking.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-FAT\include\ff_old_config_defines.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-FAT\ff_string.c" lastModified="157420ef9bb">
+         <include file="..\..\..\FreeRTOS-Plus-FAT\include\ff_headers.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS\Source\include\list.h" lastModified="154cefae62b">
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-FAT\include\ff_sys.h" lastModified="157420ee63d">
+      </source>
+      <source file="..\..\..\FreeRTOS\Source\include\event_groups.h" lastModified="154cefae621">
+         <include file="..\..\..\FreeRTOS\Source\include\timers.h"/>
+      </source>
+      <source file="..\..\..\portable\LandTiger2\include\lpc17xx_gpio.h" lastModified="157b43676fa">
+         <include file="..\..\..\portable\LandTiger2\include\LPC17xx.h"/>
+         <include file="..\..\..\portable\LandTiger2\include\lpc_types.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS\Source\include\task.h" lastModified="156934b3e85">
+         <include file="..\..\..\FreeRTOS\Source\include\list.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-FAT\ff_dir.c" lastModified="157420ef17d">
+         <include file="..\..\..\FreeRTOS-Plus-FAT\include\ff_headers.h"/>
+      </source>
+      <source file="..\..\..\businesslogic\configs\ethernetMacConfig.h" lastModified="157b6f59a09">
+         <include file="..\..\..\portable\LandTiger2\include\lpc17xx_emac.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS\Source\include\StackMacros.h" lastModified="154cefae63f">
+      </source>
+      <source file="..\..\..\portable\LandTiger2\include\lpc_types.h" lastModified="157463e6e77">
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_TCP_IP.h" lastModified="157420ee6ab">
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-FAT\include\ff_time.h" lastModified="157420eea25">
+         <include file="..\..\..\businesslogic\configs\FreeRTOSFATConfig.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-FAT\include\ff_error.h" lastModified="157420ee5cf">
+      </source>
+      <source file="..\..\..\portable\LandTiger2\cmsis_boot\system_LPC17xx.c" lastModified="1577b6ecc4d">
+         <include file="..\..\..\portable\LandTiger2\include\LPC17xx.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_Sockets.h" lastModified="157420eea7f">
+         <include file="..\..\..\businesslogic\configs\FreeRTOSIPConfig.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\event_groups.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-FAT\ff_dev_support.c" lastModified="157420eed8b">
+         <include file="..\..\..\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\task.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\portable.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-FAT\include\ff_headers.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-FAT\include\ff_devices.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-FAT\include\FreeRTOS_errno_FAT.h" lastModified="157420ee65b">
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-TCP\include\NetworkInterface.h" lastModified="157420ee6dd">
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_IP.h" lastModified="157420ee679">
+         <include file="..\..\..\businesslogic\configs\FreeRTOSIPConfig.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOSIPConfigDefaults.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\IPTraceMacroDefaults.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\portable\Compiler\GCC\pack_struct_start.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\portable\Compiler\GCC\pack_struct_end.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS\Source\portable\GCC\ARM_CM3\portmacro.h" lastModified="1577aeb04a4">
+      </source>
+      <source file="..\..\..\FreeRTOS\Source\include\FreeRTOS.h" lastModified="15544123abb">
+         <include file="..\..\..\businesslogic\configs\FreeRTOSConfig.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\projdefs.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\portable.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_ARP.h" lastModified="157420ee647">
+         <include file="..\..\..\businesslogic\configs\FreeRTOSIPConfig.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOSIPConfigDefaults.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\IPTraceMacroDefaults.h"/>
+      </source>
+      <source file="..\..\..\businesslogic\main.c" lastModified="157b6f89c9a">
+         <include file="..\..\..\portable\LandTiger2\include\LPC17xx.h"/>
+         <include file="..\..\..\portable\LandTiger2\include\core_cm3.h"/>
+         <include file="..\..\..\businesslogic\configs\FreeRTOSConfig.h"/>
+         <include file="..\..\..\businesslogic\configs\FreeRTOSFATConfig.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\projdefs.h"/>
+         <include file="..\..\..\FreeRTOS\Source\portable\GCC\ARM_CM3\portmacro.h"/>
+         <include file="..\..\..\businesslogic\configs\FreeRTOSIPConfig.h"/>
+         <include file="..\..\..\businesslogic\managers\configurationManager.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-FAT\include\ff_devices.h" lastModified="157420ee5b1">
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-FAT\include\ff_string.h" lastModified="157420eee03">
+         <include file="..\..\..\businesslogic\configs\FreeRTOSFATConfig.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_DHCP.h" lastModified="157420ee651">
+         <include file="..\..\..\businesslogic\configs\FreeRTOSIPConfig.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\IPTraceMacroDefaults.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS\Source\include\timers.h" lastModified="156935f6437">
+         <include file="..\..\..\FreeRTOS\Source\include\task.h"/>
+      </source>
+      <source file="..\..\..\portable\LandTiger2\include\core_cmInstr.h" lastModified="157463e7259">
+      </source>
+      <source file="..\..\..\FreeRTOS\Source\include\portable.h" lastModified="154cefae62b">
+         <include file="..\..\..\FreeRTOS\Source\include\deprecated_definitions.h"/>
+         <include file="..\..\..\FreeRTOS\Source\portable\GCC\ARM_CM3\portmacro.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\mpu_wrappers.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS\Source\include\semphr.h" lastModified="155cf0900b1">
+         <include file="..\..\..\FreeRTOS\Source\include\queue.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS\Source\include\mpu_wrappers.h" lastModified="154cefae62b">
+      </source>
+      <source file="..\..\..\portable\LandTiger2\include\core_cmFunc.h" lastModified="157463e7259">
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-TCP\protocols\Common\FreeRTOS_TCP_server.c" lastModified="157420ef263">
+         <include file="..\..\..\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\task.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_IP.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_Sockets.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\protocols\include\FreeRTOS_TCP_server.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\protocols\include\FreeRTOS_server_private.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-FAT\ff_error.c" lastModified="157420ee9b7">
+         <include file="..\..\..\FreeRTOS-Plus-FAT\include\ff_headers.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_TCP_WIN.h" lastModified="157420ee6b5">
+      </source>
+      <source file="..\..\..\FreeRTOS\Source\include\projdefs.h" lastModified="154cefae635">
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-FAT\include\ff_crc.h" lastModified="157420ee5b1">
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-FAT\ff_format.c" lastModified="157420ef1a5">
+         <include file="..\..\..\FreeRTOS-Plus-FAT\include\ff_headers.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\task.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS\Source\include\queue.h" lastModified="155cf0a127c">
+      </source>
+      <source file="..\..\..\FreeRTOS\Source\portable\GCC\ARM_CM3\port.c" lastModified="15693ae107d">
+         <include file="..\..\..\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\task.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-TCP\FreeRTOS_DHCP.c" lastModified="157420eea39">
+         <include file="..\..\..\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\task.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\semphr.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_IP.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_Sockets.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_IP_Private.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_UDP_IP.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_TCP_IP.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_DHCP.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_ARP.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\NetworkInterface.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\NetworkBufferManagement.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\portable\Compiler\GCC\pack_struct_start.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\portable\Compiler\GCC\pack_struct_end.h"/>
+      </source>
+      <source file="..\..\..\portable\LandTiger2\lpc17xx_lib\lpc17xx_gpio.c" lastModified="157b438f1fd">
+         <include file="..\..\..\portable\LandTiger2\include\lpc17xx_gpio.h"/>
+         <include file="..\..\..\portable\LandTiger2\include\lpc17xx_libcfg_default.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_UDP_IP.h" lastModified="157420ee6bf">
+         <include file="..\..\..\businesslogic\configs\FreeRTOSIPConfig.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOSIPConfigDefaults.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\IPTraceMacroDefaults.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-TCP\include\NetworkBufferManagement.h" lastModified="157420ee6bf">
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOSIPConfigDefaults.h" lastModified="157420ee647">
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_errno_TCP.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-TCP\portable\Compiler\GCC\pack_struct_start.h" lastModified="157420ee6e7">
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-FAT\ff_fat.c" lastModified="157420ee9b7">
+         <include file="..\..\..\FreeRTOS-Plus-FAT\include\ff_headers.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_DNS.h" lastModified="157420ee65b">
+         <include file="..\..\..\businesslogic\configs\FreeRTOSIPConfig.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\IPTraceMacroDefaults.h"/>
+      </source>
+      <source file="..\..\..\businesslogic\configs\FreeRTOSConfig.h" lastModified="157b6fdb083">
+      </source>
+      <source file="..\..\..\portable\LandTiger2\include\lpc17xx_emac.h" lastModified="157b4fb529e">
+         <include file="..\..\..\portable\LandTiger2\include\LPC17xx.h"/>
+         <include file="..\..\..\portable\LandTiger2\include\lpc_types.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-FAT\include\ff_dir.h" lastModified="157420ee5c5">
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-FAT\include\FreeRTOSFATConfigDefaults.h" lastModified="157420ee63d">
+         <include file="..\..\..\FreeRTOS-Plus-FAT\include\FreeRTOS_errno_FAT.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-TCP\FreeRTOS_IP.c" lastModified="157420ef231">
+         <include file="..\..\..\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\task.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\queue.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\semphr.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_IP.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_Sockets.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_IP_Private.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_ARP.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_UDP_IP.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_TCP_IP.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_DHCP.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\NetworkInterface.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\NetworkBufferManagement.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_DNS.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-FAT\include\ff_stdio.h" lastModified="157420ef1e1">
+         <include file="..\..\..\FreeRTOS-Plus-FAT\include\ff_headers.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-FAT\include\ff_sys.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-FAT\include\ff_devices.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-FAT\include\ff_format.h" lastModified="157420ee5ed">
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-FAT\portable\common\ff_ramdisk.h" lastModified="157420ee60b">
+         <include file="..\..\..\FreeRTOS-Plus-FAT\include\ff_headers.h"/>
+      </source>
+      <source file="..\..\..\portable\LandTiger2\cmsis_boot\startup\startup_LPC17xx.c" lastModified="157463e6a81">
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-FAT\portable\common\ff_ramdisk.c" lastModified="157420ef5ab">
+         <include file="..\..\..\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\task.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\semphr.h"/>
+         <include file="..\..\..\FreeRTOS\Source\portable\GCC\ARM_CM3\portmacro.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-FAT\include\ff_headers.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-FAT\portable\common\ff_ramdisk.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-FAT\include\ff_sys.h"/>
+      </source>
+      <source file="..\..\..\portable\LandTiger2\include\system_LPC17xx.h" lastModified="157463e6e6b">
+      </source>
+      <source file="..\..\..\portable\LandTiger2\include\kit1768.h" lastModified="157b4352b5f">
+         <include file="..\..\..\portable\LandTiger2\include\lpc17xx_clkpwr.h"/>
+         <include file="..\..\..\portable\LandTiger2\include\lpc17xx_gpio.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-TCP\portable\NetworkInterface\LPC1768\NetworkInterface.c" lastModified="157b4fb68e6">
+         <include file="..\..\..\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\task.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\queue.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\semphr.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_IP.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_Sockets.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_IP_Private.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\NetworkBufferManagement.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\NetworkInterface.h"/>
+         <include file="..\..\..\portable\LandTiger2\include\lpc17xx_emac.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-FAT\include\ff_fatdef.h" lastModified="157420ee5d9">
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_errno_TCP.h" lastModified="157420ee65b">
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-TCP\FreeRTOS_Sockets.c" lastModified="157420eee5d">
+         <include file="..\..\..\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\task.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\queue.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\semphr.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_UDP_IP.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_IP.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_Sockets.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_IP_Private.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_DNS.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\NetworkBufferManagement.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-FAT\ff_file.c" lastModified="157420ee9cb">
+         <include file="..\..\..\FreeRTOS-Plus-FAT\include\ff_headers.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-TCP\protocols\include\FreeRTOS_TCP_server.h" lastModified="157420ee6ab">
+      </source>
+      <source file="..\..\..\portable\LandTiger2\lpc17xx_lib\lpc17xx_clkpwr.c" lastModified="157b43802e9">
+         <include file="..\..\..\portable\LandTiger2\include\lpc17xx_clkpwr.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-FAT\include\ff_ioman.h" lastModified="157420ee9df">
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-FAT\ff_locking.c" lastModified="157420ef1af">
+         <include file="..\..\..\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-FAT\include\ff_headers.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\event_groups.h"/>
+      </source>
+      <source file="..\..\..\businesslogic\managers\configurationManager.h" lastModified="157b497d782">
+      </source>
+      <source file="..\..\..\FreeRTOS\Source\portable\MemMang\heap_2.c" lastModified="154cefaed09">
+         <include file="..\..\..\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\task.h"/>
+      </source>
+      <source file="..\..\..\businesslogic\managers\configurationManager.c" lastModified="157b4a044d7">
+         <include file="..\..\..\businesslogic\managers\configurationManager.h"/>
+         <include file="..\..\..\portable\LandTiger2\include\system_LPC17xx.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-FAT\ff_memory.c" lastModified="157420ee601">
+         <include file="..\..\..\FreeRTOS-Plus-FAT\include\ff_headers.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-TCP\FreeRTOS_TCP_WIN.c" lastModified="157420eea9d">
+         <include file="..\..\..\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\task.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\queue.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\semphr.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_UDP_IP.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_IP.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_Sockets.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_IP_Private.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\NetworkBufferManagement.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_TCP_WIN.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-FAT\ff_sys.c" lastModified="157420eee03">
+         <include file="..\..\..\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\task.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\portable.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-FAT\include\ff_headers.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-FAT\include\ff_sys.h"/>
+      </source>
+      <source file="..\..\..\portable\LandTiger2\include\core_cm3.h" lastModified="157b4347e28">
+         <include file="..\..\..\portable\LandTiger2\include\core_cmInstr.h"/>
+         <include file="..\..\..\portable\LandTiger2\include\core_cmFunc.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-TCP\protocols\include\FreeRTOS_server_private.h" lastModified="157420ee683">
+         <include file="..\..\..\FreeRTOS-Plus-FAT\include\ff_stdio.h"/>
+      </source>
+      <source file="..\..\..\portable\LandTiger2\lpc17xx_lib\lpc17xx_libcfg_default.c" lastModified="157b4391fd3">
+         <include file="..\..\..\portable\LandTiger2\include\lpc17xx_libcfg_default.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-TCP\FreeRTOS_TCP_IP.c" lastModified="157422571f2">
+         <include file="..\..\..\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\task.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\queue.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\semphr.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_IP.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_Sockets.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_IP_Private.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_UDP_IP.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_TCP_IP.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_DHCP.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\NetworkInterface.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\NetworkBufferManagement.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_ARP.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_TCP_WIN.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS\Source\event_groups.c" lastModified="1567e2d560c">
+         <include file="..\..\..\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\task.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\timers.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\event_groups.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-FAT\ff_stdio.c" lastModified="157420eea11">
+         <include file="..\..\..\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\task.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\portable.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-FAT\include\ff_headers.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-FAT\include\ff_stdio.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-TCP\FreeRTOS_ARP.c" lastModified="157420eee17">
+         <include file="..\..\..\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\task.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\queue.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\semphr.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_IP.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_Sockets.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_IP_Private.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_ARP.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_UDP_IP.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_DHCP.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_DNS.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\NetworkInterface.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\NetworkBufferManagement.h"/>
+      </source>
+      <source file="..\..\..\portable\LandTiger2\include\lpc17xx_clkpwr.h" lastModified="157b4357a6a">
+         <include file="..\..\..\portable\LandTiger2\include\LPC17xx.h"/>
+         <include file="..\..\..\portable\LandTiger2\include\lpc_types.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_IP_Private.h" lastModified="157420ee683">
+         <include file="..\..\..\businesslogic\configs\FreeRTOSIPConfig.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOSIPConfigDefaults.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_Sockets.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\IPTraceMacroDefaults.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_Stream_Buffer.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_TCP_WIN.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_TCP_IP.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\event_groups.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\portable\Compiler\GCC\pack_struct_start.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\portable\Compiler\GCC\pack_struct_end.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\portable\Compiler\GCC\pack_struct_start.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\portable\Compiler\GCC\pack_struct_end.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\portable\Compiler\GCC\pack_struct_start.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\portable\Compiler\GCC\pack_struct_end.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\portable\Compiler\GCC\pack_struct_start.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\portable\Compiler\GCC\pack_struct_end.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\portable\Compiler\GCC\pack_struct_start.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\portable\Compiler\GCC\pack_struct_end.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\portable\Compiler\GCC\pack_struct_start.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\portable\Compiler\GCC\pack_struct_end.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\portable\Compiler\GCC\pack_struct_start.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\portable\Compiler\GCC\pack_struct_end.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\portable\Compiler\GCC\pack_struct_start.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\portable\Compiler\GCC\pack_struct_end.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\portable\Compiler\GCC\pack_struct_start.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\portable\Compiler\GCC\pack_struct_end.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\portable\Compiler\GCC\pack_struct_start.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\portable\Compiler\GCC\pack_struct_end.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\portable\Compiler\GCC\pack_struct_start.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\portable\Compiler\GCC\pack_struct_end.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\portable\Compiler\GCC\pack_struct_start.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\portable\Compiler\GCC\pack_struct_end.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\portable\Compiler\GCC\pack_struct_start.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\portable\Compiler\GCC\pack_struct_end.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\portable\Compiler\GCC\pack_struct_start.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\portable\Compiler\GCC\pack_struct_end.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-FAT\include\ff_memory.h" lastModified="157420ee601">
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-TCP\FreeRTOS_Stream_Buffer.c" lastModified="157420eea7f">
+         <include file="..\..\..\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\task.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\semphr.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_UDP_IP.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_IP.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_Sockets.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_IP_Private.h"/>
+      </source>
+      <source file="..\..\..\businesslogic\configs\FreeRTOSFATConfig.h" lastModified="157b518c9ff">
+      </source>
+      <source file="..\..\..\portable\LandTiger2\lpc17xx_lib\lpc17xx_pinsel.c" lastModified="157b4393ed4">
+         <include file="..\..\..\portable\LandTiger2\include\lpc17xx_pinsel.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS\Source\timers.c" lastModified="15693930a60">
+         <include file="..\..\..\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\task.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\queue.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\timers.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-TCP\protocols\HTTP\FreeRTOS_HTTP_server.c" lastModified="157b4b99d8a">
+         <include file="..\..\..\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\task.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_IP.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_Sockets.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\protocols\include\FreeRTOS_HTTP_commands.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\protocols\include\FreeRTOS_TCP_server.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\protocols\include\FreeRTOS_server_private.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-FAT\include\ff_stdio.h"/>
+      </source>
+      <source file="..\..\..\portable\LandTiger2\include\lpc17xx_libcfg_default.h" lastModified="157b436b75e">
+         <include file="..\..\..\portable\LandTiger2\include\lpc_types.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-TCP\portable\Compiler\GCC\pack_struct_end.h" lastModified="157420ee6e7">
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-FAT\include\ff_locking.h" lastModified="157420ee9e9">
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-FAT\ff_ioman.c" lastModified="157420eedc7">
+         <include file="..\..\..\FreeRTOS-Plus-FAT\include\ff_headers.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-FAT\include\ff_old_config_defines.h" lastModified="157420ee60b">
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-TCP\portable\BufferManagement\BufferAllocation_2.c" lastModified="157420ee999">
+         <include file="..\..\..\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\task.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\semphr.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_IP.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_UDP_IP.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_IP_Private.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\NetworkInterface.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\NetworkBufferManagement.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_Stream_Buffer.h" lastModified="157420ee697">
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-FAT\ff_time.c" lastModified="157420ef1f5">
+         <include file="..\..\..\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\task.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-FAT\include\ff_time.h"/>
+      </source>
+      <source file="..\..\..\portable\LandTiger2\lpc17xx_lib\lpc17xx_emac.c" lastModified="157b43848ad">
+         <include file="..\..\..\portable\LandTiger2\include\lpc17xx_emac.h"/>
+         <include file="..\..\..\portable\LandTiger2\include\lpc17xx_clkpwr.h"/>
+         <include file="..\..\..\portable\LandTiger2\include\lpc17xx_libcfg_default.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-FAT\include\ff_fat.h" lastModified="157420ee5d9">
+      </source>
+      <source file="..\..\..\portable\LandTiger2\include\lpc17xx_pinsel.h" lastModified="157b436e573">
+         <include file="..\..\..\portable\LandTiger2\include\LPC17xx.h"/>
+         <include file="..\..\..\portable\LandTiger2\include\lpc_types.h"/>
+      </source>
+      <source file="..\..\..\portable\LandTiger2\include\LPC17xx.h" lastModified="157b489faf7">
+         <include file="..\..\..\portable\LandTiger2\include\core_cm3.h"/>
+         <include file="..\..\..\portable\LandTiger2\include\system_LPC17xx.h"/>
+      </source>
+      <source file="..\..\..\portable\LandTiger2\kit1768\kit1768.c" lastModified="157b437bd07">
+         <include file="..\..\..\portable\LandTiger2\include\kit1768.h"/>
+         <include file="..\..\..\portable\LandTiger2\include\lpc_types.h"/>
+         <include file="..\..\..\portable\LandTiger2\include\lpc17xx_clkpwr.h"/>
+         <include file="..\..\..\portable\LandTiger2\include\lpc17xx_gpio.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS\Source\include\croutine.h" lastModified="154cefae617">
+         <include file="..\..\..\FreeRTOS\Source\include\list.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-FAT\include\ff_file.h" lastModified="157420ee5e3">
+      </source>
+      <source file="..\..\..\businesslogic\configs\FreeRTOSIPConfig.h" lastModified="157b491a794">
+         <include file="..\..\..\businesslogic\configs\ethernetMacConfig.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-TCP\FreeRTOS_DNS.c" lastModified="157420eea39">
+         <include file="..\..\..\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\task.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\queue.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\list.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\semphr.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_IP.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_Sockets.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_IP_Private.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_UDP_IP.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_DNS.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\NetworkBufferManagement.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\NetworkInterface.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\IPTraceMacroDefaults.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\portable\Compiler\GCC\pack_struct_start.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\portable\Compiler\GCC\pack_struct_end.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\portable\Compiler\GCC\pack_struct_start.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\portable\Compiler\GCC\pack_struct_end.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\portable\Compiler\GCC\pack_struct_start.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\portable\Compiler\GCC\pack_struct_end.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\portable\Compiler\GCC\pack_struct_start.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\portable\Compiler\GCC\pack_struct_end.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\portable\Compiler\GCC\pack_struct_start.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\portable\Compiler\GCC\pack_struct_end.h"/>
+      </source>
+      <source file="..\..\..\FreeRTOS-Plus-TCP\protocols\include\FreeRTOS_HTTP_commands.h" lastModified="157420ee66f">
+      </source>
+   </includePath>
+</dependencies>

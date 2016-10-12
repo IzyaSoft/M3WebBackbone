@@ -14,7 +14,7 @@
 #define configUSE_TASK_NOTIFICATIONS            1
 #define configUSE_MUTEXES                       1
 #define configUSE_RECURSIVE_MUTEXES             1
-#define configUSE_COUNTING_SEMAPHORES           0
+#define configUSE_COUNTING_SEMAPHORES           1
 #define configUSE_ALTERNATIVE_API               0 /* Deprecated! */
 #define configQUEUE_REGISTRY_SIZE               10
 #define configUSE_QUEUE_SETS                    0
@@ -27,7 +27,7 @@
 #define configSUPPORT_STATIC_ALLOCATION         1
 #define configSUPPORT_DYNAMIC_ALLOCATION        1
 #define configTOTAL_HEAP_SIZE                   10240
-#define configAPPLICATION_ALLOCATED_HEAP        1
+#define configAPPLICATION_ALLOCATED_HEAP        0 // 1 we should allocate somewhere
 
 /* Hook function related definitions. */
 #define configUSE_IDLE_HOOK                     0
@@ -50,8 +50,6 @@
 #define configTIMER_TASK_PRIORITY               3
 #define configTIMER_QUEUE_LENGTH                10
 #define configTIMER_TASK_STACK_DEPTH            configMINIMAL_STACK_SIZE
-
-//#define configUSE_COUNTING_SEMAPHORES 1
 
 /* Interrupt nesting behaviour configuration. */
 //#define configKERNEL_INTERRUPT_PRIORITY         [dependent of processor]
