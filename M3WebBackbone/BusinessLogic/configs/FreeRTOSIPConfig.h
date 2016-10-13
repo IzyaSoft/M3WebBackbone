@@ -284,6 +284,8 @@ available in all the FreeRTOS+TCP source files. */
 #define ipconfigZERO_COPY_TX_DRIVER			0
 */
 
+//#define ipconfigUSE_CALLBACKS				1
+
 
 /* UDP Logging related constants follow.  The standard UDP logging facility
 writes formatted strings to a buffer, and creates a task that removes messages

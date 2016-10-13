@@ -179,11 +179,11 @@ SocketSet_t xSocketSet;
 
 static void prvReceiveNewClient( TCPServer_t *pxServer, BaseType_t xIndex, Socket_t xNexSocket )
 {
-TCPClient_t *pxClient = NULL;
-BaseType_t xSize = 0;
-FTCPWorkFunction fWorkFunc = NULL;
-FTCPDeleteFunction fDeleteFunc = NULL;
-const char *pcType = "Unknown";
+    TCPClient_t *pxClient = NULL;
+    BaseType_t xSize = 0;
+    FTCPWorkFunction fWorkFunc = NULL;
+    FTCPDeleteFunction fDeleteFunc = NULL;
+    const char *pcType = "Unknown";
 
 	/*_RB_ Can the work and delete functions be part of the xSERVER_CONFIG structure
 	becomes generic, with no pre-processing required? */
@@ -212,21 +212,21 @@ const char *pcType = "Unknown";
 	#endif /* ipconfigUSE_FTP != 0 */
 
 	/* Malloc enough space for a new HTTP-client */
-	if( xSize )
+	if(xSize)
 	{
 		pxClient = ( TCPClient_t* ) pvPortMallocLarge( xSize );
 	}
 
 	if( pxClient != NULL )
 	{
-		memset( pxClient, '\0', xSize );
+		memset(pxClient, '\0', xSize);
 
-		/* Put the new client in front of the list. */
+		// Put the new client in front of the list.
 		pxClient->eType = pxServer->xServers[ xIndex ].eType;
 		pxClient->pcRootDir = pxServer->xServers[ xIndex ].pcRootDir;
 		pxClient->pxParent = pxServer;
 		pxClient->xSocket = xNexSocket;
-		pxClient->pxNextClient = pxServer->pxClients;
+	    pxClient->pxNextClient = pxServer->pxClients;
 		pxClient->fWorkFunction = fWorkFunc;
 		pxClient->fDeleteFunction = fDeleteFunc;
 		pxServer->pxClients = pxClient;
@@ -246,34 +246,32 @@ const char *pcType = "Unknown";
 }
 /*-----------------------------------------------------------*/
 
-void FreeRTOS_TCPServerWork( TCPServer_t *pxServer, TickType_t xBlockingTime )
+void FreeRTOS_TCPServerWork(TCPServer_t *pxServer, TickType_t xBlockingTime)
 {
-TCPClient_t **ppxClient;
-BaseType_t xIndex;
-BaseType_t xRc;
+    TCPClient_t **ppxClient;
+    BaseType_t xIndex;
+    BaseType_t xRc;
 
 	/* Let the server do one working cycle */
 	xRc = FreeRTOS_select( pxServer->xSocketSet, xBlockingTime );
 
-	if( xRc != 0 )
+	if(xRc != 0)
 	{
-		for( xIndex = 0; xIndex < pxServer->xServerCount; xIndex++ )
+		for(xIndex = 0; xIndex < pxServer->xServerCount; xIndex++)
 		{
-		struct freertos_sockaddr xAddress;
-		Socket_t xNexSocket;
-		socklen_t xSocketLength;
+		    struct freertos_sockaddr xAddress;
+		    Socket_t xNexSocket;
+		    socklen_t xSocketLength;
 
-			if( pxServer->xServers[ xIndex ].xSocket == FREERTOS_NO_SOCKET )
-			{
+			if(pxServer->xServers[xIndex].xSocket == FREERTOS_NO_SOCKET)
 				continue;
-			}
 
-			xSocketLength = sizeof( xAddress );
+			xSocketLength = sizeof(xAddress);
 			xNexSocket = FreeRTOS_accept( pxServer->xServers[ xIndex ].xSocket, &xAddress, &xSocketLength);
 
-			if( ( xNexSocket != FREERTOS_NO_SOCKET ) && ( xNexSocket != FREERTOS_INVALID_SOCKET ) )
+			if((xNexSocket != FREERTOS_NO_SOCKET ) && ( xNexSocket != FREERTOS_INVALID_SOCKET))
 			{
-				prvReceiveNewClient( pxServer, xIndex, xNexSocket );
+				prvReceiveNewClient(pxServer, xIndex, xNexSocket);
 			}
 		}
 	}
@@ -282,17 +280,16 @@ BaseType_t xRc;
 
 	while( ( * ppxClient ) != NULL )
 	{
-	TCPClient_t *pxThis = *ppxClient;
-
-		/* Almost C++ */
+	    TCPClient_t *pxThis = *ppxClient;
+		//Almost C++
 		xRc = pxThis->fWorkFunction( pxThis );
 
 		if (xRc < 0 )
 		{
 			*ppxClient = pxThis->pxNextClient;
-			/* Close handles, resources */
+			//Close handles, resources
 			pxThis->fDeleteFunction( pxThis );
-			/* Free the space */
+			//Free the space
 			vPortFreeLarge( pxThis );
 		}
 		else

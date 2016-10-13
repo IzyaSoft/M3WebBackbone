@@ -2212,12 +2212,12 @@ void vSocketWakeUpUser( FreeRTOS_Socket_t *pxSocket )
 	 */
 	BaseType_t FreeRTOS_recv( Socket_t xSocket, void *pvBuffer, size_t xBufferLength, BaseType_t xFlags )
 	{
-	BaseType_t xByteCount;
-	FreeRTOS_Socket_t *pxSocket = ( FreeRTOS_Socket_t * ) xSocket;
-	TickType_t xRemainingTime;
-	BaseType_t xTimed = pdFALSE;
-	TimeOut_t xTimeOut;
-	EventBits_t xEventBits = ( EventBits_t ) 0;
+	    BaseType_t xByteCount;
+	    FreeRTOS_Socket_t *pxSocket = ( FreeRTOS_Socket_t * ) xSocket;
+	    TickType_t xRemainingTime;
+	    BaseType_t xTimed = pdFALSE;
+	    TimeOut_t xTimeOut;
+	    EventBits_t xEventBits = ( EventBits_t ) 0;
 
 		/* Check if the socket is valid, has type TCP and if it is bound to a
 		port. */
@@ -2240,15 +2240,15 @@ void vSocketWakeUpUser( FreeRTOS_Socket_t *pxSocket )
 			{
 				switch( pxSocket->u.xTCP.ucTCPState )
 				{
-				case eCLOSED:
-				case eCLOSE_WAIT:	/* (server + client) waiting for a connection termination request from the local user. */
-				case eCLOSING:		/* (server + client) waiting for a connection termination request acknowledgement from the remote TCP. */
-					if( pxSocket->u.xTCP.bits.bMallocError != pdFALSE_UNSIGNED )
-					{
-						/* The no-memory error has priority above the non-connected error.
-						Both are fatal and will elad to closing the socket. */
-						xByteCount = -pdFREERTOS_ERRNO_ENOMEM;
-					}
+				    case eCLOSED:
+				    case eCLOSE_WAIT:	/* (server + client) waiting for a connection termination request from the local user. */
+				    case eCLOSING:		/* (server + client) waiting for a connection termination request acknowledgement from the remote TCP. */
+					    if( pxSocket->u.xTCP.bits.bMallocError != pdFALSE_UNSIGNED )
+					    {
+						    /* The no-memory error has priority above the non-connected error.
+						    Both are fatal and will elad to closing the socket. */
+						    xByteCount = -pdFREERTOS_ERRNO_ENOMEM;
+					    }
 					else
 					{
 						xByteCount = -pdFREERTOS_ERRNO_ENOTCONN;
@@ -2256,8 +2256,8 @@ void vSocketWakeUpUser( FreeRTOS_Socket_t *pxSocket )
 					/* Call continue to break out of the switch and also the while
 					loop. */
 					continue;
-				default:
-					break;
+				    default:
+					    break;
 				}
 
 				if( xTimed == pdFALSE )
@@ -2373,7 +2373,7 @@ void vSocketWakeUpUser( FreeRTOS_Socket_t *pxSocket )
 
 	static int32_t prvTCPSendCheck( FreeRTOS_Socket_t *pxSocket, size_t xDataLength )
 	{
-	int32_t xResult = 1;
+	    int32_t xResult = 1;
 
 		/* Is this a socket of type TCP and is it already bound to a port number ? */
 		if( prvValidSocket( pxSocket, FREERTOS_IPPROTO_TCP, pdTRUE ) == pdFALSE )
@@ -2454,13 +2454,13 @@ void vSocketWakeUpUser( FreeRTOS_Socket_t *pxSocket )
 	 */
 	BaseType_t FreeRTOS_send( Socket_t xSocket, const void *pvBuffer, size_t uxDataLength, BaseType_t xFlags )
 	{
-	BaseType_t xByteCount;
-	BaseType_t xBytesLeft;
-	FreeRTOS_Socket_t *pxSocket = ( FreeRTOS_Socket_t * ) xSocket;
-	TickType_t xRemainingTime;
-	BaseType_t xTimed = pdFALSE;
-	TimeOut_t xTimeOut;
-	BaseType_t xCloseAfterSend;
+	    BaseType_t xByteCount;
+	    BaseType_t xBytesLeft;
+	    FreeRTOS_Socket_t *pxSocket = ( FreeRTOS_Socket_t * ) xSocket;
+	    TickType_t xRemainingTime;
+	    BaseType_t xTimed = pdFALSE;
+	    TimeOut_t xTimeOut;
+	    BaseType_t xCloseAfterSend;
 
 		/* Prevent compiler warnings about unused parameters.  The parameter
 		may be used in future versions. */
@@ -2883,9 +2883,9 @@ void vSocketWakeUpUser( FreeRTOS_Socket_t *pxSocket )
 
 	static StreamBuffer_t *prvTCPCreateStream ( FreeRTOS_Socket_t *pxSocket, BaseType_t xIsInputStream )
 	{
-	StreamBuffer_t *pxBuffer;
-	size_t uxLength;
-	size_t uxSize;
+	    StreamBuffer_t *pxBuffer;
+	    size_t uxLength;
+	    size_t uxSize;
 
 		/* Now that a stream is created, the maximum size is fixed before
 		creation, it could still be changed with setsockopt(). */

@@ -192,13 +192,13 @@ static BaseType_t prvSendFile( HTTPClient_t *pxClient )
     size_t uxCount;
     BaseType_t xRc = 0;
 
-	if( pxClient->bits.bReplySent == pdFALSE_UNSIGNED )
+	if(pxClient->bits.bReplySent == pdFALSE_UNSIGNED)
 	{
 		pxClient->bits.bReplySent = pdTRUE_UNSIGNED;
 
-		strcpy( pxClient->pxParent->pcContentsType, pcGetContentsType( pxClient->pcCurrentFilename ) );
-		snprintf( pxClient->pxParent->pcExtraContents, sizeof( pxClient->pxParent->pcExtraContents ),
-			"Content-Length: %d\r\n", ( int ) pxClient->uxBytesLeft );
+		strcpy(pxClient->pxParent->pcContentsType, pcGetContentsType( pxClient->pcCurrentFilename));
+		snprintf(pxClient->pxParent->pcExtraContents, sizeof(pxClient->pxParent->pcExtraContents),
+			    "Content-Length: %d\r\n", (int) pxClient->uxBytesLeft );
 
 		/* "Requested file action OK". */
 		xRc = prvSendReply( pxClient, WEB_REPLY_OK );
@@ -352,21 +352,21 @@ static BaseType_t prvProcessCmd( HTTPClient_t *pxClient, BaseType_t xIndex )
 BaseType_t xHTTPClientWork( TCPClient_t *pxTCPClient )
 {
     BaseType_t xRc;
-    HTTPClient_t *pxClient = ( HTTPClient_t * ) pxTCPClient;
+    HTTPClient_t *pxClient = (HTTPClient_t *) pxTCPClient;
 
 	if( pxClient->pxFileHandle != NULL )
 	{
-		prvSendFile( pxClient );
+		prvSendFile(pxClient);
 	}
 
-	xRc = FreeRTOS_recv( pxClient->xSocket, ( void * )pcCOMMAND_BUFFER, sizeof( pcCOMMAND_BUFFER ), 0 );
+	xRc = FreeRTOS_recv(pxClient->xSocket, ( void * )pcCOMMAND_BUFFER, sizeof( pcCOMMAND_BUFFER ), 0);
 
 	if( xRc > 0 )
 	{
-	BaseType_t xIndex;
-	const char *pcEndOfCmd;
-	const struct xWEB_COMMAND *curCmd;
-	char *pcBuffer = pcCOMMAND_BUFFER;
+	    BaseType_t xIndex;
+	    const char *pcEndOfCmd;
+	    const struct xWEB_COMMAND *curCmd;
+	    char *pcBuffer = pcCOMMAND_BUFFER;
 
 		if( xRc < ( BaseType_t ) sizeof( pcCOMMAND_BUFFER ) )
 		{
@@ -392,7 +392,7 @@ BaseType_t xHTTPClientWork( TCPClient_t *pxTCPClient )
 		BaseType_t xLength;
 
 			xLength = curCmd->xCommandLength;
-			if( ( xRc >= xLength ) && ( memcmp( curCmd->pcCommandName, pcBuffer, xLength ) == 0 ) )
+			if( ( xRc >= xLength ) && (memcmp(curCmd->pcCommandName, pcBuffer, xLength) == 0))
 			{
 			char *pcLastPtr;
 
@@ -416,7 +416,7 @@ BaseType_t xHTTPClientWork( TCPClient_t *pxTCPClient )
 			xRc = prvProcessCmd( pxClient, xIndex );
 		}
 	}
-	else if( xRc < 0 )
+	else if(xRc < 0)
 	{
 		/* The connection will be closed and the client will be deleted. */
 		FreeRTOS_printf( ( "xHTTPClientWork: rc = %ld\n", xRc ) );
