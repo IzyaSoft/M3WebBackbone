@@ -13,6 +13,7 @@
 /* Hardware*/
 #include "LPC17xx.h"
 #include "core_cm3.h"
+#include "kit1768.h"
 
 /* Application*/
 #include "staticAllocationImpl.h"
@@ -30,17 +31,18 @@ const uint8_t APP_DEFAULT_NETMASK[] = {255, 255, 255, 0};
 const uint8_t APP_DEFAULT_GATEWAY[] = {192, 168, 200, 1};
 const uint8_t APP_DEFAULT_NAMESERVER[] = {192, 168, 200, 1};
 // Task Handle
-static TaskHandle_t xServerWorkTaskHandle = NULL;
+static TaskHandle_t xWebServerTaskHandle = NULL;
 
-void prvServerWorkTask(void *pvParameters);
+void prvWebServerTask(void *pvParameters);
 
 int main()
 {
+	// Hardware Initialization
     InitializeClocks();
-
+    KIT1768_Init();
     // IP initialization in FreeRTOS
     FreeRTOS_IPInit(APP_DEFAULT_IP_ADDRESS, APP_DEFAULT_NETMASK, APP_DEFAULT_GATEWAY, APP_DEFAULT_NAMESERVER, ETHERNET_MAC_ADDRESS);
-    BaseType_t result = xTaskCreate(prvServerWorkTask, "M3WebServer", mainWEB_SERVER_STACK_SIZE, NULL, tskIDLE_PRIORITY, &xServerWorkTaskHandle);
+    BaseType_t result = xTaskCreate(prvWebServerTask, "M3WebServer", mainWEB_SERVER_STACK_SIZE, NULL, tskIDLE_PRIORITY, &xWebServerTaskHandle);
     // to do: add other tasks
 
     // start schedule
@@ -49,7 +51,7 @@ int main()
     return 0;
 }
 
-void prvServerWorkTask(void *pvParameters)
+void prvWebServerTask(void *pvParameters)
 {
     TCPServer_t *pxTCPServer = NULL;
     const TickType_t xInitialBlockTime = pdMS_TO_TICKS( 5000UL );
@@ -83,4 +85,33 @@ void prvServerWorkTask(void *pvParameters)
     {
         FreeRTOS_TCPServerWork(pxTCPServer, xInitialBlockTime );
     }
+}
+
+void vApplicationStackOverflowHook(TaskHandle_t pxTask, signed char *pcTaskName)
+{
+	( void ) pcTaskName;
+	( void ) pxTask;
+
+	/* Run time stack overflow checking is performed if
+	configCHECK_FOR_STACK_OVERFLOW is defined to 1 or 2.  This hook
+	function is called if a stack overflow is detected. */
+	taskDISABLE_INTERRUPTS();
+	for( ;; );
+}
+/*-----------------------------------------------------------*/
+
+void vApplicationMallocFailedHook( void )
+{
+	/* vApplicationMallocFailedHook() will only be called if
+	configUSE_MALLOC_FAILED_HOOK is set to 1 in FreeRTOSConfig.h.  It is a hook
+	function that will get called if a call to pvPortMalloc() fails.
+	pvPortMalloc() is called internally by the kernel whenever a task, queue,
+	timer or semaphore is created.  It is also called by various parts of the
+	demo application.  If heap_1.c or heap_2.c are used, then the size of the
+	heap available to pvPortMalloc() is defined by configTOTAL_HEAP_SIZE in
+	FreeRTOSConfig.h, and the xPortGetFreeHeapSize() API function can be used
+	to query the size of free heap space that remains (although it does not
+	provide information on how the remaining heap might be fragmented). */
+	taskDISABLE_INTERRUPTS();
+	for( ;; );
 }

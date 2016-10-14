@@ -210,7 +210,7 @@ void Default_Reset_Handler(void)
 #pragma weak SVC_Handler = Default_Handler           
 #pragma weak DebugMon_Handler = Default_Handler      
 #pragma weak PendSV_Handler = Default_Handler        
-#pragma weak SysTick_Handler = Default_Handler       
+#pragma weak SysTick_Handler = Default_Handler
 #pragma weak WDT_IRQHandler = Default_Handler        
 #pragma weak TIMER0_IRQHandler = Default_Handler     
 #pragma weak TIMER1_IRQHandler = Default_Handler     
@@ -258,9 +258,9 @@ void Default_Reset_Handler(void)
 static void Default_Handler(void) 
 {
 	/* Go into an infinite loop. */
-	while (1) 
+	/*while (1)
 	{
-	}
+	}*/
 }
 
 /*********************** (C) COPYRIGHT 2009 Coocox ************END OF FILE*****/

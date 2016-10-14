@@ -14,6 +14,7 @@ void InitializeClocks()
 void InitializeGPIO()
 {
 #ifdef LPC1768
+	SystemCoreClockUpdate();
 	InitializeLPC1768GPIO();
 #endif
 }

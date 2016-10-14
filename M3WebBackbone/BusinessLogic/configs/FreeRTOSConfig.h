@@ -4,12 +4,12 @@
 #include "staticAllocationImpl.h"
 
 #define configUSE_PREEMPTION                    1
-#define configUSE_PORT_OPTIMISED_TASK_SELECTION 0
-#define configUSE_TICKLESS_IDLE                 0
-#define configCPU_CLOCK_HZ                      60000000
+#define configUSE_PORT_OPTIMISED_TASK_SELECTION 1
+#define configUSE_TICKLESS_IDLE                 1
+#define configCPU_CLOCK_HZ                      72000000UL//72000000UL
 #define configTICK_RATE_HZ                      250
 #define configMAX_PRIORITIES                    8
-#define configMINIMAL_STACK_SIZE                128
+#define configMINIMAL_STACK_SIZE                130
 #define configMAX_TASK_NAME_LEN                 16
 #define configUSE_16_BIT_TICKS                  0
 #define configIDLE_SHOULD_YIELD                 1
@@ -18,7 +18,7 @@
 #define configUSE_RECURSIVE_MUTEXES             1
 #define configUSE_COUNTING_SEMAPHORES           1
 #define configUSE_ALTERNATIVE_API               0 /* Deprecated! */
-#define configQUEUE_REGISTRY_SIZE               10
+#define configQUEUE_REGISTRY_SIZE               32
 #define configUSE_QUEUE_SETS                    0
 #define configUSE_TIME_SLICING                  0
 #define configUSE_NEWLIB_REENTRANT              0
@@ -61,12 +61,12 @@
 //#define configKERNEL_INTERRUPT_PRIORITY         [dependent of processor]
 //#define configMAX_SYSCALL_INTERRUPT_PRIORITY    [dependent on processor and application]
 //#define configMAX_API_CALL_INTERRUPT_PRIORITY   [dependent on processor and application]
-#define configKERNEL_INTERRUPT_PRIORITY 255
-#define configMAX_SYSCALL_INTERRUPT_PRIORITY 191
+#define configKERNEL_INTERRUPT_PRIORITY         255
+#define configMAX_SYSCALL_INTERRUPT_PRIORITY    5//191
 #define configLIBRARY_KERNEL_INTERRUPT_PRIORITY 15
 
 /* Define to trap errors during development. */
-//#define configASSERT( ( x ) ) if( ( x ) == 0 ) vAssertCalled( __FILE__, __LINE__ )
+//#define configASSERT( x ) if( ( x ) == 0 ) vAssertCalled( __FILE__, __LINE__ )
 
 /* FreeRTOS MPU specific definitions. */
 #define configINCLUDE_APPLICATION_DEFINED_PRIVILEGED_FUNCTIONS 0
@@ -89,5 +89,13 @@
 #define INCLUDE_xTaskAbortDelay                 0
 #define INCLUDE_xTaskGetHandle                  0
 #define INCLUDE_xTaskResumeFromISR              1
+
+
+/*
+#define vPortSVCHandler SVC_Handler
+#define xPortPendSVHandler PendSV_Handler
+#define xPortSysTickHandler SysTick_Handler
+*/
+
 
 #endif

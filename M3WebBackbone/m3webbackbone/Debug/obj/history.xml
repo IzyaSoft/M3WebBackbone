@@ -1,145 +1,145 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
-   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m3 -mthumb -Wall -ffunction-sections -g -Os -c -DLPC1768 -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\businesslogic\configs -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS-Plus-TCP\protocols -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\businesslogic\FreeRTOS-Extensions -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\portable\LandTiger2 -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS-Plus-TCP\portable\Compiler -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\portable -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS-Plus-TCP\portable\Compiler\GCC -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS-Plus-FAT\include -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS\include -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\portable\LandTiger2\include -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\businesslogic\managers -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS-Plus-FAT\portable -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS\Source\portable\GCC -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS-Plus-TCP\portable -IE:\uetm\commutator\m3webbackbone\M3WebBackbone -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS-Plus-FAT\portable\common -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS\Source\portable\GCC\ARM_CM3 -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS\portable\gcc\arm_cm3 -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS-Plus-TCP\include -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS-Plus-TCP\protocols\include -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\businesslogic -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS\Source -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS-Plus-FAT -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS\Source\include -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS-Plus-TCP -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS\Source\portable -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS\Source\portable\MemMang">
-      <target file="FreeRTOS_Stream_Buffer.o" lastModified="157bc846c48">
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m3 -mthumb -Wall -ffunction-sections -g -O0 -c -DLPC1768 -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\businesslogic\configs -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS-Plus-TCP\protocols -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\businesslogic\FreeRTOS-Extensions -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\portable\LandTiger2 -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS-Plus-TCP\portable\Compiler -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\portable -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS-Plus-TCP\portable\Compiler\GCC -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS-Plus-FAT\include -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS\include -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\portable\LandTiger2\include -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\businesslogic\managers -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS-Plus-FAT\portable -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS\Source\portable\GCC -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS-Plus-TCP\portable -IE:\uetm\commutator\m3webbackbone\M3WebBackbone -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS-Plus-FAT\portable\common -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS\Source\portable\GCC\ARM_CM3 -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS\portable\gcc\arm_cm3 -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS-Plus-TCP\include -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS-Plus-TCP\protocols\include -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\businesslogic -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS\Source -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS-Plus-FAT -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS\Source\include -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS-Plus-TCP -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS\Source\portable -IE:\uetm\commutator\m3webbackbone\M3WebBackbone\FreeRTOS\Source\portable\MemMang">
+      <target file="FreeRTOS_Stream_Buffer.o" lastModified="157c1526fdf">
          <source file="..\..\..\FreeRTOS-Plus-TCP\FreeRTOS_Stream_Buffer.c" lastModified="157420ee697"/>
       </target>
-      <target file="configurationManager.o" lastModified="157bc846ca6">
-         <source file="..\..\..\businesslogic\managers\configurationManager.c" lastModified="157b4a044d7"/>
+      <target file="configurationManager.o" lastModified="157c1527086">
+         <source file="..\..\..\businesslogic\managers\configurationManager.c" lastModified="157be62497f"/>
       </target>
-      <target file="ff_file.o" lastModified="157bc8470dc">
+      <target file="ff_file.o" lastModified="157c1527304">
          <source file="..\..\..\FreeRTOS-Plus-FAT\ff_file.c" lastModified="157420ee5e3"/>
       </target>
-      <target file="ff_error.o" lastModified="157bc847fc0">
+      <target file="ff_error.o" lastModified="157c1527e16">
          <source file="..\..\..\FreeRTOS-Plus-FAT\ff_error.c" lastModified="157bc587ad0"/>
       </target>
-      <target file="FreeRTOS_ARP.o" lastModified="157bc847291">
+      <target file="FreeRTOS_ARP.o" lastModified="157c1527450">
          <source file="..\..\..\FreeRTOS-Plus-TCP\FreeRTOS_ARP.c" lastModified="157420ee647"/>
       </target>
-      <target file="ff_ramdisk.o" lastModified="157bc84808b">
+      <target file="ff_ramdisk.o" lastModified="157c1527ee2">
          <source file="..\..\..\FreeRTOS-Plus-FAT\portable\common\ff_ramdisk.c" lastModified="157420ee60b"/>
       </target>
-      <target file="staticAllocationImpl.o" lastModified="157bc8477c1">
+      <target file="staticAllocationImpl.o" lastModified="157c15278b1">
          <source file="..\..\..\businesslogic\FreeRTOS-Extensions\staticAllocationImpl.c" lastModified="157b7e48ef3"/>
       </target>
-      <target file="queue.o" lastModified="157bc847bf8">
+      <target file="queue.o" lastModified="157c1527b93">
          <source file="..\..\..\FreeRTOS\Source\queue.c" lastModified="156937ef0da"/>
       </target>
-      <target file="BufferAllocation_2.o" lastModified="157bc847aaf">
+      <target file="BufferAllocation_2.o" lastModified="157c1527a8b">
          <source file="..\..\..\FreeRTOS-Plus-TCP\portable\BufferManagement\BufferAllocation_2.c" lastModified="157420ee5b1"/>
       </target>
-      <target file="FreeRTOS_DHCP.o" lastModified="157bc847fef">
+      <target file="FreeRTOS_DHCP.o" lastModified="157c1527e50">
          <source file="..\..\..\FreeRTOS-Plus-TCP\FreeRTOS_DHCP.c" lastModified="157420ee651"/>
       </target>
-      <target file="timers.o" lastModified="157bc8474b4">
+      <target file="timers.o" lastModified="157c15276df">
          <source file="..\..\..\FreeRTOS\Source\timers.c" lastModified="157b74b9398"/>
       </target>
-      <target file="tasks.o" lastModified="157bc8478cb">
+      <target file="tasks.o" lastModified="157c152793a">
          <source file="..\..\..\FreeRTOS\Source\tasks.c" lastModified="156938b4622"/>
       </target>
-      <target file="ff_crc.o" lastModified="157bc84712a">
+      <target file="ff_crc.o" lastModified="157c152734b">
          <source file="..\..\..\FreeRTOS-Plus-FAT\ff_crc.c" lastModified="157420ee5b1"/>
       </target>
-      <target file="lpc17xx_clkpwr.o" lastModified="157bc846d61">
+      <target file="lpc17xx_clkpwr.o" lastModified="157c1527103">
          <source file="..\..\..\portable\LandTiger2\lpc17xx_lib\lpc17xx_clkpwr.c" lastModified="157b43802e9"/>
       </target>
-      <target file="FreeRTOS_DNS.o" lastModified="157bc846c77">
+      <target file="FreeRTOS_DNS.o" lastModified="157c152701d">
          <source file="..\..\..\FreeRTOS-Plus-TCP\FreeRTOS_DNS.c" lastModified="157420ee651"/>
       </target>
-      <target file="lpc17xx_pinsel.o" lastModified="157bc847a32">
+      <target file="lpc17xx_pinsel.o" lastModified="157c1527a41">
          <source file="..\..\..\portable\LandTiger2\lpc17xx_lib\lpc17xx_pinsel.c" lastModified="157b4393ed4"/>
       </target>
-      <target file="event_groups.o" lastModified="157bc847ef5">
+      <target file="event_groups.o" lastModified="157c1527d52">
          <source file="..\..\..\FreeRTOS\Source\event_groups.c" lastModified="1567e2d5224"/>
       </target>
-      <target file="ff_memory.o" lastModified="157bc847b1d">
+      <target file="ff_memory.o" lastModified="157c1527afa">
          <source file="..\..\..\FreeRTOS-Plus-FAT\ff_memory.c" lastModified="157420ee601"/>
       </target>
-      <target file="ff_dev_support.o" lastModified="157bc846bac">
+      <target file="ff_dev_support.o" lastModified="157c1526f48">
          <source file="..\..\..\FreeRTOS-Plus-FAT\ff_dev_support.c" lastModified="157420ee5bb"/>
       </target>
-      <target file="FreeRTOS_HTTP_commands.o" lastModified="157bc847f82">
+      <target file="FreeRTOS_HTTP_commands.o" lastModified="157c1527dd8">
          <source file="..\..\..\FreeRTOS-Plus-TCP\protocols\HTTP\FreeRTOS_HTTP_commands.c" lastModified="157420ee66f"/>
       </target>
-      <target file="ff_fat.o" lastModified="157bc847dbd">
+      <target file="ff_fat.o" lastModified="157c1527c8f">
          <source file="..\..\..\FreeRTOS-Plus-FAT\ff_fat.c" lastModified="157420ee5cf"/>
       </target>
-      <target file="FreeRTOS_Sockets.o" lastModified="157bc848212">
+      <target file="FreeRTOS_Sockets.o" lastModified="157c1527fed">
          <source file="..\..\..\FreeRTOS-Plus-TCP\FreeRTOS_Sockets.c" lastModified="157bc4d33ba"/>
       </target>
-      <target file="list.o" lastModified="157bc847ade">
+      <target file="list.o" lastModified="157c1527ac0">
          <source file="..\..\..\FreeRTOS\Source\list.c" lastModified="154cefae65a"/>
       </target>
-      <target file="port.o" lastModified="157bc847b4c">
+      <target file="port.o" lastModified="157c1527b2f">
          <source file="..\..\..\FreeRTOS\Source\portable\GCC\ARM_CM3\port.c" lastModified="15693ae107d"/>
       </target>
-      <target file="FreeRTOS_IP.o" lastModified="157bc846eb9">
+      <target file="FreeRTOS_IP.o" lastModified="157c15271e7">
          <source file="..\..\..\FreeRTOS-Plus-TCP\FreeRTOS_IP.c" lastModified="157420ee679"/>
       </target>
-      <target file="ff_dir.o" lastModified="157bc84766a">
+      <target file="ff_dir.o" lastModified="157c15277df">
          <source file="..\..\..\FreeRTOS-Plus-FAT\ff_dir.c" lastModified="157420ee5c5"/>
       </target>
-      <target file="ff_string.o" lastModified="157bc847512">
+      <target file="ff_string.o" lastModified="157c1527747">
          <source file="..\..\..\FreeRTOS-Plus-FAT\ff_string.c" lastModified="157420ee633"/>
       </target>
-      <target file="FreeRTOS_TCP_server.o" lastModified="157bc846b4e">
+      <target file="FreeRTOS_TCP_server.o" lastModified="157c1526efe">
          <source file="..\..\..\FreeRTOS-Plus-TCP\protocols\Common\FreeRTOS_TCP_server.c" lastModified="157bc2c2708"/>
       </target>
-      <target file="lpc17xx_emac.o" lastModified="157bc846f74">
+      <target file="lpc17xx_emac.o" lastModified="157c1527263">
          <source file="..\..\..\portable\LandTiger2\lpc17xx_lib\lpc17xx_emac.c" lastModified="157b43844c5"/>
       </target>
-      <target file="ff_format.o" lastModified="157bc847735">
+      <target file="ff_format.o" lastModified="157c152783a">
          <source file="..\..\..\FreeRTOS-Plus-FAT\ff_format.c" lastModified="157420ee5ed"/>
       </target>
-      <target file="ff_time.o" lastModified="157bc847224">
+      <target file="ff_time.o" lastModified="157c15273f4">
          <source file="..\..\..\FreeRTOS-Plus-FAT\ff_time.c" lastModified="157420ee63d"/>
       </target>
-      <target file="FreeRTOS_TCP_IP.o" lastModified="157bc847437">
+      <target file="FreeRTOS_TCP_IP.o" lastModified="157c152759e">
          <source file="..\..\..\FreeRTOS-Plus-TCP\FreeRTOS_TCP_IP.c" lastModified="157b8372ebe"/>
       </target>
-      <target file="ff_ioman.o" lastModified="157bc847d01">
+      <target file="ff_ioman.o" lastModified="157c1527c19">
          <source file="..\..\..\FreeRTOS-Plus-FAT\ff_ioman.c" lastModified="157420ee5f7"/>
       </target>
-      <target file="system_LPC17xx.o" lastModified="157bc846ef7">
+      <target file="system_LPC17xx.o" lastModified="157c1527217">
          <source file="..\..\..\portable\LandTiger2\cmsis_boot\system_LPC17xx.c" lastModified="1577b6ec865"/>
       </target>
-      <target file="ff_locking.o" lastModified="157bc847f43">
+      <target file="ff_locking.o" lastModified="157c1527da0">
          <source file="..\..\..\FreeRTOS-Plus-FAT\ff_locking.c" lastModified="157420ee5f7"/>
       </target>
-      <target file="NetworkInterface.o" lastModified="157bc8479d5">
+      <target file="NetworkInterface.o" lastModified="157c1527a0e">
          <source file="..\..\..\FreeRTOS-Plus-TCP\portable\NetworkInterface\LPC1768\NetworkInterface.c" lastModified="157b9b8faf5"/>
       </target>
-      <target file="FreeRTOS_UDP_IP.o" lastModified="157bc846bfa">
+      <target file="FreeRTOS_UDP_IP.o" lastModified="157c1526f98">
          <source file="..\..\..\FreeRTOS-Plus-TCP\FreeRTOS_UDP_IP.c" lastModified="157420ee6bf"/>
       </target>
-      <target file="lpc17xx_gpio.o" lastModified="157bc8477a2">
+      <target file="lpc17xx_gpio.o" lastModified="157c1527886">
          <source file="..\..\..\portable\LandTiger2\lpc17xx_lib\lpc17xx_gpio.c" lastModified="157b438ee15"/>
       </target>
-      <target file="FreeRTOS_TCP_WIN.o" lastModified="157bc8471e5">
+      <target file="FreeRTOS_TCP_WIN.o" lastModified="157c15273bc">
          <source file="..\..\..\FreeRTOS-Plus-TCP\FreeRTOS_TCP_WIN.c" lastModified="157420ee6b5"/>
       </target>
-      <target file="startup_LPC17xx.o" lastModified="157bc8478fa">
-         <source file="..\..\..\portable\LandTiger2\cmsis_boot\startup\startup_LPC17xx.c" lastModified="157463e6a81"/>
+      <target file="startup_LPC17xx.o" lastModified="157c1527960">
+         <source file="..\..\..\portable\LandTiger2\cmsis_boot\startup\startup_LPC17xx.c" lastModified="157c10b8dd5"/>
       </target>
-      <target file="kit1768.o" lastModified="157bc846d03">
+      <target file="kit1768.o" lastModified="157c15270cd">
          <source file="..\..\..\portable\LandTiger2\kit1768\kit1768.c" lastModified="157b437b91f"/>
       </target>
-      <target file="FreeRTOS_HTTP_server.o" lastModified="157bc846dde">
+      <target file="FreeRTOS_HTTP_server.o" lastModified="157c1527167">
          <source file="..\..\..\FreeRTOS-Plus-TCP\protocols\HTTP\FreeRTOS_HTTP_server.c" lastModified="157bc842211"/>
       </target>
-      <target file="heap_2.o" lastModified="157bc84802e">
+      <target file="heap_2.o" lastModified="157c1527e92">
          <source file="..\..\..\FreeRTOS\Source\portable\MemMang\heap_2.c" lastModified="154cefae921"/>
       </target>
-      <target file="main.o" lastModified="157bc8472ef">
-         <source file="..\..\..\businesslogic\main.c" lastModified="157bc42ce4a"/>
+      <target file="main.o" lastModified="157c15274f4">
+         <source file="..\..\..\businesslogic\main.c" lastModified="157be865092"/>
       </target>
-      <target file="lpc17xx_libcfg_default.o" lastModified="157bc847919">
+      <target file="lpc17xx_libcfg_default.o" lastModified="157c1527985">
          <source file="..\..\..\portable\LandTiger2\lpc17xx_lib\lpc17xx_libcfg_default.c" lastModified="157b4391fd3"/>
       </target>
-      <target file="ff_stdio.o" lastModified="157bc847e97">
+      <target file="ff_stdio.o" lastModified="157c1527d0d">
          <source file="..\..\..\FreeRTOS-Plus-FAT\ff_stdio.c" lastModified="157420ee629"/>
       </target>
-      <target file="ff_sys.o" lastModified="157bc848270">
+      <target file="ff_sys.o" lastModified="157c152803b">
          <source file="..\..\..\FreeRTOS-Plus-FAT\ff_sys.c" lastModified="157420ee633"/>
       </target>
    </processor>
