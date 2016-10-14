@@ -62,7 +62,7 @@
 //#define configMAX_SYSCALL_INTERRUPT_PRIORITY    [dependent on processor and application]
 //#define configMAX_API_CALL_INTERRUPT_PRIORITY   [dependent on processor and application]
 #define configKERNEL_INTERRUPT_PRIORITY         255
-#define configMAX_SYSCALL_INTERRUPT_PRIORITY    5//191
+#define configMAX_SYSCALL_INTERRUPT_PRIORITY    191
 #define configLIBRARY_KERNEL_INTERRUPT_PRIORITY 15
 
 /* Define to trap errors during development. */
@@ -91,11 +91,9 @@
 #define INCLUDE_xTaskResumeFromISR              1
 
 
-/*
 #define vPortSVCHandler SVC_Handler
 #define xPortPendSVHandler PendSV_Handler
 #define xPortSysTickHandler SysTick_Handler
-*/
 
 
 #endif

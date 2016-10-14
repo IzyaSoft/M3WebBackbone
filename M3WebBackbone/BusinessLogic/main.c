@@ -39,7 +39,6 @@ int main()
 {
 	// Hardware Initialization
     InitializeClocks();
-    KIT1768_Init();
     // IP initialization in FreeRTOS
     FreeRTOS_IPInit(APP_DEFAULT_IP_ADDRESS, APP_DEFAULT_NETMASK, APP_DEFAULT_GATEWAY, APP_DEFAULT_NAMESERVER, ETHERNET_MAC_ADDRESS);
     BaseType_t result = xTaskCreate(prvWebServerTask, "M3WebServer", mainWEB_SERVER_STACK_SIZE, NULL, tskIDLE_PRIORITY, &xWebServerTaskHandle);
