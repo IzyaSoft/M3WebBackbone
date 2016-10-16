@@ -31,9 +31,9 @@
 # Debug files
 *.dSYM/
 *.su
-*/Debug/*
-*/bin
-*/obj
+*Debug*
+*bin
+*obj
 
 # CoCoX project files
 *.cogui
