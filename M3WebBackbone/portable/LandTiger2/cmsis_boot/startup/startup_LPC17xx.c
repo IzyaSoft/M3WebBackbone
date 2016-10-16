@@ -154,7 +154,6 @@ void (* const g_pfnVectors[])(void) =
   CANActivity_IRQHandler,    /*!< 34: CAN Activity                            */
 };
 
-
 /**
   * @brief  This is the code that gets called when the processor first
   *         starts execution following a reset event. Only the absolutely
@@ -203,7 +202,7 @@ void Default_Reset_Handler(void)
   */
 #pragma weak Reset_Handler = Default_Reset_Handler
 #pragma weak NMI_Handler = Default_Handler     
-#pragma weak HardFault_Handler = Default_Handler     
+#pragma weak HardFault_Handler = HardFaultDefaultHandler
 #pragma weak MemManage_Handler = Default_Handler     
 #pragma weak BusFault_Handler = Default_Handler      
 #pragma weak UsageFault_Handler = Default_Handler    
@@ -237,9 +236,9 @@ void Default_Reset_Handler(void)
 #pragma weak BOD_IRQHandler = Default_Handler        
 #pragma weak USB_IRQHandler = Default_Handler        
 #pragma weak CAN_IRQHandler = Default_Handler        
-#pragma weak DMA_IRQHandler = Default_Handler        
+#pragma weak DMA_IRQHandler = DMADefaultHandler
 #pragma weak I2S_IRQHandler = Default_Handler        
-#pragma weak ENET_IRQHandler = Default_Handler       
+#pragma weak ENET_IRQHandler = EthernetDefaultHandler
 #pragma weak RIT_IRQHandler = Default_Handler        
 #pragma weak MCPWM_IRQHandler = Default_Handler      
 #pragma weak QEI_IRQHandler = Default_Handler        
@@ -261,6 +260,31 @@ static void Default_Handler(void)
 	while (1)
 	{
 	}
+}
+
+static void HardFaultDefaultHandler()
+{
+	/* Go into an infinite loop. */
+	while (1)
+	{
+	}
+}
+
+static void EthernetDefaultHandler()
+{
+	/* Go into an infinite loop. */
+	while (1)
+	{
+	}
+}
+
+static void DMADefaultHandler()
+{
+	/* Go into an infinite loop. */
+	while (1)
+	{
+	}
+
 }
 
 /*********************** (C) COPYRIGHT 2009 Coocox ************END OF FILE*****/

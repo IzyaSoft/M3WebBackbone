@@ -1,9 +1,6 @@
 #include "configurationManager.h"
 
-#ifdef LPC1768
-#include "system_LPC17xx.h"
-#endif
-
+// common functions
 void InitializeClocks()
 {
 #ifdef LPC1768
@@ -19,7 +16,12 @@ void InitializeGPIO()
 #endif
 }
 
+void InitializeInterrupts(uint32_t value)
+{
+	NVIC_SetPriorityGrouping(value);
+}
 
+// Hardware specific functions
 void InitializeLPC1768Clock()
 {
     SystemInit();

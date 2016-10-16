@@ -23,6 +23,7 @@ static TaskHandle_t eMACTaskHandle;
 
 static void prvEMACTask(void *pvParameters)
 {
+	const TickType_t xInitialBlockTime = pdMS_TO_TICKS(50UL);
     // function of LPC1768 EMAC Handling
 	// todo: umv: check interrupts flags: RxDone, TxDone
 	// todo: umv: if RxDone pass data from buffers to IP stack via xSendEventStructToIpTask
@@ -40,8 +41,15 @@ static void prvEMACTask(void *pvParameters)
 		}*/
 	for(;;)
 	{
-
+		// if no data then sleep
+        vTaskDelay(xInitialBlockTime);
 	}
+	vTaskDelete(NULL);
+}
+
+BaseType_t xStartEmacTask()
+{
+	return xTaskCreate(prvEMACTask, "LPC1768EMAC", configEMAC_TASK_STACK_SIZE, NULL, configMAX_PRIORITIES - 3, &eMACTaskHandle);
 }
 
 BaseType_t xNetworkInterfaceInitialise( void )
@@ -49,7 +57,7 @@ BaseType_t xNetworkInterfaceInitialise( void )
 	EMAC_CFG_Type emacConfig;
 	emacConfig.Mode = ETHERNET_MODE;
 	emacConfig.pbEMAC_Addr = ETHERNET_MAC_ADDRESS;
-	xTaskCreate(prvEMACTask, "LPC1768EMAC", configEMAC_TASK_STACK_SIZE, NULL, configMAX_PRIORITIES - 3, &eMACTaskHandle);
+
 	//Status result =
 			InitializeEthernetMAC(&emacConfig);
 	//if(result == SUCCESS)

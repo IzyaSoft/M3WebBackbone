@@ -63,6 +63,7 @@ extern "C" {
 #endif
 
 /* NOTE PUBLIC API FUNCTIONS. */
+BaseType_t xStartEmacTask();
 BaseType_t xNetworkInterfaceInitialise( void );
 BaseType_t xNetworkInterfaceOutput( NetworkBufferDescriptor_t * const pxNetworkBuffer, BaseType_t xReleaseAfterSend );
 void vNetworkInterfaceAllocateRAMToBuffers( NetworkBufferDescriptor_t pxNetworkBuffers[ ipconfigNUM_NETWORK_BUFFER_DESCRIPTORS ] );

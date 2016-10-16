@@ -19,8 +19,8 @@
 #include "configurationManager.h"
 #include "FreeRTOS_TCP_server.h"
 
-#define mainWEB_SERVER_STACK_SIZE 4096
-#define mainTCP_SERVER_TASK_PRIORITY configMAX_PRIORITIES - 3
+#define WEB_SERVER_STACK_SIZE 512//1024
+#define WEB_SERVER_TASK_PRIORITY configMAX_PRIORITIES / 2
 
 // global variables
 const uint8_t ETHERNET_MAC_ADDRESS[] = {0xAA, 0x33, 0x00, 0x66, 0x22, 0xEE};
@@ -38,6 +38,8 @@ int main()
 {
 	// Hardware Initialization
     InitializeClocks();
+    // Interrupts priority bits initialization
+    InitializeInterrupts(0);
     //EMAC_CFG_Type emacConfig;
     //emacConfig.Mode = ETHERNET_MODE;
     //emacConfig.pbEMAC_Addr = ETHERNET_MAC_ADDRESS;
@@ -46,7 +48,7 @@ int main()
     //Status initresult = EMAC_Init(&emacConfig);
     // IP initialization in FreeRTOS
     FreeRTOS_IPInit(APP_DEFAULT_IP_ADDRESS, APP_DEFAULT_NETMASK, APP_DEFAULT_GATEWAY, APP_DEFAULT_NAMESERVER, ETHERNET_MAC_ADDRESS);
-    BaseType_t result = xTaskCreate(prvWebServerTask, "M3WebServer", mainWEB_SERVER_STACK_SIZE, NULL, tskIDLE_PRIORITY, &xWebServerTaskHandle);
+    BaseType_t result = xTaskCreate(prvWebServerTask, "M3WebServer", WEB_SERVER_STACK_SIZE, NULL, tskIDLE_PRIORITY, &xWebServerTaskHandle);
     // to do: add other tasks
 
     // start schedule
@@ -55,10 +57,11 @@ int main()
     return 0;
 }
 
+
 void prvWebServerTask(void *pvParameters)
 {
     TCPServer_t *pxTCPServer = NULL;
-    const TickType_t xInitialBlockTime = pdMS_TO_TICKS( 5000UL );
+    const TickType_t xInitialBlockTime = pdMS_TO_TICKS(5000UL);
 
     /* A structure that defines the servers to be created.  Which servers are
     included in the structure depends on the mainCREATE_HTTP_SERVER and
@@ -74,11 +77,13 @@ void prvWebServerTask(void *pvParameters)
     /* Remove compiler warning about unused parameter. */
     ( void ) pvParameters;
 
-    /* Initialization is completed, rising priority*/
-    vTaskPrioritySet( NULL, mainTCP_SERVER_TASK_PRIORITY );
+	/* Initialization is completed, rising priority*/
+    vTaskPrioritySet(NULL, WEB_SERVER_TASK_PRIORITY);
 
     /* Wait until the network is up before creating the servers.  The notification is given from the network event hook. */
-    ulTaskNotifyTake( pdTRUE, portMAX_DELAY );
+    ulTaskNotifyTake(pdTRUE, xInitialBlockTime);
+
+    xStartEmacTask();
 
     /* Create the servers defined by the xServerConfiguration array above. */
     pxTCPServer = FreeRTOS_CreateTCPServer(xServerConfiguration, sizeof(xServerConfiguration) / sizeof(xServerConfiguration[0]));
@@ -89,6 +94,8 @@ void prvWebServerTask(void *pvParameters)
     {
         FreeRTOS_TCPServerWork(pxTCPServer, xInitialBlockTime );
     }
+
+    vTaskDelete(NULL);
 }
 
 void vApplicationStackOverflowHook(TaskHandle_t pxTask, signed char *pcTaskName)
