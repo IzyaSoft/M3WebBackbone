@@ -13,7 +13,6 @@
 /* Hardware*/
 #include "LPC17xx.h"
 #include "core_cm3.h"
-#include "kit1768.h"
 
 /* Application*/
 #include "staticAllocationImpl.h"
@@ -39,6 +38,12 @@ int main()
 {
 	// Hardware Initialization
     InitializeClocks();
+    //EMAC_CFG_Type emacConfig;
+    //emacConfig.Mode = ETHERNET_MODE;
+    //emacConfig.pbEMAC_Addr = ETHERNET_MAC_ADDRESS;
+    // xTaskCreate(prvEMACTask, "LPC1768EMAC", configEMAC_TASK_STACK_SIZE, NULL, configMAX_PRIORITIES - 3, &eMACTaskHandle);
+    //
+    //Status initresult = EMAC_Init(&emacConfig);
     // IP initialization in FreeRTOS
     FreeRTOS_IPInit(APP_DEFAULT_IP_ADDRESS, APP_DEFAULT_NETMASK, APP_DEFAULT_GATEWAY, APP_DEFAULT_NAMESERVER, ETHERNET_MAC_ADDRESS);
     BaseType_t result = xTaskCreate(prvWebServerTask, "M3WebServer", mainWEB_SERVER_STACK_SIZE, NULL, tskIDLE_PRIORITY, &xWebServerTaskHandle);

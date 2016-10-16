@@ -24,6 +24,9 @@
          <include file="..\..\..\FreeRTOS\Source\include\FreeRTOS.h"/>
          <include file="..\..\..\FreeRTOS\Source\include\list.h"/>
       </source>
+      <source file="..\..\..\portable\LandTiger2\include\landtiger2_emac.h" lastModified="157ccea978e">
+         <include file="..\..\..\portable\LandTiger2\include\emacCommon.h"/>
+      </source>
       <source file="..\..\..\FreeRTOS-Plus-FAT\ff_crc.c" lastModified="157420ee5b1">
          <include file="..\..\..\FreeRTOS-Plus-FAT\include\ff_headers.h"/>
       </source>
@@ -122,6 +125,18 @@
       </source>
       <source file="..\..\..\FreeRTOS\Source\portable\GCC\ARM_CM3\portmacro.h" lastModified="1577aeb04a4">
       </source>
+      <source file="..\..\..\FreeRTOS-Plus-TCP\portable\NetworkInterface\LandTiger2\NetworkInterface.c" lastModified="157ccf2b58d">
+         <include file="..\..\..\FreeRTOS\Source\include\FreeRTOS.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\task.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\queue.h"/>
+         <include file="..\..\..\FreeRTOS\Source\include\semphr.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_IP.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_Sockets.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_IP_Private.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\NetworkBufferManagement.h"/>
+         <include file="..\..\..\FreeRTOS-Plus-TCP\include\NetworkInterface.h"/>
+         <include file="..\..\..\portable\LandTiger2\include\landtiger2_emac.h"/>
+      </source>
       <source file="..\..\..\FreeRTOS\Source\include\FreeRTOS.h" lastModified="15544123abb">
          <include file="..\..\..\businesslogic\configs\FreeRTOSConfig.h"/>
          <include file="..\..\..\FreeRTOS\Source\include\projdefs.h"/>
@@ -132,7 +147,7 @@
          <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOSIPConfigDefaults.h"/>
          <include file="..\..\..\FreeRTOS-Plus-TCP\include\IPTraceMacroDefaults.h"/>
       </source>
-      <source file="..\..\..\businesslogic\main.c" lastModified="157c3a8f4fa">
+      <source file="..\..\..\businesslogic\main.c" lastModified="157ccd7e2ad">
          <include file="..\..\..\FreeRTOS\Source\include\FreeRTOS.h"/>
          <include file="..\..\..\FreeRTOS\Source\include\task.h"/>
          <include file="..\..\..\FreeRTOS\Source\include\timers.h"/>
@@ -143,7 +158,6 @@
          <include file="..\..\..\businesslogic\configs\FreeRTOSIPConfig.h"/>
          <include file="..\..\..\portable\LandTiger2\include\LPC17xx.h"/>
          <include file="..\..\..\portable\LandTiger2\include\core_cm3.h"/>
-         <include file="..\..\..\portable\LandTiger2\include\kit1768.h"/>
          <include file="..\..\..\businesslogic\FreeRTOS-Extensions\staticAllocationImpl.h"/>
          <include file="..\..\..\businesslogic\managers\configurationManager.h"/>
          <include file="..\..\..\FreeRTOS-Plus-TCP\protocols\include\FreeRTOS_TCP_server.h"/>
@@ -200,6 +214,8 @@
       </source>
       <source file="..\..\..\FreeRTOS-Plus-FAT\include\ff_crc.h" lastModified="157420ee5b1">
       </source>
+      <source file="..\..\..\portable\LandTiger2\include\emacCommon.h" lastModified="157ccdade5d">
+      </source>
       <source file="..\..\..\FreeRTOS-Plus-FAT\ff_format.c" lastModified="157420ef1a5">
          <include file="..\..\..\FreeRTOS-Plus-FAT\include\ff_headers.h"/>
          <include file="..\..\..\FreeRTOS\Source\include\FreeRTOS.h"/>
@@ -250,12 +266,13 @@
          <include file="..\..\..\businesslogic\configs\FreeRTOSIPConfig.h"/>
          <include file="..\..\..\FreeRTOS-Plus-TCP\include\IPTraceMacroDefaults.h"/>
       </source>
-      <source file="..\..\..\businesslogic\configs\FreeRTOSConfig.h" lastModified="157c3a9611d">
+      <source file="..\..\..\businesslogic\configs\FreeRTOSConfig.h" lastModified="157cc6ee544">
          <include file="..\..\..\businesslogic\FreeRTOS-Extensions\staticAllocationImpl.h"/>
       </source>
-      <source file="..\..\..\portable\LandTiger2\include\lpc17xx_emac.h" lastModified="157b4fb529e">
+      <source file="..\..\..\portable\LandTiger2\include\lpc17xx_emac.h" lastModified="157ccdbd56d">
          <include file="..\..\..\portable\LandTiger2\include\LPC17xx.h"/>
          <include file="..\..\..\portable\LandTiger2\include\lpc_types.h"/>
+         <include file="..\..\..\portable\LandTiger2\include\emacCommon.h"/>
       </source>
       <source file="..\..\..\FreeRTOS-Plus-FAT\include\ff_dir.h" lastModified="157420ee5c5">
       </source>
@@ -288,7 +305,7 @@
       <source file="..\..\..\FreeRTOS-Plus-FAT\portable\common\ff_ramdisk.h" lastModified="157420ee60b">
          <include file="..\..\..\FreeRTOS-Plus-FAT\include\ff_headers.h"/>
       </source>
-      <source file="..\..\..\portable\LandTiger2\cmsis_boot\startup\startup_LPC17xx.c" lastModified="157c10b8dd5">
+      <source file="..\..\..\portable\LandTiger2\cmsis_boot\startup\startup_LPC17xx.c" lastModified="157c3da9f32">
       </source>
       <source file="..\..\..\FreeRTOS-Plus-FAT\portable\common\ff_ramdisk.c" lastModified="157420ef5ab">
          <include file="..\..\..\FreeRTOS\Source\include\FreeRTOS.h"/>
@@ -301,21 +318,9 @@
       </source>
       <source file="..\..\..\portable\LandTiger2\include\system_LPC17xx.h" lastModified="157463e6e6b">
       </source>
-      <source file="..\..\..\portable\LandTiger2\include\kit1768.h" lastModified="157b4352b5f">
-         <include file="..\..\..\portable\LandTiger2\include\lpc17xx_clkpwr.h"/>
-         <include file="..\..\..\portable\LandTiger2\include\lpc17xx_gpio.h"/>
-      </source>
-      <source file="..\..\..\FreeRTOS-Plus-TCP\portable\NetworkInterface\LPC1768\NetworkInterface.c" lastModified="157b9b906ad">
-         <include file="..\..\..\FreeRTOS\Source\include\FreeRTOS.h"/>
-         <include file="..\..\..\FreeRTOS\Source\include\task.h"/>
-         <include file="..\..\..\FreeRTOS\Source\include\queue.h"/>
-         <include file="..\..\..\FreeRTOS\Source\include\semphr.h"/>
-         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_IP.h"/>
-         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_Sockets.h"/>
-         <include file="..\..\..\FreeRTOS-Plus-TCP\include\FreeRTOS_IP_Private.h"/>
-         <include file="..\..\..\FreeRTOS-Plus-TCP\include\NetworkBufferManagement.h"/>
-         <include file="..\..\..\FreeRTOS-Plus-TCP\include\NetworkInterface.h"/>
-         <include file="..\..\..\portable\LandTiger2\include\lpc17xx_emac.h"/>
+      <source file="..\..\..\portable\LandTiger2\LandTiger2Specific\landtiger2_emac.c" lastModified="157cceaf641">
+         <include file="..\..\..\portable\LandTiger2\include\landtiger2_emac.h"/>
+         <include file="..\..\..\portable\LandTiger2\include\LPC17xx.h"/>
       </source>
       <source file="..\..\..\FreeRTOS-Plus-FAT\include\ff_fatdef.h" lastModified="157420ee5d9">
       </source>

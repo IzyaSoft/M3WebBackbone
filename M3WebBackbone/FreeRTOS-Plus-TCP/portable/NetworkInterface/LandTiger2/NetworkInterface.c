@@ -17,11 +17,11 @@
 #include "NetworkInterface.h"
 
 //LPC1768 Include
-#include "lpc17xx_emac.h"
+#include "landtiger2_emac.h"
 
-static TaskHandle_t xEMACTaskHandle;
+static TaskHandle_t eMACTaskHandle;
 
-static void prvEMACHandlerTask(void *pvParameters)
+static void prvEMACTask(void *pvParameters)
 {
     // function of LPC1768 EMAC Handling
 	// todo: umv: check interrupts flags: RxDone, TxDone
@@ -38,6 +38,10 @@ static void prvEMACHandlerTask(void *pvParameters)
 		    *( ( unsigned * ) ram_buffer ) = ( unsigned ) ( &pxNetworkBuffers[ x ] );
 		    ram_buffer += UNIT_SIZE;
 		}*/
+	for(;;)
+	{
+
+	}
 }
 
 BaseType_t xNetworkInterfaceInitialise( void )
@@ -45,19 +49,22 @@ BaseType_t xNetworkInterfaceInitialise( void )
 	EMAC_CFG_Type emacConfig;
 	emacConfig.Mode = ETHERNET_MODE;
 	emacConfig.pbEMAC_Addr = ETHERNET_MAC_ADDRESS;
-	xTaskCreate(prvEMACHandlerTask, "LPC1768EMAC", configEMAC_TASK_STACK_SIZE, NULL, configMAX_PRIORITIES - 1, &xEMACTaskHandle);
-	Status result = EMAC_Init(&emacConfig);
-	if(result == SUCCESS)
-		return pdTRUE;
-	return  pdFALSE;
+	xTaskCreate(prvEMACTask, "LPC1768EMAC", configEMAC_TASK_STACK_SIZE, NULL, configMAX_PRIORITIES - 3, &eMACTaskHandle);
+	//Status result =
+			InitializeEthernetMAC(&emacConfig);
+	//if(result == SUCCESS)
+		//return pdTRUE;
+	//return  pdFALSE;
+
+    return pdTRUE;
 }
 
 BaseType_t xNetworkInterfaceOutput(NetworkBufferDescriptor_t * const pxNetworkBuffer, BaseType_t xReleaseAfterSend)
 {
-	EMAC_PACKETBUF_Type txBuffer;
-	txBuffer.pbDataBuf = pxNetworkBuffer->pucEthernetBuffer;
-	txBuffer.ulDataLen = pxNetworkBuffer->xDataLength; // Maybe should add +1 for CRC
-	EMAC_WritePacketBuffer(&txBuffer);
+	//EMAC_PACKETBUF_Type txBuffer;
+	//txBuffer.pbDataBuf = pxNetworkBuffer->pucEthernetBuffer;
+	//txBuffer.ulDataLen = pxNetworkBuffer->xDataLength; // Maybe should add +1 for CRC
+	//EMAC_WritePacketBuffer(&txBuffer);
 	return pdTRUE;  // should think about return value
 }
 
