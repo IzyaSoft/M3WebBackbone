@@ -31,3 +31,12 @@
 # Debug files
 *.dSYM/
 *.su
+*Debug*
+*bin
+*obj
+
+# CoCoX project files
+*.cogui
+*.comarker
+
+
