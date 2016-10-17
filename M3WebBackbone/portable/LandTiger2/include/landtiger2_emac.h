@@ -285,14 +285,14 @@ extern "C"
 #define DP83848C_DEF_ADR    0x0100      /* Default PHY device address        */
 #define DP83848C_ID         0x20005C90  /* PHY Identifier                    */
 
-typedef enum PHY_STATUS_PARAMETER {SPEED, MODE, LINK};
+typedef enum  {SPEED = 1, MODE, LINK} PHY_STATUS_PARAMETER;
 
 
 // prototypes
 Bool InitializeEthernetMAC(EMAC_CFG_Type* emacConfig);
 int32_t CheckPhysicalState(uint32_t parameter);
-void WriteData();
-void ReadData();
+void WriteData(EMAC_PACKETBUF_Type* packet);
+void ReadData(EMAC_PACKETBUF_Type* packet);
 //word ReadFrameBE_EMAC(void);
 //void CopyToFrame_EMAC(void *source, uint32_t size);
 //void CopyFromFrame_EMAC(void *Dest, unsigned short Size);
