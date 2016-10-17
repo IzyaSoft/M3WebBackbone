@@ -12,7 +12,6 @@ extern "C"
 #define NUM_RX_FRAG         4           /* Num.of RX Fragments 4*1536= 6.0kB */
 #define NUM_TX_FRAG         2           /* Num.of TX Fragments 3*1536= 4.6kB */
 #define ETH_FRAG_SIZE       1536        /* Packet Fragment size 1536 Bytes   */
-
 #define ETH_MAX_FLEN        1536        /* Max. Ethernet Frame Size          */
 
 /* EMAC variables located in AHB SRAM bank 1*/
@@ -286,18 +285,23 @@ extern "C"
 #define DP83848C_DEF_ADR    0x0100      /* Default PHY device address        */
 #define DP83848C_ID         0x20005C90  /* PHY Identifier                    */
 
+typedef enum PHY_STATUS_PARAMETER {SPEED, MODE, LINK};
+
 
 // prototypes
-void InitializeEthernetMAC(EMAC_CFG_Type* emacConfig);
-unsigned short ReadFrameBE_EMAC(void);
-void CopyToFrame_EMAC(void *Source, unsigned int Size);
-void CopyFromFrame_EMAC(void *Dest, unsigned short Size);
-void DummyReadFrame_EMAC(unsigned short Size);
-unsigned short StartReadFrame(void);
-void EndReadFrame(void);
-unsigned int CheckFrameReceived(void);
-void RequestSend(unsigned short FrameSize);
-unsigned int Rdy4Tx(void);
+Bool InitializeEthernetMAC(EMAC_CFG_Type* emacConfig);
+int32_t CheckPhysicalState(uint32_t parameter);
+void WriteData();
+void ReadData();
+//word ReadFrameBE_EMAC(void);
+//void CopyToFrame_EMAC(void *source, uint32_t size);
+//void CopyFromFrame_EMAC(void *Dest, unsigned short Size);
+///void DummyReadFrame_EMAC(unsigned short Size);
+//unsigned short StartReadFrame(void);
+//void EndReadFrame(void);
+//unsigned int CheckFrameReceived(void);
+//void RequestSend(unsigned short FrameSize);
+//unsigned int Rdy4Tx(void);
 
 #ifdef __cplusplus
 }

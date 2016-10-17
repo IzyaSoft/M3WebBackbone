@@ -19,7 +19,7 @@
 #include "configurationManager.h"
 #include "FreeRTOS_TCP_server.h"
 
-#define WEB_SERVER_STACK_SIZE 512//1024
+#define WEB_SERVER_STACK_SIZE 512
 #define WEB_SERVER_TASK_PRIORITY configMAX_PRIORITIES / 2
 
 // global variables

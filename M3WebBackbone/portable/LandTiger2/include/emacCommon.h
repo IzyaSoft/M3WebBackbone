@@ -2,6 +2,10 @@
 #define EMAC_COMMON_H
 
 #include <stdint.h>
+#include "lpc_types.h"
+
+typedef unsigned char byte;
+typedef unsigned short word;
 
 /**
  * @brief RX Descriptor structure type definition

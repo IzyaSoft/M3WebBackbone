@@ -27,18 +27,6 @@ static void prvEMACTask(void *pvParameters)
     // function of LPC1768 EMAC Handling
 	// todo: umv: check interrupts flags: RxDone, TxDone
 	// todo: umv: if RxDone pass data from buffers to IP stack via xSendEventStructToIpTask
-
-	/*	EMAC_PACKETBUF_Type pDataStruct;
-		uint8_t ethernetBuffer [EMAC_ETH_MAX_FLEN] = {};
-		pDataStruct.pbDataBuf = ethernetBuffer;
-		pDataStruct.ulDataLen = EMAC_ETH_MAX_FLEN;
-		EMAC_ReadPacketBuffer(&pDataStruct);
-		for (x = 0; x < ipconfigNUM_NETWORK_BUFFER_DESCRIPTORS; x++)
-		{
-		    pxNetworkBuffers[x].pucEthernetBuffer = pDataStruct.pbDataBuf + ipBUFFER_PADDING;
-		    *( ( unsigned * ) ram_buffer ) = ( unsigned ) ( &pxNetworkBuffers[ x ] );
-		    ram_buffer += UNIT_SIZE;
-		}*/
 	for(;;)
 	{
 		// if no data then sleep
@@ -58,13 +46,8 @@ BaseType_t xNetworkInterfaceInitialise( void )
 	emacConfig.Mode = ETHERNET_MODE;
 	emacConfig.pbEMAC_Addr = ETHERNET_MAC_ADDRESS;
 
-	//Status result =
-			InitializeEthernetMAC(&emacConfig);
-	//if(result == SUCCESS)
-		//return pdTRUE;
-	//return  pdFALSE;
-
-    return pdTRUE;
+	Bool result = InitializeEthernetMAC(&emacConfig);
+	return result == TRUE;
 }
 
 BaseType_t xNetworkInterfaceOutput(NetworkBufferDescriptor_t * const pxNetworkBuffer, BaseType_t xReleaseAfterSend)
