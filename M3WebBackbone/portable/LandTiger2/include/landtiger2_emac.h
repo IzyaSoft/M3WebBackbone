@@ -294,6 +294,8 @@ int32_t CheckPhysicalState(uint32_t parameter);
 void WriteData(EMAC_PACKETBUF_Type* packet);
 void ReadData(EMAC_PACKETBUF_Type* packet);
 Bool CheckTransmitIndex();
+Bool CheckReceiveIndex();
+uint32_t GetReceivedDataSize();
 //word ReadFrameBE_EMAC(void);
 //void CopyToFrame_EMAC(void *source, uint32_t size);
 //void CopyFromFrame_EMAC(void *Dest, unsigned short Size);

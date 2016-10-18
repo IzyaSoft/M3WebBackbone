@@ -295,3 +295,15 @@ Bool CheckTransmitIndex()
     uint32_t tmp = LPC_EMAC->TxConsumeIndex -1;
 	return !(LPC_EMAC->TxProduceIndex == tmp);
 }
+
+Bool CheckReceiveIndex()
+{
+    return (LPC_EMAC->RxConsumeIndex != LPC_EMAC->RxProduceIndex);
+}
+
+uint32_t GetReceivedDataSize()
+{
+	uint32_t idx;
+    idx =LPC_EMAC->RxConsumeIndex;
+    return (RX_STAT_INFO(idx) & RINFO_SIZE);
+}
