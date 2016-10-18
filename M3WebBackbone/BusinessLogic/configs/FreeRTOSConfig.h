@@ -55,7 +55,7 @@
 #define configTIMER_TASK_PRIORITY               3
 #define configTIMER_QUEUE_LENGTH                10
 #define configTIMER_TASK_STACK_DEPTH            configMINIMAL_STACK_SIZE
-#define configEMAC_TASK_STACK_SIZE              2 * configMINIMAL_STACK_SIZE
+#define configEMAC_TASK_STACK_SIZE              configMINIMAL_STACK_SIZE
 
 /* Interrupt nesting behaviour configuration. */
 //#define configKERNEL_INTERRUPT_PRIORITY         [dependent of processor]
@@ -65,6 +65,8 @@
 #define configMAX_SYSCALL_INTERRUPT_PRIORITY    191
 #define configLIBRARY_KERNEL_INTERRUPT_PRIORITY 15
 
+
+#define configEMAC_INTERRUPT_PRIORITY           250
 /* Define to trap errors during development. */
 //#define configASSERT( x ) if( ( x ) == 0 ) vAssertCalled( __FILE__, __LINE__ )
 

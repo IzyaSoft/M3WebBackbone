@@ -153,8 +153,8 @@
     <File name="portable/LandTiger2/lpc17xx_lib/lpc17xx_libcfg_default.c" path="portable/LandTiger2/lpc17xx_lib/lpc17xx_libcfg_default.c" type="1"/>
     <File name="businesslogic/configs/FreeRTOSFATConfig.h" path="BusinessLogic/configs/FreeRTOSFATConfig.h" type="1"/>
     <File name="FreeRTOS-Plus-FAT/portable" path="" type="2"/>
-    <File name="FreeRTOS-Plus-FAT/include/ff_ioman.h" path="FreeRTOS-Plus-FAT/include/ff_ioman.h" type="1"/>
     <File name="FreeRTOS/Source/portable/GCC/ARM_CM3" path="" type="2"/>
+    <File name="FreeRTOS-Plus-FAT/include/ff_ioman.h" path="FreeRTOS-Plus-FAT/include/ff_ioman.h" type="1"/>
     <File name="FreeRTOS-Plus-FAT/ff_time.c" path="FreeRTOS-Plus-FAT/ff_time.c" type="1"/>
     <File name="FreeRTOS-Plus-TCP/include/FreeRTOS_Sockets.h" path="FreeRTOS-Plus-TCP/include/FreeRTOS_Sockets.h" type="1"/>
     <File name="portable/LandTiger2/include/lpc_types.h" path="portable/LandTiger2/include/lpc_types.h" type="1"/>

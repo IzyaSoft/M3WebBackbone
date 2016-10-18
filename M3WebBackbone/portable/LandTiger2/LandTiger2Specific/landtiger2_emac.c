@@ -289,3 +289,9 @@ void ReadData(EMAC_PACKETBUF_Type* packet)
         for (len = (packet->ulDataLen + 3) >> 2; len; len--)
             *dp++ = *sp++;
 }
+
+Bool CheckTransmitIndex()
+{
+    uint32_t tmp = LPC_EMAC->TxConsumeIndex -1;
+	return !(LPC_EMAC->TxProduceIndex == tmp);
+}
