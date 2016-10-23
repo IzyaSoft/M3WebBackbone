@@ -39,7 +39,7 @@ int main()
 	// Hardware Initialization
     InitializeClocks();
     // Interrupts priority bits initialization
-    InitializeInterrupts(0);
+    InitializeInterrupts(4);
     //EMAC_CFG_Type emacConfig;
     //emacConfig.Mode = ETHERNET_MODE;
     //emacConfig.pbEMAC_Addr = ETHERNET_MAC_ADDRESS;
@@ -92,7 +92,7 @@ void prvWebServerTask(void *pvParameters)
     /* Run the HTTP and/or FTP servers, as configured above. */
     for( ;; )
     {
-        FreeRTOS_TCPServerWork(pxTCPServer, xInitialBlockTime );
+        FreeRTOS_TCPServerWork(pxTCPServer, xInitialBlockTime);
     }
 
     vTaskDelete(NULL);

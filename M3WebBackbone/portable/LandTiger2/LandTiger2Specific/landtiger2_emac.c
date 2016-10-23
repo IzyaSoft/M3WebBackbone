@@ -30,7 +30,7 @@ static uint32_t txBuffer[NUM_TX_FRAG][ETH_MAX_FLEN>>2];
 */
 static int32_t write_PHY (int32_t phyReg, int32_t value)
 {
-    uint32_t tout;
+    uint32_t tout = 0;
 
     LPC_EMAC->MADR = DP83848C_DEF_ADR | phyReg;
     LPC_EMAC->MWTD = value;
@@ -46,7 +46,7 @@ static int32_t write_PHY (int32_t phyReg, int32_t value)
 
 static int32_t read_PHY (byte phyReg)
 {
-    uint32_t tout;
+    uint32_t tout = 0;
 
     LPC_EMAC->MADR = DP83848C_DEF_ADR | phyReg;
     LPC_EMAC->MCMD = MCMD_READ;
@@ -174,7 +174,7 @@ Bool InitializeEthernetMAC(EMAC_CFG_Type* emacConfig)
         /* Use autonegotiation about the link speed. */
         write_PHY(PHY_REG_BMCR, PHY_AUTO_NEG);
         /* Wait to complete Auto_Negotiation. */
-        for (tout = 0; tout < 0x100000; tout++)
+        for (tout = 0; tout <0x100000; tout++)
         {
             regv = read_PHY(PHY_REG_BMSR);
             if (regv & 0x0020)
@@ -182,8 +182,8 @@ Bool InitializeEthernetMAC(EMAC_CFG_Type* emacConfig)
         }
     }
 
-    if (!(regv & 0x0020))
-    	return FALSE;
+    //if (!(regv & 0x0020))
+    	//return FALSE;
 
     /* Check the link status. */
     for (tout = 0; tout < 0x10000; tout++)
@@ -193,8 +193,8 @@ Bool InitializeEthernetMAC(EMAC_CFG_Type* emacConfig)
             break;/* Link is on. */
     }
 
-    if(!(regv & 0x0001))
-    	return FALSE;
+    //if(!(regv & 0x0001))
+    	//return FALSE;
 
     // todo: umv : settings for spedd mode & duplex from parameter
 
