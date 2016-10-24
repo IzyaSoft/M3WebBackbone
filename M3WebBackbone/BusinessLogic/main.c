@@ -4,7 +4,8 @@
 #include "timers.h"
 #include "queue.h"
 #include "semphr.h"
-
+#include "pingManager.h"
+#include "networkEstablishHelper.h"
 /* Free RTOS Configs*/
 #include "FreeRTOSConfig.h"
 #include "FreeRTOSFATConfig.h"
@@ -17,6 +18,7 @@
 /* Application*/
 #include "staticAllocationImpl.h"
 #include "configurationManager.h"
+
 #include "FreeRTOS_TCP_server.h"
 
 #define WEB_SERVER_STACK_SIZE 512

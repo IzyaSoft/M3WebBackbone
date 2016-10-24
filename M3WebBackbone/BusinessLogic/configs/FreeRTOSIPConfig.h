@@ -315,5 +315,8 @@ messages. */
 
 /* Application settings */
 #define ipconfigUSE_HTTP 1
+#define ipconfigUSE_NETWORK_EVENT_HOOK 0
+#define ipconfigSUPPORT_OUTGOING_PING 1
+#define ipconfigREPLY_TO_INCOMING_PINGS 1
 
 #endif

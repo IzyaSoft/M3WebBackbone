@@ -43,7 +43,7 @@ static void prvEMACTask(void *pvParameters)
     	/* Wait for the EMAC interrupt to indicate that another packet has been
          * received.  The while() loop is only needed if INCLUDE_vTaskSuspend is
          * set to 0 in FreeRTOSConfig.h. */
-        while( xSemaphoreTake(xEthernetMACRxEventSemaphore, portMAX_DELAY ) == pdFALSE );
+        while(xSemaphoreTake(xEthernetMACRxEventSemaphore, portMAX_DELAY) == pdFALSE);
 
         /* At least one packet has been received. */
         while(CheckReceiveIndex() != FALSE)
