@@ -307,3 +307,13 @@ uint32_t GetReceivedDataSize()
     idx =LPC_EMAC->RxConsumeIndex;
     return (RX_STAT_INFO(idx) & RINFO_SIZE);
 }
+
+void UpdateRxConsumeIndex()
+{
+    // Get current Rx consume index
+    uint32_t idx = LPC_EMAC->RxConsumeIndex;
+
+    /* Release frame from EMAC buffer */
+    if (++idx == NUM_RX_FRAG) idx = 0;
+    LPC_EMAC->RxConsumeIndex = idx;
+}

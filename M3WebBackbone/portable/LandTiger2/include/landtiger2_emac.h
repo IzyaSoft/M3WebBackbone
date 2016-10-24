@@ -296,15 +296,7 @@ void ReadData(EMAC_PACKETBUF_Type* packet);
 Bool CheckTransmitIndex();
 Bool CheckReceiveIndex();
 uint32_t GetReceivedDataSize();
-//word ReadFrameBE_EMAC(void);
-//void CopyToFrame_EMAC(void *source, uint32_t size);
-//void CopyFromFrame_EMAC(void *Dest, unsigned short Size);
-///void DummyReadFrame_EMAC(unsigned short Size);
-//unsigned short StartReadFrame(void);
-//void EndReadFrame(void);
-//unsigned int CheckFrameReceived(void);
-//void RequestSend(unsigned short FrameSize);
-//unsigned int Rdy4Tx(void);
+void UpdateRxConsumeIndex();
 
 #ifdef __cplusplus
 }

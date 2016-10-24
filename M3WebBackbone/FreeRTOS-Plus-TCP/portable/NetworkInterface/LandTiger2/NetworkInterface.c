@@ -26,8 +26,10 @@
 
 static TaskHandle_t eMACTaskHandle;
 static SemaphoreHandle_t xEthernetMACRxEventSemaphore = NULL;
-
 static uint8_t rxBuffer[ETH_MAX_FLEN];
+
+/* The queue used to communicate Ethernet events with the IP task. */
+extern QueueHandle_t xNetworkEventQueue;
 
 static void prvEMACTask(void *pvParameters)
 {
@@ -61,12 +63,16 @@ static void prvEMACTask(void *pvParameters)
 
                 /* Data was received and stored.  Send a message to the IP task to let it know. */
                 if( xSendEventStructToIPTask(&rxEvent, (TickType_t)0) == pdFAIL)
+                {
+                	vReleaseNetworkBufferAndDescriptor(&networkBuffer);
                     iptraceETHERNET_RX_EVENT_LOST();
+                }
             }
             else
             {
             	iptraceETHERNET_RX_EVENT_LOST();
             }
+            UpdateRxConsumeIndex();
         }
     }
     vTaskDelete(NULL);
