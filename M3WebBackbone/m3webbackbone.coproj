@@ -21,6 +21,8 @@
           <Includepath path="freertos-plus-tcp/portable/compiler/gcc"/>
           <Includepath path="freertos/source/portable/memmang"/>
           <Includepath path="businesslogic/freertos-extensions"/>
+          <Includepath path="debugtools/semihosting"/>
+          <Includepath path="debugtools/assert"/>
         </Includepaths>
         <DefinedSymbols>
           <Define name="LPC1768"/>
@@ -34,6 +36,7 @@
         <Option name="LTO" value="0"/>
         <Option name="IsNewStartupCode" value="1"/>
         <Option name="Library" value="Not use C Library"/>
+        <Option name="UserEditLinker" value="--entry=main; "/>
         <LinkedLibraries>
           <Libset dir="c:\program files (x86)\gnu tools arm embedded\5.4 2016q2\arm-none-eabi\lib\armv7-m\" libs="c"/>
           <Libset dir="c:\program files (x86)\gnu tools arm embedded\5.4 2016q2\arm-none-eabi\lib\armv7-m\" libs="m"/>
@@ -66,12 +69,12 @@
       <Option name="org.coocox.codebugger.gdbjtag.core.debugMode" value="SWD"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.clockDiv" value="1M"/>
       <Option name="org.coocox.codebugger.gdbjtag.corerunToMain" value="1"/>
-      <Option name="org.coocox.codebugger.gdbjtag.core.jlinkgdbserver" value="C:\Program Files (x86)\SEGGER\JLinkARM_V414c\JLinkGDBServerCL.exe"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.jlinkgdbserver" value="C:\Program Files (x86)\SEGGER\JLink_V610g\JLinkGDBServerCL.exe"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.userDefineGDBScript" value=""/>
       <Option name="org.coocox.codebugger.gdbjtag.core.targetEndianess" value="0"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.jlinkResetMode" value="Type 0: Normal"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.resetMode" value="SYSRESETREQ"/>
-      <Option name="org.coocox.codebugger.gdbjtag.core.ifSemihost" value="0"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.ifSemihost" value="1"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.ifCacheRom" value="1"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.ipAddress" value="127.0.0.1"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.portNumber" value="2331"/>
@@ -82,25 +85,30 @@
     </DebugOption>
     <ExcludeFile/>
   </Target>
-  <Components path="./"/>
+  <Components path="./">
+    <Component id="31" name="Retarget printf" path="" type="2"/>
+    <Component id="33" name="Semihosting" path="" type="2"/>
+  </Components>
   <Files>
     <File name="FreeRTOS-Plus-FAT/include/ff_locking.h" path="FreeRTOS-Plus-FAT/include/ff_locking.h" type="1"/>
-    <File name="FreeRTOS-Plus-FAT/ff_dev_support.c" path="FreeRTOS-Plus-FAT/ff_dev_support.c" type="1"/>
     <File name="portable/LandTiger2/LandTiger2Specific" path="" type="2"/>
+    <File name="FreeRTOS-Plus-FAT/ff_dev_support.c" path="FreeRTOS-Plus-FAT/ff_dev_support.c" type="1"/>
     <File name="FreeRTOS-Plus-FAT/include/FreeRTOS_errno_FAT.h" path="FreeRTOS-Plus-FAT/include/FreeRTOS_errno_FAT.h" type="1"/>
-    <File name="portable/LandTiger2/include/system_LPC17xx.h" path="portable/LandTiger2/include/system_LPC17xx.h" type="1"/>
     <File name="FreeRTOS/Source/tasks.c" path="FreeRTOS/Source/tasks.c" type="1"/>
+    <File name="portable/LandTiger2/include/system_LPC17xx.h" path="portable/LandTiger2/include/system_LPC17xx.h" type="1"/>
     <File name="FreeRTOS-Plus-TCP/protocols/include/NTPDemo.h" path="FreeRTOS-Plus-TCP/protocols/include/NTPDemo.h" type="1"/>
     <File name="portable" path="" type="2"/>
     <File name="FreeRTOS-Plus-FAT/ff_memory.c" path="FreeRTOS-Plus-FAT/ff_memory.c" type="1"/>
+    <File name="debugTools/semihosting" path="" type="2"/>
     <File name="portable/LandTiger2/include/landtiger2_emac.h" path="portable/LandTiger2/include/landtiger2_emac.h" type="1"/>
     <File name="FreeRTOS-Plus-TCP/protocols/common/FreeRTOS_TCP_server.c" path="FreeRTOS-Plus-TCP/protocols/Common/FreeRTOS_TCP_server.c" type="1"/>
     <File name="FreeRTOS-Plus-TCP/portable/NetworkInterface/LandTiger2/NetworkInterface.c" path="FreeRTOS-Plus-TCP/portable/NetworkInterface/LandTiger2/NetworkInterface.c" type="1"/>
     <File name="portable/LandTiger2" path="" type="2"/>
     <File name="businesslogic/managers" path="" type="2"/>
     <File name="FreeRTOS-Plus-TCP/include/FreeRTOS_ARP.h" path="FreeRTOS-Plus-TCP/include/FreeRTOS_ARP.h" type="1"/>
-    <File name="FreeRTOS-Plus-TCP/protocols/HTTP/FreeRTOS_HTTP_server.c" path="FreeRTOS-Plus-TCP/protocols/HTTP/FreeRTOS_HTTP_server.c" type="1"/>
     <File name="businesslogic/configs/FreeRTOSIPConfig.h" path="BusinessLogic/configs/FreeRTOSIPConfig.h" type="1"/>
+    <File name="FreeRTOS-Plus-TCP/protocols/HTTP/FreeRTOS_HTTP_server.c" path="FreeRTOS-Plus-TCP/protocols/HTTP/FreeRTOS_HTTP_server.c" type="1"/>
+    <File name="debugTools/stdio" path="" type="2"/>
     <File name="FreeRTOS-Plus-FAT/include/FreeRTOSFATConfigDefaults.h" path="FreeRTOS-Plus-FAT/include/FreeRTOSFATConfigDefaults.h" type="1"/>
     <File name="FreeRTOS/Source/portable/MemMang/heap_2.c" path="FreeRTOS/Source/portable/MemMang/heap_2.c" type="1"/>
     <File name="FreeRTOS-Plus-TCP/portable/BufferManagement" path="" type="2"/>
@@ -108,9 +116,9 @@
     <File name="FreeRTOS-Plus-TCP/FreeRTOS_TCP_IP.c" path="FreeRTOS-Plus-TCP/FreeRTOS_TCP_IP.c" type="1"/>
     <File name="FreeRTOS/Source/portable" path="" type="2"/>
     <File name="FreeRTOS-Plus-TCP/FreeRTOS_IP.c" path="FreeRTOS-Plus-TCP/FreeRTOS_IP.c" type="1"/>
-    <File name="FreeRTOS-Plus-TCP/portable/Compiler/GCC/pack_struct_start.h" path="FreeRTOS-Plus-TCP/portable/Compiler/GCC/pack_struct_start.h" type="1"/>
     <File name="FreeRTOS-Plus-TCP/portable/NetworkInterface" path="" type="2"/>
     <File name="portable/LandTiger2/lpc17xx_lib/lpc17xx_clkpwr.c" path="portable/LandTiger2/lpc17xx_lib/lpc17xx_clkpwr.c" type="1"/>
+    <File name="FreeRTOS-Plus-TCP/portable/Compiler/GCC/pack_struct_start.h" path="FreeRTOS-Plus-TCP/portable/Compiler/GCC/pack_struct_start.h" type="1"/>
     <File name="FreeRTOS-Plus-TCP/protocols/include/FreeRTOS_FTP_commands.h" path="FreeRTOS-Plus-TCP/protocols/include/FreeRTOS_FTP_commands.h" type="1"/>
     <File name="FreeRTOS-Plus-FAT/include/ff_fatdef.h" path="FreeRTOS-Plus-FAT/include/ff_fatdef.h" type="1"/>
     <File name="FreeRTOS-Plus-TCP/include/FreeRTOSIPConfigDefaults.h" path="FreeRTOS-Plus-TCP/include/FreeRTOSIPConfigDefaults.h" type="1"/>
@@ -123,25 +131,28 @@
     <File name="businesslogic/main.c" path="BusinessLogic/main.c" type="1"/>
     <File name="FreeRTOS-Plus-FAT/include/ff_sys.h" path="FreeRTOS-Plus-FAT/include/ff_sys.h" type="1"/>
     <File name="portable/LandTiger2/include/lpc17xx_gpio.h" path="portable/LandTiger2/include/lpc17xx_gpio.h" type="1"/>
-    <File name="FreeRTOS/Source/include/task.h" path="FreeRTOS/Source/include/task.h" type="1"/>
     <File name="portable/LandTiger2/cmsis_boot/system_LPC17xx.c" path="portable/LandTiger2/cmsis_boot/system_LPC17xx.c" type="1"/>
-    <File name="FreeRTOS-Plus-FAT/include" path="" type="2"/>
+    <File name="FreeRTOS/Source/include/task.h" path="FreeRTOS/Source/include/task.h" type="1"/>
+    <File name="debugTools/semihosting/semihosting.h" path="debugTools/semihosting/semihosting.h" type="1"/>
     <File name="FreeRTOS-Plus-TCP/FreeRTOS_ARP.c" path="FreeRTOS-Plus-TCP/FreeRTOS_ARP.c" type="1"/>
+    <File name="FreeRTOS-Plus-FAT/include" path="" type="2"/>
     <File name="FreeRTOS-Plus-FAT/ff_locking.c" path="FreeRTOS-Plus-FAT/ff_locking.c" type="1"/>
     <File name="FreeRTOS-Plus-FAT/ff_file.c" path="FreeRTOS-Plus-FAT/ff_file.c" type="1"/>
     <File name="FreeRTOS-Plus-TCP" path="" type="2"/>
     <File name="FreeRTOS-Plus-FAT/ff_sys.c" path="FreeRTOS-Plus-FAT/ff_sys.c" type="1"/>
-    <File name="FreeRTOS-Plus-FAT/ff_crc.c" path="FreeRTOS-Plus-FAT/ff_crc.c" type="1"/>
+    <File name="debugTools/assert/assert.c" path="debugTools/assert/assert.c" type="1"/>
     <File name="FreeRTOS-Plus-FAT/include/ff_headers.h" path="FreeRTOS-Plus-FAT/include/ff_headers.h" type="1"/>
-    <File name="FreeRTOS-Plus-FAT/ff_string.c" path="FreeRTOS-Plus-FAT/ff_string.c" type="1"/>
+    <File name="FreeRTOS-Plus-FAT/ff_crc.c" path="FreeRTOS-Plus-FAT/ff_crc.c" type="1"/>
     <File name="portable/LandTiger2/LandTiger2Specific/landtiger2_emac.c" path="portable/LandTiger2/LandTiger2Specific/landtiger2_emac.c" type="1"/>
+    <File name="FreeRTOS-Plus-FAT/ff_string.c" path="FreeRTOS-Plus-FAT/ff_string.c" type="1"/>
     <File name="FreeRTOS/Source/include/semphr.h" path="FreeRTOS/Source/include/semphr.h" type="1"/>
     <File name="FreeRTOS-Plus-TCP/protocols/include/FreeRTOS_TCP_server.h" path="FreeRTOS-Plus-TCP/protocols/include/FreeRTOS_TCP_server.h" type="1"/>
     <File name="FreeRTOS/Source/include/deprecated_definitions.h" path="FreeRTOS/Source/include/deprecated_definitions.h" type="1"/>
     <File name="FreeRTOS-Plus-FAT/ff_fat.c" path="FreeRTOS-Plus-FAT/ff_fat.c" type="1"/>
     <File name="FreeRTOS-Plus-TCP/include/FreeRTOS_TCP_WIN.h" path="FreeRTOS-Plus-TCP/include/FreeRTOS_TCP_WIN.h" type="1"/>
-    <File name="portable/LandTiger2/lpc17xx_lib/lpc17xx_emac.c" path="portable/LandTiger2/lpc17xx_lib/lpc17xx_emac.c" type="1"/>
+    <File name="debugTools/stdio/printf.c" path="debugTools/stdio/printf.c" type="1"/>
     <File name="portable/LandTiger2/include/emacCommon.h" path="portable/LandTiger2/include/emacCommon.h" type="1"/>
+    <File name="portable/LandTiger2/lpc17xx_lib/lpc17xx_emac.c" path="portable/LandTiger2/lpc17xx_lib/lpc17xx_emac.c" type="1"/>
     <File name="FreeRTOS-Plus-FAT/include/ff_format.h" path="FreeRTOS-Plus-FAT/include/ff_format.h" type="1"/>
     <File name="portable/LandTiger2/include/lpc17xx_pinsel.h" path="portable/LandTiger2/include/lpc17xx_pinsel.h" type="1"/>
     <File name="FreeRTOS-Plus-TCP/include" path="" type="2"/>
@@ -152,18 +163,17 @@
     <File name="FreeRTOS/Source/include/partest.h" path="FreeRTOS/Source/include/partest.h" type="1"/>
     <File name="portable/LandTiger2/lpc17xx_lib/lpc17xx_libcfg_default.c" path="portable/LandTiger2/lpc17xx_lib/lpc17xx_libcfg_default.c" type="1"/>
     <File name="businesslogic/configs/FreeRTOSFATConfig.h" path="BusinessLogic/configs/FreeRTOSFATConfig.h" type="1"/>
-    <File name="FreeRTOS-Plus-FAT/portable" path="" type="2"/>
     <File name="FreeRTOS-Plus-FAT/include/ff_ioman.h" path="FreeRTOS-Plus-FAT/include/ff_ioman.h" type="1"/>
+    <File name="FreeRTOS-Plus-FAT/portable" path="" type="2"/>
     <File name="FreeRTOS/Source/portable/GCC/ARM_CM3" path="" type="2"/>
     <File name="FreeRTOS-Plus-FAT/ff_time.c" path="FreeRTOS-Plus-FAT/ff_time.c" type="1"/>
     <File name="FreeRTOS-Plus-TCP/include/FreeRTOS_Sockets.h" path="FreeRTOS-Plus-TCP/include/FreeRTOS_Sockets.h" type="1"/>
     <File name="portable/LandTiger2/include/lpc_types.h" path="portable/LandTiger2/include/lpc_types.h" type="1"/>
-    <File name="businesslogic/data" path="" type="2"/>
     <File name="FreeRTOS-Plus-TCP/portable/Compiler/GCC" path="" type="2"/>
     <File name="portable/LandTiger2/cmsis_boot/startup/startup_LPC17xx.c" path="portable/LandTiger2/cmsis_boot/startup/startup_LPC17xx.c" type="1"/>
     <File name="FreeRTOS/Source/include/projdefs.h" path="FreeRTOS/Source/include/projdefs.h" type="1"/>
-    <File name="FreeRTOS-Plus-TCP/include/FreeRTOS_DNS.h" path="FreeRTOS-Plus-TCP/include/FreeRTOS_DNS.h" type="1"/>
     <File name="portable/LandTiger2/lpc17xx_lib/lpc17xx_gpio.c" path="portable/LandTiger2/lpc17xx_lib/lpc17xx_gpio.c" type="1"/>
+    <File name="FreeRTOS-Plus-TCP/include/FreeRTOS_DNS.h" path="FreeRTOS-Plus-TCP/include/FreeRTOS_DNS.h" type="1"/>
     <File name="portable/LandTiger2/include/core_cmInstr.h" path="portable/LandTiger2/include/core_cmInstr.h" type="1"/>
     <File name="FreeRTOS-Plus-FAT/include/ff_string.h" path="FreeRTOS-Plus-FAT/include/ff_string.h" type="1"/>
     <File name="FreeRTOS-Plus-TCP/FreeRTOS_TCP_WIN.c" path="FreeRTOS-Plus-TCP/FreeRTOS_TCP_WIN.c" type="1"/>
@@ -177,8 +187,8 @@
     <File name="portable/LandTiger2/include/lpc17xx_emac.h" path="portable/LandTiger2/include/lpc17xx_emac.h" type="1"/>
     <File name="FreeRTOS/Source/include/mpu_wrappers.h" path="FreeRTOS/Source/include/mpu_wrappers.h" type="1"/>
     <File name="FreeRTOS-Plus-FAT/portable/common/ff_sddisk.h" path="FreeRTOS-Plus-FAT/portable/common/ff_sddisk.h" type="1"/>
-    <File name="portable/LandTiger2/include/core_cm3.h" path="portable/LandTiger2/include/core_cm3.h" type="1"/>
     <File name="FreeRTOS-Plus-FAT/ff_ioman.c" path="FreeRTOS-Plus-FAT/ff_ioman.c" type="1"/>
+    <File name="portable/LandTiger2/include/core_cm3.h" path="portable/LandTiger2/include/core_cm3.h" type="1"/>
     <File name="FreeRTOS-Plus-TCP/portable/Compiler" path="" type="2"/>
     <File name="FreeRTOS-Plus-TCP/include/FreeRTOS_Stream_Buffer.h" path="FreeRTOS-Plus-TCP/include/FreeRTOS_Stream_Buffer.h" type="1"/>
     <File name="FreeRTOS-Plus-TCP/FreeRTOS_DHCP.c" path="FreeRTOS-Plus-TCP/FreeRTOS_DHCP.c" type="1"/>
@@ -196,16 +206,18 @@
     <File name="FreeRTOS-Plus-TCP/FreeRTOS_Stream_Buffer.c" path="FreeRTOS-Plus-TCP/FreeRTOS_Stream_Buffer.c" type="1"/>
     <File name="FreeRTOS-Plus-TCP/protocols/include/FreeRTOS_server_private.h" path="FreeRTOS-Plus-TCP/protocols/include/FreeRTOS_server_private.h" type="1"/>
     <File name="FreeRTOS/Source/portable/GCC" path="" type="2"/>
+    <File name="debugTools/assert/assert.h" path="debugTools/assert/assert.h" type="1"/>
     <File name="portable/LandTiger2/lpc17xx_lib/lpc17xx_pinsel.c" path="portable/LandTiger2/lpc17xx_lib/lpc17xx_pinsel.c" type="1"/>
     <File name="FreeRTOS-Plus-TCP/protocols/HTTP" path="" type="2"/>
     <File name="FreeRTOS-Plus-FAT/include/ff_stdio.h" path="FreeRTOS-Plus-FAT/include/ff_stdio.h" type="1"/>
-    <File name="FreeRTOS-Extensions" path="" type="2"/>
     <File name="FreeRTOS/Source/portable/GCC/ARM_CM3/port.c" path="FreeRTOS/Source/portable/GCC/ARM_CM3/port.c" type="1"/>
+    <File name="FreeRTOS-Extensions" path="" type="2"/>
     <File name="FreeRTOS/Source" path="" type="2"/>
     <File name="FreeRTOS-Plus-FAT/include/ff_file.h" path="FreeRTOS-Plus-FAT/include/ff_file.h" type="1"/>
     <File name="FreeRTOS-Plus-FAT/include/ff_error.h" path="FreeRTOS-Plus-FAT/include/ff_error.h" type="1"/>
     <File name="FreeRTOS-Plus-FAT/ff_error.c" path="FreeRTOS-Plus-FAT/ff_error.c" type="1"/>
     <File name="FreeRTOS-Plus-FAT" path="" type="2"/>
+    <File name="debugTools/assert" path="" type="2"/>
     <File name="portable/LandTiger2/include/LPC17xx.h" path="portable/LandTiger2/include/LPC17xx.h" type="1"/>
     <File name="FreeRTOS-Plus-FAT/include/ff_memory.h" path="FreeRTOS-Plus-FAT/include/ff_memory.h" type="1"/>
     <File name="FreeRTOS-Extensions/staticAllocationImpl.h" path="BusinessLogic/FreeRTOS-Extensions/staticAllocationImpl.h" type="1"/>
@@ -216,34 +228,35 @@
     <File name="FreeRTOS-Plus-TCP/protocols/include/FreeRTOS_HTTP_commands.h" path="FreeRTOS-Plus-TCP/protocols/include/FreeRTOS_HTTP_commands.h" type="1"/>
     <File name="FreeRTOS-Plus-TCP/portable/NetworkInterface/LandTiger2" path="" type="2"/>
     <File name="businesslogic/configs" path="" type="2"/>
-    <File name="FreeRTOS-Plus-TCP/protocols/common" path="" type="2"/>
     <File name="FreeRTOS/Source/include/queue.h" path="FreeRTOS/Source/include/queue.h" type="1"/>
+    <File name="FreeRTOS-Plus-TCP/protocols/common" path="" type="2"/>
     <File name="FreeRTOS-Plus-FAT/ff_format.c" path="FreeRTOS-Plus-FAT/ff_format.c" type="1"/>
     <File name="portable/LandTiger2/lpc17xx_lib" path="" type="2"/>
     <File name="businesslogic/configs/FreeRTOSConfig.h" path="BusinessLogic/configs/FreeRTOSConfig.h" type="1"/>
     <File name="FreeRTOS-Plus-FAT/portable/common/ff_ramdisk.h" path="FreeRTOS-Plus-FAT/portable/common/ff_ramdisk.h" type="1"/>
     <File name="FreeRTOS-Plus-FAT/include/ff_old_config_defines.h" path="FreeRTOS-Plus-FAT/include/ff_old_config_defines.h" type="1"/>
-    <File name="FreeRTOS/Source/include/list.h" path="FreeRTOS/Source/include/list.h" type="1"/>
     <File name="FreeRTOS-Plus-TCP/protocols/include" path="" type="2"/>
+    <File name="FreeRTOS/Source/include/list.h" path="FreeRTOS/Source/include/list.h" type="1"/>
     <File name="FreeRTOS-Plus-FAT/include/ff_time.h" path="FreeRTOS-Plus-FAT/include/ff_time.h" type="1"/>
     <File name="FreeRTOS-Plus-FAT/include/ff_fat.h" path="FreeRTOS-Plus-FAT/include/ff_fat.h" type="1"/>
     <File name="portable/LandTiger2/cmsis_boot" path="" type="2"/>
     <File name="FreeRTOS-Plus-TCP/FreeRTOS_Sockets.c" path="FreeRTOS-Plus-TCP/FreeRTOS_Sockets.c" type="1"/>
+    <File name="debugTools" path="" type="2"/>
     <File name="FreeRTOS-Plus-FAT/ff_dir.c" path="FreeRTOS-Plus-FAT/ff_dir.c" type="1"/>
-    <File name="FreeRTOS-Plus-FAT/portable/common" path="" type="2"/>
     <File name="portable/LandTiger2/include/lpc17xx_libcfg_default.h" path="portable/LandTiger2/include/lpc17xx_libcfg_default.h" type="1"/>
+    <File name="FreeRTOS-Plus-FAT/portable/common" path="" type="2"/>
     <File name="portable/LandTiger2/include/lpc17xx_clkpwr.h" path="portable/LandTiger2/include/lpc17xx_clkpwr.h" type="1"/>
     <File name="FreeRTOS-Plus-TCP/protocols/HTTP/FreeRTOS_HTTP_commands.c" path="FreeRTOS-Plus-TCP/protocols/HTTP/FreeRTOS_HTTP_commands.c" type="1"/>
     <File name="FreeRTOS/Source/include/FreeRTOS.h" path="FreeRTOS/Source/include/FreeRTOS.h" type="1"/>
-    <File name="FreeRTOS-Plus-FAT/include/ff_devices.h" path="FreeRTOS-Plus-FAT/include/ff_devices.h" type="1"/>
     <File name="FreeRTOS-Extensions/networkEstablishHelper.h" path="BusinessLogic/FreeRTOS-Extensions/networkEstablishHelper.h" type="1"/>
-    <File name="businesslogic/configs/ethernetMacConfig.h" path="BusinessLogic/configs/ethernetMacConfig.h" type="1"/>
+    <File name="FreeRTOS-Plus-FAT/include/ff_devices.h" path="FreeRTOS-Plus-FAT/include/ff_devices.h" type="1"/>
     <File name="FreeRTOS-Plus-FAT/portable/common/ff_ramdisk.c" path="FreeRTOS-Plus-FAT/portable/common/ff_ramdisk.c" type="1"/>
-    <File name="FreeRTOS-Plus-TCP/include/FreeRTOS_IP.h" path="FreeRTOS-Plus-TCP/include/FreeRTOS_IP.h" type="1"/>
+    <File name="businesslogic/configs/ethernetMacConfig.h" path="BusinessLogic/configs/ethernetMacConfig.h" type="1"/>
     <File name="FreeRTOS/Source/include/StackMacros.h" path="FreeRTOS/Source/include/StackMacros.h" type="1"/>
+    <File name="FreeRTOS-Plus-TCP/include/FreeRTOS_IP.h" path="FreeRTOS-Plus-TCP/include/FreeRTOS_IP.h" type="1"/>
     <File name="FreeRTOS/Source/event_groups.c" path="FreeRTOS/Source/event_groups.c" type="1"/>
-    <File name="FreeRTOS-Extensions/pingManager.c" path="BusinessLogic/FreeRTOS-Extensions/pingManager.c" type="1"/>
     <File name="FreeRTOS/Source/portable/MemMang" path="" type="2"/>
+    <File name="FreeRTOS-Extensions/pingManager.c" path="BusinessLogic/FreeRTOS-Extensions/pingManager.c" type="1"/>
     <File name="FreeRTOS" path="" type="2"/>
     <File name="businesslogic" path="" type="2"/>
     <File name="portable/LandTiger2/cmsis_boot/startup" path="" type="2"/>

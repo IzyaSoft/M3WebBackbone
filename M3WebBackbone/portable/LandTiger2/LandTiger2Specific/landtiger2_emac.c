@@ -280,6 +280,7 @@ void ReadData(EMAC_PACKETBUF_Type* packet)
 {
     uint32_t idx, len;
     uint32_t *dp, *sp;
+    uint32_t index = 0;
 
     idx = LPC_EMAC->RxConsumeIndex;
     dp = (uint32_t *)packet->pbDataBuf;
@@ -287,8 +288,19 @@ void ReadData(EMAC_PACKETBUF_Type* packet)
 
     if (packet->pbDataBuf != NULL)
         for (len = (packet->ulDataLen + 3) >> 2; len; len--)
+        {
             *dp++ = *sp++;
+            // printf( "Received data: %d\r\n", sp[index]);
+            index++;
+        }
 }
+
+uint32_t* NextPacketToRead()
+{
+	return (uint32_t*) RX_DESC_PACKET(LPC_EMAC->RxConsumeIndex);
+}
+
+
 
 Bool CheckTransmitIndex()
 {

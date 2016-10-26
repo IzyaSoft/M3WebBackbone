@@ -13,7 +13,6 @@
 
 /* Hardware*/
 #include "LPC17xx.h"
-#include "core_cm3.h"
 
 /* Application*/
 #include "staticAllocationImpl.h"
@@ -21,8 +20,12 @@
 
 #include "FreeRTOS_TCP_server.h"
 
-#define WEB_SERVER_STACK_SIZE 512
+#include "semihosting.h"
+
+#define WEB_SERVER_STACK_SIZE 512 // 1024
 #define WEB_SERVER_TASK_PRIORITY configMAX_PRIORITIES / 2
+
+//extern void initialise_monitor_handles(void); /* prototype */
 
 // global variables
 const uint8_t ETHERNET_MAC_ADDRESS[] = {0xAA, 0x33, 0x00, 0x66, 0x22, 0xEE};
@@ -38,16 +41,12 @@ void prvWebServerTask(void *pvParameters);
 
 int main()
 {
+	// initialise_monitor_handles();
 	// Hardware Initialization
     InitializeClocks();
     // Interrupts priority bits initialization
-    InitializeInterrupts(4);
-    //EMAC_CFG_Type emacConfig;
-    //emacConfig.Mode = ETHERNET_MODE;
-    //emacConfig.pbEMAC_Addr = ETHERNET_MAC_ADDRESS;
-    // xTaskCreate(prvEMACTask, "LPC1768EMAC", configEMAC_TASK_STACK_SIZE, NULL, configMAX_PRIORITIES - 3, &eMACTaskHandle);
-    //
-    //Status initresult = EMAC_Init(&emacConfig);
+    InitializeInterrupts(0);
+    printf("m3webbackbone started:%s ", "v0.9beta");
     // IP initialization in FreeRTOS
     FreeRTOS_IPInit(APP_DEFAULT_IP_ADDRESS, APP_DEFAULT_NETMASK, APP_DEFAULT_GATEWAY, APP_DEFAULT_NAMESERVER, ETHERNET_MAC_ADDRESS);
     BaseType_t result = xTaskCreate(prvWebServerTask, "M3WebServer", WEB_SERVER_STACK_SIZE, NULL, tskIDLE_PRIORITY, &xWebServerTaskHandle);

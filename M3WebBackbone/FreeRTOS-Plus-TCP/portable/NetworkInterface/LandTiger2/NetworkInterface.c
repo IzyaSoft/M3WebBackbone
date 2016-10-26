@@ -33,7 +33,7 @@ extern QueueHandle_t xNetworkEventQueue;
 
 static void prvEMACTask(void *pvParameters)
 {
-    //const TickType_t xInitialBlockTime = pdMS_TO_TICKS(50UL);
+    const TickType_t xPauseTime = pdMS_TO_TICKS(5UL);
     size_t dataLength;
     const uint16_t cRCLength = 4;
     NetworkBufferDescriptor_t networkBuffer;
@@ -51,15 +51,19 @@ static void prvEMACTask(void *pvParameters)
         while(CheckReceiveIndex() != FALSE)
         {
             /* Obtain the length, minus the CRC.  The CRC is four bytes but the length is already minus 1. */
-            dataLength = (size_t) GetReceivedDataSize() - (cRCLength - 1);
+            dataLength = (size_t) GetReceivedDataSize();// - (cRCLength - 1);
             if(dataLength > 0)
             {
             	EMAC_PACKETBUF_Type buffer;
-            	buffer.pbDataBuf = networkBuffer.pucEthernetBuffer;
+            	buffer.pbDataBuf = //NextPacketToRead();
+            			           networkBuffer.pucEthernetBuffer;
             	buffer.ulDataLen = ETH_MAX_FLEN;
             	ReadData(&buffer);
             	networkBuffer.xDataLength = dataLength;
                 rxEvent.pvData = (void *) &networkBuffer;
+
+
+                // printf("Received data: %s\r\n", networkBuffer);
 
                 /* Data was received and stored.  Send a message to the IP task to let it know. */
                 if( xSendEventStructToIPTask(&rxEvent, (TickType_t)0) == pdFAIL)
@@ -73,6 +77,7 @@ static void prvEMACTask(void *pvParameters)
             	iptraceETHERNET_RX_EVENT_LOST();
             }
             UpdateRxConsumeIndex();
+            vTaskDelay(xPauseTime);
         }
     }
     vTaskDelete(NULL);
@@ -80,15 +85,15 @@ static void prvEMACTask(void *pvParameters)
 
 BaseType_t xStartEmacTask()
 {
-	return xTaskCreate(prvEMACTask, "LPC1768EMAC", configEMAC_TASK_STACK_SIZE, NULL, configMAX_PRIORITIES - 3, &eMACTaskHandle);
+	return xTaskCreate(prvEMACTask, "LANdTIGER2EMAC", configEMAC_TASK_STACK_SIZE, NULL, configMAX_PRIORITIES - 3, &eMACTaskHandle);
 }
 
 BaseType_t xNetworkInterfaceInitialise( void )
 {
 	vSemaphoreCreateBinary(xEthernetMACRxEventSemaphore);
 	// Interrupts configure
-	NVIC_SetPriority(ENET_IRQn, configEMAC_INTERRUPT_PRIORITY);
-	NVIC_EnableIRQ(ENET_IRQn);
+	//NVIC_SetPriority(ENET_IRQn, configEMAC_INTERRUPT_PRIORITY);
+	//NVIC_EnableIRQ(ENET_IRQn);
 	EMAC_CFG_Type emacConfig;
 	emacConfig.Mode = ETHERNET_MODE;
 	emacConfig.pbEMAC_Addr = ETHERNET_MAC_ADDRESS;

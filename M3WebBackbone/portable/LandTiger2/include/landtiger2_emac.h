@@ -297,6 +297,7 @@ Bool CheckTransmitIndex();
 Bool CheckReceiveIndex();
 uint32_t GetReceivedDataSize();
 void UpdateRxConsumeIndex();
+uint32_t* NextPacketToRead();
 
 #ifdef __cplusplus
 }

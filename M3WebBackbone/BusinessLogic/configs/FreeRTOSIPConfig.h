@@ -313,6 +313,7 @@ messages. */
 	#define FreeRTOS_printf(X)			lUDPLoggingPrintf X
 #endif
 
+
 /* Application settings */
 #define ipconfigUSE_HTTP 1
 #define ipconfigUSE_NETWORK_EVENT_HOOK 0

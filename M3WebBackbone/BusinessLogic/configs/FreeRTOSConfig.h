@@ -2,6 +2,7 @@
 #define FREERTOS_CONFIG_H
 
 #include "staticAllocationImpl.h"
+#include "assert.h"
 
 #define configUSE_PREEMPTION                    1
 #define configUSE_PORT_OPTIMISED_TASK_SELECTION 1
@@ -57,18 +58,15 @@
 #define configTIMER_TASK_STACK_DEPTH            configMINIMAL_STACK_SIZE
 #define configEMAC_TASK_STACK_SIZE              configMINIMAL_STACK_SIZE
 
-/* Interrupt nesting behaviour configuration. */
-//#define configKERNEL_INTERRUPT_PRIORITY         [dependent of processor]
-//#define configMAX_SYSCALL_INTERRUPT_PRIORITY    [dependent on processor and application]
-//#define configMAX_API_CALL_INTERRUPT_PRIORITY   [dependent on processor and application]
-#define configKERNEL_INTERRUPT_PRIORITY         255
-#define configMAX_SYSCALL_INTERRUPT_PRIORITY    191
-#define configLIBRARY_KERNEL_INTERRUPT_PRIORITY 15
 
+// only for LPC17xx (5 bits enabled)
+#define configKERNEL_INTERRUPT_PRIORITY         100
+#define configMAX_SYSCALL_INTERRUPT_PRIORITY    40
+//#define configLIBRARY_KERNEL_INTERRUPT_PRIORITY 15
 
-#define configEMAC_INTERRUPT_PRIORITY           250
+#define configEMAC_INTERRUPT_PRIORITY           230
 /* Define to trap errors during development. */
-//#define configASSERT( x ) if( ( x ) == 0 ) vAssertCalled( __FILE__, __LINE__ )
+#define configASSERT( x ) if( ( x ) == 0 ) vAssertCalled( __LINE__, __FILE__)
 
 /* FreeRTOS MPU specific definitions. */
 #define configINCLUDE_APPLICATION_DEFINED_PRIVILEGED_FUNCTIONS 0
