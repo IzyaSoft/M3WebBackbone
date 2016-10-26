@@ -55,14 +55,12 @@
 #define configUSE_TIMERS                        1
 #define configTIMER_TASK_PRIORITY               3
 #define configTIMER_QUEUE_LENGTH                10
-#define configTIMER_TASK_STACK_DEPTH            configMINIMAL_STACK_SIZE
+#define configTIMER_TASK_STACK_DEPTH            2 * configMINIMAL_STACK_SIZE
 #define configEMAC_TASK_STACK_SIZE              configMINIMAL_STACK_SIZE
-
 
 // only for LPC17xx (5 bits enabled)
 #define configKERNEL_INTERRUPT_PRIORITY         100
 #define configMAX_SYSCALL_INTERRUPT_PRIORITY    40
-//#define configLIBRARY_KERNEL_INTERRUPT_PRIORITY 15
 
 #define configEMAC_INTERRUPT_PRIORITY           230
 /* Define to trap errors during development. */
@@ -81,7 +79,7 @@
 #define INCLUDE_vTaskDelay                      1
 #define INCLUDE_xTaskGetSchedulerState          1
 #define INCLUDE_xTaskGetCurrentTaskHandle       1
-#define INCLUDE_uxTaskGetStackHighWaterMark     0
+#define INCLUDE_uxTaskGetStackHighWaterMark     1
 #define INCLUDE_xTaskGetIdleTaskHandle          0
 #define INCLUDE_eTaskGetState                   0
 #define INCLUDE_xEventGroupSetBitFromISR        1

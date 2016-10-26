@@ -4,6 +4,7 @@
 #include "timers.h"
 #include "queue.h"
 #include "semphr.h"
+#include "diagnostic.h"
 #include "pingManager.h"
 #include "networkEstablishHelper.h"
 /* Free RTOS Configs*/

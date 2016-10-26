@@ -16,7 +16,7 @@
 .code 16
 .syntax unified
 .type SH_DoCommand, function
-.type HardFault_Handler, function
+//.type HardFault_Handler, function
 
 
 /**************************************************************************//**
@@ -57,21 +57,21 @@ SH_End:
   *
   * @retval None
   *****************************************************************************/
-HardFault_Handler:
-	LDR    R0, [R13, #24]         	/* Get previous PC */
-	LDRH   R1, [R0]               	/* Get instruction */
-	LDR    R2, =0xBEAB            	/* The sepcial BKPT instruction */
-	CMP    R1, R2                 	/* Test if the instruction at previous PC is BKPT */
-	BNE    HardFault_Handler_Ret  	/* Not BKPT */
+/*HardFault_Handler:
+	LDR    R0, [R13, #24]         	// Get previous PC
+	LDRH   R1, [R0]               	// Get instruction
+	LDR    R2, =0xBEAB            	// The sepcial BKPT instruction
+	CMP    R1, R2                 	// Test if the instruction at previous PC is BKPT
+	BNE    HardFault_Handler_Ret  	// Not BKPT
 
-	ADDS   R0, #4                 	/* Skip BKPT and next line */
-	STR    R0, [R13, #24]         	/* Save previous PC */
+	ADDS   R0, #4                 	// Skip BKPT and next line
+	STR    R0, [R13, #24]         	// Save previous PC
 
 	BX     LR
 
 HardFault_Handler_Ret:
 	B      .
-
+*/
 
 .end
 

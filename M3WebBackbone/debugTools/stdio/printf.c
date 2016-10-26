@@ -22,7 +22,7 @@ void PrintChar(char c)
 	   while(Transfer not completed);
 	   Transmit a char;
 	*/
-	//SH_SendChar(c);
+	SH_SendChar(c);
 }
 
 /** Maximum string size allowed (in bytes). */
@@ -501,10 +501,10 @@ signed int sprintf(char *pStr, const char *pFormat, ...)
  */
 signed int puts(const char *pStr)
 {
-    return fputs(pStr, stdout);
-/*	signed int i = fputs(pStr, stdout);
+    //return fputs(pStr, stdout);
+	signed int i = fputs(pStr, stdout);
 	fputc('\n', stdout);
-	return i+1;*/
+	return i+1;
 }
 
 

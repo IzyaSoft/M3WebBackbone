@@ -92,8 +92,8 @@ BaseType_t xNetworkInterfaceInitialise( void )
 {
 	vSemaphoreCreateBinary(xEthernetMACRxEventSemaphore);
 	// Interrupts configure
-	//NVIC_SetPriority(ENET_IRQn, configEMAC_INTERRUPT_PRIORITY);
-	//NVIC_EnableIRQ(ENET_IRQn);
+	NVIC_SetPriority(ENET_IRQn, configEMAC_INTERRUPT_PRIORITY);
+	NVIC_EnableIRQ(ENET_IRQn);
 	EMAC_CFG_Type emacConfig;
 	emacConfig.Mode = ETHERNET_MODE;
 	emacConfig.pbEMAC_Addr = ETHERNET_MAC_ADDRESS;
