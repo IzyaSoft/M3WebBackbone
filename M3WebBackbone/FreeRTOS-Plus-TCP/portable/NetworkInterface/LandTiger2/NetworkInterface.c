@@ -21,35 +21,35 @@
 
 #define MAX_TX_ATTEMPTS 10
 #define TX_CHECK_BUFFER_TIME (pdMS_TO_TICKS(2UL))
-//#define TX_CHECK_BUFFER_TIME (pdMS_TO_TICKS(2UL))
-//#define EthernetIrqHandler ENET_IRQHandler
+#define TX_CHECK_BUFFER_TIME (pdMS_TO_TICKS(2UL))
+#define EthernetIrqHandler ENET_IRQHandler
 
 static TaskHandle_t eMACTaskHandle;
-//static SemaphoreHandle_t xEthernetMACRxEventSemaphore = NULL;
-//static uint8_t rxBuffer[ETH_MAX_FLEN];
+static SemaphoreHandle_t xEthernetMACRxEventSemaphore = NULL;
+static uint8_t rxBuffer[ETH_MAX_FLEN];
 
 /* The queue used to communicate Ethernet events with the IP task. */
-//extern QueueHandle_t xNetworkEventQueue;
+extern QueueHandle_t xNetworkEventQueue;
 
 static void prvEMACTask(void *pvParameters)
 {
     const TickType_t xPauseTime = pdMS_TO_TICKS(5UL);
-    /*size_t dataLength;
+    size_t dataLength;
     const uint16_t cRCLength = 4;
     NetworkBufferDescriptor_t networkBuffer;
     networkBuffer.pucEthernetBuffer = rxBuffer;
-    IPStackEvent_t rxEvent = {eNetworkRxEvent, NULL};*/
+    IPStackEvent_t rxEvent = {eNetworkRxEvent, NULL};
 
     for(;;)
     {
     	/* Wait for the EMAC interrupt to indicate that another packet has been
          * received.  The while() loop is only needed if INCLUDE_vTaskSuspend is
          * set to 0 in FreeRTOSConfig.h. */
-        //while(xSemaphoreTake(xEthernetMACRxEventSemaphore, portMAX_DELAY) == pdFALSE);
+        while(xSemaphoreTake(xEthernetMACRxEventSemaphore, portMAX_DELAY) == pdFALSE);
 
         /* At least one packet has been received. */
-        //while(CheckReceiveIndex() != FALSE)
-        /*{
+        while(CheckReceiveIndex() != FALSE)
+        {
             // Obtain the length, minus the CRC.  The CRC is four bytes but the length is already minus 1.
             dataLength = (size_t) GetReceivedDataSize();// - (cRCLength - 1);
             if(dataLength > 0)
@@ -63,7 +63,7 @@ static void prvEMACTask(void *pvParameters)
                 rxEvent.pvData = (void *) &networkBuffer;
 
 
-                // printf("Received data: %s\r\n", networkBuffer);
+                printf("Received data: %s\r\n", networkBuffer);
 
                 // Data was received and stored.  Send a message to the IP task to let it know.
                 if( xSendEventStructToIPTask(&rxEvent, (TickType_t)0) == pdFAIL)
@@ -76,9 +76,8 @@ static void prvEMACTask(void *pvParameters)
             {
             	iptraceETHERNET_RX_EVENT_LOST();
             }
-            UpdateRxConsumeIndex();*/
-
-        //}
+            UpdateRxConsumeIndex();
+        }
         vTaskDelay(xPauseTime);
     }
     vTaskDelete(NULL);
@@ -91,24 +90,22 @@ BaseType_t xStartEmacTask()
 
 BaseType_t xNetworkInterfaceInitialise( void )
 {
-	/*vSemaphoreCreateBinary(xEthernetMACRxEventSemaphore);
+	vSemaphoreCreateBinary(xEthernetMACRxEventSemaphore);
 	// Interrupts configure
 	NVIC_SetPriority(ENET_IRQn, configEMAC_INTERRUPT_PRIORITY);
 	NVIC_EnableIRQ(ENET_IRQn);
 	EMAC_CFG_Type emacConfig;
 	emacConfig.Mode = ETHERNET_MODE;
 	emacConfig.pbEMAC_Addr = ETHERNET_MAC_ADDRESS;
-
 	Bool result = InitializeEthernetMAC(&emacConfig);
-	return result == TRUE;*/
 	xStartEmacTask();
-	return pdTRUE;
+	return result == TRUE;
 }
 
 BaseType_t xNetworkInterfaceOutput(NetworkBufferDescriptor_t * const pxNetworkBuffer, BaseType_t xReleaseAfterSend)
 {
     /* Attempt to obtain access to a Tx buffer. */
-    /*for(uint32_t x = 0; x < MAX_TX_ATTEMPTS; x++)
+    for(uint32_t x = 0; x < MAX_TX_ATTEMPTS; x++)
     {
         if(CheckTransmitIndex())
         {
@@ -124,8 +121,7 @@ BaseType_t xNetworkInterfaceOutput(NetworkBufferDescriptor_t * const pxNetworkBu
         }
         else vTaskDelay(TX_CHECK_BUFFER_TIME);
     }
-	return pdFALSE;*/
-	return pdTRUE;
+	return pdFALSE;
 }
 
 void vNetworkInterfaceAllocateRAMToBuffers(NetworkBufferDescriptor_t pxNetworkBuffers[ ipconfigNUM_NETWORK_BUFFER_DESCRIPTORS ] )
@@ -155,13 +151,13 @@ void EthernetIrqHandler()
 
          /* Unblock the deferred interrupt handler task if the event was an Rx. */
          if((interruptCause & EMAC_INT_RX_DONE) != 0)
-             ;//xSemaphoreGiveFromISR(xEthernetMACRxEventSemaphore, NULL);
+             xSemaphoreGiveFromISR(xEthernetMACRxEventSemaphore, NULL);
      }
 
      /* ulInterruptCause is used for convenience here.  A context switch is
       * wanted, but coding portEND_SWITCHING_ISR( 1 ) would likely result in a
       * compiler warning. */
-     //portEND_SWITCHING_ISR(interruptCause);
+     portEND_SWITCHING_ISR(interruptCause);
 }
 
 
