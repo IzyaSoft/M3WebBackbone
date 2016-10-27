@@ -10,5 +10,6 @@ void checkCFSRValue(uint32_t CFSRValue);
 void checkBusError(uint32_t CFSRValue, uint32_t regValue);
 void checkMemoryManagementError(uint32_t CFSRValue, uint32_t regValue);
 void getRegistersFromStack(uint32_t* pulFaultStackAddress, uint32_t faultSource);
+void disableRAMWriteBufferization();
 
 #endif

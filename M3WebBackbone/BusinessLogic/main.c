@@ -23,7 +23,7 @@
 
 #include "semihosting.h"
 
-#define WEB_SERVER_STACK_SIZE 512 // 1024
+#define WEB_SERVER_STACK_SIZE 512
 #define WEB_SERVER_TASK_PRIORITY configMAX_PRIORITIES / 2
 
 //extern void initialise_monitor_handles(void); /* prototype */
@@ -44,7 +44,8 @@ void prvLedBlinkTask(void *pvParameters);
 
 int main()
 {
-	// initialise_monitor_handles();
+	// Debug
+    disableRAMWriteBufferization();
 	// Hardware Initialization
     InitializeClocks();
     // Interrupts sub priority bits initialization
@@ -106,21 +107,20 @@ void prvWebServerTask(void *pvParameters)
     ( void ) pvParameters;
 
 	/* Initialization is completed, rising priority*/
-    vTaskPrioritySet(NULL, WEB_SERVER_TASK_PRIORITY);
+    vTaskPrioritySet(xWebServerTaskHandle, WEB_SERVER_TASK_PRIORITY);
 
     /* Wait until the network is up before creating the servers.  The notification is given from the network event hook. */
     ulTaskNotifyTake(pdTRUE, xInitialBlockTime);
 
-    xStartEmacTask();
-
     /* Create the servers defined by the xServerConfiguration array above. */
     pxTCPServer = FreeRTOS_CreateTCPServer(xServerConfiguration, sizeof(xServerConfiguration) / sizeof(xServerConfiguration[0]));
-    //configASSERT( pxTCPServer );
+    configASSERT(pxTCPServer);
 
     /* Run the HTTP and/or FTP servers, as configured above. */
     for( ;; )
     {
         FreeRTOS_TCPServerWork(pxTCPServer, xInitialBlockTime);
+    //xStartEmacTask();
     }
 
     vTaskDelete(NULL);

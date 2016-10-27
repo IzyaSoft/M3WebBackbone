@@ -86,6 +86,7 @@ void getRegistersFromStack(uint32_t* pulFaultStackAddress, uint32_t faultSource)
     volatile uint32_t _AFSR __attribute__((unused));
     volatile uint32_t _BFAR __attribute__((unused));
     volatile uint32_t _MMAR __attribute__((unused));
+    volatile uint32_t _ACTLR __attribute__((unused));
 
     r0 = pulFaultStackAddress[0];
     r1 = pulFaultStackAddress[1];
@@ -102,23 +103,25 @@ void getRegistersFromStack(uint32_t* pulFaultStackAddress, uint32_t faultSource)
 
     // Configurable Fault Status Register
     // Consists of MMSR, BFSR and UFSR
-    _CFSR = (*((volatile unsigned long *)(0xE000ED28))) ;
+    _CFSR = (*((volatile unsigned long *)(0xE000ED28)));
 
     // Hard Fault Status Register
-    _HFSR = (*((volatile unsigned long *)(0xE000ED2C))) ;
+    _HFSR = (*((volatile unsigned long *)(0xE000ED2C)));
 
     // Debug Fault Status Register
-    _DFSR = (*((volatile unsigned long *)(0xE000ED30))) ;
+    _DFSR = (*((volatile unsigned long *)(0xE000ED30)));
 
     // Auxiliary Fault Status Register
-    _AFSR = (*((volatile unsigned long *)(0xE000ED3C))) ;
+    _AFSR = (*((volatile unsigned long *)(0xE000ED3C)));
 
     // Read the Fault Address Registers. These may not contain valid values.
     // Check BFARVALID/MMARVALID to see if they are valid values
     // MemManage Fault Address Register
-    _MMAR = (*((volatile unsigned long *)(0xE000ED34))) ;
+    _MMAR = (*((volatile unsigned long *)(0xE000ED34)));
     // Bus Fault Address Register
-    _BFAR = (*((volatile unsigned long *)(0xE000ED38))) ;
+    _BFAR = (*((volatile unsigned long *)(0xE000ED38)));
+
+    _ACTLR = (*((volatile unsigned long *)(0xE000E008)));
 
     if(faultSource == 1)
         printf("\n Hard Fault Detected \n");
@@ -136,6 +139,7 @@ void getRegistersFromStack(uint32_t* pulFaultStackAddress, uint32_t faultSource)
     sprintf(message, "SCB->MMAR = 0x%08x\n", (unsigned int)_MMAR);  printf(message);
     sprintf(message, "SCB->BFAR = 0x%08x\n", (unsigned int)_BFAR);  printf(message);
     sprintf(message, "SCB->HFSR = 0x%08x\n", (unsigned int)_HFSR);  printf(message);
+    sprintf(message, "SCB->ACTLR = 0x%08x\n", (unsigned int)_ACTLR);  printf(message);
 
     if ((SCB->HFSR & (1 << 30)) != 0)
         printf("Forced Hard Fault\n");
@@ -172,6 +176,14 @@ void getRegistersFromStack(uint32_t* pulFaultStackAddress, uint32_t faultSource)
     __asm("BKPT #0\n") ; // Break into the debugger
 
     while (1) ;
+}
+
+// function to make precise Bus Fault when we have imprecise fault
+void disableRAMWriteBufferization()
+{
+    volatile uint32_t* _ACTLR __attribute__((unused));
+    _ACTLR = 0xE000E008;
+    *_ACTLR = 2;
 }
 
 

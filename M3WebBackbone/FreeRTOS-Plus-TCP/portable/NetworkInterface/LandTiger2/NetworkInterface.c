@@ -22,14 +22,14 @@
 #define MAX_TX_ATTEMPTS 10
 #define TX_CHECK_BUFFER_TIME (pdMS_TO_TICKS(2UL))
 //#define TX_CHECK_BUFFER_TIME (pdMS_TO_TICKS(2UL))
-#define EthernetIrqHandler ENET_IRQHandler
+//#define EthernetIrqHandler ENET_IRQHandler
 
 static TaskHandle_t eMACTaskHandle;
-static SemaphoreHandle_t xEthernetMACRxEventSemaphore = NULL;
-static uint8_t rxBuffer[ETH_MAX_FLEN];
+//static SemaphoreHandle_t xEthernetMACRxEventSemaphore = NULL;
+//static uint8_t rxBuffer[ETH_MAX_FLEN];
 
 /* The queue used to communicate Ethernet events with the IP task. */
-extern QueueHandle_t xNetworkEventQueue;
+//extern QueueHandle_t xNetworkEventQueue;
 
 static void prvEMACTask(void *pvParameters)
 {
@@ -101,6 +101,7 @@ BaseType_t xNetworkInterfaceInitialise( void )
 
 	Bool result = InitializeEthernetMAC(&emacConfig);
 	return result == TRUE;*/
+	xStartEmacTask();
 	return pdTRUE;
 }
 
@@ -154,13 +155,13 @@ void EthernetIrqHandler()
 
          /* Unblock the deferred interrupt handler task if the event was an Rx. */
          if((interruptCause & EMAC_INT_RX_DONE) != 0)
-             xSemaphoreGiveFromISR(xEthernetMACRxEventSemaphore, NULL);
+             ;//xSemaphoreGiveFromISR(xEthernetMACRxEventSemaphore, NULL);
      }
 
      /* ulInterruptCause is used for convenience here.  A context switch is
       * wanted, but coding portEND_SWITCHING_ISR( 1 ) would likely result in a
       * compiler warning. */
-     portEND_SWITCHING_ISR(interruptCause);
+     //portEND_SWITCHING_ISR(interruptCause);
 }
 
 
