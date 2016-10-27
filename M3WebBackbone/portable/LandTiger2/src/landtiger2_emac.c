@@ -289,7 +289,7 @@ void ReadData(EMAC_PACKETBUF_Type* packet)
         for (len = (packet->ulDataLen + 3) >> 2; len; len--)
         {
             *dp++ = *sp++;
-            printf( "Received data: %c\r\n", *sp);
+            //printf( "Received data: %c\r\n", *sp);
         }
 }
 

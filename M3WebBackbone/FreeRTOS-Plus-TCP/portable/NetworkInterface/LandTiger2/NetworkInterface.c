@@ -51,7 +51,7 @@ static void prvEMACTask(void *pvParameters)
         while(CheckReceiveIndex() != FALSE)
         {
             // Obtain the length, minus the CRC.  The CRC is four bytes but the length is already minus 1.
-            dataLength = (size_t) GetReceivedDataSize();// - (cRCLength - 1);
+            dataLength = (size_t) GetReceivedDataSize() - (cRCLength - 1);
             if(dataLength > 0)
             {
             	EMAC_PACKETBUF_Type buffer;
@@ -85,7 +85,7 @@ static void prvEMACTask(void *pvParameters)
 
 BaseType_t xStartEmacTask()
 {
-	return xTaskCreate(prvEMACTask, "LANdTIGER2EMAC", configEMAC_TASK_STACK_SIZE, NULL, configMAX_PRIORITIES - 3, &eMACTaskHandle);
+	return xTaskCreate(prvEMACTask, "LANDTIGER2EMAC", configEMAC_TASK_STACK_SIZE, NULL, configMAX_PRIORITIES - 3, &eMACTaskHandle);
 }
 
 BaseType_t xNetworkInterfaceInitialise( void )
