@@ -154,9 +154,9 @@
     <File name="FreeRTOS-Plus-FAT/ff_fat.c" path="FreeRTOS-Plus-FAT/ff_fat.c" type="1"/>
     <File name="FreeRTOS-Plus-TCP/include/FreeRTOS_TCP_WIN.h" path="FreeRTOS-Plus-TCP/include/FreeRTOS_TCP_WIN.h" type="1"/>
     <File name="debugTools/stdio/printf.c" path="debugTools/stdio/printf.c" type="1"/>
-    <File name="portable/LandTiger2/lpc17xx_lib/lpc17xx_emac.c" path="portable/LandTiger2/lpc17xx_lib/lpc17xx_emac.c" type="1"/>
     <File name="FreeRTOS-Plus-FAT/include/ff_format.h" path="FreeRTOS-Plus-FAT/include/ff_format.h" type="1"/>
     <File name="portable/LandTiger2/include/emacCommon.h" path="portable/LandTiger2/include/emacCommon.h" type="1"/>
+    <File name="portable/LandTiger2/lpc17xx_lib/lpc17xx_emac.c" path="portable/LandTiger2/lpc17xx_lib/lpc17xx_emac.c" type="1"/>
     <File name="portable/LandTiger2/include/lpc17xx_pinsel.h" path="portable/LandTiger2/include/lpc17xx_pinsel.h" type="1"/>
     <File name="FreeRTOS-Plus-TCP/include" path="" type="2"/>
     <File name="FreeRTOS-Plus-TCP/FreeRTOS_UDP_IP.c" path="FreeRTOS-Plus-TCP/FreeRTOS_UDP_IP.c" type="1"/>
@@ -180,9 +180,9 @@
     <File name="portable/LandTiger2/lpc17xx_lib/lpc17xx_gpio.c" path="portable/LandTiger2/lpc17xx_lib/lpc17xx_gpio.c" type="1"/>
     <File name="portable/LandTiger2/include/core_cmInstr.h" path="portable/LandTiger2/include/core_cmInstr.h" type="1"/>
     <File name="FreeRTOS-Plus-FAT/include/ff_string.h" path="FreeRTOS-Plus-FAT/include/ff_string.h" type="1"/>
-    <File name="businesslogic/managers/configurationManager.c" path="BusinessLogic/managers/configurationManager.c" type="1"/>
     <File name="FreeRTOS-Plus-TCP/FreeRTOS_TCP_WIN.c" path="FreeRTOS-Plus-TCP/FreeRTOS_TCP_WIN.c" type="1"/>
     <File name="FreeRTOS-Plus-FAT/include/ff_crc.h" path="FreeRTOS-Plus-FAT/include/ff_crc.h" type="1"/>
+    <File name="businesslogic/managers/configurationManager.c" path="BusinessLogic/managers/configurationManager.c" type="1"/>
     <File name="FreeRTOS-Plus-TCP/include/FreeRTOS_errno_TCP.h" path="FreeRTOS-Plus-TCP/include/FreeRTOS_errno_TCP.h" type="1"/>
     <File name="FreeRTOS/Source/queue.c" path="FreeRTOS/Source/queue.c" type="1"/>
     <File name="FreeRTOS/Source/portable/GCC/ARM_CM3/portmacro.h" path="FreeRTOS/Source/portable/GCC/ARM_CM3/portmacro.h" type="1"/>

@@ -55,14 +55,25 @@
 #define configUSE_TIMERS                        1
 #define configTIMER_TASK_PRIORITY               3
 #define configTIMER_QUEUE_LENGTH                10
-#define configTIMER_TASK_STACK_DEPTH            2 * configMINIMAL_STACK_SIZE
+#define configTIMER_TASK_STACK_DEPTH            configMINIMAL_STACK_SIZE
 #define configEMAC_TASK_STACK_SIZE              configMINIMAL_STACK_SIZE
 
 // only for LPC17xx (5 bits enabled)
-#define configKERNEL_INTERRUPT_PRIORITY         100
-#define configMAX_SYSCALL_INTERRUPT_PRIORITY    40
+//#define configKERNEL_INTERRUPT_PRIORITY         255 //248
+//#define configMAX_SYSCALL_INTERRUPT_PRIORITY     47 //40
+/* Use the system definition, if there is one */
+#ifdef __NVIC_PRIO_BITS
+	#define configPRIO_BITS                    __NVIC_PRIO_BITS
+#else
+	#define configPRIO_BITS                    5        /* 32 priority levels */
+#endif
 
-#define configEMAC_INTERRUPT_PRIORITY           230
+/* The lowest priority. */
+#define configKERNEL_INTERRUPT_PRIORITY 	   (31 << (8 - configPRIO_BITS))
+/* Priority 5, or 160 as only the top three bits are implemented. */
+#define configMAX_SYSCALL_INTERRUPT_PRIORITY   (5 << (8 - configPRIO_BITS))
+
+#define configEMAC_INTERRUPT_PRIORITY           5
 /* Define to trap errors during development. */
 #define configASSERT( x ) if( ( x ) == 0 ) vAssertCalled( __LINE__, __FILE__)
 

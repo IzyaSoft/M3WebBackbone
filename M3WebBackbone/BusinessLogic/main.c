@@ -37,20 +37,24 @@ const uint8_t APP_DEFAULT_GATEWAY[] = {192, 168, 200, 1};
 const uint8_t APP_DEFAULT_NAMESERVER[] = {192, 168, 200, 1};
 // Task Handle
 static TaskHandle_t xWebServerTaskHandle = NULL;
+static TaskHandle_t xLedBlinkTaskHandle = NULL;
 
 void prvWebServerTask(void *pvParameters);
+void prvLedBlinkTask(void *pvParameters);
 
 int main()
 {
 	// initialise_monitor_handles();
 	// Hardware Initialization
     InitializeClocks();
-    // Interrupts priority bits initialization
+    // Interrupts sub priority bits initialization
     InitializeInterrupts(0);
     printf("m3webbackbone started:%s ", "v0.9beta");
     // IP initialization in FreeRTOS
     FreeRTOS_IPInit(APP_DEFAULT_IP_ADDRESS, APP_DEFAULT_NETMASK, APP_DEFAULT_GATEWAY, APP_DEFAULT_NAMESERVER, ETHERNET_MAC_ADDRESS);
+    // Tasks
     BaseType_t result = xTaskCreate(prvWebServerTask, "M3WebServer", WEB_SERVER_STACK_SIZE, NULL, tskIDLE_PRIORITY, &xWebServerTaskHandle);
+    result = xTaskCreate(prvLedBlinkTask, "M3WebServer", configMINIMAL_STACK_SIZE, NULL, 1, &xLedBlinkTaskHandle);
     // to do: add other tasks
 
     // start schedule
@@ -59,6 +63,28 @@ int main()
     return 0;
 }
 
+void prvLedBlinkTask(void *pvParameters)
+{
+    #define LED1_OPTION 0xA0
+    #define LED2_OPTION 0x0F
+
+	const TickType_t xPauseTime = pdMS_TO_TICKS(100UL);
+
+    LPC_GPIO2->FIODIR |= 0x000000ff;  //P2.0...P2.7 Output LEDs on PORT2 defined as Output
+    /* Configure the LCD Control pins                                           */
+    LPC_GPIO0->FIODIR   |= 0x03f80000;
+    LPC_GPIO0->FIOSET    = 0x03f80000;
+
+    for(;;)
+    {
+    	LPC_GPIO2->FIOPIN &= 0x00;
+        LPC_GPIO2->FIOPIN |= LED1_OPTION;
+        vTaskDelay(xPauseTime);
+        LPC_GPIO2->FIOPIN &= LED1_OPTION;
+        LPC_GPIO2->FIOPIN |= LED2_OPTION;
+        vTaskDelay(xPauseTime);
+    }
+}
 
 void prvWebServerTask(void *pvParameters)
 {

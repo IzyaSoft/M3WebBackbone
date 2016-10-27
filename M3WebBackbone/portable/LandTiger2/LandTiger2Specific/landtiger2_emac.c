@@ -278,7 +278,7 @@ void WriteData(EMAC_PACKETBUF_Type* packet)
 
 void ReadData(EMAC_PACKETBUF_Type* packet)
 {
-    uint32_t idx, len;
+/*    uint32_t idx, len;
     uint32_t *dp, *sp;
     uint32_t index = 0;
 
@@ -292,7 +292,7 @@ void ReadData(EMAC_PACKETBUF_Type* packet)
             *dp++ = *sp++;
             // printf( "Received data: %d\r\n", sp[index]);
             index++;
-        }
+        }*/
 }
 
 uint32_t* NextPacketToRead()
@@ -327,5 +327,5 @@ void UpdateRxConsumeIndex()
 
     /* Release frame from EMAC buffer */
     if (++idx == NUM_RX_FRAG) idx = 0;
-    LPC_EMAC->RxConsumeIndex = idx;
+        LPC_EMAC->RxConsumeIndex = idx;
 }

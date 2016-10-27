@@ -16,9 +16,9 @@ void InitializeGPIO()
 #endif
 }
 
-void InitializeInterrupts(uint32_t value)
+void InitializeInterrupts(uint32_t subPriorityBitsValue)
 {
-	NVIC_SetPriorityGrouping(value);
+	NVIC_SetPriorityGrouping(subPriorityBitsValue);
 }
 
 // Hardware specific functions

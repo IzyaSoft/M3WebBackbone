@@ -9,7 +9,7 @@
 
 void InitializeClocks();
 void InitializeGPIO();
-void InitializeInterrupts(uint32_t value);
+void InitializeInterrupts(uint32_t subPriotityBitsValue);
 
 //LPC1768
 void InitializeLPC1768Clock();
