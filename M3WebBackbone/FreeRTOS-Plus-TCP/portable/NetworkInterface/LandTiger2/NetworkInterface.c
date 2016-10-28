@@ -63,7 +63,7 @@ static void prvEMACTask(void *pvParameters)
                 rxEvent.pvData = (void *) &networkBuffer;
 
 
-                printf("Received data: %s\r\n", networkBuffer);
+                //printf("Received data: %s\r\n", networkBuffer);
 
                 // Data was received and stored.  Send a message to the IP task to let it know.
                 if( xSendEventStructToIPTask(&rxEvent, (TickType_t)0) == pdFAIL)
