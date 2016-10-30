@@ -26,7 +26,7 @@
 
 static TaskHandle_t eMACTaskHandle;
 static SemaphoreHandle_t xEthernetMACRxEventSemaphore = NULL;
-static uint8_t rxBuffer[ETH_MAX_FLEN];
+// static uint8_t rxBuffer[ETH_MAX_FLEN];
 
 /* The queue used to communicate Ethernet events with the IP task. */
 extern QueueHandle_t xNetworkEventQueue;
@@ -36,8 +36,9 @@ static void prvEMACTask(void *pvParameters)
     const TickType_t xPauseTime = pdMS_TO_TICKS(5UL);
     size_t dataLength;
     const uint16_t cRCLength = 4;
-    NetworkBufferDescriptor_t networkBuffer;
-    networkBuffer.pucEthernetBuffer = rxBuffer;
+    //NetworkBufferDescriptor_t networkBuffer;
+    //networkBuffer.pucEthernetBuffer = rxBuffer;
+    NetworkBufferDescriptor_t* networkBuffer;
     IPStackEvent_t rxEvent = {eNetworkRxEvent, NULL};
 
     for(;;)
@@ -54,19 +55,21 @@ static void prvEMACTask(void *pvParameters)
             dataLength = (size_t) GetReceivedDataSize() - (cRCLength - 1);
             if(dataLength > 0)
             {
+            	networkBuffer = pxGetNetworkBufferWithDescriptor( 0, (TickType_t ) 0);
+            	networkBuffer->xDataLength = dataLength;
             	EMAC_PACKETBUF_Type buffer;
             	buffer.pbDataBuf = //NextPacketToRead();
-            			           networkBuffer.pucEthernetBuffer;
-            	buffer.ulDataLen = ETH_MAX_FLEN;
+            			           networkBuffer->pucEthernetBuffer;
+            	buffer.ulDataLen = networkBuffer->xDataLength;
+            			           //ETH_MAX_FLEN;
             	ReadData(&buffer);
-            	networkBuffer.xDataLength = dataLength;
-                rxEvent.pvData = (void *) &networkBuffer;
 
+                rxEvent.pvData = (void *) networkBuffer;
 
-                //printf("Received data: %s\r\n", networkBuffer);
+                printf("Received data: %s \r\n", networkBuffer->pucEthernetBuffer);
 
                 // Data was received and stored.  Send a message to the IP task to let it know.
-                if( xSendEventStructToIPTask(&rxEvent, (TickType_t)0) == pdFAIL)
+                if(xSendEventStructToIPTask(&rxEvent, (TickType_t)0) == pdFAIL)
                 {
                 	vReleaseNetworkBufferAndDescriptor(&networkBuffer);
                     iptraceETHERNET_RX_EVENT_LOST();
@@ -114,7 +117,8 @@ BaseType_t xNetworkInterfaceOutput(NetworkBufferDescriptor_t * const pxNetworkBu
             {
                 EMAC_PACKETBUF_Type txBuffer;
                 txBuffer.pbDataBuf = pxNetworkBuffer->pucEthernetBuffer;
-                txBuffer.ulDataLen = pxNetworkBuffer->xDataLength; // Maybe should add +1 for CRC
+                txBuffer.ulDataLen = pxNetworkBuffer->xDataLength;
+                printf("data 4 transmit: %s \r\n", txBuffer.pbDataBuf);
                 WriteData(&txBuffer);
                 return pdTRUE;
             }
@@ -126,7 +130,7 @@ BaseType_t xNetworkInterfaceOutput(NetworkBufferDescriptor_t * const pxNetworkBu
 
 void vNetworkInterfaceAllocateRAMToBuffers(NetworkBufferDescriptor_t pxNetworkBuffers[ ipconfigNUM_NETWORK_BUFFER_DESCRIPTORS ] )
 {
-    // In our first version of driver we are using BufferAllocation_2, therefore we don't need to setup this function
+    // In our first version of driver we are using BufferAllocation_2, therefore we do, n't need to setup this function
 }
 
 BaseType_t xGetPhyLinkStatus(void)

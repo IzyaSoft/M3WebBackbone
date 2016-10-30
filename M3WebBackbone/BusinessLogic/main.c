@@ -29,7 +29,7 @@
 //extern void initialise_monitor_handles(void); /* prototype */
 
 // global variables
-const uint8_t ETHERNET_MAC_ADDRESS[] = {0xAA, 0x33, 0x00, 0x66, 0x22, 0xEE};
+const uint8_t ETHERNET_MAC_ADDRESS[] = {0x00, 0x33, 0x11, 0x66, 0x22, 0xEE};
 // ip settings
 const uint8_t APP_DEFAULT_IP_ADDRESS[] = {192, 168, 200, 5};
 const uint8_t APP_DEFAULT_NETMASK[] = {255, 255, 255, 0};
@@ -45,12 +45,12 @@ void prvLedBlinkTask(void *pvParameters);
 int main()
 {
 	// Debug
-    disableRAMWriteBufferization();
+    // disableRAMWriteBufferization();
 	// Hardware Initialization
     InitializeClocks();
     // Interrupts sub priority bits initialization
     InitializeInterrupts(0);
-    printf("m3webbackbone started:%s ", "v0.9beta");
+    printf("m3webbackbone started:%s \r\n", "v0.9beta");
     // IP initialization in FreeRTOS
     FreeRTOS_IPInit(APP_DEFAULT_IP_ADDRESS, APP_DEFAULT_NETMASK, APP_DEFAULT_GATEWAY, APP_DEFAULT_NAMESERVER, ETHERNET_MAC_ADDRESS);
     // Tasks
@@ -120,7 +120,6 @@ void prvWebServerTask(void *pvParameters)
     for( ;; )
     {
         FreeRTOS_TCPServerWork(pxTCPServer, xInitialBlockTime);
-    //xStartEmacTask();
     }
 
     vTaskDelete(NULL);

@@ -28,6 +28,19 @@ static uint32_t rxBuffer[NUM_RX_FRAG][ETH_MAX_FLEN>>2];
 // Tx buffer data
 static uint32_t txBuffer[NUM_TX_FRAG][ETH_MAX_FLEN>>2];
 */
+static void debugPrintData(uint32_t* data)
+{
+	byte* ptr = (byte*) data;
+	byte counter = 0;
+	while(counter++ < sizeof(uint32_t))
+	{
+		printf("byte %d:", counter);
+		printf(", value: %x \r\n", *ptr & 0xFF);
+		ptr++;
+	}
+}
+
+
 static int32_t write_PHY (int32_t phyReg, int32_t value)
 {
     uint32_t tout = 0;
@@ -90,7 +103,8 @@ void rx_descr_init (void)
 	LPC_EMAC->RxDescriptorNumber = NUM_RX_FRAG - 1;
     LPC_EMAC->RxDescriptor = RX_DESC_BASE;
     LPC_EMAC->RxStatus = RX_STAT_BASE;
-	/* Rx Descriptors Point to 0 */
+
+    /* Rx Descriptors Point to 0 */
 	LPC_EMAC->RxConsumeIndex  = 0;
 }
 
@@ -282,15 +296,36 @@ void ReadData(EMAC_PACKETBUF_Type* packet)
     uint32_t *dp, *sp;
 
     idx = LPC_EMAC->RxConsumeIndex;
-    dp = (uint32_t *)packet->pbDataBuf;
-    sp = (uint32_t *)RX_BUF(idx);
+    dp = (uint32_t*)packet->pbDataBuf;
+    sp = (uint32_t*)RX_BUF(idx);
+
+    len = GetReceivedDataSize();
+    //printf( "Received data bytes: %d \r\n", len);
+    //todo: umv: trouble ith alignment
 
     if (packet->pbDataBuf != NULL)
-        for (len = (packet->ulDataLen + 3) >> 2; len; len--)
+    {
+    	while(len -- > 0)
+    	{
+    	    //debugPrintData(sp);
+    	    *dp++ = *sp++;
+    	}
+
+    	/*for (len = (packet->ulDataLen + 3) >> 2; len; len--)
+    	{
+    		debugPrintData(sp);
+    	    *dp++ = *sp++;
+    	    //printf( "Received data: %c\r\n", *dp);
+    	}*/
+
+    }
+
+    // packet->ulDataLen = len;
+/*        for (len = (packet->ulDataLen + 3) >> 2; len; len--)
         {
             *dp++ = *sp++;
-            //printf( "Received data: %c\r\n", *sp);
-        }
+            printf( "Received data: %c\r\n", *dp);
+        }*/
 }
 
 uint32_t* NextPacketToRead()
@@ -314,7 +349,7 @@ Bool CheckReceiveIndex()
 uint32_t GetReceivedDataSize()
 {
 	uint32_t idx;
-    idx =LPC_EMAC->RxConsumeIndex;
+    idx = LPC_EMAC->RxConsumeIndex;
     return (RX_STAT_INFO(idx) & RINFO_SIZE);
 }
 
