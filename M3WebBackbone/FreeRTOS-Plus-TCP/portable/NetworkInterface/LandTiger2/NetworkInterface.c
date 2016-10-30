@@ -67,15 +67,16 @@ static void prvEMACTask(void *pvParameters)
 
                 rxEvent.pvData = (void *) networkBuffer;
 
-                //printf("Received data: ");
-                //printStringHexSymbols(networkBuffer->pucEthernetBuffer, dataLength, 16);
+                printf("Received data: ");
+                printStringHexSymbols(networkBuffer->pucEthernetBuffer, dataLength, 8);
 
                 // Data was received and stored.  Send a message to the IP task to let it know.
                 if(xSendEventStructToIPTask(&rxEvent, (TickType_t)0) == pdFAIL)
                 {
-                	vReleaseNetworkBufferAndDescriptor(&networkBuffer);
+                	vReleaseNetworkBufferAndDescriptor(networkBuffer);
                     iptraceETHERNET_RX_EVENT_LOST();
                 }
+                vReleaseNetworkBufferAndDescriptor(networkBuffer);
             }
             else
             {
@@ -120,8 +121,8 @@ BaseType_t xNetworkInterfaceOutput(NetworkBufferDescriptor_t * const pxNetworkBu
                 EMAC_PACKETBUF_Type txBuffer;
                 txBuffer.pbDataBuf = pxNetworkBuffer->pucEthernetBuffer;
                 txBuffer.ulDataLen = pxNetworkBuffer->xDataLength;
-                //printf("data 4 transmit: ");
-                //printStringHexSymbols(txBuffer.pbDataBuf, txBuffer.ulDataLen, 16);
+                printf("data 4 transmit: ");
+                printStringHexSymbols(txBuffer.pbDataBuf, txBuffer.ulDataLen, 8);
                 WriteData(&txBuffer);
                 return pdTRUE;
             }
