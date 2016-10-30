@@ -306,26 +306,8 @@ void ReadData(EMAC_PACKETBUF_Type* packet)
     if (packet->pbDataBuf != NULL)
     {
     	while(len -- > 0)
-    	{
-    	    //debugPrintData(sp);
     	    *dp++ = *sp++;
-    	}
-
-    	/*for (len = (packet->ulDataLen + 3) >> 2; len; len--)
-    	{
-    		debugPrintData(sp);
-    	    *dp++ = *sp++;
-    	    //printf( "Received data: %c\r\n", *dp);
-    	}*/
-
     }
-
-    // packet->ulDataLen = len;
-/*        for (len = (packet->ulDataLen + 3) >> 2; len; len--)
-        {
-            *dp++ = *sp++;
-            printf( "Received data: %c\r\n", *dp);
-        }*/
 }
 
 uint32_t* NextPacketToRead()

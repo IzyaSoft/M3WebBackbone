@@ -18,6 +18,7 @@
 
 //LPC1768 Include
 #include "landtiger2_emac.h"
+#include "debugPrintFunctions.h"
 
 #define MAX_TX_ATTEMPTS 10
 #define TX_CHECK_BUFFER_TIME (pdMS_TO_TICKS(2UL))
@@ -66,7 +67,8 @@ static void prvEMACTask(void *pvParameters)
 
                 rxEvent.pvData = (void *) networkBuffer;
 
-                printf("Received data: %s \r\n", networkBuffer->pucEthernetBuffer);
+                //printf("Received data: ");
+                //printStringHexSymbols(networkBuffer->pucEthernetBuffer, dataLength, 16);
 
                 // Data was received and stored.  Send a message to the IP task to let it know.
                 if(xSendEventStructToIPTask(&rxEvent, (TickType_t)0) == pdFAIL)
@@ -118,7 +120,8 @@ BaseType_t xNetworkInterfaceOutput(NetworkBufferDescriptor_t * const pxNetworkBu
                 EMAC_PACKETBUF_Type txBuffer;
                 txBuffer.pbDataBuf = pxNetworkBuffer->pucEthernetBuffer;
                 txBuffer.ulDataLen = pxNetworkBuffer->xDataLength;
-                printf("data 4 transmit: %s \r\n", txBuffer.pbDataBuf);
+                //printf("data 4 transmit: ");
+                //printStringHexSymbols(txBuffer.pbDataBuf, txBuffer.ulDataLen, 16);
                 WriteData(&txBuffer);
                 return pdTRUE;
             }
