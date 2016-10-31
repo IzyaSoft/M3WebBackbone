@@ -57,9 +57,9 @@ int main()
     BaseType_t result = xTaskCreate(prvWebServerTask, "M3WebServer", WEB_SERVER_STACK_SIZE, NULL, tskIDLE_PRIORITY, &xWebServerTaskHandle);
     result = xTaskCreate(prvLedBlinkTask, "M3WebServer", configMINIMAL_STACK_SIZE, NULL, 1, &xLedBlinkTaskHandle);
     // to do: add other tasks
-    vTaskStartScheduler();
 
     // start schedule
+    vTaskStartScheduler();
     for(;;) { }
     return 0;
 }
