@@ -57,9 +57,9 @@ int main()
     BaseType_t result = xTaskCreate(prvWebServerTask, "M3WebServer", WEB_SERVER_STACK_SIZE, NULL, tskIDLE_PRIORITY, &xWebServerTaskHandle);
     result = xTaskCreate(prvLedBlinkTask, "M3WebServer", configMINIMAL_STACK_SIZE, NULL, 1, &xLedBlinkTaskHandle);
     // to do: add other tasks
+    vTaskStartScheduler();
 
     // start schedule
-    vTaskStartScheduler();
     for(;;) { }
     return 0;
 }
@@ -72,9 +72,6 @@ void prvLedBlinkTask(void *pvParameters)
 	const TickType_t xPauseTime = pdMS_TO_TICKS(100UL);
 
     LPC_GPIO2->FIODIR |= 0x000000ff;  //P2.0...P2.7 Output LEDs on PORT2 defined as Output
-    /* Configure the LCD Control pins                                           */
-    LPC_GPIO0->FIODIR   |= 0x03f80000;
-    LPC_GPIO0->FIOSET    = 0x03f80000;
 
     for(;;)
     {

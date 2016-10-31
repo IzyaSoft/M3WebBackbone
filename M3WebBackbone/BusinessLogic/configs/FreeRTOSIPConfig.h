@@ -121,6 +121,7 @@ number of entries that can exist in the ARP table at any one time. */
 maximum of ipconfigMAX_ARP_RETRANSMISSIONS times before the ARP request is
 aborted. */
 #define ipconfigMAX_ARP_RETRANSMISSIONS ( 5 )
+#define ipconfigARP_USE_CLASH_DETECTION   1
 
 /* ipconfigMAX_ARP_AGE defines the maximum time between an entry in the ARP
 table being created or refreshed and the entry being removed because it is stale.

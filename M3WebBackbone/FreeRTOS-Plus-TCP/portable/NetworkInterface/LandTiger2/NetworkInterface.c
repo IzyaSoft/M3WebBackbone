@@ -27,7 +27,6 @@
 
 static TaskHandle_t eMACTaskHandle;
 static SemaphoreHandle_t xEthernetMACRxEventSemaphore = NULL;
-// static uint8_t rxBuffer[ETH_MAX_FLEN];
 
 /* The queue used to communicate Ethernet events with the IP task. */
 extern QueueHandle_t xNetworkEventQueue;
@@ -37,8 +36,6 @@ static void prvEMACTask(void *pvParameters)
     const TickType_t xPauseTime = pdMS_TO_TICKS(5UL);
     size_t dataLength;
     const uint16_t cRCLength = 4;
-    //NetworkBufferDescriptor_t networkBuffer;
-    //networkBuffer.pucEthernetBuffer = rxBuffer;
     NetworkBufferDescriptor_t* networkBuffer;
     IPStackEvent_t rxEvent = {eNetworkRxEvent, NULL};
 
@@ -58,17 +55,16 @@ static void prvEMACTask(void *pvParameters)
             {
             	networkBuffer = pxGetNetworkBufferWithDescriptor( 0, (TickType_t ) 0);
             	networkBuffer->xDataLength = dataLength;
+            	//networkBuffer->pucEthernetBuffer = NextPacketToRead();
             	EMAC_PACKETBUF_Type buffer;
-            	buffer.pbDataBuf = //NextPacketToRead();
-            			           networkBuffer->pucEthernetBuffer;
+            	buffer.pbDataBuf = networkBuffer->pucEthernetBuffer;
             	buffer.ulDataLen = networkBuffer->xDataLength;
-            			           //ETH_MAX_FLEN;
             	ReadData(&buffer);
 
                 rxEvent.pvData = (void *) networkBuffer;
 
-                printf("Received data: ");
-                printStringHexSymbols(networkBuffer->pucEthernetBuffer, dataLength, 8);
+                //printf("Received data: ");
+                //printStringHexSymbols(networkBuffer->pucEthernetBuffer, dataLength, 8);
 
                 // Data was received and stored.  Send a message to the IP task to let it know.
                 if(xSendEventStructToIPTask(&rxEvent, (TickType_t)0) == pdFAIL)
@@ -84,7 +80,7 @@ static void prvEMACTask(void *pvParameters)
             }
             UpdateRxConsumeIndex();
         }
-        vTaskDelay(xPauseTime);
+        //vTaskDelay(xPauseTime);
     }
     vTaskDelete(NULL);
 }
@@ -110,6 +106,7 @@ BaseType_t xNetworkInterfaceInitialise( void )
 
 BaseType_t xNetworkInterfaceOutput(NetworkBufferDescriptor_t * const pxNetworkBuffer, BaseType_t xReleaseAfterSend)
 {
+	BaseType_t result = pdFAIL;
     /* Attempt to obtain access to a Tx buffer. */
     for(uint32_t x = 0; x < MAX_TX_ATTEMPTS; x++)
     {
@@ -121,15 +118,18 @@ BaseType_t xNetworkInterfaceOutput(NetworkBufferDescriptor_t * const pxNetworkBu
                 EMAC_PACKETBUF_Type txBuffer;
                 txBuffer.pbDataBuf = pxNetworkBuffer->pucEthernetBuffer;
                 txBuffer.ulDataLen = pxNetworkBuffer->xDataLength;
-                printf("data 4 transmit: ");
-                printStringHexSymbols(txBuffer.pbDataBuf, txBuffer.ulDataLen, 8);
+                //printf("data 4 transmit: ");
+                //printStringHexSymbols(txBuffer.pbDataBuf, txBuffer.ulDataLen, 8);
+                iptraceNETWORK_INTERFACE_TRANSMIT();
                 WriteData(&txBuffer);
-                return pdTRUE;
+                result = pdPASS;
+                //return pdTRUE;
             }
         }
         else vTaskDelay(TX_CHECK_BUFFER_TIME);
     }
-	return pdFALSE;
+    vReleaseNetworkBufferAndDescriptor(pxNetworkBuffer);
+	//return pdFALSE;
 }
 
 void vNetworkInterfaceAllocateRAMToBuffers(NetworkBufferDescriptor_t pxNetworkBuffers[ ipconfigNUM_NETWORK_BUFFER_DESCRIPTORS ] )

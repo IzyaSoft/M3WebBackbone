@@ -278,16 +278,32 @@ int32_t CheckPhysicalState(uint32_t parameter)
 
 void WriteData(EMAC_PACKETBUF_Type* packet)
 {
-    uint32_t idx,len;
-    uint32_t *sp,*dp;
+    //idx  = LPC_EMAC->TxProduceIndex;
+    //tptr = (unsigned short *)TX_DESC_PACKET(idx);
+    //TX_DESC_CTRL(idx) = FrameSize | TCTRL_LAST;
+
+    uint32_t idx, len;
+    uint32_t *sp, *dp;
+
+    // printf("output packet length: %d \n", packet->ulDataLen);
 
     idx = LPC_EMAC->TxProduceIndex;
     sp  = packet->pbDataBuf;
     dp  = (uint32_t*)TX_BUF(idx);
-    TX_DESC_CTRL(idx) = packet->ulDataLen | TCTRL_LAST;
+    TX_DESC_CTRL(idx) = packet->ulDataLen -1  | TCTRL_INT | TCTRL_LAST;
+    //Tx_Desc[idx].Ctrl = (pDataStruct->ulDataLen - 1) | (EMAC_TCTRL_INT | EMAC_TCTRL_LAST);
+    len = packet->ulDataLen >> 2;
     /* Copy frame data to EMAC packet buffers. */
-    for (len = (packet->ulDataLen + 3) >> 2; len; len--)
+    //for (len = (packet->ulDataLen + 3) >> 2; len; len--)
+    for(word ethOctet = 0; ethOctet < len; ethOctet++)
+    {
         *dp++ = *sp++;
+    }
+
+    idx = LPC_EMAC->TxProduceIndex;
+    if (++idx == NUM_TX_FRAG)
+    	idx = 0;
+    LPC_EMAC->TxProduceIndex = idx;
 }
 
 void ReadData(EMAC_PACKETBUF_Type* packet)
@@ -299,9 +315,8 @@ void ReadData(EMAC_PACKETBUF_Type* packet)
     dp = (uint32_t*)packet->pbDataBuf;
     sp = (uint32_t*)RX_BUF(idx);
 
-    len = GetReceivedDataSize();
-    //printf( "Received data bytes: %d \r\n", len);
-    //todo: umv: trouble ith alignment
+    len = (GetReceivedDataSize() - 3) >> 2;
+    //printf("input packet length: %d \n\r", len);
 
     if (packet->pbDataBuf != NULL)
     {
