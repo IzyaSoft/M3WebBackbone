@@ -8,7 +8,7 @@
 #define configUSE_PORT_OPTIMISED_TASK_SELECTION 1
 #define configUSE_TICKLESS_IDLE                 1
 #define configCPU_CLOCK_HZ                      100000000UL
-#define configTICK_RATE_HZ                      250
+#define configTICK_RATE_HZ                      1000
 #define configMAX_PRIORITIES                    8
 #define configMINIMAL_STACK_SIZE                128
 #define configMAX_TASK_NAME_LEN                 16
@@ -63,15 +63,15 @@
 //#define configMAX_SYSCALL_INTERRUPT_PRIORITY     47 //40
 /* Use the system definition, if there is one */
 #ifdef __NVIC_PRIO_BITS
-	#define configPRIO_BITS                    __NVIC_PRIO_BITS
+	#define configPRIO_BITS                     __NVIC_PRIO_BITS
 #else
-	#define configPRIO_BITS                    5        /* 32 priority levels */
+	#define configPRIO_BITS                     5        /* 32 priority levels */
 #endif
 
 /* The lowest priority. */
-#define configKERNEL_INTERRUPT_PRIORITY 	   (31 << (8 - configPRIO_BITS))
+#define configKERNEL_INTERRUPT_PRIORITY 	    (31 << (8 - configPRIO_BITS))
 /* Priority 5, or 160 as only the top three bits are implemented. */
-#define configMAX_SYSCALL_INTERRUPT_PRIORITY   (5 << (8 - configPRIO_BITS))
+#define configMAX_SYSCALL_INTERRUPT_PRIORITY    (5 << (8 - configPRIO_BITS))
 #define configLIBRARY_LOWEST_INTERRUPT_PRIORITY configMAX_SYSCALL_INTERRUPT_PRIORITY
 
 #define configEMAC_INTERRUPT_PRIORITY           5

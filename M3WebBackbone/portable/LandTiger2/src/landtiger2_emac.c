@@ -34,8 +34,8 @@ static void debugPrintData(uint32_t* data)
 	byte counter = 0;
 	while(counter++ < sizeof(uint32_t))
 	{
-		printf("byte %d:", counter);
-		printf(", value: %x \r\n", *ptr & 0xFF);
+		//printf("byte %d:", counter);
+		printf(" 0x%x ", *ptr & 0xFF);
 		ptr++;
 	}
 }
@@ -290,7 +290,7 @@ void WriteData(EMAC_PACKETBUF_Type* packet)
     idx = LPC_EMAC->TxProduceIndex;
     sp  = packet->pbDataBuf;
     dp  = (uint32_t*)TX_BUF(idx);
-    TX_DESC_CTRL(idx) = packet->ulDataLen -1  | TCTRL_INT | TCTRL_LAST;
+    TX_DESC_CTRL(idx) = packet->ulDataLen | TCTRL_LAST;
     //Tx_Desc[idx].Ctrl = (pDataStruct->ulDataLen - 1) | (EMAC_TCTRL_INT | EMAC_TCTRL_LAST);
     len = packet->ulDataLen >> 2;
     /* Copy frame data to EMAC packet buffers. */
@@ -323,6 +323,10 @@ void ReadData(EMAC_PACKETBUF_Type* packet)
     	while(len -- > 0)
     	    *dp++ = *sp++;
     }
+
+    //idx = LPC_EMAC->RxConsumeIndex;
+    //if (++idx == NUM_RX_FRAG) idx = 0;
+    //LPC_EMAC->RxConsumeIndex = idx;
 }
 
 uint32_t* NextPacketToRead()
@@ -340,7 +344,9 @@ Bool CheckTransmitIndex()
 
 Bool CheckReceiveIndex()
 {
-    return (LPC_EMAC->RxConsumeIndex != LPC_EMAC->RxProduceIndex);
+    if(LPC_EMAC->RxConsumeIndex != LPC_EMAC->RxProduceIndex)
+    	return TRUE;
+    return FALSE;
 }
 
 uint32_t GetReceivedDataSize()

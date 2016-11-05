@@ -48,7 +48,7 @@ configMAX_PRIORITIES is a standard FreeRTOS configuration parameter defined in
 FreeRTOSConfig.h, not FreeRTOSIPConfig.h. Consideration needs to be given as to
 the priority assigned to the task executing the IP stack relative to the
 priority assigned to tasks that use the IP stack. */
-#define ipconfigIP_TASK_PRIORITY			( configMAX_PRIORITIES - 2 )
+#define ipconfigIP_TASK_PRIORITY			( configMAX_PRIORITIES - 1 )
 
 /* The size, in words (not bytes), of the stack allocated to the FreeRTOS+TCP
 task.  This setting is less important when the FreeRTOS Win32 simulator is used
@@ -182,7 +182,7 @@ aborted. */
 /* USE_WIN: Let TCP use windowing mechanism. */
 #define ipconfigUSE_TCP_WIN			( 1 )
 
-/* The MTU is the maximum number of bytes the payload of a network frame can
+/* The MTU is the maximum number of bytes the payload of a network frame canPRIORI
 contain.  For normal Ethernet V2 frames the maximum MTU is 1500.  Setting a
 lower value can save RAM, depending on the buffer management scheme used.  If
 ipconfigCAN_FRAGMENT_OUTGOING_PACKETS is 1 then (ipconfigNETWORK_MTU - 28) must
@@ -208,7 +208,7 @@ FreeRTOS_SendPingRequest() API function is available. */
 /* If ipconfigFILTER_OUT_NON_ETHERNET_II_FRAMES is set to 1 then Ethernet frames
 that are not in Ethernet II format will be dropped.  This option is included for
 potential future IP stack developments. */
-#define ipconfigFILTER_OUT_NON_ETHERNET_II_FRAMES  1
+#define ipconfigFILTER_OUT_NON_ETHERNET_II_FRAMES  0 //?
 
 /* If ipconfigETHERNET_DRIVER_FILTERS_FRAME_TYPES is set to 1 then it is the
 responsibility of the Ethernet interface to filter out packets that are of no
@@ -239,10 +239,10 @@ simultaneously, one could define TCP_WIN_SEG_COUNT as 120. */
 
 /* Each TCP socket has a circular buffers for Rx and Tx, which have a fixed
 maximum size.  Define the size of Rx buffer for TCP sockets. */
-#define ipconfigTCP_RX_BUFFER_LEN			( 3 * 1460 )
+#define ipconfigTCP_RX_BUFFER_LEN			( 3 * 1560 )
 
 /* Define the size of Tx buffer for TCP sockets. */
-#define ipconfigTCP_TX_BUFFER_LEN			( 2 * 1460 )
+#define ipconfigTCP_TX_BUFFER_LEN			( 2 * 1560 )
 
 /* When using call-back handlers, the driver may check if the handler points to
 real program memory (RAM or flash) or just has a random non-zero value. */

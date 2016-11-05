@@ -55,11 +55,11 @@ int main()
     FreeRTOS_IPInit(APP_DEFAULT_IP_ADDRESS, APP_DEFAULT_NETMASK, APP_DEFAULT_GATEWAY, APP_DEFAULT_NAMESERVER, ETHERNET_MAC_ADDRESS);
     // Tasks
     BaseType_t result = xTaskCreate(prvWebServerTask, "M3WebServer", WEB_SERVER_STACK_SIZE, NULL, tskIDLE_PRIORITY, &xWebServerTaskHandle);
-    result = xTaskCreate(prvLedBlinkTask, "M3WebServer", configMINIMAL_STACK_SIZE, NULL, 1, &xLedBlinkTaskHandle);
-    // to do: add other tasks
+    result = xTaskCreate(prvLedBlinkTask, "Blink", configMINIMAL_STACK_SIZE, NULL, 2, &xLedBlinkTaskHandle);
 
-    // start schedule
+    // to do: add other tasks
     vTaskStartScheduler();
+    // start schedule
     for(;;) { }
     return 0;
 }
@@ -75,7 +75,7 @@ void prvLedBlinkTask(void *pvParameters)
 
     for(;;)
     {
-    	LPC_GPIO2->FIOPIN &= 0x00;
+    	LPC_GPIO2->FIOPIN = 0x00;
         LPC_GPIO2->FIOPIN |= LED1_OPTION;
         vTaskDelay(xPauseTime);
         LPC_GPIO2->FIOPIN &= LED1_OPTION;
