@@ -1,9 +1,10 @@
+#include <stdio.h>
 #include "diagnostic.h"
 #include "LPC17xx.h"
 
 static char message[256];
 
-void checkCFSRValue(uint32_t CFSRValue)
+void CheckCFSRValue(uint32_t CFSRValue)
 {
     printf("Usage fault: ");
     CFSRValue >>= 16;   // right shift to lsb
@@ -22,7 +23,7 @@ void checkCFSRValue(uint32_t CFSRValue)
         printf( "Undefined Instruction\n" );
 }
 
-void checkMemoryManagementError(uint32_t CFSRValue, uint32_t regValue)
+void CheckMemoryManagementError(uint32_t CFSRValue, uint32_t regValue)
 {
     if((CFSRValue & (1 << 7)) != 0)
     {
@@ -42,7 +43,7 @@ void checkMemoryManagementError(uint32_t CFSRValue, uint32_t regValue)
         printf("Instruction Access violation\n");
 }
 
-void checkBusError(uint32_t CFSRValue, uint32_t regValue)
+void CheckBusError(uint32_t CFSRValue, uint32_t regValue)
 {
     if((CFSRValue & (1 << 7)) != 0)
     {
@@ -64,7 +65,7 @@ void checkBusError(uint32_t CFSRValue, uint32_t regValue)
         printf("Instruction bus error\n");
 }
 
-void getRegistersFromStack(uint32_t* pulFaultStackAddress, uint32_t faultSource)
+void GetRegistersFromStack(uint32_t* pulFaultStackAddress, uint32_t faultSource)
 {
     /* These are volatile to try and prevent the compiler/linker optimising them
     away as the variables never actually get used.  If the debugger won't show the
@@ -147,7 +148,7 @@ void getRegistersFromStack(uint32_t* pulFaultStackAddress, uint32_t faultSource)
     if((_CFSR & 0xFFFF0000) != 0)
     {
         printf("Hard Fault:\n");
-        checkCFSRValue(_CFSR);
+        CheckCFSRValue(_CFSR);
     }
 
     if((_CFSR & 0x0000FFFF) != 0)
@@ -155,12 +156,12 @@ void getRegistersFromStack(uint32_t* pulFaultStackAddress, uint32_t faultSource)
         if((_CFSR & 0x000000FF) != 0)
         {
             printf("Memory Management Fault:\n");
-            checkMemoryManagementError(_CFSR, _MMAR);
+            CheckMemoryManagementError(_CFSR, _MMAR);
         }
         else
         {
             printf("Bus Fault:\n");
-            checkBusError(_CFSR >> 8, _BFAR);
+            CheckBusError(_CFSR >> 8, _BFAR);
         }
     }
 
@@ -179,7 +180,7 @@ void getRegistersFromStack(uint32_t* pulFaultStackAddress, uint32_t faultSource)
 }
 
 // function to make precise Bus Fault when we have imprecise fault
-void disableRAMWriteBufferization()
+void DisableWriteBufferization()
 {
     volatile uint32_t* _ACTLR __attribute__((unused));
     _ACTLR = 0xE000E008;
@@ -187,7 +188,7 @@ void disableRAMWriteBufferization()
 }
 
 
-void vHardFaultHandler(void) //__attribute__ (( naked ))
+void HardFaultHandler() //__attribute__ (( naked ))
 {
     __asm volatile
     (
@@ -199,7 +200,7 @@ void vHardFaultHandler(void) //__attribute__ (( naked ))
         " mov r1, 1     \n" /* Fault source */
         " ldr r3, handler1_address_const                            \n"
         " bx r3                                                     \n"
-        " handler1_address_const: .word getRegistersFromStack       \n"
+        " handler1_address_const: .word GetRegistersFromStack       \n"
     );
 
     while ( 1 )
@@ -208,7 +209,7 @@ void vHardFaultHandler(void) //__attribute__ (( naked ))
     }
 }
 
-void vMemManageHandler(void)
+void MemoryManageHandler(void)
 {
     __asm volatile
     (
@@ -220,7 +221,7 @@ void vMemManageHandler(void)
         " mov r1, 2     \n" /* Fault source */
         " ldr r3, handler2_address_const                            \n"
         " bx r3                                                     \n"
-        " handler2_address_const: .word getRegistersFromStack       \n"
+        " handler2_address_const: .word GetRegistersFromStack       \n"
     );
 
     while ( 1 )

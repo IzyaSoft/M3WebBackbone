@@ -3,13 +3,13 @@
 
 #include <stdint.h>
 
-#define vHardFaultHandler HardFault_Handler
-#define vMemManageHandler MemManage_Handler
+#define HardFaultHandler HardFault_Handler
+#define MemoryManageHandler MemManage_Handler
 
-void checkCFSRValue(uint32_t CFSRValue);
-void checkBusError(uint32_t CFSRValue, uint32_t regValue);
-void checkMemoryManagementError(uint32_t CFSRValue, uint32_t regValue);
-void getRegistersFromStack(uint32_t* pulFaultStackAddress, uint32_t faultSource);
-void disableRAMWriteBufferization();
+void CheckCFSRValue(uint32_t CFSRValue);
+void CheckBusError(uint32_t CFSRValue, uint32_t regValue);
+void CheckMemoryManagementError(uint32_t CFSRValue, uint32_t regValue);
+void GetRegistersFromStack(uint32_t* pulFaultStackAddress, uint32_t faultSource);
+void DisableWriteBufferization();
 
 #endif

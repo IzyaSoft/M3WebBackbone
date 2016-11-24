@@ -1,3 +1,6 @@
+/* Hardware*/
+#include "driverConfig.h"
+#include "hal.h"
 /* FreeRTOS includes. */
 #include <FreeRTOS.h>
 #include "task.h"
@@ -12,29 +15,26 @@
 #include "FreeRTOSFATConfig.h"
 #include "FreeRTOSIPConfig.h"
 
-/* Hardware*/
-#include "LPC17xx.h"
-
 /* Application*/
+#include "networkManager.h"
 #include "staticAllocationImpl.h"
-#include "configurationManager.h"
-
 #include "FreeRTOS_TCP_server.h"
-
+/* Debug */
 #include "semihosting.h"
 
 #define WEB_SERVER_STACK_SIZE 512
 #define WEB_SERVER_TASK_PRIORITY configMAX_PRIORITIES / 2
 
-//extern void initialise_monitor_handles(void); /* prototype */
+struct NetworkConfiguration networkConfiguration;
 
+//extern void initialise_monitor_handles(void); /* prototype */
 // global variables
-const uint8_t ETHERNET_MAC_ADDRESS[] = {0x00, 0x33, 0x11, 0x66, 0x22, 0xEE};
+/*const uint8_t ETHERNET_MAC_ADDRESS[] = {0x00, 0x33, 0x11, 0x66, 0x22, 0xEE};
 // ip settings
 const uint8_t APP_DEFAULT_IP_ADDRESS[] = {192, 168, 200, 5};
 const uint8_t APP_DEFAULT_NETMASK[] = {255, 255, 255, 0};
 const uint8_t APP_DEFAULT_GATEWAY[] = {192, 168, 200, 1};
-const uint8_t APP_DEFAULT_NAMESERVER[] = {192, 168, 200, 1};
+const uint8_t APP_DEFAULT_NAMESERVER[] = {192, 168, 200, 1};*/
 // Task Handle
 static TaskHandle_t xWebServerTaskHandle = NULL;
 static TaskHandle_t xLedBlinkTaskHandle = NULL;
@@ -47,12 +47,11 @@ int main()
 	// Debug
     // disableRAMWriteBufferization();
 	// Hardware Initialization
-    InitializeClocks();
-    // Interrupts sub priority bits initialization
-    InitializeInterrupts(0);
+    ConfigureSystemClock();
     printf("m3webbackbone started:%s \r\n", "v0.9beta");
     // IP initialization in FreeRTOS
-    FreeRTOS_IPInit(APP_DEFAULT_IP_ADDRESS, APP_DEFAULT_NETMASK, APP_DEFAULT_GATEWAY, APP_DEFAULT_NAMESERVER, ETHERNET_MAC_ADDRESS);
+    GetNetworkConfiguration(&networkConfiguration);
+    FreeRTOS_IPInit(networkConfiguration._ipAddress, networkConfiguration._netmask, networkConfiguration._gateway, networkConfiguration._nameServer, networkConfiguration._macAddress);
     // Tasks
     BaseType_t result = xTaskCreate(prvWebServerTask, "M3WebServer", WEB_SERVER_STACK_SIZE, NULL, tskIDLE_PRIORITY, &xWebServerTaskHandle);
     result = xTaskCreate(prvLedBlinkTask, "Blink", configMINIMAL_STACK_SIZE, NULL, 2, &xLedBlinkTaskHandle);
@@ -66,21 +65,28 @@ int main()
 
 void prvLedBlinkTask(void *pvParameters)
 {
-    #define LED1_OPTION 0xA0
-    #define LED2_OPTION 0x0F
+    //#define LED1_OPTION 0xA0
+    //#define LED2_OPTION 0x0F
+    #define LED_PORT_NUMBER 2
+    #define LED_PORT_MASK   0x000000FF
+    uint32_t ledValue = 0x0F;
+    const TickType_t xPauseTime = pdMS_TO_TICKS(100UL);
+    ConfigureLedPort(LED_PORT_NUMBER, LED_PORT_MASK, ledValue);
 
-	const TickType_t xPauseTime = pdMS_TO_TICKS(100UL);
-
-    LPC_GPIO2->FIODIR |= 0x000000ff;  //P2.0...P2.7 Output LEDs on PORT2 defined as Output
+    //LPC_GPIO2->FIODIR |= 0x000000ff;  //P2.0...P2.7 Output LEDs on PORT2 defined as Output
 
     for(;;)
     {
-    	LPC_GPIO2->FIOPIN = 0x00;
-        LPC_GPIO2->FIOPIN |= LED1_OPTION;
+    	//LPC_GPIO2->FIOPIN = 0x00;
+        //LPC_GPIO2->FIOPIN |= LED1_OPTION;
         vTaskDelay(xPauseTime);
-        LPC_GPIO2->FIOPIN &= LED1_OPTION;
-        LPC_GPIO2->FIOPIN |= LED2_OPTION;
+        ledValue = 0xF0;
+        SetLedsValue(LED_PORT_NUMBER, ledValue);
+        //LPC_GPIO2->FIOPIN &= LED1_OPTION;
+        //LPC_GPIO2->FIOPIN |= LED2_OPTION;
         vTaskDelay(xPauseTime);
+        ledValue = 0x0F;
+        SetLedsValue(LED_PORT_NUMBER, ledValue);
     }
 }
 

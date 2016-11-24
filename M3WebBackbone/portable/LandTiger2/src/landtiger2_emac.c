@@ -30,14 +30,14 @@ static uint32_t txBuffer[NUM_TX_FRAG][ETH_MAX_FLEN>>2];
 */
 static void debugPrintData(uint32_t* data)
 {
-	byte* ptr = (byte*) data;
-	byte counter = 0;
-	while(counter++ < sizeof(uint32_t))
-	{
-		//printf("byte %d:", counter);
-		printf(" 0x%x ", *ptr & 0xFF);
-		ptr++;
-	}
+    byte* ptr = (byte*) data;
+    byte counter = 0;
+    while(counter++ < sizeof(uint32_t))
+    {
+        //printf("byte %d:", counter);
+        printf(" 0x%x ", *ptr & 0xFF);
+        ptr++;
+    }
 }
 
 
@@ -69,43 +69,81 @@ static int32_t read_PHY (byte phyReg)
     {
         if((LPC_EMAC->MIND & MIND_BUSY) == 0)
         {
-        	LPC_EMAC->MCMD = 0;
+            LPC_EMAC->MCMD = 0;
             return (LPC_EMAC->MRDD);
         }
     }
     return -1;
 }
 
+static int32_t cRCCalculate(uint8_t frame_no_fcs[], int32_t frame_len)
+{
+    int i;         // iterator
+    int j;         // another iterator
+    char byte;     // current byte
+    int crc;     // CRC result
+    int q0, q1, q2, q3; // temporary variables
+    crc = 0xFFFFFFFF;
+    for (i = 0; i < frame_len; i++) {
+        byte = *frame_no_fcs++;
+        for (j = 0; j < 2; j++) {
+            if (((crc >> 28) ^ (byte >> 3)) & 0x00000001) {
+                q3 = 0x04C11DB7;
+            } else {
+                q3 = 0x00000000;
+            }
+            if (((crc >> 29) ^ (byte >> 2)) & 0x00000001) {
+                q2 = 0x09823B6E;
+            } else {
+                q2 = 0x00000000;
+            }
+            if (((crc >> 30) ^ (byte >> 1)) & 0x00000001) {
+                q1 = 0x130476DC;
+            } else {
+                q1 = 0x00000000;
+            }
+            if (((crc >> 31) ^ (byte >> 0)) & 0x00000001) {
+                q0 = 0x2608EDB8;
+            } else {
+                q0 = 0x00000000;
+            }
+            crc = (crc << 4) ^ q3 ^ q2 ^ q1 ^ q0;
+            byte >>= 4;
+        }
+    }
+    return crc;
+}
+
 void rx_descr_init (void)
 {
     /* Initialize Receive Descriptor and Status array. */
 
-/*	for (uint32_t i = 0; i < NUM_RX_FRAG; i++)
-	{
-		rxDescriptor[i].Packet = (uint32_t)&rxBuffer[i];
-		rxDescriptor[i].Ctrl = RCTRL_INT | (ETH_MAX_FLEN - 1);
-		rxStatus[i].Info = 0;
-		rxStatus[i].HashCRC = 0;
-	}*/
+/*    for (uint32_t i = 0; i < NUM_RX_FRAG; i++)
+    {
+        rxDescriptor[i].Packet = (uint32_t)&rxBuffer[i];
+        rxDescriptor[i].Ctrl = RCTRL_INT | (ETH_MAX_FLEN - 1);
+        rxStatus[i].Info = 0;
+        rxStatus[i].HashCRC = 0;
+    }*/
 
-	for (uint32_t i = 0; i < NUM_RX_FRAG; i++)
-	{
-		RX_DESC_PACKET(i) = RX_BUF(i);
-	    RX_DESC_CTRL(i) = RCTRL_INT | (ETH_FRAG_SIZE-1);
-	    RX_STAT_INFO(i) = 0;
-	    RX_STAT_HASHCRC(i) = 0;
-	}
+    for (uint32_t i = 0; i < NUM_RX_FRAG; i++)
+    {
+        RX_DESC_PACKET(i) = RX_BUF(i);
+        RX_DESC_CTRL(i) = RCTRL_INT | (ETH_FRAG_SIZE-1);
+        RX_STAT_INFO(i) = 0;
+        RX_STAT_HASHCRC(i) = 0;
+    }
 
     /* Set EMAC Receive Descriptor Registers. */
-	//LPC_EMAC->RxDescriptor = (uint32_t)&rxDescriptor[0];
-	//LPC_EMAC->RxStatus = (uint32_t)&rxStatus[0];
+    //LPC_EMAC->RxDescriptor = (uint32_t)&rxDescriptor[0];
+    //LPC_EMAC->RxStatus = (uint32_t)&rxStatus[0];
 
-	LPC_EMAC->RxDescriptorNumber = NUM_RX_FRAG - 1;
+    LPC_EMAC->RxDescriptorNumber = NUM_RX_FRAG - 1;
     LPC_EMAC->RxDescriptor = RX_DESC_BASE;
     LPC_EMAC->RxStatus = RX_STAT_BASE;
 
     /* Rx Descriptors Point to 0 */
-	LPC_EMAC->RxConsumeIndex  = 0;
+    LPC_EMAC->RxConsumeIndex  = 0;
 }
 
 void tx_descr_init (void)
@@ -197,7 +235,7 @@ Bool InitializeEthernetMAC(EMAC_CFG_Type* emacConfig)
     }
 
     //if (!(regv & 0x0020))
-    	//return FALSE;
+        //return FALSE;
 
     /* Check the link status. */
     for (tout = 0; tout < 0x10000; tout++)
@@ -208,7 +246,7 @@ Bool InitializeEthernetMAC(EMAC_CFG_Type* emacConfig)
     }
 
     //if(!(regv & 0x0001))
-    	//return FALSE;
+        //return FALSE;
 
     // todo: umv : settings for spedd mode & duplex from parameter
 
@@ -260,19 +298,19 @@ Bool InitializeEthernetMAC(EMAC_CFG_Type* emacConfig)
 
 int32_t CheckPhysicalState(uint32_t parameter)
 {
-	uint32_t regv = read_PHY(PHY_REG_BMSR);
-	switch(parameter)
-	{
+    uint32_t regv = read_PHY(PHY_REG_BMSR);
+    switch(parameter)
+    {
     case SPEED:
-    	 return (regv & 0xE000);
-		 break;
-	case MODE:
-		 return (regv & 0x5000);
-		 break;
-	case LINK:
-		 return (regv & 0x0004);
-		 break;
-	}
+         return (regv & 0xE000);
+         break;
+    case MODE:
+         return (regv & 0x5000);
+         break;
+    case LINK:
+         return (regv & 0x0004);
+         break;
+    }
     return -1;
 }
 
@@ -290,7 +328,7 @@ void WriteData(EMAC_PACKETBUF_Type* packet)
     idx = LPC_EMAC->TxProduceIndex;
     sp  = packet->pbDataBuf;
     dp  = (uint32_t*)TX_BUF(idx);
-    TX_DESC_CTRL(idx) = packet->ulDataLen | TCTRL_LAST;
+    TX_DESC_CTRL(idx) = packet->ulDataLen | TCTRL_LAST | TCTRL_CRC;
     //Tx_Desc[idx].Ctrl = (pDataStruct->ulDataLen - 1) | (EMAC_TCTRL_INT | EMAC_TCTRL_LAST);
     len = packet->ulDataLen >> 2;
     /* Copy frame data to EMAC packet buffers. */
@@ -302,7 +340,7 @@ void WriteData(EMAC_PACKETBUF_Type* packet)
 
     idx = LPC_EMAC->TxProduceIndex;
     if (++idx == NUM_TX_FRAG)
-    	idx = 0;
+        idx = 0;
     LPC_EMAC->TxProduceIndex = idx;
 }
 
@@ -320,8 +358,8 @@ void ReadData(EMAC_PACKETBUF_Type* packet)
 
     if (packet->pbDataBuf != NULL)
     {
-    	while(len -- > 0)
-    	    *dp++ = *sp++;
+        while(len -- > 0)
+            *dp++ = *sp++;
     }
 
     //idx = LPC_EMAC->RxConsumeIndex;
@@ -331,7 +369,7 @@ void ReadData(EMAC_PACKETBUF_Type* packet)
 
 uint32_t* NextPacketToRead()
 {
-	return (uint32_t*) RX_DESC_PACKET(LPC_EMAC->RxConsumeIndex);
+    return (uint32_t*) RX_DESC_PACKET(LPC_EMAC->RxConsumeIndex);
 }
 
 
@@ -339,19 +377,19 @@ uint32_t* NextPacketToRead()
 Bool CheckTransmitIndex()
 {
     uint32_t tmp = LPC_EMAC->TxConsumeIndex -1;
-	return !(LPC_EMAC->TxProduceIndex == tmp);
+    return !(LPC_EMAC->TxProduceIndex == tmp);
 }
 
 Bool CheckReceiveIndex()
 {
     if(LPC_EMAC->RxConsumeIndex != LPC_EMAC->RxProduceIndex)
-    	return TRUE;
+        return TRUE;
     return FALSE;
 }
 
 uint32_t GetReceivedDataSize()
 {
-	uint32_t idx;
+    uint32_t idx;
     idx = LPC_EMAC->RxConsumeIndex;
     return (RX_STAT_INFO(idx) & RINFO_SIZE);
 }

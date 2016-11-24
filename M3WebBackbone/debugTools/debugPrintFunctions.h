@@ -3,8 +3,6 @@
 
 #include <stdint.h>
 
-//void printStringHexSymbols(void* bufferPtr, uint32_t length, uint32_t lineLength = -1);
-
 void printStringHexSymbols(void* bufferPtr, uint32_t length, uint32_t lineLength)
 {
 	unsigned char* symbolPtr = bufferPtr;
@@ -13,8 +11,8 @@ void printStringHexSymbols(void* bufferPtr, uint32_t length, uint32_t lineLength
         printf(" 0x%x ", *symbolPtr);
         if(lineLength > 0 && symbolCounter > 0)
         {
-            if(lineLength % symbolCounter == 0)
-            	printf("\r\n");
+            if((symbolCounter + 1) % lineLength == 0)
+            	printf("\n\r");
         }
         symbolPtr++;
     }
