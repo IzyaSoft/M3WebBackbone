@@ -74,7 +74,7 @@
 #define configMAX_SYSCALL_INTERRUPT_PRIORITY    (5 << (8 - configPRIO_BITS))
 #define configLIBRARY_LOWEST_INTERRUPT_PRIORITY configMAX_SYSCALL_INTERRUPT_PRIORITY
 
-#define configEMAC_INTERRUPT_PRIORITY           5
+#define configEMAC_INTERRUPT_PRIORITY            5
 /* Define to trap errors during development. */
 #define configASSERT( x ) if( ( x ) == 0 ) vAssertCalled( __LINE__, __FILE__)
 

@@ -22,7 +22,6 @@
 
 #define MAX_TX_ATTEMPTS 10
 #define TX_CHECK_BUFFER_TIME (pdMS_TO_TICKS(2UL))
-#define TX_CHECK_BUFFER_TIME (pdMS_TO_TICKS(2UL))
 #define EthernetIrqHandler ENET_IRQHandler
 
 static TaskHandle_t eMACTaskHandle;
@@ -59,11 +58,6 @@ static void prvEMACTask(void *pvParameters)
             {
                 networkBuffer = pxGetNetworkBufferWithDescriptor(0, (TickType_t )0);
                 networkBuffer->xDataLength = dataLength;
-                // networkBuffer->pucEthernetBuffer = NextPacketToRead();
-                //EMAC_PACKETBUF_Type buffer;
-                //buffer.pbDataBuf = networkBuffer->pucEthernetBuffer;
-                //buffer.ulDataLen = networkBuffer->xDataLength;
-                //printf("Reading %d bytes... \n\r", dataLength);
                 rxBuffer._buffer = networkBuffer->pucEthernetBuffer;
                 rxBuffer._bufferCapacity = networkBuffer->xDataLength;
                 Read(&rxBuffer);
@@ -87,8 +81,9 @@ static void prvEMACTask(void *pvParameters)
                 iptraceNETWORK_INTERFACE_RECEIVE();
             }
             //UpdateRxConsumeIndex();
+            vTaskDelay(xPauseTime);
         }
-        vTaskDelay(xPauseTime);
+
     }
     vTaskDelete(NULL);
 }
@@ -105,10 +100,6 @@ BaseType_t xNetworkInterfaceInitialise( void )
     LPC_EMAC->IntEnable &= ~(INT_TX_DONE);
     NVIC_SetPriority(ENET_IRQn, configEMAC_INTERRUPT_PRIORITY);
     NVIC_EnableIRQ(ENET_IRQn);
-/*    EMAC_CFG_Type emacConfig;
-    emacConfig.Mode = ETHERNET_MODE;
-    emacConfig.pbEMAC_Addr = ETHERNET_MAC_ADDRESS;
-    Bool result = InitializeEthernetMAC(&emacConfig);*/
     struct EthernetConfiguration ethernetConfiguration;
     GetNetworkConfiguration(&networkConfiguration);
     unsigned char revertedMac[] =
@@ -135,8 +126,8 @@ BaseType_t xNetworkInterfaceOutput(NetworkBufferDescriptor_t * const pxNetworkBu
     /* Attempt to obtain access to a Tx buffer. */
     for(uint32_t x = 0; x < MAX_TX_ATTEMPTS; x++)
     {
-        //if(CheckTransmitIndex())  //todo add check!
-       // {
+        if( CheckTransmissionAvailable() == 1)  //todo add check!
+        {
             //todo: umv: packetization
             if( pxNetworkBuffer->xDataLength < ETH_MAX_FLEN )
             {
@@ -150,15 +141,16 @@ BaseType_t xNetworkInterfaceOutput(NetworkBufferDescriptor_t * const pxNetworkBu
                 //printStringHexSymbols(txBuffer.pbDataBuf, txBuffer.ulDataLen, 8);
                 //printf("Writing %d bytes... \n\r", pxNetworkBuffer->xDataLength);
                 Write(&txBuffer);
-                //iptraceNETWORK_INTERFACE_TRANSMIT();
+                iptraceNETWORK_INTERFACE_TRANSMIT();
                 result = pdPASS;
+                break;
                 //return pdTRUE;
             }
-        //}
-        //else vTaskDelay(TX_CHECK_BUFFER_TIME);
+        }
+        else vTaskDelay(TX_CHECK_BUFFER_TIME);
     }
 
-    //vReleaseNetworkBufferAndDescriptor(pxNetworkBuffer);
+    vReleaseNetworkBufferAndDescriptor(pxNetworkBuffer);
     //return pdFALSE;
     //vReleaseNetworkBufferAndDescriptor(pxNetworkBuffer);
     return pdPASS;

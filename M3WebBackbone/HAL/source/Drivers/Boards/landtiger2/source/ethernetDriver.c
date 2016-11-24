@@ -107,7 +107,7 @@
 
     uint32_t CheckAvailableDataSize()
     {
-    	return (GetReceivedDataSize() - 3);// >> 2;
+        return (GetReceivedDataSize() - 3);// >> 2;
     }
 
     unsigned char InitializeEthrernet(struct EthernetConfiguration* configuration)
@@ -259,14 +259,19 @@
         EndReadFrame();
     }
 
+    unsigned char CheckTransmissionAvailable()
+    {
+        uint32_t tmp = LPC_EMAC->TxConsumeIndex - 1;
+        if(LPC_EMAC->TxProduceIndex == tmp)
+            return 0;
+        return 1;
+    }
+
     void Write(struct EthernetBuffer* bufferToWrite)
     {
         uint32_t dmaBufferIndex;
         unsigned char* source;
         unsigned char* destination;
-
-        //while(!IsReadyForTransmit());
-
 
         dmaBufferIndex = LPC_EMAC->TxProduceIndex;
         source = bufferToWrite->_buffer;

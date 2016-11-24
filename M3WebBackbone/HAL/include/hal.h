@@ -37,6 +37,7 @@ unsigned short GetTimerCountValue(unsigned char timerNumber);
     void Write(struct EthernetBuffer* bufferToWrite);
     uint32_t GetPhyStatus(uint32_t parameter);
     unsigned char CheckIsDataAvailable();
+    unsigned char CheckTransmissionAvailable();
     uint32_t CheckAvailableDataSize();
 #endif
 

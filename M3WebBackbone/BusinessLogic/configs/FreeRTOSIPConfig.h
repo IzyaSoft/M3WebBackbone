@@ -146,7 +146,7 @@ not set to 1 then only FreeRTOS_indet_addr_quick() is available. */
 are available to the IP stack.  The total number of network buffers is limited
 to ensure the total amount of RAM that can be consumed by the IP stack is capped
 to a pre-determinable value. */
-#define ipconfigNUM_NETWORK_BUFFER_DESCRIPTORS		16
+#define ipconfigNUM_NETWORK_BUFFER_DESCRIPTORS		32
 
 /* Optimisation that allows more than one Rx buffer to be passed to the TCP task
 at a time - requires driver support. */
