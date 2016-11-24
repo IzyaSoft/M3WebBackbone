@@ -55,7 +55,7 @@ task.  This setting is less important when the FreeRTOS Win32 simulator is used
 as the Win32 simulator only stores a fixed amount of information on the task
 stack.  FreeRTOS includes optional stack overflow detection, see:
 http://www.freertos.org/Stacks-and-stack-overflow-checking.html */
-#define ipconfigIP_TASK_STACK_SIZE_WORDS	( configMINIMAL_STACK_SIZE * 5 )
+#define ipconfigIP_TASK_STACK_SIZE_WORDS	( configMINIMAL_STACK_SIZE * 10 )
 
 /* ipconfigRAND32() is called by the IP stack to generate random numbers for
 things such as a DHCP transaction number or initial sequence number.  Random
@@ -146,7 +146,7 @@ not set to 1 then only FreeRTOS_indet_addr_quick() is available. */
 are available to the IP stack.  The total number of network buffers is limited
 to ensure the total amount of RAM that can be consumed by the IP stack is capped
 to a pre-determinable value. */
-#define ipconfigNUM_NETWORK_BUFFER_DESCRIPTORS		32
+#define ipconfigNUM_NETWORK_BUFFER_DESCRIPTORS		16
 
 /* Optimisation that allows more than one Rx buffer to be passed to the TCP task
 at a time - requires driver support. */
@@ -187,7 +187,7 @@ contain.  For normal Ethernet V2 frames the maximum MTU is 1500.  Setting a
 lower value can save RAM, depending on the buffer management scheme used.  If
 ipconfigCAN_FRAGMENT_OUTGOING_PACKETS is 1 then (ipconfigNETWORK_MTU - 28) must
 be divisible by 8. */
-#define ipconfigNETWORK_MTU		1500
+#define ipconfigNETWORK_MTU		1024
 
 /* Set ipconfigUSE_DNS to 1 to include a basic DNS client/resolver.  DNS is used
 through the FreeRTOS_gethostbyname() API function. */
@@ -208,7 +208,7 @@ FreeRTOS_SendPingRequest() API function is available. */
 /* If ipconfigFILTER_OUT_NON_ETHERNET_II_FRAMES is set to 1 then Ethernet frames
 that are not in Ethernet II format will be dropped.  This option is included for
 potential future IP stack developments. */
-#define ipconfigFILTER_OUT_NON_ETHERNET_II_FRAMES  0 //?
+#define ipconfigFILTER_OUT_NON_ETHERNET_II_FRAMES  1 //?
 
 /* If ipconfigETHERNET_DRIVER_FILTERS_FRAME_TYPES is set to 1 then it is the
 responsibility of the Ethernet interface to filter out packets that are of no
@@ -218,7 +218,7 @@ perform the filtering instead (it is much less efficient for the stack to do it
 because the packet will already have been passed into the stack).  If the
 Ethernet driver does all the necessary filtering in hardware then software
 filtering can be removed by using a value other than 1 or 0. */
-#define ipconfigETHERNET_DRIVER_FILTERS_FRAME_TYPES	0
+#define ipconfigETHERNET_DRIVER_FILTERS_FRAME_TYPES	1
 
 /* The windows simulator cannot really simulate MAC interrupts, and needs to
 block occasionally to allow other tasks to run. */
@@ -239,10 +239,10 @@ simultaneously, one could define TCP_WIN_SEG_COUNT as 120. */
 
 /* Each TCP socket has a circular buffers for Rx and Tx, which have a fixed
 maximum size.  Define the size of Rx buffer for TCP sockets. */
-#define ipconfigTCP_RX_BUFFER_LEN			( 3 * 1560 )
+#define ipconfigTCP_RX_BUFFER_LEN			( 3 * 1536 )
 
 /* Define the size of Tx buffer for TCP sockets. */
-#define ipconfigTCP_TX_BUFFER_LEN			( 2 * 1560 )
+#define ipconfigTCP_TX_BUFFER_LEN			( 2 * 1536 )
 
 /* When using call-back handlers, the driver may check if the handler points to
 real program memory (RAM or flash) or just has a random non-zero value. */
@@ -265,6 +265,7 @@ disconnecting stage will timeout after a period of non-activity. */
 #define ipconfigHTTP_TX_WINSIZE				( 2 )
 #define ipconfigHTTP_RX_BUFSIZE				( 4 * ipconfigTCP_MSS )
 #define ipconfigHTTP_RX_WINSIZE				( 4 )
+#define ipconfigHTTP_HAS_HANDLE_REQUEST_HOOK  1
 
 /* UDP Logging related constants follow.  The standard UDP logging facility
 writes formatted strings to a buffer, and creates a task that removes messages

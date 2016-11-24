@@ -22,7 +22,7 @@
 /* Debug */
 #include "semihosting.h"
 
-#define WEB_SERVER_STACK_SIZE 512
+#define WEB_SERVER_STACK_SIZE 1024
 #define WEB_SERVER_TASK_PRIORITY configMAX_PRIORITIES / 2
 
 struct NetworkConfiguration networkConfiguration;

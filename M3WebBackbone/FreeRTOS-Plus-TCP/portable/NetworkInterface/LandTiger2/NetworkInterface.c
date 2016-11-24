@@ -69,7 +69,7 @@ static void prvEMACTask(void *pvParameters)
                 // Data was received and stored.  Send a message to the IP task to let it know.
                 if(xSendEventStructToIPTask(&rxEvent, (TickType_t)0) == pdFAIL)
                 {
-                    vReleaseNetworkBufferAndDescriptor(networkBuffer);
+                    //vReleaseNetworkBufferAndDescriptor(networkBuffer);
                     iptraceETHERNET_RX_EVENT_LOST();
                 }
                 else
@@ -142,7 +142,7 @@ BaseType_t xNetworkInterfaceOutput(NetworkBufferDescriptor_t * const pxNetworkBu
         else vTaskDelay(TX_CHECK_BUFFER_TIME);
     }
 
-    vReleaseNetworkBufferAndDescriptor(pxNetworkBuffer);
+    //vReleaseNetworkBufferAndDescriptor(pxNetworkBuffer);
     return pdPASS;
 }
 

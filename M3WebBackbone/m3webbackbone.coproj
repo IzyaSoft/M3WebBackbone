@@ -113,28 +113,29 @@
     <File name="FreeRTOS-Plus-TCP/include/FreeRTOSIPConfigDefaults.h" path="FreeRTOS-Plus-TCP/include/FreeRTOSIPConfigDefaults.h" type="1"/>
     <File name="FreeRTOS/Source/timers.c" path="FreeRTOS/Source/timers.c" type="1"/>
     <File name="FreeRTOS-Plus-TCP/include/IPTraceMacroDefaults.h" path="FreeRTOS-Plus-TCP/include/IPTraceMacroDefaults.h" type="1"/>
-    <File name="debugTools/hardFault/diagnostic.c" path="debugTools/hardFault/diagnostic.c" type="1"/>
-    <File name="HAL/source/Drivers/Chips/lpc17xx/source/system_LPC17xx.c" path="HAL/source/Drivers/Chips/lpc17xx/source/system_LPC17xx.c" type="1"/>
     <File name="FreeRTOS/Source/include" path="" type="2"/>
+    <File name="HAL/source/Drivers/Chips/lpc17xx/source/system_LPC17xx.c" path="HAL/source/Drivers/Chips/lpc17xx/source/system_LPC17xx.c" type="1"/>
+    <File name="debugTools/hardFault/diagnostic.c" path="debugTools/hardFault/diagnostic.c" type="1"/>
     <File name="businesslogic/main.c" path="BusinessLogic/main.c" type="1"/>
     <File name="businesslogic/data/source" path="" type="2"/>
     <File name="HAL/source/Drivers/Chips/lpc17xx/include/lpc17xx_gpio.h" path="HAL/source/Drivers/Chips/lpc17xx/include/lpc17xx_gpio.h" type="1"/>
     <File name="HAL" path="" type="2"/>
     <File name="debugTools/semihosting/semihosting.h" path="debugTools/semihosting/semihosting.h" type="1"/>
     <File name="FreeRTOS/Source/include/task.h" path="FreeRTOS/Source/include/task.h" type="1"/>
-    <File name="HAL/source/Drivers/Chips/common/cmsis/include/core_cm3.h" path="HAL/source/Drivers/Chips/common/cmsis/include/core_cm3.h" type="1"/>
     <File name="FreeRTOS-Plus-FAT/include" path="" type="2"/>
+    <File name="HAL/source/Drivers/Chips/common/cmsis/include/core_cm3.h" path="HAL/source/Drivers/Chips/common/cmsis/include/core_cm3.h" type="1"/>
     <File name="FreeRTOS-Plus-FAT/ff_locking.c" path="FreeRTOS-Plus-FAT/ff_locking.c" type="1"/>
     <File name="FreeRTOS-Plus-TCP" path="" type="2"/>
     <File name="FreeRTOS-Plus-FAT/ff_sys.c" path="FreeRTOS-Plus-FAT/ff_sys.c" type="1"/>
     <File name="FreeRTOS-Plus-FAT/ff_crc.c" path="FreeRTOS-Plus-FAT/ff_crc.c" type="1"/>
     <File name="FreeRTOS-Plus-FAT/ff_string.c" path="FreeRTOS-Plus-FAT/ff_string.c" type="1"/>
     <File name="debugTools/hardFault/diagnostic.h" path="debugTools/hardFault/diagnostic.h" type="1"/>
-    <File name="FreeRTOS-Plus-TCP/portable/protocols/common/FreeRTOS_TCP_server.c" path="FreeRTOS-Plus-TCP/protocols/Common/FreeRTOS_TCP_server.c" type="1"/>
     <File name="FreeRTOS-Plus-FAT/ff_fat.c" path="FreeRTOS-Plus-FAT/ff_fat.c" type="1"/>
+    <File name="FreeRTOS-Plus-TCP/portable/protocols/common/FreeRTOS_TCP_server.c" path="FreeRTOS-Plus-TCP/protocols/Common/FreeRTOS_TCP_server.c" type="1"/>
     <File name="FreeRTOS-Plus-TCP/include/FreeRTOS_TCP_WIN.h" path="FreeRTOS-Plus-TCP/include/FreeRTOS_TCP_WIN.h" type="1"/>
     <File name="debugTools/stdio/printf.c" path="debugTools/stdio/printf.c" type="1"/>
     <File name="FreeRTOS-Plus-TCP/include" path="" type="2"/>
+    <File name="businesslogic/managers/include/httpRouter.h" path="BusinessLogic/managers/include/httpRouter.h" type="1"/>
     <File name="FreeRTOS-Plus-TCP/include/NetworkInterface.h" path="FreeRTOS-Plus-TCP/include/NetworkInterface.h" type="1"/>
     <File name="debugTools/semihosting/semihosting.c" path="debugTools/semihosting/semihosting.c" type="1"/>
     <File name="FreeRTOS-Plus-TCP/portable" path="" type="2"/>
@@ -149,11 +150,12 @@
     <File name="FreeRTOS-Plus-FAT/include/ff_string.h" path="FreeRTOS-Plus-FAT/include/ff_string.h" type="1"/>
     <File name="FreeRTOS-Plus-TCP/FreeRTOS_TCP_WIN.c" path="FreeRTOS-Plus-TCP/FreeRTOS_TCP_WIN.c" type="1"/>
     <File name="FreeRTOS-Plus-TCP/portable/BufferManagement/BufferAllocation_2.c" path="FreeRTOS-Plus-TCP/portable/BufferManagement/BufferAllocation_2.c" type="1"/>
+    <File name="debugTools/debugPrintFunctions.c" path="debugTools/debugPrintFunctions.c" type="1"/>
     <File name="debugTools/hardFault" path="" type="2"/>
     <File name="HAL/source/Drivers/Chips/common/cmsis/include/core_cmInstr.h" path="HAL/source/Drivers/Chips/common/cmsis/include/core_cmInstr.h" type="1"/>
     <File name="HAL/source/Drivers/Chips/lpc17xx/source/lpc17xx_nvic.c" path="HAL/source/Drivers/Chips/lpc17xx/source/lpc17xx_nvic.c" type="1"/>
-    <File name="FreeRTOS-Plus-FAT/portable/common/ff_sddisk.h" path="FreeRTOS-Plus-FAT/portable/common/ff_sddisk.h" type="1"/>
     <File name="FreeRTOS/Source/include/mpu_wrappers.h" path="FreeRTOS/Source/include/mpu_wrappers.h" type="1"/>
+    <File name="FreeRTOS-Plus-FAT/portable/common/ff_sddisk.h" path="FreeRTOS-Plus-FAT/portable/common/ff_sddisk.h" type="1"/>
     <File name="FreeRTOS-Plus-TCP/portable/Compiler" path="" type="2"/>
     <File name="FreeRTOS/Source/include/timers.h" path="FreeRTOS/Source/include/timers.h" type="1"/>
     <File name="FreeRTOS-Plus-TCP/include/FreeRTOS_DHCP.h" path="FreeRTOS-Plus-TCP/include/FreeRTOS_DHCP.h" type="1"/>
@@ -179,27 +181,28 @@
     <File name="HAL/source/Drivers/Boards/landTiger2/source/adcDriver.c" path="HAL/source/Drivers/Boards/landtiger2/source/adcDriver.c" type="1"/>
     <File name="FreeRTOS-Plus-FAT/include/ff_old_config_defines.h" path="FreeRTOS-Plus-FAT/include/ff_old_config_defines.h" type="1"/>
     <File name="HAL/include/hal.h" path="HAL/include/hal.h" type="1"/>
-    <File name="FreeRTOS/Source/include/list.h" path="FreeRTOS/Source/include/list.h" type="1"/>
     <File name="HAL/source/Drivers/Boards/landTiger2/source" path="" type="2"/>
+    <File name="FreeRTOS/Source/include/list.h" path="FreeRTOS/Source/include/list.h" type="1"/>
     <File name="debugTools/debugPrintFunctions.h" path="debugTools/debugPrintFunctions.h" type="1"/>
     <File name="FreeRTOS-Plus-FAT/include/ff_fat.h" path="FreeRTOS-Plus-FAT/include/ff_fat.h" type="1"/>
     <File name="businesslogic/driverConfig.h" path="BusinessLogic/driverConfig.h" type="1"/>
-    <File name="FreeRTOS-Plus-TCP/FreeRTOS_Sockets.c" path="FreeRTOS-Plus-TCP/FreeRTOS_Sockets.c" type="1"/>
     <File name="debugTools" path="" type="2"/>
+    <File name="FreeRTOS-Plus-TCP/FreeRTOS_Sockets.c" path="FreeRTOS-Plus-TCP/FreeRTOS_Sockets.c" type="1"/>
     <File name="FreeRTOS-Plus-TCP/portable/protocols/HTTP" path="" type="2"/>
     <File name="HAL/source/Drivers/Chips/lpc17xx/include/lpc_types.h" path="HAL/source/Drivers/Chips/lpc17xx/include/lpc_types.h" type="1"/>
-    <File name="FreeRTOS-Plus-TCP/portable/protocols/include/FreeRTOS_FTP_commands.h" path="FreeRTOS-Plus-TCP/protocols/include/FreeRTOS_FTP_commands.h" type="1"/>
     <File name="FreeRTOS/Source/include/StackMacros.h" path="FreeRTOS/Source/include/StackMacros.h" type="1"/>
+    <File name="FreeRTOS-Plus-TCP/portable/protocols/include/FreeRTOS_FTP_commands.h" path="FreeRTOS-Plus-TCP/protocols/include/FreeRTOS_FTP_commands.h" type="1"/>
     <File name="FreeRTOS-Plus-TCP/portable/protocols/common" path="" type="2"/>
     <File name="HAL/include/ethernetBuffer.h" path="HAL/include/ethernetBuffer.h" type="1"/>
     <File name="businesslogic/managers/source/networkManager.c" path="BusinessLogic/managers/source/networkManager.c" type="1"/>
     <File name="FreeRTOS-Plus-FAT/include/ff_locking.h" path="FreeRTOS-Plus-FAT/include/ff_locking.h" type="1"/>
     <File name="FreeRTOS-Plus-FAT/ff_dev_support.c" path="FreeRTOS-Plus-FAT/ff_dev_support.c" type="1"/>
     <File name="FreeRTOS/Source/tasks.c" path="FreeRTOS/Source/tasks.c" type="1"/>
-    <File name="HAL/include/ethernetConfiguration.h" path="HAL/include/ethernetConfiguration.h" type="1"/>
     <File name="businesslogic/data/include/diskInfo.h" path="BusinessLogic/data/include/diskInfo.h" type="1"/>
+    <File name="HAL/include/ethernetConfiguration.h" path="HAL/include/ethernetConfiguration.h" type="1"/>
     <File name="FreeRTOS-Plus-TCP/portable/NetworkInterface/LandTiger2/NetworkInterface.c" path="FreeRTOS-Plus-TCP/portable/NetworkInterface/LandTiger2/NetworkInterface.c" type="1"/>
     <File name="businesslogic/managers" path="" type="2"/>
+    <File name="businesslogic/managers/source/httpRouter.c" path="BusinessLogic/managers/source/httpRouter.c" type="1"/>
     <File name="HAL/source/Drivers" path="" type="2"/>
     <File name="HAL/source" path="" type="2"/>
     <File name="FreeRTOS-Plus-TCP/FreeRTOS_TCP_IP.c" path="FreeRTOS-Plus-TCP/FreeRTOS_TCP_IP.c" type="1"/>
@@ -210,10 +213,10 @@
     <File name="FreeRTOS-Plus-TCP/portable/protocols/include/NTPClient.h" path="FreeRTOS-Plus-TCP/protocols/include/NTPClient.h" type="1"/>
     <File name="FreeRTOS/Source/list.c" path="FreeRTOS/Source/list.c" type="1"/>
     <File name="FreeRTOS-Plus-TCP/include/NetworkBufferManagement.h" path="FreeRTOS-Plus-TCP/include/NetworkBufferManagement.h" type="1"/>
-    <File name="debugTools/semihosting/sh_cmd.s" path="debugTools/semihosting/sh_cmd.s" type="1"/>
     <File name="FreeRTOS-Plus-FAT/include/ff_sys.h" path="FreeRTOS-Plus-FAT/include/ff_sys.h" type="1"/>
-    <File name="FreeRTOS-Plus-TCP/FreeRTOS_ARP.c" path="FreeRTOS-Plus-TCP/FreeRTOS_ARP.c" type="1"/>
+    <File name="debugTools/semihosting/sh_cmd.s" path="debugTools/semihosting/sh_cmd.s" type="1"/>
     <File name="businesslogic/managers/include/diskManager.h" path="BusinessLogic/managers/include/diskManager.h" type="1"/>
+    <File name="FreeRTOS-Plus-TCP/FreeRTOS_ARP.c" path="FreeRTOS-Plus-TCP/FreeRTOS_ARP.c" type="1"/>
     <File name="FreeRTOS-Plus-FAT/ff_file.c" path="FreeRTOS-Plus-FAT/ff_file.c" type="1"/>
     <File name="debugTools/assert/assert.c" path="debugTools/assert/assert.c" type="1"/>
     <File name="FreeRTOS-Plus-FAT/include/ff_headers.h" path="FreeRTOS-Plus-FAT/include/ff_headers.h" type="1"/>
@@ -234,10 +237,10 @@
     <File name="FreeRTOS-Plus-FAT/ff_time.c" path="FreeRTOS-Plus-FAT/ff_time.c" type="1"/>
     <File name="FreeRTOS-Plus-TCP/include/FreeRTOS_Sockets.h" path="FreeRTOS-Plus-TCP/include/FreeRTOS_Sockets.h" type="1"/>
     <File name="FreeRTOS-Plus-TCP/portable/Compiler/GCC" path="" type="2"/>
-    <File name="FreeRTOS-Plus-TCP/include/FreeRTOS_DNS.h" path="FreeRTOS-Plus-TCP/include/FreeRTOS_DNS.h" type="1"/>
     <File name="HAL/source/Drivers/Boards/landTiger2/source/ledDriver.c" path="HAL/source/Drivers/Boards/landtiger2/source/ledDriver.c" type="1"/>
-    <File name="FreeRTOS-Plus-TCP/portable/protocols/HTTP/FreeRTOS_HTTP_commands.c" path="FreeRTOS-Plus-TCP/protocols/HTTP/FreeRTOS_HTTP_commands.c" type="1"/>
+    <File name="FreeRTOS-Plus-TCP/include/FreeRTOS_DNS.h" path="FreeRTOS-Plus-TCP/include/FreeRTOS_DNS.h" type="1"/>
     <File name="businesslogic/data/include/networkConfiguration.h" path="BusinessLogic/data/include/networkConfiguration.h" type="1"/>
+    <File name="FreeRTOS-Plus-TCP/portable/protocols/HTTP/FreeRTOS_HTTP_commands.c" path="FreeRTOS-Plus-TCP/protocols/HTTP/FreeRTOS_HTTP_commands.c" type="1"/>
     <File name="FreeRTOS-Plus-FAT/include/ff_crc.h" path="FreeRTOS-Plus-FAT/include/ff_crc.h" type="1"/>
     <File name="FreeRTOS-Plus-TCP/include/FreeRTOS_errno_TCP.h" path="FreeRTOS-Plus-TCP/include/FreeRTOS_errno_TCP.h" type="1"/>
     <File name="FreeRTOS/Source/queue.c" path="FreeRTOS/Source/queue.c" type="1"/>
@@ -245,8 +248,8 @@
     <File name="FreeRTOS/Source/portable/GCC/ARM_CM3/portmacro.h" path="FreeRTOS/Source/portable/GCC/ARM_CM3/portmacro.h" type="1"/>
     <File name="FreeRTOS/Source/include/croutine.h" path="FreeRTOS/Source/include/croutine.h" type="1"/>
     <File name="FreeRTOS-Plus-FAT/ff_ioman.c" path="FreeRTOS-Plus-FAT/ff_ioman.c" type="1"/>
-    <File name="FreeRTOS-Plus-TCP/include/FreeRTOS_Stream_Buffer.h" path="FreeRTOS-Plus-TCP/include/FreeRTOS_Stream_Buffer.h" type="1"/>
     <File name="FreeRTOS-Plus-TCP/FreeRTOS_DHCP.c" path="FreeRTOS-Plus-TCP/FreeRTOS_DHCP.c" type="1"/>
+    <File name="FreeRTOS-Plus-TCP/include/FreeRTOS_Stream_Buffer.h" path="FreeRTOS-Plus-TCP/include/FreeRTOS_Stream_Buffer.h" type="1"/>
     <File name="FreeRTOS-Plus-FAT/include/ff_dir.h" path="FreeRTOS-Plus-FAT/include/ff_dir.h" type="1"/>
     <File name="HAL/source/Drivers/Boards/landTiger2/include" path="" type="2"/>
     <File name="HAL/source/Drivers/Boards/landTiger2/source/timerDriver.c" path="HAL/source/Drivers/Boards/landtiger2/source/timerDriver.c" type="1"/>
@@ -257,8 +260,8 @@
     <File name="FreeRTOS-Plus-TCP/include/FreeRTOS_IP_Private.h" path="FreeRTOS-Plus-TCP/include/FreeRTOS_IP_Private.h" type="1"/>
     <File name="HAL/source/Drivers/Chips/lpc17xx" path="" type="2"/>
     <File name="FreeRTOS-Plus-TCP/FreeRTOS_Stream_Buffer.c" path="FreeRTOS-Plus-TCP/FreeRTOS_Stream_Buffer.c" type="1"/>
-    <File name="businesslogic/managers/include/networkManager.h" path="BusinessLogic/managers/include/networkManager.h" type="1"/>
     <File name="debugTools/assert/assert.h" path="debugTools/assert/assert.h" type="1"/>
+    <File name="businesslogic/managers/include/networkManager.h" path="BusinessLogic/managers/include/networkManager.h" type="1"/>
     <File name="FreeRTOS-Plus-FAT/include/ff_stdio.h" path="FreeRTOS-Plus-FAT/include/ff_stdio.h" type="1"/>
     <File name="HAL/source/Drivers/Boards/landTiger2" path="" type="2"/>
     <File name="FreeRTOS-Plus-TCP/portable/protocols" path="" type="2"/>
@@ -269,8 +272,8 @@
     <File name="FreeRTOS-Plus-FAT/ff_error.c" path="FreeRTOS-Plus-FAT/ff_error.c" type="1"/>
     <File name="FreeRTOS-Plus-FAT" path="" type="2"/>
     <File name="HAL/source/Drivers/Chips/common/cmsis/include/core_cmFunc.h" path="HAL/source/Drivers/Chips/common/cmsis/include/core_cmFunc.h" type="1"/>
-    <File name="FreeRTOS-Extensions/staticAllocationImpl.h" path="BusinessLogic/FreeRTOS-Extensions/staticAllocationImpl.h" type="1"/>
     <File name="FreeRTOS-Plus-TCP/portable/protocols/HTTP/FreeRTOS_HTTP_server.c" path="FreeRTOS-Plus-TCP/protocols/HTTP/FreeRTOS_HTTP_server.c" type="1"/>
+    <File name="FreeRTOS-Extensions/staticAllocationImpl.h" path="BusinessLogic/FreeRTOS-Extensions/staticAllocationImpl.h" type="1"/>
     <File name="FreeRTOS-Extensions/networkEstablishHelper.c" path="BusinessLogic/FreeRTOS-Extensions/networkEstablishHelper.c" type="1"/>
     <File name="FreeRTOS-Plus-TCP/portable/protocols/include/FreeRTOS_HTTP_commands.h" path="FreeRTOS-Plus-TCP/protocols/include/FreeRTOS_HTTP_commands.h" type="1"/>
     <File name="HAL/source/Drivers/Chips/common/cmsis" path="" type="2"/>
