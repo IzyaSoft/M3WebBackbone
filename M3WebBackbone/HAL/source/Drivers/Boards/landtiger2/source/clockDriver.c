@@ -3,10 +3,12 @@
 
 void (*externalSysTickHandler)();
 
+#ifndef SYSTICKHANDLER_REDEFINED
 void SysTick_Handler()
 {
 	(*externalSysTickHandler)();
 }
+#endif
 
 void ConfigureSystemClock()
 {

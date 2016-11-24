@@ -15,7 +15,8 @@
 #include "NetworkInterface.h"
 // Hardware
 #include "hal.h"
-#include "LPC17xx.h"
+#include "ethernetDriver.h"
+#include "LPC17xx.h"         //todo: umv: get rid of this
 // Debug
 #include "debugPrintFunctions.h"
 
@@ -122,7 +123,7 @@ BaseType_t xNetworkInterfaceInitialise( void )
     ethernetConfiguration._macAddress = revertedMac;
     ethernetConfiguration._useAutoNegotiation = 1;
 
-    unsigned char result = InitializeNetwork(&ethernetConfiguration);
+    unsigned char result = InitializeEthrernet(&ethernetConfiguration);
     xStartEmacTask();
     return result != 0;
 }
@@ -134,10 +135,10 @@ BaseType_t xNetworkInterfaceOutput(NetworkBufferDescriptor_t * const pxNetworkBu
     /* Attempt to obtain access to a Tx buffer. */
     for(uint32_t x = 0; x < MAX_TX_ATTEMPTS; x++)
     {
-        if(CheckTransmitIndex())
-        {
+        //if(CheckTransmitIndex())  //todo add check!
+       // {
             //todo: umv: packetization
-            if( pxNetworkBuffer->xDataLength < 1536) //ETH_MAX_FLEN )
+            if( pxNetworkBuffer->xDataLength < ETH_MAX_FLEN )
             {
                 txBuffer._buffer = pxNetworkBuffer->pucEthernetBuffer;
                 txBuffer._bufferCapacity = pxNetworkBuffer->xDataLength;
@@ -148,13 +149,13 @@ BaseType_t xNetworkInterfaceOutput(NetworkBufferDescriptor_t * const pxNetworkBu
                 //printf("data 4 transmit: ");
                 //printStringHexSymbols(txBuffer.pbDataBuf, txBuffer.ulDataLen, 8);
                 //printf("Writing %d bytes... \n\r", pxNetworkBuffer->xDataLength);
-                WriteData(&txBuffer);
+                Write(&txBuffer);
                 //iptraceNETWORK_INTERFACE_TRANSMIT();
                 result = pdPASS;
                 //return pdTRUE;
             }
-        }
-        else vTaskDelay(TX_CHECK_BUFFER_TIME);
+        //}
+        //else vTaskDelay(TX_CHECK_BUFFER_TIME);
     }
 
     //vReleaseNetworkBufferAndDescriptor(pxNetworkBuffer);
@@ -186,11 +187,11 @@ void EthernetIrqHandler()
          /* Clear fatal error conditions.  NOTE:  The driver does not clear all
           * errors, only those actually experienced.  For future reference, range
           * errors are not actually errors so can be ignored. */
-         if((interruptCause & EMAC_INT_TX_UNDERRUN) != 0)
-             LPC_EMAC->Command |= EMAC_CR_TX_RES;
+         if((interruptCause & INT_TX_UNDERRUN) != 0)
+             LPC_EMAC->Command |= CR_TX_RES;
 
          /* Unblock the deferred interrupt handler task if the event was an Rx. */
-         if((interruptCause & EMAC_INT_RX_DONE) != 0)
+         if((interruptCause & INT_RX_DONE) != 0)
              xSemaphoreGiveFromISR(xEthernetMACRxEventSemaphore, NULL);
      }
 
