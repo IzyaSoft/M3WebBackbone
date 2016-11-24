@@ -38,7 +38,7 @@
         <Option name="nostartfiles" value="1"/>
         <Option name="LTO" value="0"/>
         <Option name="IsNewStartupCode" value="1"/>
-        <Option name="Library" value="Semihosting"/>
+        <Option name="Library" value="Not use C Library"/>
         <Option name="UserEditLinker" value="--entry=main; "/>
         <LinkedLibraries>
           <Libset dir="c:\program files (x86)\gnu tools arm embedded\5.4 2016q2\arm-none-eabi\lib\armv7-m\" libs="c"/>

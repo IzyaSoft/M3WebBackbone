@@ -19,10 +19,11 @@
 #include "networkManager.h"
 #include "staticAllocationImpl.h"
 #include "FreeRTOS_TCP_server.h"
+//#include "httpRouter.h"
 /* Debug */
 #include "semihosting.h"
 
-#define WEB_SERVER_STACK_SIZE 1024
+#define WEB_SERVER_STACK_SIZE 2048
 #define WEB_SERVER_TASK_PRIORITY configMAX_PRIORITIES / 2
 
 struct NetworkConfiguration networkConfiguration;
@@ -44,7 +45,7 @@ int main()
     GetNetworkConfiguration(&networkConfiguration);
     FreeRTOS_IPInit(networkConfiguration._ipAddress, networkConfiguration._netmask, networkConfiguration._gateway, networkConfiguration._nameServer, networkConfiguration._macAddress);
     // Tasks
-    BaseType_t result = xTaskCreate(prvWebServerTask, "M3WebServer", WEB_SERVER_STACK_SIZE, NULL, tskIDLE_PRIORITY, &xWebServerTaskHandle);
+    BaseType_t result = xTaskCreate(prvWebServerTask, "M3WebServer", WEB_SERVER_STACK_SIZE, NULL, WEB_SERVER_TASK_PRIORITY, &xWebServerTaskHandle);
     result = xTaskCreate(prvLedBlinkTask, "Blink", configMINIMAL_STACK_SIZE, NULL, 2, &xLedBlinkTaskHandle);
 
     // to do: add other tasks
@@ -84,7 +85,7 @@ void prvWebServerTask(void *pvParameters)
     static const struct xSERVER_CONFIG xServerConfiguration[] =
     {
         /* Server type, port number, backlog, root dir. */
-        {eSERVER_HTTP, 80, 12, configHTTP_ROOT},
+        {eSERVER_HTTP, 80, 12, ""},//configHTTP_ROOT},
         /* Server type, port number, backlog, root dir. */
         //{eSERVER_FTP, 21, 12, ""}
     };
@@ -93,7 +94,7 @@ void prvWebServerTask(void *pvParameters)
     ( void ) pvParameters;
 
 	/* Initialization is completed, rising priority*/
-    vTaskPrioritySet(xWebServerTaskHandle, WEB_SERVER_TASK_PRIORITY);
+    //vTaskPrioritySet(xWebServerTaskHandle, WEB_SERVER_TASK_PRIORITY);
 
     /* Wait until the network is up before creating the servers.  The notification is given from the network event hook. */
     ulTaskNotifyTake(pdTRUE, xInitialBlockTime);

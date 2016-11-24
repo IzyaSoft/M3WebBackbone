@@ -208,7 +208,7 @@ FreeRTOS_SendPingRequest() API function is available. */
 /* If ipconfigFILTER_OUT_NON_ETHERNET_II_FRAMES is set to 1 then Ethernet frames
 that are not in Ethernet II format will be dropped.  This option is included for
 potential future IP stack developments. */
-#define ipconfigFILTER_OUT_NON_ETHERNET_II_FRAMES  1 //?
+#define ipconfigFILTER_OUT_NON_ETHERNET_II_FRAMES  0 //?
 
 /* If ipconfigETHERNET_DRIVER_FILTERS_FRAME_TYPES is set to 1 then it is the
 responsibility of the Ethernet interface to filter out packets that are of no
@@ -235,14 +235,14 @@ This has to do with the contents of the IP-packets: all 32-bit fields are
 TCP socket will use up to 2 x 6 descriptors, meaning that it can have 2 x 6
 outstanding packets (for Rx and Tx).  When using up to 10 TP sockets
 simultaneously, one could define TCP_WIN_SEG_COUNT as 120. */
-#define ipconfigTCP_WIN_SEG_COUNT 240
+#define ipconfigTCP_WIN_SEG_COUNT 24
 
 /* Each TCP socket has a circular buffers for Rx and Tx, which have a fixed
 maximum size.  Define the size of Rx buffer for TCP sockets. */
-#define ipconfigTCP_RX_BUFFER_LEN			( 3 * 1536 )
+#define ipconfigTCP_RX_BUFFER_LEN			( 3 * 512 ) // 3
 
 /* Define the size of Tx buffer for TCP sockets. */
-#define ipconfigTCP_TX_BUFFER_LEN			( 2 * 1536 )
+#define ipconfigTCP_TX_BUFFER_LEN			( 2 * 512 ) // 2
 
 /* When using call-back handlers, the driver may check if the handler points to
 real program memory (RAM or flash) or just has a random non-zero value. */
