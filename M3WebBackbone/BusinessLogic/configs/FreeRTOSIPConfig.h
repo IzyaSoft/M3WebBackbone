@@ -1,7 +1,7 @@
 #ifndef FREERTOS_IP_CONFIG_H
 #define FREERTOS_IP_CONFIG_H
 
-#include "ethernetMacConfig.h"
+#include "networkManager.h"
 
 #define ipconfigBYTE_ORDER pdFREERTOS_LITTLE_ENDIAN
 
@@ -17,6 +17,9 @@ set per socket, using setsockopt().  If not set, the times below will be
 used as defaults. */
 #define ipconfigSOCK_DEFAULT_RECEIVE_BLOCK_TIME	( 5000 )
 #define	ipconfigSOCK_DEFAULT_SEND_BLOCK_TIME	( 5000 )
+
+#define ipconfigZERO_COPY_RX_DRIVER			( 0 )
+#define ipconfigZERO_COPY_TX_DRIVER			( 0 )
 
 /* Include support for LLMNR: Link-local Multicast Name Resolution
 (non-Microsoft) */
@@ -34,7 +37,7 @@ a socket. */
 #define ipconfigUSE_DNS_CACHE				( 1 )
 #define ipconfigDNS_CACHE_NAME_LENGTH		( 16 )
 #define ipconfigDNS_CACHE_ENTRIES			( 4 )
-#define ipconfigDNS_REQUEST_ATTEMPTS		( 2 )
+#define ipconfigDNS_REQUEST_ATTEMPTS		( 4 )
 
 /* The IP stack executes it its own task (although any application task can make
 use of its services through the published sockets API). ipconfigUDP_TASK_PRIORITY
@@ -45,7 +48,7 @@ configMAX_PRIORITIES is a standard FreeRTOS configuration parameter defined in
 FreeRTOSConfig.h, not FreeRTOSIPConfig.h. Consideration needs to be given as to
 the priority assigned to the task executing the IP stack relative to the
 priority assigned to tasks that use the IP stack. */
-#define ipconfigIP_TASK_PRIORITY			( configMAX_PRIORITIES - 4 )
+#define ipconfigIP_TASK_PRIORITY			( configMAX_PRIORITIES - 1 )
 
 /* The size, in words (not bytes), of the stack allocated to the FreeRTOS+TCP
 task.  This setting is less important when the FreeRTOS Win32 simulator is used
@@ -118,6 +121,7 @@ number of entries that can exist in the ARP table at any one time. */
 maximum of ipconfigMAX_ARP_RETRANSMISSIONS times before the ARP request is
 aborted. */
 #define ipconfigMAX_ARP_RETRANSMISSIONS ( 5 )
+#define ipconfigARP_USE_CLASH_DETECTION   1
 
 /* ipconfigMAX_ARP_AGE defines the maximum time between an entry in the ARP
 table being created or refreshed and the entry being removed because it is stale.
@@ -142,7 +146,7 @@ not set to 1 then only FreeRTOS_indet_addr_quick() is available. */
 are available to the IP stack.  The total number of network buffers is limited
 to ensure the total amount of RAM that can be consumed by the IP stack is capped
 to a pre-determinable value. */
-#define ipconfigNUM_NETWORK_BUFFER_DESCRIPTORS		96
+#define ipconfigNUM_NETWORK_BUFFER_DESCRIPTORS		32
 
 /* Optimisation that allows more than one Rx buffer to be passed to the TCP task
 at a time - requires driver support. */
@@ -178,7 +182,7 @@ aborted. */
 /* USE_WIN: Let TCP use windowing mechanism. */
 #define ipconfigUSE_TCP_WIN			( 1 )
 
-/* The MTU is the maximum number of bytes the payload of a network frame can
+/* The MTU is the maximum number of bytes the payload of a network frame canPRIORI
 contain.  For normal Ethernet V2 frames the maximum MTU is 1500.  Setting a
 lower value can save RAM, depending on the buffer management scheme used.  If
 ipconfigCAN_FRAGMENT_OUTGOING_PACKETS is 1 then (ipconfigNETWORK_MTU - 28) must
@@ -195,7 +199,7 @@ generate replies to incoming ICMP echo (ping) requests. */
 
 /* If ipconfigSUPPORT_OUTGOING_PINGS is set to 1 then the
 FreeRTOS_SendPingRequest() API function is available. */
-#define ipconfigSUPPORT_OUTGOING_PINGS				0
+#define ipconfigSUPPORT_OUTGOING_PINGS				1
 
 /* If ipconfigSUPPORT_SELECT_FUNCTION is set to 1 then the FreeRTOS_select()
 (and associated) API function is available. */
@@ -204,7 +208,7 @@ FreeRTOS_SendPingRequest() API function is available. */
 /* If ipconfigFILTER_OUT_NON_ETHERNET_II_FRAMES is set to 1 then Ethernet frames
 that are not in Ethernet II format will be dropped.  This option is included for
 potential future IP stack developments. */
-#define ipconfigFILTER_OUT_NON_ETHERNET_II_FRAMES  1
+#define ipconfigFILTER_OUT_NON_ETHERNET_II_FRAMES  0 //?
 
 /* If ipconfigETHERNET_DRIVER_FILTERS_FRAME_TYPES is set to 1 then it is the
 responsibility of the Ethernet interface to filter out packets that are of no
@@ -214,7 +218,7 @@ perform the filtering instead (it is much less efficient for the stack to do it
 because the packet will already have been passed into the stack).  If the
 Ethernet driver does all the necessary filtering in hardware then software
 filtering can be removed by using a value other than 1 or 0. */
-#define ipconfigETHERNET_DRIVER_FILTERS_FRAME_TYPES	1
+#define ipconfigETHERNET_DRIVER_FILTERS_FRAME_TYPES	0
 
 /* The windows simulator cannot really simulate MAC interrupts, and needs to
 block occasionally to allow other tasks to run. */
@@ -235,10 +239,10 @@ simultaneously, one could define TCP_WIN_SEG_COUNT as 120. */
 
 /* Each TCP socket has a circular buffers for Rx and Tx, which have a fixed
 maximum size.  Define the size of Rx buffer for TCP sockets. */
-#define ipconfigTCP_RX_BUFFER_LEN			( 0x4000 )
+#define ipconfigTCP_RX_BUFFER_LEN			( 3 * 1560 )
 
 /* Define the size of Tx buffer for TCP sockets. */
-#define ipconfigTCP_TX_BUFFER_LEN			( 0x4000 )
+#define ipconfigTCP_TX_BUFFER_LEN			( 2 * 1560 )
 
 /* When using call-back handlers, the driver may check if the handler points to
 real program memory (RAM or flash) or just has a random non-zero value. */
@@ -253,39 +257,14 @@ disconnecting stage will timeout after a period of non-activity. */
 #define ipconfigTCP_KEEP_ALIVE				( 1 )
 #define ipconfigTCP_KEEP_ALIVE_INTERVAL		( 20 ) /* in seconds */
 
-/* The example IP trace macros are included here so the definitions are
-available in all the FreeRTOS+TCP source files. */
-//_RB_#include "DemoIPTrace.h"
+/* Application level settings */
+#define ipconfigUSE_HTTP 1
+#define ipconfigUSE_FTP  0
 
-/* Zynq specific parameters */
-
-/*
-#define ipconfigNIC_INCLUDE_GEM				( 1 )
-#define ipconfigNIC_N_TX_DESC				( 32 )
-#define ipconfigNIC_N_RX_DESC				( 32 )
-#define ipconfigNIC_LINKSPEED100			( 1 )
-
-#define ipconfigSOCKET_HAS_USER_SEMAPHORE	( 0 )
-
-#define ipconfigUSE_HTTP					( 1 )
-#define ipconfigUSE_FTP						( 1 )
-
-#define ipconfigFTP_TX_BUFSIZE				( 256 * 1024 )
-#define ipconfigFTP_TX_WINSIZE				( 8 )
-#define ipconfigFTP_RX_BUFSIZE				( ( 256 * 1024 ) - 1 )
-#define ipconfigFTP_RX_WINSIZE				( 12 )
-
-#define HTTP_COMMAND_BUFFER_SIZE			( 8 * 1460 )
-
-#define ipconfigDNS_USE_CALLBACKS			0
-
-#define ipconfigUSE_CALLBACKS				0
-
-#define ipconfigZERO_COPY_TX_DRIVER			0
-*/
-
-//#define ipconfigUSE_CALLBACKS				1
-
+#define ipconfigHTTP_TX_BUFSIZE				( 3 * ipconfigTCP_MSS )
+#define ipconfigHTTP_TX_WINSIZE				( 2 )
+#define ipconfigHTTP_RX_BUFSIZE				( 4 * ipconfigTCP_MSS )
+#define ipconfigHTTP_RX_WINSIZE				( 4 )
 
 /* UDP Logging related constants follow.  The standard UDP logging facility
 writes formatted strings to a buffer, and creates a task that removes messages
@@ -294,7 +273,7 @@ constants that follow. */
 
 /* Prototype for the function used to print out.  In this case the standard
 UDP logging facility is used. */
-// extern int lUDPLoggingPrintf( const char *pcFormatString, ... );
+extern int lUDPLoggingPrintf( const char *pcFormatString, ... );
 
 /* Set to 1 to print out debug messages.  If ipconfigHAS_DEBUG_PRINTF is set to
 1 then FreeRTOS_debug_printf should be defined to the function used to print
@@ -313,7 +292,5 @@ messages. */
 	#define FreeRTOS_printf(X)			lUDPLoggingPrintf X
 #endif
 
-/* Application settings */
-#define ipconfigUSE_HTTP 1
 
 #endif

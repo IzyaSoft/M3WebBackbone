@@ -80,7 +80,7 @@
 
 
 /* Used to ensure the structure packing is having the desired effect.  The
-'volatile' is used to prevent compiler warnings about comparing a constant with
+'volatile' is used to prevent compiler warnings about comparing a con stant with
 a constant. */
 #define ipEXPECTED_EthernetHeader_t_SIZE	( ( size_t ) 14 )
 #define ipEXPECTED_ARPHeader_t_SIZE			( ( size_t ) 28 )

@@ -1,62 +1,77 @@
+/* Hardware*/
+#include "driverConfig.h"
+#include "hal.h"
 /* FreeRTOS includes. */
 #include <FreeRTOS.h>
 #include "task.h"
 #include "timers.h"
 #include "queue.h"
 #include "semphr.h"
-
+#include "diagnostic.h"
+#include "pingManager.h"
+#include "networkEstablishHelper.h"
 /* Free RTOS Configs*/
 #include "FreeRTOSConfig.h"
 #include "FreeRTOSFATConfig.h"
 #include "FreeRTOSIPConfig.h"
 
-/* Hardware*/
-#include "LPC17xx.h"
-#include "core_cm3.h"
-
 /* Application*/
+#include "networkManager.h"
 #include "staticAllocationImpl.h"
-#include "configurationManager.h"
 #include "FreeRTOS_TCP_server.h"
+/* Debug */
+#include "semihosting.h"
 
-#define WEB_SERVER_STACK_SIZE 512//1024
+#define WEB_SERVER_STACK_SIZE 512
 #define WEB_SERVER_TASK_PRIORITY configMAX_PRIORITIES / 2
 
-// global variables
-const uint8_t ETHERNET_MAC_ADDRESS[] = {0xAA, 0x33, 0x00, 0x66, 0x22, 0xEE};
-// ip settings
-const uint8_t APP_DEFAULT_IP_ADDRESS[] = {192, 168, 200, 5};
-const uint8_t APP_DEFAULT_NETMASK[] = {255, 255, 255, 0};
-const uint8_t APP_DEFAULT_GATEWAY[] = {192, 168, 200, 1};
-const uint8_t APP_DEFAULT_NAMESERVER[] = {192, 168, 200, 1};
+struct NetworkConfiguration networkConfiguration;
 // Task Handle
 static TaskHandle_t xWebServerTaskHandle = NULL;
+static TaskHandle_t xLedBlinkTaskHandle = NULL;
 
 void prvWebServerTask(void *pvParameters);
+void prvLedBlinkTask(void *pvParameters);
 
 int main()
 {
+	// Debug
+    // disableRAMWriteBufferization();
 	// Hardware Initialization
-    InitializeClocks();
-    // Interrupts priority bits initialization
-    InitializeInterrupts(0);
-    //EMAC_CFG_Type emacConfig;
-    //emacConfig.Mode = ETHERNET_MODE;
-    //emacConfig.pbEMAC_Addr = ETHERNET_MAC_ADDRESS;
-    // xTaskCreate(prvEMACTask, "LPC1768EMAC", configEMAC_TASK_STACK_SIZE, NULL, configMAX_PRIORITIES - 3, &eMACTaskHandle);
-    //
-    //Status initresult = EMAC_Init(&emacConfig);
+    ConfigureSystemClock();
+    printf("m3webbackbone started:%s \r\n", "v0.9beta");
     // IP initialization in FreeRTOS
-    FreeRTOS_IPInit(APP_DEFAULT_IP_ADDRESS, APP_DEFAULT_NETMASK, APP_DEFAULT_GATEWAY, APP_DEFAULT_NAMESERVER, ETHERNET_MAC_ADDRESS);
+    GetNetworkConfiguration(&networkConfiguration);
+    FreeRTOS_IPInit(networkConfiguration._ipAddress, networkConfiguration._netmask, networkConfiguration._gateway, networkConfiguration._nameServer, networkConfiguration._macAddress);
+    // Tasks
     BaseType_t result = xTaskCreate(prvWebServerTask, "M3WebServer", WEB_SERVER_STACK_SIZE, NULL, tskIDLE_PRIORITY, &xWebServerTaskHandle);
-    // to do: add other tasks
+    result = xTaskCreate(prvLedBlinkTask, "Blink", configMINIMAL_STACK_SIZE, NULL, 2, &xLedBlinkTaskHandle);
 
-    // start schedule
+    // to do: add other tasks
     vTaskStartScheduler();
+    // start schedule
     for(;;) { }
     return 0;
 }
 
+void prvLedBlinkTask(void *pvParameters)
+{
+    #define LED_PORT_NUMBER 2
+    #define LED_PORT_MASK   0x000000FF
+    uint32_t ledValue = 0x0F;
+    const TickType_t xPauseTime = pdMS_TO_TICKS(100UL);
+    ConfigureLedPort(LED_PORT_NUMBER, LED_PORT_MASK, ledValue);
+
+    for(;;)
+    {
+        vTaskDelay(xPauseTime);
+        ledValue = 0xF0;
+        SetLedsValue(LED_PORT_NUMBER, ledValue);
+        vTaskDelay(xPauseTime);
+        ledValue = 0x0F;
+        SetLedsValue(LED_PORT_NUMBER, ledValue);
+    }
+}
 
 void prvWebServerTask(void *pvParameters)
 {
@@ -78,21 +93,19 @@ void prvWebServerTask(void *pvParameters)
     ( void ) pvParameters;
 
 	/* Initialization is completed, rising priority*/
-    vTaskPrioritySet(NULL, WEB_SERVER_TASK_PRIORITY);
+    vTaskPrioritySet(xWebServerTaskHandle, WEB_SERVER_TASK_PRIORITY);
 
     /* Wait until the network is up before creating the servers.  The notification is given from the network event hook. */
     ulTaskNotifyTake(pdTRUE, xInitialBlockTime);
 
-    xStartEmacTask();
-
     /* Create the servers defined by the xServerConfiguration array above. */
     pxTCPServer = FreeRTOS_CreateTCPServer(xServerConfiguration, sizeof(xServerConfiguration) / sizeof(xServerConfiguration[0]));
-    //configASSERT( pxTCPServer );
+    configASSERT(pxTCPServer);
 
     /* Run the HTTP and/or FTP servers, as configured above. */
     for( ;; )
     {
-        FreeRTOS_TCPServerWork(pxTCPServer, xInitialBlockTime );
+        FreeRTOS_TCPServerWork(pxTCPServer, xInitialBlockTime);
     }
 
     vTaskDelete(NULL);

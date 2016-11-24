@@ -1,12 +1,5 @@
-#ifndef __LANDTIGER2_EMAC_H
-#define __LANDTIGER2_EMAC_H
-
-#include "emacCommon.h"
-
-#ifdef __cplusplus
-extern "C"
-{
-#endif
+#ifndef ETHERNET_DRIVER_H
+#define ETHERNET_DRIVER_H
 
 /* EMAC Memory Buffer configuration for 16K Ethernet RAM. */
 #define NUM_RX_FRAG         4           /* Num.of RX Fragments 4*1536= 6.0kB */
@@ -15,6 +8,7 @@ extern "C"
 #define ETH_MAX_FLEN        1536        /* Max. Ethernet Frame Size          */
 
 /* EMAC variables located in AHB SRAM bank 1*/
+//#define RX_DESC_BASE        0x20004000
 #define RX_DESC_BASE        0x20080000
 #define RX_STAT_BASE        (RX_DESC_BASE + NUM_RX_FRAG*8)
 #define TX_DESC_BASE        (RX_STAT_BASE + NUM_RX_FRAG*8)
@@ -278,33 +272,10 @@ extern "C"
 #define PHY_FULLD_100M      0x2100      /* Full Duplex 100Mbit               */
 #define PHY_HALFD_100M      0x2000      /* Half Duplex 100Mbit               */
 #define PHY_FULLD_10M       0x0100      /* Full Duplex 10Mbit                */
-#define PHY_HALFD_10M       0x0000      /* Half Duplex 10Mbit                */
+#define PHY_HALFD_10M       0x0000      /* Half Duplex 10MBit                */
 #define PHY_AUTO_NEG        0x3000      /* Select Auto Negotiation           */
 
 #define DP83848C_DEF_ADR    0x0100      /* Default PHY device address        */
 #define DP83848C_ID         0x20005C90  /* PHY Identifier                    */
 
-typedef enum  {SPEED = 1, MODE, LINK} PHY_STATUS_PARAMETER;
-
-
-// prototypes
-Bool InitializeEthernetMAC(EMAC_CFG_Type* emacConfig);
-int32_t CheckPhysicalState(uint32_t parameter);
-void WriteData(EMAC_PACKETBUF_Type* packet);
-void ReadData(EMAC_PACKETBUF_Type* packet);
-Bool CheckTransmitIndex();
-Bool CheckReceiveIndex();
-uint32_t GetReceivedDataSize();
-void UpdateRxConsumeIndex();
-uint32_t* NextPacketToRead();
-
-#ifdef __cplusplus
-}
 #endif
-
-#endif
-
-/*----------------------------------------------------------------------------
- * end of file
- *---------------------------------------------------------------------------*/
-

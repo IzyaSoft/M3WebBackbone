@@ -2,89 +2,195 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
-
 /* FreeRTOS includes. */
 #include "FreeRTOS.h"
 #include "task.h"
 #include "queue.h"
 #include "semphr.h"
-
 /* FreeRTOS+TCP includes. */
 #include "FreeRTOS_IP.h"
 #include "FreeRTOS_Sockets.h"
 #include "FreeRTOS_IP_Private.h"
 #include "NetworkBufferManagement.h"
 #include "NetworkInterface.h"
+// Hardware
+#include "hal.h"
+#include "ethernetDriver.h"
+#include "LPC17xx.h"         //todo: umv: get rid of this
+// Debug
+#include "debugPrintFunctions.h"
 
-//LPC1768 Include
-#include "landtiger2_emac.h"
+#define MAX_TX_ATTEMPTS 10
+#define TX_CHECK_BUFFER_TIME (pdMS_TO_TICKS(2UL))
+#define EthernetIrqHandler ENET_IRQHandler
 
 static TaskHandle_t eMACTaskHandle;
+static SemaphoreHandle_t xEthernetMACRxEventSemaphore = NULL;
+
+/* The queue used to communicate Ethernet events with the IP task. */
+extern QueueHandle_t xNetworkEventQueue;
+extern struct NetworkConfiguration networkConfiguration;
 
 static void prvEMACTask(void *pvParameters)
 {
-	const TickType_t xInitialBlockTime = pdMS_TO_TICKS(50UL);
-    // function of LPC1768 EMAC Handling
-	// todo: umv: check interrupts flags: RxDone, TxDone
-	// todo: umv: if RxDone pass data from buffers to IP stack via xSendEventStructToIpTask
+    const TickType_t xPauseTime = pdMS_TO_TICKS(1UL);
+    size_t dataLength;
+    const uint16_t cRCLength = 4;
+    NetworkBufferDescriptor_t* networkBuffer;
+    IPStackEvent_t rxEvent = {eNetworkRxEvent, NULL};
+    struct EthernetBuffer rxBuffer;
 
-	/*	EMAC_PACKETBUF_Type pDataStruct;
-		uint8_t ethernetBuffer [EMAC_ETH_MAX_FLEN] = {};
-		pDataStruct.pbDataBuf = ethernetBuffer;
-		pDataStruct.ulDataLen = EMAC_ETH_MAX_FLEN;
-		EMAC_ReadPacketBuffer(&pDataStruct);
-		for (x = 0; x < ipconfigNUM_NETWORK_BUFFER_DESCRIPTORS; x++)
-		{
-		    pxNetworkBuffers[x].pucEthernetBuffer = pDataStruct.pbDataBuf + ipBUFFER_PADDING;
-		    *( ( unsigned * ) ram_buffer ) = ( unsigned ) ( &pxNetworkBuffers[ x ] );
-		    ram_buffer += UNIT_SIZE;
-		}*/
-	for(;;)
-	{
-		// if no data then sleep
-        vTaskDelay(xInitialBlockTime);
-	}
-	vTaskDelete(NULL);
+    for(;;)
+    {
+        /* Wait for the EMAC interrupt to indicate that another packet has been
+         * received.  The while() loop is only needed if INCLUDE_vTaskSuspend is
+         * set to 0 in FreeRTOSConfig.h. */
+        while(xSemaphoreTake(xEthernetMACRxEventSemaphore, portMAX_DELAY) == pdFALSE);
+        //printf("Semaphore captured ... \n\r");
+        /* At least one packet has been received. */
+        while(CheckIsDataAvailable())
+        //CheckReceiveIndex() != FALSE)
+        {
+            //printf("After index check ... \n\r");
+            // Obtain the length, minus the CRC.  The CRC is four bytes but the length is already minus 1.
+            dataLength = (size_t) CheckAvailableDataSize();//GetReceivedDataSize() - (cRCLength - 1);
+            if(dataLength > 0)
+            {
+                networkBuffer = pxGetNetworkBufferWithDescriptor(0, (TickType_t )0);
+                networkBuffer->xDataLength = dataLength;
+                rxBuffer._buffer = networkBuffer->pucEthernetBuffer;
+                rxBuffer._bufferCapacity = networkBuffer->xDataLength;
+                Read(&rxBuffer);
+
+                rxEvent.pvData = (void *) networkBuffer;
+
+                // printf("Received data: ");
+                // printStringHexSymbols(networkBuffer->pucEthernetBuffer, dataLength, -1);
+
+                // Data was received and stored.  Send a message to the IP task to let it know.
+                if(xSendEventStructToIPTask(&rxEvent, (TickType_t)0) == pdFAIL)
+                {
+                    vReleaseNetworkBufferAndDescriptor(networkBuffer);
+                    iptraceETHERNET_RX_EVENT_LOST();
+                }
+                else
+                {
+                    iptraceETHERNET_RX_EVENT_LOST();
+                }
+                vReleaseNetworkBufferAndDescriptor(networkBuffer);
+                iptraceNETWORK_INTERFACE_RECEIVE();
+            }
+            //UpdateRxConsumeIndex();
+            vTaskDelay(xPauseTime);
+        }
+
+    }
+    vTaskDelete(NULL);
 }
 
 BaseType_t xStartEmacTask()
 {
-	return xTaskCreate(prvEMACTask, "LPC1768EMAC", configEMAC_TASK_STACK_SIZE, NULL, configMAX_PRIORITIES - 3, &eMACTaskHandle);
+    return xTaskCreate(prvEMACTask, "LANDTIGER2EMAC", configEMAC_TASK_STACK_SIZE, NULL, configMAX_PRIORITIES - 2, NULL); //&eMACTaskHandle);
 }
 
 BaseType_t xNetworkInterfaceInitialise( void )
 {
-	EMAC_CFG_Type emacConfig;
-	emacConfig.Mode = ETHERNET_MODE;
-	emacConfig.pbEMAC_Addr = ETHERNET_MAC_ADDRESS;
+    vSemaphoreCreateBinary(xEthernetMACRxEventSemaphore);
+    // Interrupts configure
+    LPC_EMAC->IntEnable &= ~(INT_TX_DONE);
+    NVIC_SetPriority(ENET_IRQn, configEMAC_INTERRUPT_PRIORITY);
+    NVIC_EnableIRQ(ENET_IRQn);
+    struct EthernetConfiguration ethernetConfiguration;
+    GetNetworkConfiguration(&networkConfiguration);
+    unsigned char revertedMac[] =
+    {
+        networkConfiguration._macAddress[5],
+        networkConfiguration._macAddress[4],
+        networkConfiguration._macAddress[3],
+        networkConfiguration._macAddress[2],
+        networkConfiguration._macAddress[1],
+        networkConfiguration._macAddress[0]
+    };
+    ethernetConfiguration._macAddress = revertedMac;
+    ethernetConfiguration._useAutoNegotiation = 1;
 
-	//Status result =
-			InitializeEthernetMAC(&emacConfig);
-	//if(result == SUCCESS)
-		//return pdTRUE;
-	//return  pdFALSE;
-
-    return pdTRUE;
+    unsigned char result = InitializeEthrernet(&ethernetConfiguration);
+    xStartEmacTask();
+    return result != 0;
 }
 
 BaseType_t xNetworkInterfaceOutput(NetworkBufferDescriptor_t * const pxNetworkBuffer, BaseType_t xReleaseAfterSend)
 {
-	//EMAC_PACKETBUF_Type txBuffer;
-	//txBuffer.pbDataBuf = pxNetworkBuffer->pucEthernetBuffer;
-	//txBuffer.ulDataLen = pxNetworkBuffer->xDataLength; // Maybe should add +1 for CRC
-	//EMAC_WritePacketBuffer(&txBuffer);
-	return pdTRUE;  // should think about return value
+    BaseType_t result = pdFAIL;
+    struct EthernetBuffer txBuffer;
+    /* Attempt to obtain access to a Tx buffer. */
+    for(uint32_t x = 0; x < MAX_TX_ATTEMPTS; x++)
+    {
+        if( CheckTransmissionAvailable() == 1)  //todo add check!
+        {
+            //todo: umv: packetization
+            if( pxNetworkBuffer->xDataLength < ETH_MAX_FLEN )
+            {
+                txBuffer._buffer = pxNetworkBuffer->pucEthernetBuffer;
+                txBuffer._bufferCapacity = pxNetworkBuffer->xDataLength;
+                txBuffer._storedBytes = pxNetworkBuffer->xDataLength;
+                //EMAC_PACKETBUF_Type txBuffer;
+                //txBuffer.pbDataBuf = pxNetworkBuffer->pucEthernetBuffer;
+                //txBuffer.ulDataLen = pxNetworkBuffer->xDataLength;
+                //printf("data 4 transmit: ");
+                //printStringHexSymbols(txBuffer.pbDataBuf, txBuffer.ulDataLen, 8);
+                //printf("Writing %d bytes... \n\r", pxNetworkBuffer->xDataLength);
+                Write(&txBuffer);
+                iptraceNETWORK_INTERFACE_TRANSMIT();
+                result = pdPASS;
+                break;
+                //return pdTRUE;
+            }
+        }
+        else vTaskDelay(TX_CHECK_BUFFER_TIME);
+    }
+
+    vReleaseNetworkBufferAndDescriptor(pxNetworkBuffer);
+    //return pdFALSE;
+    //vReleaseNetworkBufferAndDescriptor(pxNetworkBuffer);
+    return pdPASS;
 }
 
 void vNetworkInterfaceAllocateRAMToBuffers(NetworkBufferDescriptor_t pxNetworkBuffers[ ipconfigNUM_NETWORK_BUFFER_DESCRIPTORS ] )
 {
-    // In our first version of driver we are using BufferAllocation_2, therefore we don't need to setup this function
-	// todo: umv: make this function
+    // In our first version of driver we are using BufferAllocation_2, therefore we do, n't need to setup this function
 }
 
-BaseType_t xGetPhyLinkStatus( void )
+BaseType_t xGetPhyLinkStatus(void)
 {
     return pdTRUE;
+}
+
+void EthernetIrqHandler()
+{
+     uint32_t interruptCause;
+
+     while((interruptCause = LPC_EMAC->IntStatus) != 0)
+     {
+         //printf("Interrupt raised ... \n\r");
+         /* Clear the interrupt. */
+         LPC_EMAC->IntClear = interruptCause;
+
+         /* Clear fatal error conditions.  NOTE:  The driver does not clear all
+          * errors, only those actually experienced.  For future reference, range
+          * errors are not actually errors so can be ignored. */
+         if((interruptCause & INT_TX_UNDERRUN) != 0)
+             LPC_EMAC->Command |= CR_TX_RES;
+
+         /* Unblock the deferred interrupt handler task if the event was an Rx. */
+         if((interruptCause & INT_RX_DONE) != 0)
+             xSemaphoreGiveFromISR(xEthernetMACRxEventSemaphore, NULL);
+     }
+
+     /* ulInterruptCause is used for convenience here.  A context switch is
+      * wanted, but coding portEND_SWITCHING_ISR( 1 ) would likely result in a
+      * compiler warning. */
+     portEND_SWITCHING_ISR(interruptCause);
 }
 
 
