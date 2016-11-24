@@ -49,7 +49,6 @@ static void prvEMACTask(void *pvParameters)
         //printf("Semaphore captured ... \n\r");
         /* At least one packet has been received. */
         while(CheckIsDataAvailable())
-        //CheckReceiveIndex() != FALSE)
         {
             //printf("After index check ... \n\r");
             // Obtain the length, minus the CRC.  The CRC is four bytes but the length is already minus 1.
@@ -134,25 +133,16 @@ BaseType_t xNetworkInterfaceOutput(NetworkBufferDescriptor_t * const pxNetworkBu
                 txBuffer._buffer = pxNetworkBuffer->pucEthernetBuffer;
                 txBuffer._bufferCapacity = pxNetworkBuffer->xDataLength;
                 txBuffer._storedBytes = pxNetworkBuffer->xDataLength;
-                //EMAC_PACKETBUF_Type txBuffer;
-                //txBuffer.pbDataBuf = pxNetworkBuffer->pucEthernetBuffer;
-                //txBuffer.ulDataLen = pxNetworkBuffer->xDataLength;
-                //printf("data 4 transmit: ");
-                //printStringHexSymbols(txBuffer.pbDataBuf, txBuffer.ulDataLen, 8);
-                //printf("Writing %d bytes... \n\r", pxNetworkBuffer->xDataLength);
                 Write(&txBuffer);
                 iptraceNETWORK_INTERFACE_TRANSMIT();
                 result = pdPASS;
                 break;
-                //return pdTRUE;
             }
         }
         else vTaskDelay(TX_CHECK_BUFFER_TIME);
     }
 
     vReleaseNetworkBufferAndDescriptor(pxNetworkBuffer);
-    //return pdFALSE;
-    //vReleaseNetworkBufferAndDescriptor(pxNetworkBuffer);
     return pdPASS;
 }
 
