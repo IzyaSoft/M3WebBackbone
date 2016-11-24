@@ -89,7 +89,7 @@ static void prvEMACTask(void *pvParameters)
 
 BaseType_t xStartEmacTask()
 {
-    return xTaskCreate(prvEMACTask, "LANDTIGER2EMAC", configEMAC_TASK_STACK_SIZE, NULL, configMAX_PRIORITIES - 2, NULL); //&eMACTaskHandle);
+    return xTaskCreate(prvEMACTask, "LANDTIGER2EMAC", configEMAC_TASK_STACK_SIZE, NULL, configMAX_PRIORITIES - 3, NULL); //&eMACTaskHandle);
 }
 
 BaseType_t xNetworkInterfaceInitialise( void )
