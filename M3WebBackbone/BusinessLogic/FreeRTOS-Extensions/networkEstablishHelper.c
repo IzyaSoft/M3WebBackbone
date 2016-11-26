@@ -3,11 +3,14 @@
 /* Defined by the application code, but called by FreeRTOS+TCP when the network
 connects/disconnects (if ipconfigUSE_NETWORK_EVENT_HOOK is set to 1 in
 FreeRTOSIPConfig.h). */
+
+extern TaskHandle_t xWebServerTaskHandle;
+
 void vApplicationIPNetworkEventHook(eIPCallbackEvent_t eNetworkEvent)
 {
     uint32_t ulIPAddress, ulNetMask, ulGatewayAddress, ulDNSServerAddress;
     static BaseType_t xTasksAlreadyCreated = pdFALSE;
-    int8_t cBuffer[ 16 ];
+    int8_t cBuffer[16];
 
     /* Check this was a network up event, as opposed to a network down event. */
     if( eNetworkEvent == eNetworkUp )
@@ -16,11 +19,8 @@ void vApplicationIPNetworkEventHook(eIPCallbackEvent_t eNetworkEvent)
         created. */
         if( xTasksAlreadyCreated == pdFALSE )
         {
-            /*
-             * Create the tasks here.
-             */
-
             xTasksAlreadyCreated = pdTRUE;
+            xTaskNotifyGive(xWebServerTaskHandle);
         }
 
         /* The network is up and configured.  Print out the configuration,

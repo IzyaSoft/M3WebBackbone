@@ -34,7 +34,7 @@ and also DNS may use small timeouts.  If a DNS reply comes in after the DNS
 socket has been destroyed, the result will be stored into the cache.  The next
 call to FreeRTOS_gethostbyname() will return immediately, without even creating
 a socket. */
-#define ipconfigUSE_DNS_CACHE				( 1 )
+#define ipconfigUSE_DNS_CACHE				( 0 )
 #define ipconfigDNS_CACHE_NAME_LENGTH		( 16 )
 #define ipconfigDNS_CACHE_ENTRIES			( 4 )
 #define ipconfigDNS_REQUEST_ATTEMPTS		( 4 )
@@ -239,7 +239,7 @@ simultaneously, one could define TCP_WIN_SEG_COUNT as 120. */
 
 /* Each TCP socket has a circular buffers for Rx and Tx, which have a fixed
 maximum size.  Define the size of Rx buffer for TCP sockets. */
-#define ipconfigTCP_RX_BUFFER_LEN			( 3 * 512 ) // 3
+#define ipconfigTCP_RX_BUFFER_LEN			( 3 * 1024 ) // 3
 
 /* Define the size of Tx buffer for TCP sockets. */
 #define ipconfigTCP_TX_BUFFER_LEN			( 2 * 512 ) // 2

@@ -72,12 +72,14 @@ void prvLedBlinkTask(void *pvParameters)
         ledValue = 0x0F;
         SetLedsValue(LED_PORT_NUMBER, ledValue);
     }
+    vTaskDelete(NULL);
 }
 
 void prvWebServerTask(void *pvParameters)
 {
     TCPServer_t *pxTCPServer = NULL;
-    const TickType_t xInitialBlockTime = pdMS_TO_TICKS(5000UL);
+    //const TickType_t xInitialBlockTime = pdMS_TO_TICKS(5000UL);
+    const TickType_t xBlockTime = pdMS_TO_TICKS(5000UL);
 
     /* A structure that defines the servers to be created.  Which servers are
     included in the structure depends on the mainCREATE_HTTP_SERVER and
@@ -97,7 +99,8 @@ void prvWebServerTask(void *pvParameters)
     vTaskPrioritySet(xWebServerTaskHandle, WEB_SERVER_TASK_PRIORITY);
 
     /* Wait until the network is up before creating the servers.  The notification is given from the network event hook. */
-    ulTaskNotifyTake(pdTRUE, xInitialBlockTime);
+    ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
+    //xInitialBlockTime);
 
     /* Create the servers defined by the xServerConfiguration array above. */
     pxTCPServer = FreeRTOS_CreateTCPServer(xServerConfiguration, sizeof(xServerConfiguration) / sizeof(xServerConfiguration[0]));
@@ -106,7 +109,7 @@ void prvWebServerTask(void *pvParameters)
     /* Run the HTTP and/or FTP servers, as configured above. */
     for( ;; )
     {
-        FreeRTOS_TCPServerWork(pxTCPServer, xInitialBlockTime);
+        FreeRTOS_TCPServerWork(pxTCPServer, xBlockTime);
     }
 
     vTaskDelete(NULL);
