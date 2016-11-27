@@ -70,7 +70,7 @@ network event hook at the appropriate times.  If ipconfigUSE_NETWORK_EVENT_HOOK
 is not set to 1 then the network event hook will never be called.  See
 http://www.FreeRTOS.org/FreeRTOS-Plus/FreeRTOS_Plus_UDP/API/vApplicationIPNetworkEventHook.shtml
 */
-#define ipconfigUSE_NETWORK_EVENT_HOOK 0
+#define ipconfigUSE_NETWORK_EVENT_HOOK 1
 
 /* Sockets have a send block time attribute.  If FreeRTOS_sendto() is called but
 a network buffer cannot be obtained then the calling task is held in the Blocked
@@ -105,6 +105,7 @@ static IP address passed as a parameter to FreeRTOS_IPInit() if the
 re-transmission time interval reaches ipconfigMAXIMUM_DISCOVER_TX_PERIOD without
 a DHCP reply being received. */
 #define ipconfigMAXIMUM_DISCOVER_TX_PERIOD		( pdMS_TO_TICKS( 30000 ) )
+#define ipconfigMAX_IP_TASK_SLEEP_TIME          ( pdMS_TO_TICKS( 1000 ) )
 
 /* The ARP cache is a table that maps IP addresses to MAC addresses.  The IP
 stack can only send a UDP message to a remove IP address if it knowns the MAC

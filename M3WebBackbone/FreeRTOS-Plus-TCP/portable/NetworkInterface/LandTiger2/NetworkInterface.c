@@ -24,18 +24,18 @@
 #define TX_CHECK_BUFFER_TIME (pdMS_TO_TICKS(2UL))
 #define EthernetIrqHandler ENET_IRQHandler
 
-static TaskHandle_t eMACTaskHandle;
+static TaskHandle_t emacTaskHandle;
 static SemaphoreHandle_t xEthernetMACRxEventSemaphore = NULL;
 
 /* The queue used to communicate Ethernet events with the IP task. */
-extern QueueHandle_t xNetworkEventQueue;
+//extern QueueHandle_t xNetworkEventQueue;
 extern struct NetworkConfiguration networkConfiguration;
 
 static void prvEMACTask(void *pvParameters)
 {
     const TickType_t xPauseTime = pdMS_TO_TICKS(1UL);
     size_t dataLength;
-    const uint16_t cRCLength = 4;
+    //const uint16_t cRCLength = 4;
     NetworkBufferDescriptor_t* networkBuffer;
     IPStackEvent_t rxEvent = {eNetworkRxEvent, NULL};
     struct EthernetBuffer rxBuffer;
@@ -45,6 +45,7 @@ static void prvEMACTask(void *pvParameters)
         /* Wait for the EMAC interrupt to indicate that another packet has been
          * received.  The while() loop is only needed if INCLUDE_vTaskSuspend is
          * set to 0 in FreeRTOSConfig.h. */
+        //ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
         while(xSemaphoreTake(xEthernetMACRxEventSemaphore, portMAX_DELAY) == pdFALSE);
         //printf("Semaphore captured ... \n\r");
         /* At least one packet has been received. */
@@ -55,7 +56,12 @@ static void prvEMACTask(void *pvParameters)
             dataLength = (size_t) CheckAvailableDataSize();//GetReceivedDataSize() - (cRCLength - 1);
             if(dataLength > 0)
             {
-                networkBuffer = pxGetNetworkBufferWithDescriptor(0, (TickType_t )0);
+                networkBuffer = pxGetNetworkBufferWithDescriptor(0, (TickType_t )xPauseTime);
+                if(networkBuffer == 0)
+                {
+                    vTaskDelay(xPauseTime);
+                    continue;
+                }
                 networkBuffer->xDataLength = dataLength;
                 rxBuffer._buffer = networkBuffer->pucEthernetBuffer;
                 rxBuffer._bufferCapacity = networkBuffer->xDataLength;
@@ -67,20 +73,21 @@ static void prvEMACTask(void *pvParameters)
                 // printStringHexSymbols(networkBuffer->pucEthernetBuffer, dataLength, -1);
 
                 // Data was received and stored.  Send a message to the IP task to let it know.
-                if(xSendEventStructToIPTask(&rxEvent, (TickType_t)0) == pdFAIL)
+                if(xSendEventStructToIPTask(&rxEvent, (TickType_t)5*xPauseTime) == pdFAIL)
                 {
-                    //vReleaseNetworkBufferAndDescriptor(networkBuffer);
+                    vReleaseNetworkBufferAndDescriptor(networkBuffer);
                     iptraceETHERNET_RX_EVENT_LOST();
+                    continue;
                 }
-                else
+                /*else
                 {
                     iptraceETHERNET_RX_EVENT_LOST();
-                }
+                }*/
+                vTaskDelay(5 * xPauseTime);
                 vReleaseNetworkBufferAndDescriptor(networkBuffer);
                 iptraceNETWORK_INTERFACE_RECEIVE();
             }
             //UpdateRxConsumeIndex();
-            vTaskDelay(xPauseTime);
         }
 
     }
@@ -89,7 +96,7 @@ static void prvEMACTask(void *pvParameters)
 
 BaseType_t xStartEmacTask()
 {
-    return xTaskCreate(prvEMACTask, "LANDTIGER2EMAC", configEMAC_TASK_STACK_SIZE, NULL, configMAX_PRIORITIES - 3, NULL); //&eMACTaskHandle);
+    return xTaskCreate(prvEMACTask, "LANDTIGER2EMAC", configEMAC_TASK_STACK_SIZE, NULL, configMAX_PRIORITIES - 1, &emacTaskHandle);
 }
 
 BaseType_t xNetworkInterfaceInitialise( void )
@@ -139,17 +146,18 @@ BaseType_t xNetworkInterfaceOutput(NetworkBufferDescriptor_t * const pxNetworkBu
                 break;
             }
         }
-        else vTaskDelay(TX_CHECK_BUFFER_TIME);
+        // else vTaskDelay(TX_CHECK_BUFFER_TIME);
     }
 
-    //vReleaseNetworkBufferAndDescriptor(pxNetworkBuffer);
-    return pdPASS;
+    if(xReleaseAfterSend != pdFALSE)
+        vReleaseNetworkBufferAndDescriptor(pxNetworkBuffer);
+    return result;
 }
 
-void vNetworkInterfaceAllocateRAMToBuffers(NetworkBufferDescriptor_t pxNetworkBuffers[ ipconfigNUM_NETWORK_BUFFER_DESCRIPTORS ] )
+/*void vNetworkInterfaceAllocateRAMToBuffers(NetworkBufferDescriptor_t pxNetworkBuffers[ iponfigNUM_NETWORK_BUFFER_DESCRIPTORS ])
 {
     // In our first version of driver we are using BufferAllocation_2, therefore we do, n't need to setup this function
-}
+}*/
 
 BaseType_t xGetPhyLinkStatus(void)
 {
@@ -159,6 +167,7 @@ BaseType_t xGetPhyLinkStatus(void)
 void EthernetIrqHandler()
 {
      uint32_t interruptCause;
+     BaseType_t xHigherPriorityTaskWoken = pdFALSE;
 
      while((interruptCause = LPC_EMAC->IntStatus) != 0)
      {
@@ -174,13 +183,16 @@ void EthernetIrqHandler()
 
          /* Unblock the deferred interrupt handler task if the event was an Rx. */
          if((interruptCause & INT_RX_DONE) != 0)
-             xSemaphoreGiveFromISR(xEthernetMACRxEventSemaphore, NULL);
+             xSemaphoreGiveFromISR(xEthernetMACRxEventSemaphore, &xHigherPriorityTaskWoken);
+             //xTaskNotifyGive(emacTaskHandle);
+             //xSemaphoreGiveFromISR(xEthernetMACRxEventSemaphore, NULL);
      }
 
      /* ulInterruptCause is used for convenience here.  A context switch is
       * wanted, but coding portEND_SWITCHING_ISR( 1 ) would likely result in a
       * compiler warning. */
-     portEND_SWITCHING_ISR(interruptCause);
+     //portEND_SWITCHING_ISR(interruptCause);
+     portYIELD_FROM_ISR( xHigherPriorityTaskWoken )
 }
 
 

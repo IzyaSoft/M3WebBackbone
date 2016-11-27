@@ -24,11 +24,11 @@
 #include "semihosting.h"
 
 #define WEB_SERVER_STACK_SIZE 1536
-#define WEB_SERVER_TASK_PRIORITY configMAX_PRIORITIES - 1
+#define WEB_SERVER_TASK_PRIORITY configMAX_PRIORITIES - 5 //- 2
 
 struct NetworkConfiguration networkConfiguration;
 // Task Handle
-static TaskHandle_t xWebServerTaskHandle = NULL;
+extern TaskHandle_t xWebServerTaskHandle = NULL;
 static TaskHandle_t xLedBlinkTaskHandle = NULL;
 
 void prvWebServerTask(void *pvParameters);
@@ -87,7 +87,7 @@ void prvWebServerTask(void *pvParameters)
     static const struct xSERVER_CONFIG xServerConfiguration[] =
     {
         /* Server type, port number, backlog, root dir. */
-        {eSERVER_HTTP, 80, 12, ""},//configHTTP_ROOT},
+        {eSERVER_HTTP, 80, 12, configHTTP_ROOT},
         /* Server type, port number, backlog, root dir. */
         //{eSERVER_FTP, 21, 12, ""}
     };

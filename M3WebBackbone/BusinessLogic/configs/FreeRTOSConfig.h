@@ -6,9 +6,9 @@
 
 #define configUSE_PREEMPTION                    1
 #define configUSE_PORT_OPTIMISED_TASK_SELECTION 1
-#define configUSE_TICKLESS_IDLE                 0
+#define configUSE_TICKLESS_IDLE                 1
 #define configCPU_CLOCK_HZ                      100000000UL
-#define configTICK_RATE_HZ                      200
+#define configTICK_RATE_HZ                      1000
 #define configMAX_PRIORITIES                    8
 #define configMINIMAL_STACK_SIZE                128
 #define configMAX_TASK_NAME_LEN                 16
@@ -56,7 +56,7 @@
 /* Software timer related definitions. */
 #define configUSE_TIMERS                        1
 #define configTIMER_TASK_PRIORITY               3
-#define configTIMER_QUEUE_LENGTH                10
+#define configTIMER_QUEUE_LENGTH                16
 #define configTIMER_TASK_STACK_DEPTH            configMINIMAL_STACK_SIZE
 #define configEMAC_TASK_STACK_SIZE              configMINIMAL_STACK_SIZE
 
