@@ -2835,8 +2835,8 @@ void vSocketWakeUpUser( FreeRTOS_Socket_t *pxSocket )
 			 pxIterator != ( ListItem_t * ) pxEnd;
 			 pxIterator  = ( ListItem_t * ) listGET_NEXT( pxIterator ) )
 		{
-			if(!pxIterator->pvOwner)
-				break;
+			//if(!pxIterator->pvOwner)
+				//break;
 			FreeRTOS_Socket_t *pxSocket = ( FreeRTOS_Socket_t * ) listGET_LIST_ITEM_OWNER( pxIterator );
 
 			if( pxSocket->usLocalPort == ( uint16_t ) uxLocalPort )

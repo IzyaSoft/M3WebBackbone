@@ -24,7 +24,7 @@
 #include "semihosting.h"
 
 #define WEB_SERVER_STACK_SIZE 1536
-#define WEB_SERVER_TASK_PRIORITY configMAX_PRIORITIES - 5 //- 2
+#define WEB_SERVER_TASK_PRIORITY configMAX_PRIORITIES - 1
 
 struct NetworkConfiguration networkConfiguration;
 // Task Handle

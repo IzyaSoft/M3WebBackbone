@@ -56,7 +56,7 @@ static void prvEMACTask(void *pvParameters)
             dataLength = (size_t) CheckAvailableDataSize();//GetReceivedDataSize() - (cRCLength - 1);
             if(dataLength > 0)
             {
-                networkBuffer = pxGetNetworkBufferWithDescriptor(0, (TickType_t )xPauseTime);
+                networkBuffer = pxGetNetworkBufferWithDescriptor(dataLength + 2, (TickType_t )xPauseTime);
                 if(networkBuffer == 0)
                 {
                     vTaskDelay(xPauseTime);
@@ -83,9 +83,10 @@ static void prvEMACTask(void *pvParameters)
                 {
                     iptraceETHERNET_RX_EVENT_LOST();
                 }*/
-                vTaskDelay(5 * xPauseTime);
+                //
                 vReleaseNetworkBufferAndDescriptor(networkBuffer);
                 iptraceNETWORK_INTERFACE_RECEIVE();
+                vTaskDelay(2 * xPauseTime);
             }
             //UpdateRxConsumeIndex();
         }
@@ -96,7 +97,7 @@ static void prvEMACTask(void *pvParameters)
 
 BaseType_t xStartEmacTask()
 {
-    return xTaskCreate(prvEMACTask, "LANDTIGER2EMAC", configEMAC_TASK_STACK_SIZE, NULL, configMAX_PRIORITIES - 1, &emacTaskHandle);
+    return xTaskCreate(prvEMACTask, "LANDTIGER2EMAC", configEMAC_TASK_STACK_SIZE, NULL, configMAX_PRIORITIES - 3, &emacTaskHandle);
 }
 
 BaseType_t xNetworkInterfaceInitialise( void )
@@ -192,7 +193,7 @@ void EthernetIrqHandler()
       * wanted, but coding portEND_SWITCHING_ISR( 1 ) would likely result in a
       * compiler warning. */
      //portEND_SWITCHING_ISR(interruptCause);
-     portYIELD_FROM_ISR( xHigherPriorityTaskWoken )
+     portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
 }
 
 
