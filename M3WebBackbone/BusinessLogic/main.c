@@ -18,7 +18,9 @@
 /* Application*/
 #include "networkManager.h"
 #include "staticAllocationImpl.h"
+
 #include "FreeRTOS_TCP_server.h"
+#include "httpRouter.h"
 //#include "httpRouter.h"
 /* Debug */
 #include "semihosting.h"

@@ -2,7 +2,8 @@
 #define HTTPROUTER_H
 
 #include <stdint.h>
+#include <stddef.h>
 
-uint32_t uxApplicationHTTPHandleRequestHook(char* url, char* fileName, uint32_t fileSize);
+size_t uxApplicationHTTPHandleRequestHook(const char *pcURLData, char *pcBuffer, size_t uxBufferLength);
 
 #endif
